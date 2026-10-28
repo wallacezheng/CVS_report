@@ -1,5 +1,8 @@
 """翻譯＋分類＋標籤：Gemini（一次呼叫完成），結果快取在 data/enrich_cache.csv。
 
+憑證二選一：GEMINI_API_KEY（AI Studio）或 GOOGLE_SERVICE_ACCOUNT_JSON（Vertex AI，
+服務帳號需有「Vertex AI 使用者」角色）。
+
 - 每個商品只送一次 Gemini；之後一律讀快取，所以譯名穩定、成本低。
 - 術語表（glossary）與分類表、標籤字典都從 Google Sheet 帶入 prompt。
 - 回傳 confidence；低於門檻的進 review_queue 讓人工確認。
@@ -80,23 +83,53 @@ def build_prompt(items: list[dict], categories, tags, glossary) -> str:
 """
 
 
+def _vertex_target() -> tuple[str, dict]:
+    """用服務帳號呼叫 Vertex AI 上的 Gemini（公司禁用 API 金鑰時的做法）。"""
+    from google.oauth2 import service_account
+    from google.auth.transport.requests import Request
+
+    info = json.loads(os.environ["GOOGLE_SERVICE_ACCOUNT_JSON"])
+    creds = service_account.Credentials.from_service_account_info(
+        info, scopes=["https://www.googleapis.com/auth/cloud-platform"])
+    creds.refresh(Request())
+    project = os.environ.get("GCP_PROJECT") or info["project_id"]
+    location = os.environ.get("GCP_LOCATION") or "global"
+    host = "aiplatform.googleapis.com" if location == "global" else f"{location}-aiplatform.googleapis.com"
+    url = (f"https://{host}/v1/projects/{project}/locations/{location}"
+           f"/publishers/google/models/{MODEL}:generateContent")
+    return url, {"Authorization": f"Bearer {creds.token}"}
+
+
+def gemini_mode() -> str:
+    """有 GEMINI_API_KEY 用 AI Studio；否則有服務帳號就用 Vertex AI；都沒有回傳空字串。"""
+    if os.environ.get("GEMINI_API_KEY"):
+        return "aistudio"
+    if os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON"):
+        return "vertex"
+    return ""
+
+
 def call_gemini(prompt: str) -> list[dict]:
-    key = os.environ["GEMINI_API_KEY"]
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
+    if gemini_mode() == "aistudio":
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
+        params, headers = {"key": os.environ["GEMINI_API_KEY"]}, {}
+    else:
+        url, headers = _vertex_target()
+        params = {}
     body = {
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.2, "responseMimeType": "application/json",
                              "responseSchema": RESPONSE_SCHEMA},
     }
     for attempt in range(3):
-        resp = requests.post(url, params={"key": key}, json=body, timeout=120)
+        resp = requests.post(url, params=params, headers=headers, json=body, timeout=120)
         if resp.status_code == 200:
             text = resp.json()["candidates"][0]["content"]["parts"][0]["text"]
             return json.loads(text)
         if resp.status_code in (429, 500, 503):
             time.sleep(20 * (attempt + 1))
             continue
-        raise RuntimeError(f"Gemini {resp.status_code}: {resp.text[:300]}")
+        raise RuntimeError(f"Gemini（{gemini_mode()}）{resp.status_code}: {resp.text[:300]}")
     raise RuntimeError("Gemini 重試失敗")
 
 
@@ -106,8 +139,8 @@ def enrich(items: list[dict], categories, tags, glossary, cache: dict[str, dict]
     errors = []
     if not todo:
         return errors
-    if not os.environ.get("GEMINI_API_KEY"):
-        return [f"未設定 GEMINI_API_KEY，{len(todo)} 筆商品未翻譯"]
+    if not gemini_mode():
+        return [f"未設定 Gemini 憑證（GEMINI_API_KEY 或 GOOGLE_SERVICE_ACCOUNT_JSON），{len(todo)} 筆商品未翻譯"]
     valid_cats = {c["category_code"] for c in categories}
     valid_tags = {t["tag_zh"] for t in tags}
     for i in range(0, len(todo), BATCH):

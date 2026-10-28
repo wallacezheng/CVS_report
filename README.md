@@ -35,7 +35,9 @@ Apps Script：每週一 09:00 寄出本週新品 CSV
    python tools/init_sheet.py
    ```
 3. **GitHub Secrets**（Settings → Secrets and variables → Actions）：
-   `GEMINI_API_KEY`、`SHEET_ID`、`GOOGLE_SERVICE_ACCOUNT_JSON`，
+   `SHEET_ID`、`GOOGLE_SERVICE_ACCOUNT_JSON`；Gemini 二選一：
+   公司禁用 API 金鑰時，給服務帳號「Vertex AI 使用者」角色並在專案啟用 Vertex AI API，
+   程式會自動用服務帳號呼叫 Vertex AI；能用金鑰時則加 `GEMINI_API_KEY`。
    選填 `NAVER_CLIENT_ID`、`NAVER_CLIENT_SECRET`；
    Variables 選填 `GEMINI_MODEL`（預設 gemini-2.5-flash，請依目前可用型號調整）、`CRAWLER_UA`（建議填入公司聯絡信箱）。
 4. **寄信**：Sheet → 擴充功能 → Apps Script，貼上 `apps_script/Code.gs`，
