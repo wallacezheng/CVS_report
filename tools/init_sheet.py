@@ -7,6 +7,7 @@
 import csv
 import json
 import os
+import sys
 from pathlib import Path
 
 import gspread
@@ -19,8 +20,41 @@ TABS = {
     "mail_list": ["email", "name", "frequency", "enabled", "note"],
 }
 
-gc = gspread.service_account_from_dict(json.loads(os.environ["GOOGLE_SERVICE_ACCOUNT_JSON"]))
-sh = gc.open_by_key(os.environ["SHEET_ID"])
+
+def fail(msg: str) -> None:
+    print(f"::error::{msg}")
+    sys.exit(1)
+
+
+sheet_id = os.environ.get("SHEET_ID", "").strip()
+raw = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "").strip()
+if not sheet_id:
+    fail("GitHub Secrets 裡沒有 SHEET_ID（或名稱拼錯）")
+if not raw:
+    fail("GitHub Secrets 裡沒有 GOOGLE_SERVICE_ACCOUNT_JSON（或名稱拼錯）")
+if "/" in sheet_id:
+    fail("SHEET_ID 看起來貼了整段網址，只要 /d/ 和 /edit 中間那串")
+try:
+    info = json.loads(raw)
+except json.JSONDecodeError as e:
+    fail(f"GOOGLE_SERVICE_ACCOUNT_JSON 不是完整的 JSON（{e}），請用記事本打開檔案全選後重貼")
+print(f"服務帳號：{info.get('client_email')}｜專案：{info.get('project_id')}")
+
+try:
+    gc = gspread.service_account_from_dict(info)
+    sh = gc.open_by_key(sheet_id)
+except gspread.exceptions.APIError as e:
+    text = str(e)
+    if "has not been used" in text or "is disabled" in text or "SERVICE_DISABLED" in text:
+        fail(f"專案 {info.get('project_id')} 尚未啟用 Google Sheets API／Google Drive API，請到 API 程式庫啟用。原始訊息：{text[:300]}")
+    if "PERMISSION_DENIED" in text or "403" in text:
+        fail(f"沒有權限開這份 Sheet：請把 Sheet 共用給 {info.get('client_email')}（編輯者）。原始訊息：{text[:300]}")
+    if "NOT_FOUND" in text or "404" in text:
+        fail("找不到這份 Sheet：SHEET_ID 可能貼錯")
+    fail(f"Google API 錯誤：{text[:500]}")
+except gspread.exceptions.SpreadsheetNotFound:
+    fail(f"找不到 Sheet：確認 SHEET_ID 正確，且已共用給 {info.get('client_email')}（編輯者）")
+
 existing = {ws.title for ws in sh.worksheets()}
 for tab, header in TABS.items():
     if header is None:

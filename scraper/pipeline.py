@@ -271,7 +271,8 @@ def run(args) -> int:
 
     # 4. 翻譯分類
     cache = load_cache(Path(args.cache)) if args.cache else load_cache()
-    errors += enrich(list(master.values()), cfg.categories(), cfg.tags(), cfg.glossary(), cache)
+    errors += enrich(list(master.values()), cfg.categories(), cfg.tags(), cfg.glossary(), cache,
+                     today=today.isoformat())
     save_cache(cache)
     review = apply_enrichment(master, cache, cfg.overrides())
     try:

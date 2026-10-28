@@ -6,6 +6,13 @@
 - 每個商品只送一次 Gemini；之後一律讀快取，所以譯名穩定、成本低。
 - 術語表（glossary）與分類表、標籤字典都從 Google Sheet 帶入 prompt。
 - 回傳 confidence；低於門檻的進 review_queue 讓人工確認。
+
+費用控管（GitHub → Settings → Secrets and variables → Actions → Variables 可調）：
+- MAX_ENRICH_PER_RUN    單次執行最多翻譯幾支（預設 200）
+- MAX_ENRICH_PER_MONTH  每月最多翻譯幾支（預設 2000），超過就停到下個月
+- 非食品分類（一番賞、日用品、化妝品等）直接標為 NON_FOOD，不送 Gemini
+- 每次呼叫的 token 用量記錄在 data/gemini_usage.csv
+超過上限的商品留到下次執行再翻，期間在 review_queue 顯示「未翻譯」。
 """
 from __future__ import annotations
 
@@ -19,7 +26,15 @@ import requests
 
 ROOT = Path(__file__).resolve().parent.parent
 CACHE = ROOT / "data" / "enrich_cache.csv"
-CACHE_FIELDS = ["product_key", "name_zh", "desc_zh", "category_code", "tags", "confidence", "model"]
+CACHE_FIELDS = ["product_key", "name_zh", "desc_zh", "category_code", "tags", "confidence", "model",
+                "enriched_at"]
+USAGE = ROOT / "data" / "gemini_usage.csv"
+USAGE_FIELDS = ["date", "calls", "items", "prompt_tokens", "output_tokens", "model"]
+MAX_PER_RUN = int(os.environ.get("MAX_ENRICH_PER_RUN") or 200)
+MAX_PER_MONTH = int(os.environ.get("MAX_ENRICH_PER_MONTH") or 2000)
+# 官網分類屬於非食品的，直接歸 NON_FOOD，不花 Gemini 費用
+NON_FOOD_SOURCE_CATEGORIES = {"キャラクターくじ・エンタメ雑貨など", "日用品", "スキンケア・コスメ",
+                              "コンビニエンスウェア", "お酒", "생활용품"}
 MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
 BATCH = 20
 
@@ -109,6 +124,9 @@ def gemini_mode() -> str:
     return ""
 
 
+_LAST_USAGE = {"prompt": 0, "output": 0}
+
+
 def call_gemini(prompt: str) -> list[dict]:
     if gemini_mode() == "aistudio":
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
@@ -124,7 +142,11 @@ def call_gemini(prompt: str) -> list[dict]:
     for attempt in range(3):
         resp = requests.post(url, params=params, headers=headers, json=body, timeout=120)
         if resp.status_code == 200:
-            text = resp.json()["candidates"][0]["content"]["parts"][0]["text"]
+            data = resp.json()
+            u = data.get("usageMetadata", {})
+            _LAST_USAGE["prompt"] += u.get("promptTokenCount", 0)
+            _LAST_USAGE["output"] += u.get("candidatesTokenCount", 0)
+            text = data["candidates"][0]["content"]["parts"][0]["text"]
             return json.loads(text)
         if resp.status_code in (429, 500, 503):
             time.sleep(20 * (attempt + 1))
@@ -133,19 +155,63 @@ def call_gemini(prompt: str) -> list[dict]:
     raise RuntimeError("Gemini 重試失敗")
 
 
-def enrich(items: list[dict], categories, tags, glossary, cache: dict[str, dict]) -> list[str]:
-    """補齊快取中沒有的商品。回傳錯誤訊息列表（不丟例外，讓每日流程照常產出）。"""
-    todo = [i for i in items if i["product_key"] not in cache]
+def _month_count(cache: dict[str, dict], month: str) -> int:
+    return sum(1 for r in cache.values()
+               if (r.get("enriched_at") or "").startswith(month) and r.get("model") != "rule")
+
+
+def _log_usage(today: str, calls: int, items: int) -> None:
+    rows = []
+    if USAGE.exists():
+        with USAGE.open(encoding="utf-8") as f:
+            rows = list(csv.DictReader(f))
+    rows.append({"date": today, "calls": calls, "items": items,
+                 "prompt_tokens": _LAST_USAGE["prompt"], "output_tokens": _LAST_USAGE["output"],
+                 "model": MODEL})
+    USAGE.parent.mkdir(parents=True, exist_ok=True)
+    with USAGE.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=USAGE_FIELDS)
+        w.writeheader()
+        w.writerows(rows)
+
+
+def enrich(items: list[dict], categories, tags, glossary, cache: dict[str, dict],
+           today: str = "") -> list[str]:
+    """補齊快取中沒有的商品。回傳錯誤／提醒訊息列表（不丟例外，讓每日流程照常產出）。"""
+    from datetime import date as _date
+    today = today or _date.today().isoformat()
     errors = []
+    todo = [i for i in items if i["product_key"] not in cache]
+
+    # 非食品不送 Gemini
+    for i in [i for i in todo if i.get("source_category") in NON_FOOD_SOURCE_CATEGORIES]:
+        cache[i["product_key"]] = {"product_key": i["product_key"], "name_zh": "", "desc_zh": "",
+                                   "category_code": "NON_FOOD", "tags": "", "confidence": "1.00",
+                                   "model": "rule", "enriched_at": today}
+    todo = [i for i in todo if i["product_key"] not in cache]
     if not todo:
         return errors
     if not gemini_mode():
         return [f"未設定 Gemini 憑證（GEMINI_API_KEY 或 GOOGLE_SERVICE_ACCOUNT_JSON），{len(todo)} 筆商品未翻譯"]
+
+    # 費用上限：先看本月額度，再看單次額度；新上市（release_date 較新）的優先
+    month_left = MAX_PER_MONTH - _month_count(cache, today[:7])
+    allow = max(0, min(MAX_PER_RUN, month_left))
+    if allow < len(todo):
+        todo.sort(key=lambda i: i.get("release_date") or "", reverse=True)
+        errors.append(f"翻譯額度：本次上限 {allow} 支（本月已用 {MAX_PER_MONTH - month_left}/{MAX_PER_MONTH}），"
+                      f"{len(todo) - allow} 支留待下次")
+        todo = todo[:allow]
+    if not todo:
+        return errors
+
     valid_cats = {c["category_code"] for c in categories}
     valid_tags = {t["tag_zh"] for t in tags}
+    calls = done = 0
     for i in range(0, len(todo), BATCH):
         batch = todo[i:i + BATCH]
         try:
+            calls += 1
             results = call_gemini(build_prompt(batch, categories, tags, glossary))
         except Exception as e:
             errors.append(str(e))
@@ -166,5 +232,8 @@ def enrich(items: list[dict], categories, tags, glossary, cache: dict[str, dict]
                 "tags": "|".join(t for t in r.get("tags", []) if t in valid_tags),
                 "confidence": f"{conf:.2f}",
                 "model": MODEL,
+                "enriched_at": today,
             }
+            done += 1
+    _log_usage(today, calls, done)
     return errors

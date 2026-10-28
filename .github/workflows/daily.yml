@@ -36,6 +36,8 @@ jobs:
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
           GCP_PROJECT: ${{ vars.GCP_PROJECT }}
           GCP_LOCATION: ${{ vars.GCP_LOCATION }}
+          MAX_ENRICH_PER_RUN: ${{ vars.MAX_ENRICH_PER_RUN }}
+          MAX_ENRICH_PER_MONTH: ${{ vars.MAX_ENRICH_PER_MONTH }}
           SHEET_ID: ${{ secrets.SHEET_ID }}
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
