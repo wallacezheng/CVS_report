@@ -35,8 +35,15 @@ MAX_PER_MONTH = int(os.environ.get("MAX_ENRICH_PER_MONTH") or 2000)
 # 官網分類屬於非食品的，直接歸 NON_FOOD，不花 Gemini 費用
 NON_FOOD_SOURCE_CATEGORIES = {"キャラクターくじ・エンタメ雑貨など", "日用品", "スキンケア・コスメ",
                               "コンビニエンスウェア", "お酒", "생활용품"}
-# 注意：GitHub 未設定的 vars 會傳入空字串，所以用 or 給預設值
-MODEL = os.environ.get("GEMINI_MODEL") or "gemini-2.5-flash"
+# 注意：GitHub 未設定的 vars 會傳入空字串，所以用 or 判斷
+# 未指定時，依序試用下列型號（新 → 舊），用第一個可用的；Flash 系列便宜、速度快，足夠做翻譯分類
+MODEL_CANDIDATES = [
+    "gemini-3.8-flash", "gemini-3.7-flash", "gemini-3.6-flash", "gemini-3.5-flash",
+    "gemini-3-flash", "gemini-3-flash-preview", "gemini-2.5-flash",
+    "gemini-flash-latest",
+]
+MODEL = os.environ.get("GEMINI_MODEL") or MODEL_CANDIDATES[0]
+_MODEL_RESOLVED = bool(os.environ.get("GEMINI_MODEL"))
 BATCH = 20
 
 RESPONSE_SCHEMA = {
@@ -99,7 +106,7 @@ def build_prompt(items: list[dict], categories, tags, glossary) -> str:
 """
 
 
-def _vertex_target() -> tuple[str, dict]:
+def _vertex_target(model: str) -> tuple[str, dict]:
     """用服務帳號呼叫 Vertex AI 上的 Gemini（公司禁用 API 金鑰時的做法）。"""
     from google.oauth2 import service_account
     from google.auth.transport.requests import Request
@@ -112,7 +119,7 @@ def _vertex_target() -> tuple[str, dict]:
     location = os.environ.get("GCP_LOCATION") or "global"
     host = "aiplatform.googleapis.com" if location == "global" else f"{location}-aiplatform.googleapis.com"
     url = (f"https://{host}/v1/projects/{project}/locations/{location}"
-           f"/publishers/google/models/{MODEL}:generateContent")
+           f"/publishers/google/models/{model}:generateContent")
     return url, {"Authorization": f"Bearer {creds.token}"}
 
 
@@ -128,13 +135,39 @@ def gemini_mode() -> str:
 _LAST_USAGE = {"prompt": 0, "output": 0}
 
 
-def call_gemini(prompt: str) -> list[dict]:
+def _endpoint(model: str) -> tuple[str, dict, dict]:
     if gemini_mode() == "aistudio":
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
-        params, headers = {"key": os.environ["GEMINI_API_KEY"]}, {}
-    else:
-        url, headers = _vertex_target()
-        params = {}
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+        return url, {"key": os.environ["GEMINI_API_KEY"]}, {}
+    url, headers = _vertex_target(model)
+    return url, {}, headers
+
+
+def resolve_model() -> str:
+    """找出這個專案可用的 Gemini 型號（只在未指定 GEMINI_MODEL 時自動偵測，每次執行一次）。"""
+    global MODEL, _MODEL_RESOLVED
+    if _MODEL_RESOLVED:
+        return MODEL
+    tried = []
+    for m in MODEL_CANDIDATES:
+        url, params, headers = _endpoint(m)
+        body = {"contents": [{"role": "user", "parts": [{"text": "ping"}]}],
+                "generationConfig": {"maxOutputTokens": 5}}
+        resp = requests.post(url, params=params, headers=headers, json=body, timeout=60)
+        if resp.status_code == 200:
+            MODEL, _MODEL_RESOLVED = m, True
+            print(f"[gemini] 使用型號 {m}")
+            return m
+        tried.append(f"{m}:{resp.status_code}")
+        if resp.status_code in (401, 403):  # 權限問題，換型號也沒用
+            break
+    raise RuntimeError("找不到可用的 Gemini 型號（" + "、".join(tried) +
+                       "）。請到 Vertex AI Model Garden 確認可用型號，在 GitHub Variables 設 GEMINI_MODEL")
+
+
+def call_gemini(prompt: str) -> list[dict]:
+    model = resolve_model()
+    url, params, headers = _endpoint(model)
     body = {
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.2, "responseMimeType": "application/json",
@@ -211,6 +244,10 @@ def enrich(items: list[dict], categories, tags, glossary, cache: dict[str, dict]
     if not todo:
         return errors
 
+    try:
+        resolve_model()
+    except Exception as e:
+        return errors + [str(e)]
     valid_cats = {c["category_code"] for c in categories}
     valid_tags = {t["tag_zh"] for t in tags}
     calls = done = 0
