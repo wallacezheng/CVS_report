@@ -1,5 +1,5 @@
 source_id,type,url,enabled,note
-seven_jp,product,https://www.sej.co.jp/products/a/thisweek/,1,每週二更新；今週＋来週
+seven_jp,product,https://www.sej.co.jp/products/a/thisweek/,0,2026-10-28 GitHub 連線遭 Imperva 防護擋下（403），暫停
 familymart_jp,product,https://www.family.co.jp/goods/newgoods.html,1,每週二更新；来週頁週五傍晚公開
 lawson_jp,product,https://www.lawson.co.jp/recommend/new/,0,2026-10-28 測試回傳錯誤，待改用其他入口
 cu_kr,product,https://cu.bgfretail.com/product/product.do?category=product&depth2=4,0,AJAX 端點待首次執行確認後再開啟

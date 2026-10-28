@@ -73,6 +73,9 @@ def crawl(weeks=("thisweek", "nextweek"), areas=AREAS, max_pages: int = 5) -> li
                 if not rows and not saved_debug:
                     _debug_save(f"seven_jp_{week}_{area}_p{page}", resp)
                     saved_debug = True
+                if resp.status_code in (401, 403, 429):
+                    # 被網站的防護擋下：立即停止，不重複送請求
+                    raise RuntimeError(f"7-Eleven 回應 {resp.status_code}（網站防護拒絕自動存取），已停止")
                 if resp.status_code != 200:
                     break
                 for r in rows:
