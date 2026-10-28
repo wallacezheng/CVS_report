@@ -1,0 +1,23 @@
+URL: https://www.sej.co.jp/products/a/thisweek/area/hokkaido/1/l100/
+STATUS: 403
+ENCODING: ascii
+LENGTH: 252
+
+Server: awselb/2.0
+Date: Wed, 28 Oct 2026 05:41:15 GMT
+Content-Type: text/html
+Connection: keep-alive
+Set-Cookie: nlbi_1627146=n2c/Js8UjHsOZGstcJl5DwAAAADEGA3/YdHA3tCIGzkseB1j; HttpOnly; path=/; Domain=.sej.co.jp; Secure; SameSite=None, visid_incap_1627146=IJ7qbIwXSQm/i/SLgwzuxfqK4WoAAAAAQUIPAAAAAADYBpkbWNeWpoXvKIR79Qou; expires=Wed, 27 Oct 2027 07:33:13 GMT; HttpOnly; path=/; Domain=.sej.co.jp; Secure; SameSite=None, incap_ses_1015_1627146=t5ZXX+qqlw3uZFLjNgEWDvuK4WoAAAAARoaI3wc1qHqg0KBBrBgBog==; path=/; Domain=.sej.co.jp; Secure; SameSite=None
+Strict-Transport-Security: max-age=31536000
+X-CDN: Imperva
+Content-Encoding: gzip
+Transfer-Encoding: chunked
+X-Iinfo: 50-147292936-147292852 2NYN RT(1793166075043 13) q(0 0 0 0) r(7 7) U11
+
+----- BODY (前 20000 字) -----
+<html>
+<head><title>403 Forbidden</title></head>
+<body>
+<center><h1>403 Forbidden</h1></center>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1147317384" async></script></body>
+</html>

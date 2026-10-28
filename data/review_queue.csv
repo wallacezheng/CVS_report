@@ -1,3 +1,183 @@
 product_key,name_original,name_zh,category_code,tags,confidence,reason,source_url,added
 familymart_jp:4797425,ドズル社×はぴだんぶい ポテトスティック,Dozle社×はぴだんぶい 薯條餅乾,SNACK_SAVORY,聯名・IP,0.7,信心度 0.70,https://www.family.co.jp/goods/charakuji/4797425.html,2026-10-28
 familymart_jp:4795131,PEANUTS -SNOOPY- パッケージチャーム&チョコボーロ,史努比 吊飾＆巧克力蛋酥,SNACK_SWEET,聯名・IP|巧克力,0.6,信心度 0.60,https://www.family.co.jp/goods/charakuji/4795131.html,2026-10-28
+seven_jp:040973,おにぎりランチ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/040973/hokuriku/,2026-10-28
+seven_jp:044720,旨塩ダレのねぎ塩豚カルビ弁当（もち麦）,,,,,未翻譯,https://www.sej.co.jp/products/a/item/044720/hokuriku/,2026-10-28
+seven_jp:040995,五目いなり,,,,,未翻譯,https://www.sej.co.jp/products/a/item/040995/hokuriku/,2026-10-28
+seven_jp:054109,ダブルソーセージエッグマフィン,,,,,未翻譯,https://www.sej.co.jp/products/a/item/054109/kyushu/,2026-10-28
+seven_jp:091947,ラーメンＷａｌｋｅｒ監修 春木屋の皿中華そば,,,,,未翻譯,https://www.sej.co.jp/products/a/item/091947/hokuriku/,2026-10-28
+seven_jp:091946,中華蕎麦とみ田監修 炒め野菜盛りつけ麺,,,,,未翻譯,https://www.sej.co.jp/products/a/item/091946/hokuriku/,2026-10-28
+seven_jp:090472,ツナとほうれん草のトマトソースパスタ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/090472/hokuriku/,2026-10-28
+seven_jp:105887,こく旨キムチ鍋,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105887/hokuriku/,2026-10-28
+seven_jp:105891,ごろごろ野菜とソーセ ージのポトフ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105891/hokuriku/,2026-10-28
+seven_jp:101996,大葉入りつくねと根菜 の鶏だし旨塩スープ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/101996/hokuriku/,2026-10-28
+seven_jp:105890,柚子とおだしでたべる野菜豚しゃぶ鍋,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105890/hokuriku/,2026-10-28
+seven_jp:105767,７プレミアムかぼちゃのポタージュ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105767/hokuriku/,2026-10-28
+seven_jp:105849,ブロッコリーカニカマエッグ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105849/hokuriku/,2026-10-28
+seven_jp:105903,ごま油香る中華くらげのサラダ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105903/hokuriku/,2026-10-28
+seven_jp:105852,なめこおろし 新潟県産なめこ使用,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105852/hokuriku/,2026-10-28
+seven_jp:105839,やみつきごぼうサラダ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105839/hokuriku/,2026-10-28
+seven_jp:105893,塩だれ ねぎナムル 新潟県産やわ肌ねぎ使用,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105893/hokuriku/,2026-10-28
+seven_jp:105784,ザーサイと食べるピリ辛ラー油白菜,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105784/hokuriku/,2026-10-28
+seven_jp:102673,緑黄色野菜がとれるきのことかぼちゃのサラダ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/102673/hokuriku/,2026-10-28
+seven_jp:290244,７Ｐ パンケーキつぶあんマーガリン ４個入,,,,,未翻譯,https://www.sej.co.jp/products/a/item/290244/hokuriku/,2026-10-28
+seven_jp:290241,７Ｐ 紅茶蒸しパン ロイヤルミルクティー風味 ４個入,,,,,未翻譯,https://www.sej.co.jp/products/a/item/290241/hokuriku/,2026-10-28
+seven_jp:290205,７プレミアム スイートバタークロワッサン ４個入,,,,,未翻譯,https://www.sej.co.jp/products/a/item/290205/hokuriku/,2026-10-28
+seven_jp:290245,７プレミアム もっちり食感のチーズパン ４個入,,,,,未翻譯,https://www.sej.co.jp/products/a/item/290245/hokuriku/,2026-10-28
+seven_jp:303260,７Ｐ もっちもちパンケーキ ２個入,,,,,未翻譯,https://www.sej.co.jp/products/a/item/303260/hokuriku/,2026-10-28
+seven_jp:302348,ふんわり抹茶みるくロール,,,,,未翻譯,https://www.sej.co.jp/products/a/item/302348/hokuriku/,2026-10-28
+seven_jp:303262,もちっとリングシュガードーナツ３個入り,,,,,未翻譯,https://www.sej.co.jp/products/a/item/303262/hokuriku/,2026-10-28
+seven_jp:303261,オールドファッションドーナツスティック いちご,,,,,未翻譯,https://www.sej.co.jp/products/a/item/303261/hokuriku/,2026-10-28
+seven_jp:303257,しっとり食感オールドファッションドーナツ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/303257/hokuriku/,2026-10-28
+seven_jp:303241,三層仕立て チョコデニッシュドーナツ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/303241/hokuriku/,2026-10-28
+seven_jp:302610,もちっとリングシュガードーナツ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/302610/hokuriku/,2026-10-28
+seven_jp:301619,オールドファッションドーナツスティック,,,,,未翻譯,https://www.sej.co.jp/products/a/item/301619/hokuriku/,2026-10-28
+seven_jp:301525,ザクザク食感チョコ＆アーモンドドーナツ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/301525/hokuriku/,2026-10-28
+seven_jp:115648,ガブっとりんごのアップルパイ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/115648/hokuriku/,2026-10-28
+seven_jp:110560,ドバイチョコスタイルクレープ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/110560/hokuriku/,2026-10-28
+seven_jp:111053,マロンもこ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/111053/hokuriku/,2026-10-28
+seven_jp:114024,７プレミアム ふわなまチーズスフレ３号,,,,,未翻譯,https://www.sej.co.jp/products/a/item/114024/hokuriku/,2026-10-28
+seven_jp:115139,７プレミアム もちもち食感くるくるミルクレープ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/115139/hokuriku/,2026-10-28
+seven_jp:115106,クリーム大福ＢＩＧ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/115106/kyushu/,2026-10-28
+seven_jp:115616,まぜまぜスイーツ ももももヨーグルト,,,,,未翻譯,https://www.sej.co.jp/products/a/item/115616/hokuriku/,2026-10-28
+seven_jp:115643,金沢兼六庵 和三盆の黒わらび餅 １２０ｇ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/115643/hokuriku/,2026-10-28
+seven_jp:450007,森永製菓 チョコフレークアイスバー,,,,,未翻譯,https://www.sej.co.jp/products/a/item/450007/hokuriku/,2026-10-28
+seven_jp:450218,ロッテ クーリッシュ 雪印コーヒー,,,,,未翻譯,https://www.sej.co.jp/products/a/item/450218/hokuriku/,2026-10-28
+seven_jp:450210,明治 十勝チーズケーキサンド,,,,,未翻譯,https://www.sej.co.jp/products/a/item/450210/hokuriku/,2026-10-28
+seven_jp:450015,森永 ピノ 香り湧き立つカフェラテ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/450015/hokuriku/,2026-10-28
+seven_jp:450161,不二家 カントリーマアムアイスサンド,,,,,未翻譯,https://www.sej.co.jp/products/a/item/450161/hokuriku/,2026-10-28
+seven_jp:210066,明治チョコレートドリンク ２１０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210066/hokuriku/,2026-10-28
+seven_jp:210021,ザバスＢＩＯＰＲＯ ブルーベリー風味 ３００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210021/hokuriku/,2026-10-28
+seven_jp:210644,森乳業 牛乳屋さんがつくったキャラメルラッテ ５００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210644/hokuriku/,2026-10-28
+seven_jp:210759,明治北海道十勝ミルクきわだつのむヨーグルト ４００ｇ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210759/hokuriku/,2026-10-28
+seven_jp:250144,７プレミアムしたらば 明太マヨネーズ風味,,,,,未翻譯,https://www.sej.co.jp/products/a/item/250144/hokuriku/,2026-10-28
+seven_jp:250018,７プレミアムしたらば プレーン,,,,,未翻譯,https://www.sej.co.jp/products/a/item/250018/hokuriku/,2026-10-28
+seven_jp:250027,７ＰＦ皮ごと食べられるぶどう,,,,,未翻譯,https://www.sej.co.jp/products/a/item/250027/kyushu/,2026-10-28
+seven_jp:210443,カゴメ 野菜生活スムージー オレンジＶｉｔａｍｉｎミックス,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210443/hokuriku/,2026-10-28
+seven_jp:460029,７プレミアム濃い巨峰 サイダー ５００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/460029/hokuriku/,2026-10-28
+seven_jp:210616,マウントレーニア 宇治抹茶ラテ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210616/hokuriku/,2026-10-28
+seven_jp:011637,クリアアサヒ＜生＞ 缶 ３５０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/011637/hokuriku/,2026-10-28
+seven_jp:010925,サッポロ生ビール黒ラベル ＥＸＴＲＡ ＤＥＥＰ ３５０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/010925/hokuriku/,2026-10-28
+seven_jp:010146,サントリー生ビール＜純生＞３５０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/010146/hokuriku/,2026-10-28
+seven_jp:011638,エチゴ こしひかり越後ビール３５０ＭＬ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/011638/hokuriku/,2026-10-28
+seven_jp:011636,クリアアサヒ＜生＞ 缶 ５００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/011636/hokuriku/,2026-10-28
+seven_jp:011481,サッポロ生ビール黒ラベル ＥＸＴＲＡ ＤＥＥＰ ５００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/011481/hokuriku/,2026-10-28
+seven_jp:010486,サントリー生ビール＜純生＞５００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/010486/hokuriku/,2026-10-28
+seven_jp:020793,克 新 無手勝流 ２５度（芋）９００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/020793/hokuriku/,2026-10-28
+seven_jp:030697,ゆず香る ＴＨＥ ＰＥＥＬ＜レモン＞ＡＬＣ．５％３５０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/030697/hokuriku/,2026-10-28
+seven_jp:032542,季節の檸檬堂 冬の香る柚子とレモン ３５０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/032542/hokuriku/,2026-10-28
+seven_jp:030988,ゆず香る ＴＨＥ ＰＥＥＬ＜レモン＞ＡＬＣ．５％５００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/030988/hokuriku/,2026-10-28
+seven_jp:030040,－１９６無糖 ＜梨＆りんご＆ぶどう＞ ３５０,,,,,未翻譯,https://www.sej.co.jp/products/a/item/030040/hokuriku/,2026-10-28
+seven_jp:030124,－１９６無糖 ＜梨＆りんご＆ぶどう＞ ５００,,,,,未翻譯,https://www.sej.co.jp/products/a/item/030124/hokuriku/,2026-10-28
+seven_jp:031648,キリン 氷結ｍｏｔｔａｉｎａｉ北海道余市産プルーン３５０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/031648/hokuriku/,2026-10-28
+seven_jp:032540,キリン 氷結ｍｏｔｔａｉｎａｉ北海道余市産プルーン５００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/032540/hokuriku/,2026-10-28
+seven_jp:032549,ブッシュミルズ 瓶 ７００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/032549/hokuriku/,2026-10-28
+seven_jp:032543,バスカー アイリッシュウイスキー ７００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/032543/hokuriku/,2026-10-28
+seven_jp:310630,ブルボン ミニチーズおかき,,,,,未翻譯,https://www.sej.co.jp/products/a/item/310630/hokuriku/,2026-10-28
+seven_jp:311010,ブルボン ミニあんバター風味おかき,,,,,未翻譯,https://www.sej.co.jp/products/a/item/311010/hokuriku/,2026-10-28
+seven_jp:322400,キシリトール ホワイト＋フッ素 グレープフルーツボトル,,,,,未翻譯,https://www.sej.co.jp/products/a/item/322400/hokuriku/,2026-10-28
+seven_jp:322151,キシリトール ホワイト＋フッ素 グレープフルーツ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/322151/hokuriku/,2026-10-28
+seven_jp:323444,味覚糖 コロロ 巨峰,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323444/hokuriku/,2026-10-28
+seven_jp:323438,味覚糖 コロロ シャインマスカット,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323438/hokuriku/,2026-10-28
+seven_jp:323484,味覚糖 コロロ 清水白桃,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323484/hokuriku/,2026-10-28
+seven_jp:322928,ブルボン ざくふにゅグミグレープ味,,,,,未翻譯,https://www.sej.co.jp/products/a/item/322928/hokuriku/,2026-10-28
+seven_jp:323655,バスコフーズ パチパチシタベロキャンディ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323655/hokuriku/,2026-10-28
+seven_jp:323653,グリコ ペロティ スーパーマリオ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323653/hokuriku/,2026-10-28
+seven_jp:323620,カンロ リッチザフルーツのど飴 濃いピオーネ味 小袋,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323620/hokuriku/,2026-10-28
+seven_jp:323157,サクマ製菓 いちごみるく,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323157/hokuriku/,2026-10-28
+seven_jp:744781,キャラパキ発掘恐竜 キャラパキ発掘ピックつきｖｅｒ．,,,,,未翻譯,https://www.sej.co.jp/products/a/item/744781/hokuriku/,2026-10-28
+seven_jp:320405,ギンビス たべっ子どうぶつ チョコビスケット,,,,,未翻譯,https://www.sej.co.jp/products/a/item/320405/hokuriku/,2026-10-28
+seven_jp:321021,７プレミアム ピーカンナッツショコラ ショコラ×ロレーヌ岩塩,,,,,未翻譯,https://www.sej.co.jp/products/a/item/321021/hokuriku/,2026-10-28
+seven_jp:320976,７プレミアム ピーカンナッツショコラキャラメル×焦がしバター,,,,,未翻譯,https://www.sej.co.jp/products/a/item/320976/hokuriku/,2026-10-28
+seven_jp:321047,７プレミアム ピーカンナッツショコラ 黒蜜きなこ×琉球和三盆,,,,,未翻譯,https://www.sej.co.jp/products/a/item/321047/hokuriku/,2026-10-28
+seven_jp:320873,ロッテ ガーナ 特濃ガトーショコラ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/320873/hokuriku/,2026-10-28
+seven_jp:091954,かき揚げうどん,,,,,未翻譯,https://www.sej.co.jp/products/a/item/091954/kyushu/,2026-10-28
+seven_jp:091952,とり天うどん,,,,,未翻譯,https://www.sej.co.jp/products/a/item/091952/kyushu/,2026-10-28
+seven_jp:091953,屋台風ねぎ塩焼そば,,,,,未翻譯,https://www.sej.co.jp/products/a/item/091953/kyushu/,2026-10-28
+seven_jp:091963,なめらかソースのこだわり海老グラタン,,,,,未翻譯,https://www.sej.co.jp/products/a/item/091963/kyushu/,2026-10-28
+seven_jp:091957,たっぷりソースのミートドリア,,,,,未翻譯,https://www.sej.co.jp/products/a/item/091957/kyushu/,2026-10-28
+seven_jp:091961,あつあつオーブン焼きもち明太子チーズもんじゃ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/091961/kyushu/,2026-10-28
+seven_jp:091959,こんがり焼いたクリーミー海老ドリア,,,,,未翻譯,https://www.sej.co.jp/products/a/item/091959/kyushu/,2026-10-28
+seven_jp:105837,中華あんかけ野菜炒め,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105837/kyushu/,2026-10-28
+seven_jp:105927,熊本県産トマトを食べよう 彩り野菜スープ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105927/kyushu/,2026-10-28
+seven_jp:105923,１／３日分の野菜が摂れる ごま豆乳鍋スープ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105923/kyushu/,2026-10-28
+seven_jp:105835,オニオングラタンスープ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105835/kyushu/,2026-10-28
+seven_jp:106006,ブロッコリーチキンエッグ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/106006/kyushu/,2026-10-28
+seven_jp:105924,九州産きびなごの南蛮漬け,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105924/kyushu/,2026-10-28
+seven_jp:105949,冷たいまま食べる肉団子と半熟ゆで玉子,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105949/kyushu/,2026-10-28
+seven_jp:105939,さつまいもっち バナナカスタード入り,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105939/kyushu/,2026-10-28
+seven_jp:105926,ごまダレで食べる蒸し鶏ラーメンサラダ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/105926/kyushu/,2026-10-28
+seven_jp:290238,７プレミアム オニオンブレッド ２個入,,,,,未翻譯,https://www.sej.co.jp/products/a/item/290238/kyushu/,2026-10-28
+seven_jp:304209,ヘルファイアパン,,,,,未翻譯,https://www.sej.co.jp/products/a/item/304209/kyushu/,2026-10-28
+seven_jp:304212,アップサイドダウンドーナツ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/304212/kyushu/,2026-10-28
+seven_jp:304210,クリスマスライトドーナツ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/304210/kyushu/,2026-10-28
+seven_jp:304208,デモゴルゴンドーナツ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/304208/kyushu/,2026-10-28
+seven_jp:115668,なめらかチーズプリン＆カラメルムース,,,,,未翻譯,https://www.sej.co.jp/products/a/item/115668/kyushu/,2026-10-28
+seven_jp:115670,紅はるかのひとくちスイートポテト,,,,,未翻譯,https://www.sej.co.jp/products/a/item/115670/kyushu/,2026-10-28
+seven_jp:115658,いちごクリームと八女抹茶のロールケーキ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/115658/kyushu/,2026-10-28
+seven_jp:115657,ふんわりシフォン福岡県産あまおうの苺ソース＆ホイップ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/115657/kyushu/,2026-10-28
+seven_jp:114262,ふんわりシフォン熊本県産肥後グリーンのメロンソース＆ホイップ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/114262/kyushu/,2026-10-28
+seven_jp:112032,パリパリチョコクレープ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/112032/kyushu/,2026-10-28
+seven_jp:115676,７プレミアム ブリュレデニッシュ キャラメル,,,,,未翻譯,https://www.sej.co.jp/products/a/item/115676/kyushu/,2026-10-28
+seven_jp:115628,７プレミアム 濃クリーミープリン ９５ｇ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/115628/kyushu/,2026-10-28
+seven_jp:110241,濃厚牛乳寒天 北海道産牛乳使用,,,,,未翻譯,https://www.sej.co.jp/products/a/item/110241/kyushu/,2026-10-28
+seven_jp:115660,もっちもち八女抹茶チョコもち,,,,,未翻譯,https://www.sej.co.jp/products/a/item/115660/kyushu/,2026-10-28
+seven_jp:115659,まぜまぜスイーツ八女抹茶ラテ抹茶わらび＆粒あん,,,,,未翻譯,https://www.sej.co.jp/products/a/item/115659/kyushu/,2026-10-28
+seven_jp:450299,森永乳業 モウプライム ストロベリーラバーズ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/450299/kyushu/,2026-10-28
+seven_jp:450248,森永乳業 モウ バニラ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/450248/kyushu/,2026-10-28
+seven_jp:450206,赤城 幸せを運ぶ青いチーズケーキ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/450206/kyushu/,2026-10-28
+seven_jp:450793,７プレミアム ロイヤルミルクティーモナカ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/450793/kyushu/,2026-10-28
+seven_jp:450232,森永製菓 ビスケットサンド エクアドルカカオ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/450232/kyushu/,2026-10-28
+seven_jp:450317,珈琲所 コメダ珈琲店 コーヒー大好きな白くま,,,,,未翻譯,https://www.sej.co.jp/products/a/item/450317/kyushu/,2026-10-28
+seven_jp:450396,７プレミアム ワッフルコーン チョコ＆ミルク,,,,,未翻譯,https://www.sej.co.jp/products/a/item/450396/kyushu/,2026-10-28
+seven_jp:210671,７プレミアム ホワイトショコララテ ２４０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210671/kyushu/,2026-10-28
+seven_jp:210812,スターバックス メリーベリーチョコレートラテ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210812/kyushu/,2026-10-28
+seven_jp:210810,明治おいしいミルクコーヒー２００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210810/kyushu/,2026-10-28
+seven_jp:210807,飲めちゃうＭＯＷバニラ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210807/kyushu/,2026-10-28
+seven_jp:210512,７プレミアム いちごオレ ２４０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210512/kyushu/,2026-10-28
+seven_jp:210705,明治おいしいミルクコーヒー４５０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210705/kyushu/,2026-10-28
+seven_jp:250019,７プレミアム あかにし貝,,,,,未翻譯,https://www.sej.co.jp/products/a/item/250019/kyushu/,2026-10-28
+seven_jp:150848,おかしなチキンとんがりコーン焼とうもろこし風,,,,,未翻譯,https://www.sej.co.jp/products/a/item/150848/kyushu/,2026-10-28
+seven_jp:210762,７プレミアム アサイー＆バナナミックス ２００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210762/kyushu/,2026-10-28
+seven_jp:210498,カゴメ 野菜生活１００ 有田みかんミックス,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210498/kyushu/,2026-10-28
+seven_jp:210748,７プレミアム マスカットミックス果汁１００％ ４５０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210748/kyushu/,2026-10-28
+seven_jp:210885,スジャータ 家族の潤い紅茶 はちみつレモンティー ９００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210885/kyushu/,2026-10-28
+seven_jp:210824,７プレミアム マスカットミックス果汁１００％ １Ｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210824/kyushu/,2026-10-28
+seven_jp:460344,コカ・コーラ ゼロ 缶５００ＭＬ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/460344/kyushu/,2026-10-28
+seven_jp:460100,イミューズ ヨーグルトテイスト ５００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/460100/kyushu/,2026-10-28
+seven_jp:210794,伊藤園 黒酢で活力２００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/210794/kyushu/,2026-10-28
+seven_jp:011643,７プレミアム エールズ ３５０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/011643/kyushu/,2026-10-28
+seven_jp:011644,７プレミアム エールズ ５００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/011644/kyushu/,2026-10-28
+seven_jp:011660,サッポロ 岩手県軽米町の畑から 摘みたてホップ３５０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/011660/kyushu/,2026-10-28
+seven_jp:011649,キリン 本麒麟 ３５０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/011649/kyushu/,2026-10-28
+seven_jp:011661,サッポロ 岩手県軽米町の畑から 摘みたてホップ５００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/011661/kyushu/,2026-10-28
+seven_jp:011654,キリン 本麒麟 ５００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/011654/kyushu/,2026-10-28
+seven_jp:011650,キリン 本麒麟 ３５０ｍｌ マルチパック,,,,,未翻譯,https://www.sej.co.jp/products/a/item/011650/kyushu/,2026-10-28
+seven_jp:011655,キリン 本麒麟 ５００ｍｌマルチパック,,,,,未翻譯,https://www.sej.co.jp/products/a/item/011655/kyushu/,2026-10-28
+seven_jp:020766,◎博多の華 むぎ焼酎 水割り缶 ３５０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/020766/kyushu/,2026-10-28
+seven_jp:030999,キリン 氷結 巨峰スパークリング ３５０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/030999/kyushu/,2026-10-28
+seven_jp:030268,キリン 氷結 巨峰スパークリング ５００ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/030268/kyushu/,2026-10-28
+seven_jp:030143,ほろよい＜焼きりんご＞３５０ｍｌ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/030143/kyushu/,2026-10-28
+seven_jp:310344,亀田製菓 無限エビ 海老マヨ風味,,,,,未翻譯,https://www.sej.co.jp/products/a/item/310344/kyushu/,2026-10-28
+seven_jp:310018,ベビースターラーメンおつまみ 中華蕎麦とみ田監修豚ラーメン味,,,,,未翻譯,https://www.sej.co.jp/products/a/item/310018/kyushu/,2026-10-28
+seven_jp:323643,明治 果汁グミ りんごゆずミックス,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323643/kyushu/,2026-10-28
+seven_jp:323649,ロッテ カジッテ ミカン＆レモン,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323649/kyushu/,2026-10-28
+seven_jp:323645,果じゅるりグミ 巨峰味,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323645/kyushu/,2026-10-28
+seven_jp:323647,あんまんグミ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323647/kyushu/,2026-10-28
+seven_jp:323739,ぷるりっち果実 マスカット味,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323739/kyushu/,2026-10-28
+seven_jp:323641,なとり ねりうめ はちみつ味,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323641/kyushu/,2026-10-28
+seven_jp:320883,森永 チョコボール ダブルチョコレート,,,,,未翻譯,https://www.sej.co.jp/products/a/item/320883/kyushu/,2026-10-28
+seven_jp:320343,チロル チロルチョコ いちごもち袋,,,,,未翻譯,https://www.sej.co.jp/products/a/item/320343/kyushu/,2026-10-28
+seven_jp:320875,有楽製菓 いちご＆チョコチップのサンダー,,,,,未翻譯,https://www.sej.co.jp/products/a/item/320875/kyushu/,2026-10-28
+seven_jp:323648,カンロ 健康のど飴 梅,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323648/kyushu/,2026-10-28
+seven_jp:744792,東ハト チョコビ いちご味,,,,,未翻譯,https://www.sej.co.jp/products/a/item/744792/kyushu/,2026-10-28
+seven_jp:323733,不二家 カントリーマアムミニ あまおう苺ショコラ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323733/kyushu/,2026-10-28
+seven_jp:323728,ギンビス たべっ子どうぶつ こだわりのピスタチオ味,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323728/kyushu/,2026-10-28
+seven_jp:323734,フジバンビ 森永ミルクキャラメルタルト １個,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323734/kyushu/,2026-10-28
+seven_jp:322718,日清シスコ チョコフレーク いちごみるく味,,,,,未翻譯,https://www.sej.co.jp/products/a/item/322718/kyushu/,2026-10-28
+seven_jp:321604,ギンビス たべっ子水族館 パウチ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/321604/kyushu/,2026-10-28
+seven_jp:323721,セブンプレミアム レーズンチョコ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323721/kyushu/,2026-10-28
+seven_jp:323720,セブンプレミアム オレンジピールチョコ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323720/kyushu/,2026-10-28
+seven_jp:323726,モントワール 喫茶店の味ココア ひとくちショコラ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323726/kyushu/,2026-10-28
+seven_jp:323710,不二家 カントリーマアム ピカまみれ,,,,,未翻譯,https://www.sej.co.jp/products/a/item/323710/kyushu/,2026-10-28
+seven_jp:322826,明治 メルティーキッスストロベリーマーブル スティックパック,,,,,未翻譯,https://www.sej.co.jp/products/a/item/322826/kyushu/,2026-10-28
