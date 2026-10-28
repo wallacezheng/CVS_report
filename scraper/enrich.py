@@ -11,6 +11,8 @@
 - MAX_ENRICH_PER_RUN    單次執行最多翻譯幾支（預設 200）
 - MAX_ENRICH_PER_MONTH  每月最多翻譯幾支（預設 2000），超過就停到下個月
 - 非食品分類（一番賞、日用品、化妝品等）直接標為 NON_FOOD，不送 Gemini
+- 酒類（官網分類「お酒」或品名含啤酒、沙瓦等關鍵字）直接標為 ALCOHOL，不送 Gemini
+- ENRICH_ENABLED=0 時完全不呼叫 Gemini（只爬不翻）
 - 每次呼叫的 token 用量記錄在 data/gemini_usage.csv
 超過上限的商品留到下次執行再翻，期間在 review_queue 顯示「未翻譯」。
 """
@@ -18,6 +20,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 import os
 import time
 from pathlib import Path
@@ -34,7 +37,15 @@ MAX_PER_RUN = int(os.environ.get("MAX_ENRICH_PER_RUN") or 200)
 MAX_PER_MONTH = int(os.environ.get("MAX_ENRICH_PER_MONTH") or 2000)
 # 官網分類屬於非食品的，直接歸 NON_FOOD，不花 Gemini 費用
 NON_FOOD_SOURCE_CATEGORIES = {"キャラクターくじ・エンタメ雑貨など", "日用品", "スキンケア・コスメ",
-                              "コンビニエンスウェア", "お酒", "생활용품"}
+                              "コンビニエンスウェア", "생활용품"}
+ALCOHOL_SOURCE_CATEGORIES = {"お酒", "주류"}
+# 品名含這些字就判定為酒類（7-Eleven 官網沒有分類，只能看品名）
+ALCOHOL_PATTERN = re.compile(
+    r"ビール|発泡酒|サワー|チューハイ|酎ハイ|ハイボール|焼酎|日本酒|清酒|純米|吟醸|ワンカップ|"
+    r"ワイン|ウイスキー|ウィスキー|梅酒|リキュール|ジン(?!ジャー)|ウォッカ|ラム酒|"
+    r"ＡＬＣ|ALC\.|アルコール|氷結|ほろよい|檸檬堂|本麒麟|黒ラベル|スーパードライ|"
+    r"オリオン|ビタリスト|一番搾り|プレミアムモルツ|ヱビス|エビス|ストロングゼロ|のどごし|金麦|"
+    r"맥주|소주|막걸리|와인|하이볼")
 # 注意：GitHub 未設定的 vars 會傳入空字串，所以用 or 判斷
 # 未指定時，依序試用下列型號（新 → 舊），用第一個可用的；Flash 系列便宜、速度快，足夠做翻譯分類
 MODEL_CANDIDATES = [
@@ -194,6 +205,16 @@ def call_gemini(prompt: str) -> list[dict]:
     raise RuntimeError("Gemini 重試失敗")
 
 
+def reclassify_alcohol(cache: dict[str, dict], names: dict[str, str]) -> int:
+    """把先前被 Gemini 歸到飲料、但其實是酒的商品改成 ALCOHOL（不重新呼叫 Gemini）。"""
+    n = 0
+    for key, r in cache.items():
+        if r.get("category_code") in ("DRINK", "") and ALCOHOL_PATTERN.search(names.get(key, "")):
+            r["category_code"] = "ALCOHOL"
+            n += 1
+    return n
+
+
 def _month_count(cache: dict[str, dict], month: str) -> int:
     return sum(1 for r in cache.values()
                if (r.get("enriched_at") or "").startswith(month) and r.get("model") != "rule")
@@ -222,14 +243,23 @@ def enrich(items: list[dict], categories, tags, glossary, cache: dict[str, dict]
     errors = []
     todo = [i for i in items if i["product_key"] not in cache]
 
-    # 非食品不送 Gemini
-    for i in [i for i in todo if i.get("source_category") in NON_FOOD_SOURCE_CATEGORIES]:
-        cache[i["product_key"]] = {"product_key": i["product_key"], "name_zh": "", "desc_zh": "",
-                                   "category_code": "NON_FOOD", "tags": "", "confidence": "1.00",
-                                   "model": "rule", "enriched_at": today}
+    # 非食品、酒類不送 Gemini
+    for i in todo:
+        code = ""
+        if i.get("source_category") in NON_FOOD_SOURCE_CATEGORIES:
+            code = "NON_FOOD"
+        elif i.get("source_category") in ALCOHOL_SOURCE_CATEGORIES or \
+                ALCOHOL_PATTERN.search(i.get("name_original", "")):
+            code = "ALCOHOL"
+        if code:
+            cache[i["product_key"]] = {"product_key": i["product_key"], "name_zh": "", "desc_zh": "",
+                                       "category_code": code, "tags": "", "confidence": "1.00",
+                                       "model": "rule", "enriched_at": today}
     todo = [i for i in todo if i["product_key"] not in cache]
     if not todo:
         return errors
+    if os.environ.get("ENRICH_ENABLED", "1").strip() == "0":
+        return [f"本次未開啟翻譯，{len(todo)} 支商品待翻譯（手動執行時勾選翻譯即可補上）"]
     if not gemini_mode():
         return [f"未設定 Gemini 憑證（GEMINI_API_KEY 或 GOOGLE_SERVICE_ACCOUNT_JSON），{len(todo)} 筆商品未翻譯"]
 

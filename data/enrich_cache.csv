@@ -124,16 +124,39 @@ familymart_jp:7916090,一番賞 角落小夥伴,,NON_FOOD,,0.99,sample-manual,
 familymart_jp:7916588,一番賞 文具小夥伴,,NON_FOOD,,0.99,sample-manual,
 familymart_jp:7921551,,,NON_FOOD,,1.00,rule,2026-10-28
 familymart_jp:7929687,,,NON_FOOD,,1.00,rule,2026-10-28
-seven_jp:011668,Orion 一番櫻春季生啤酒 350ml,沖繩Orion櫻花季限定生啤酒,DRINK,,0.95,gemini-3.8-flash,2026-10-28
-seven_jp:011669,Orion 一番櫻春季生啤酒 500ml,沖繩Orion櫻花季限定生啤酒,DRINK,,0.95,gemini-3.8-flash,2026-10-28
-seven_jp:011670,Asahi The Bitterist啤酒 350ml,強調麥芽苦韻與深邃層次的特濃拉格啤酒,DRINK,,0.95,gemini-3.8-flash,2026-10-28
-seven_jp:011671,Asahi The Bitterist啤酒 500ml,強調麥芽苦韻與深邃層次的特濃拉格啤酒,DRINK,,0.95,gemini-3.8-flash,2026-10-28
-seven_jp:020469,雲海蕎麥燒酎 25度盒裝 900ml,經典蕎麥蒸餾燒酎大容量紙包裝,DRINK,,0.95,gemini-3.8-flash,2026-10-28
-seven_jp:021805,大關One Cup 清酒 濃郁特醇 300ml,致敬拉麵用語濃厚濃醇風味的杯裝清酒,DRINK,,0.90,gemini-3.8-flash,2026-10-28
-seven_jp:030353,講究酒場檸檬沙瓦 柚子檸檬 350ml,結合柚子香氣與清爽檸檬的風味沙瓦,DRINK,水果,0.95,gemini-3.8-flash,2026-10-28
-seven_jp:031017,講究酒場檸檬沙瓦 柚子檸檬 500ml,結合柚子香氣與清爽檸檬的風味沙瓦,DRINK,水果,0.95,gemini-3.8-flash,2026-10-28
-seven_jp:031069,煙燻蘇格蘭威士忌Highball 350ml,帶有泥煤煙燻風味的蘇格蘭調和威士忌調酒,DRINK,,0.95,gemini-3.8-flash,2026-10-28
-seven_jp:031070,煙燻蘇格蘭威士忌Highball 500ml,帶有泥煤煙燻風味的蘇格蘭調和威士忌調酒,DRINK,,0.95,gemini-3.8-flash,2026-10-28
+seven_jp:010146,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:010486,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:010925,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:011481,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:011638,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:011647,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:011648,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:011649,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:011650,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:011654,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:011655,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:011668,Orion 一番櫻春季生啤酒 350ml,沖繩Orion櫻花季限定生啤酒,ALCOHOL,,0.95,gemini-3.8-flash,2026-10-28
+seven_jp:011669,Orion 一番櫻春季生啤酒 500ml,沖繩Orion櫻花季限定生啤酒,ALCOHOL,,0.95,gemini-3.8-flash,2026-10-28
+seven_jp:011670,Asahi The Bitterist啤酒 350ml,強調麥芽苦韻與深邃層次的特濃拉格啤酒,ALCOHOL,,0.95,gemini-3.8-flash,2026-10-28
+seven_jp:011671,Asahi The Bitterist啤酒 500ml,強調麥芽苦韻與深邃層次的特濃拉格啤酒,ALCOHOL,,0.95,gemini-3.8-flash,2026-10-28
+seven_jp:020469,雲海蕎麥燒酎 25度盒裝 900ml,經典蕎麥蒸餾燒酎大容量紙包裝,ALCOHOL,,0.95,gemini-3.8-flash,2026-10-28
+seven_jp:020766,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:021805,大關One Cup 清酒 濃郁特醇 300ml,致敬拉麵用語濃厚濃醇風味的杯裝清酒,ALCOHOL,,0.90,gemini-3.8-flash,2026-10-28
+seven_jp:030121,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:030143,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:030268,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:030353,講究酒場檸檬沙瓦 柚子檸檬 350ml,結合柚子香氣與清爽檸檬的風味沙瓦,ALCOHOL,水果,0.95,gemini-3.8-flash,2026-10-28
+seven_jp:030697,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:030828,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:030988,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:030999,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:031017,講究酒場檸檬沙瓦 柚子檸檬 500ml,結合柚子香氣與清爽檸檬的風味沙瓦,ALCOHOL,水果,0.95,gemini-3.8-flash,2026-10-28
+seven_jp:031069,煙燻蘇格蘭威士忌Highball 350ml,帶有泥煤煙燻風味的蘇格蘭調和威士忌調酒,ALCOHOL,,0.95,gemini-3.8-flash,2026-10-28
+seven_jp:031070,煙燻蘇格蘭威士忌Highball 500ml,帶有泥煤煙燻風味的蘇格蘭調和威士忌調酒,ALCOHOL,,0.95,gemini-3.8-flash,2026-10-28
+seven_jp:031648,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:032540,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:032542,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:032543,,,ALCOHOL,,1.00,rule,2026-10-28
 seven_jp:040283,北海道秋鮭烤鮭魚鬆飯（含糯麥）,北海道限定,FRESH_BENTO,鮭魚|秋季限定|糯麥・雜穀,0.95,sample-manual,
 seven_jp:040918,里肌豬排咖哩,,FRESH_BENTO,豬肉|咖哩,0.95,sample-manual,
 seven_jp:040935,雞肉牛蒡飯糰（紫峰米）,茨城限定,FRESH_RICE,雞肉,0.95,sample-manual,

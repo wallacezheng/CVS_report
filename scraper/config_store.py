@@ -58,7 +58,13 @@ class ConfigStore:
 
     # --- 便利存取 ---
     def categories(self) -> list[dict]:
-        return [c for c in self.data["categories"] if str(c.get("active", "1")) == "1"]
+        cats = [c for c in self.data["categories"] if str(c.get("active", "1")) == "1"]
+        # 程式依賴的分類（NON_FOOD、ALCOHOL）若 Sheet 沒有，從本機補上
+        have = {c["category_code"] for c in self.data["categories"]}
+        for c in _read_local("categories"):
+            if c["category_code"] in ("NON_FOOD", "ALCOHOL") and c["category_code"] not in have:
+                cats.append(c)
+        return cats
 
     def tags(self) -> list[dict]:
         return [t for t in self.data["tags"] if str(t.get("active", "1")) == "1"]

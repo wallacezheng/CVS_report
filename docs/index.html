@@ -124,7 +124,7 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
       <select id="f-country"><option value="">全部國家</option><option value="JP">日本</option><option value="KR">韓國</option></select>
       <select id="f-chain"><option value="">全部超商</option></select>
       <select id="f-week"><option value="">全部週次</option></select>
-      <select id="f-cat"><option value="">全部分類</option></select>
+      <select id="f-cat"><option value="">全部食品分類</option></select>
       <select id="f-tag"><option value="">全部標籤</option></select>
       <select id="f-status"><option value="">全部狀態</option><option value="upcoming">即將上市</option><option value="new">新品</option><option value="active">販售中</option><option value="delisted">已下架</option></select>
       <label class="chk"><input type="checkbox" id="f-reg">只看地區限定</label>
@@ -163,7 +163,9 @@ const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&g
 const weekLabel=w=>{if(!w)return"";const [y,n]=w.split("-W");const d=new Date(Date.UTC(+y,0,4));const dow=d.getUTCDay()||7;d.setUTCDate(d.getUTCDate()-dow+1+(n-1)*7);return `${w.slice(5)}（${d.getUTCMonth()+1}/${d.getUTCDate()} 起）`};
 const wkHead=w=>w.slice(5)+(S.meta.this_week&&w>S.meta.this_week?" 預告":"");
 const fmtPrice=(p,c)=>p?(c==="KRW"?"₩":"¥")+Math.round(+p).toLocaleString():"—";
-const food=()=>S.products.filter(p=>p.category_code&&p.category_code!=="NON_FOOD");
+const EXCL=new Set(["NON_FOOD","ALCOHOL"]);
+const food=()=>S.products.filter(p=>p.category_code&&!EXCL.has(p.category_code));
+const listable=()=>S.products.filter(p=>p.category_code&&p.category_code!=="NON_FOOD");
 
 function renderSummary(){
   const m=S.meta,f=food(),wk=m.this_week;
@@ -176,6 +178,8 @@ function renderSummary(){
     [thisWeek,"本週新品"],[upcoming,"即將上市"],[regional,"本週地區限定"],[review,"待人工確認"]]
     .map(([n,l])=>`<div><b>${n}</b><span>${l}</span></div>`).join("");
   const notes=[...(m.errors||[])];
+  const pending=S.products.filter(p=>!p.category_code).length;
+  if(pending)notes.push(`${pending} 支商品尚未翻譯，暫不顯示；下次執行翻譯後會出現。`);
   const chains=new Set(S.products.map(p=>p.chain));
   if(!["cu_kr","gs25_kr","seven_kr","emart24_kr"].some(c=>chains.has(c)))notes.push("韓國來源尚未接上：CU 的資料端點待確認、GS25 官網改版，目前只有日本資料。");
   if(m.sample)notes.push(m.sample);
@@ -184,7 +188,7 @@ function renderSummary(){
 }
 
 function renderCatChart(){
-  const rows=S.weeklyCat.filter(r=>r.category_code!=="NON_FOOD");
+  const rows=S.weeklyCat.filter(r=>!EXCL.has(r.category_code));
   const weeks=[...new Set(rows.map(r=>r.week))].sort();
   const groups=[...new Set(S.cats.sort((a,b)=>a.sort-b.sort).map(c=>c.group_zh))].filter(g=>rows.some(r=>r.category_group===g));
   const data=weeks.map(w=>({w,vals:groups.map(g=>rows.filter(r=>r.week===w&&r.category_group===g).reduce((s,r)=>s+ +r.new_count,0))}));
@@ -217,7 +221,7 @@ function renderTags(){
 }
 
 function renderPrice(){
-  const rows=S.weeklyCat.filter(r=>r.category_code!=="NON_FOOD"&&r.country==="JP");
+  const rows=S.weeklyCat.filter(r=>!EXCL.has(r.category_code)&&r.country==="JP");
   const weeks=[...new Set(rows.map(r=>r.week))].sort();
   const codes=S.cats.filter(c=>rows.some(r=>r.category_code===c.category_code)).sort((a,b)=>a.sort-b.sort);
   const avg=(code,w)=>{const rs=rows.filter(r=>r.category_code===code&&r.week===w&&r.avg_price);const n=rs.reduce((s,r)=>s+ +r.new_count,0);return n?rs.reduce((s,r)=>s+r.avg_price*r.new_count,0)/n:null};
@@ -235,7 +239,7 @@ function renderSignals(){
 
 function fillFilters(){
   const opt=(id,vals,lab=v=>v)=>{const el=document.getElementById(id);vals.forEach(v=>{const o=document.createElement("option");o.value=v;o.textContent=lab(v);el.appendChild(o)})};
-  const f=food();
+  const f=listable();
   opt("f-chain",[...new Set(f.map(p=>p.chain))],c=>CHAIN_ZH[c]||c);
   opt("f-week",[...new Set(f.map(p=>p.release_week))].sort().reverse(),weekLabel);
   opt("f-cat",S.cats.filter(c=>c.category_code!=="NON_FOOD"&&f.some(p=>p.category_code===c.category_code)).sort((a,b)=>a.sort-b.sort).map(c=>c.category_code),c=>S.cats.find(x=>x.category_code===c).name_zh);
@@ -246,7 +250,8 @@ function fillFilters(){
 function filtered(){
   const v=id=>document.getElementById(id).value;const q=v("q").trim().toLowerCase();
   const reg=document.getElementById("f-reg").checked,rev=document.getElementById("f-rev").checked;
-  return food().filter(p=>(!v("f-country")||p.country===v("f-country"))&&(!v("f-chain")||p.chain===v("f-chain"))
+  const base=v("f-cat")==="ALCOHOL"?listable():food();
+  return base.filter(p=>(!v("f-country")||p.country===v("f-country"))&&(!v("f-chain")||p.chain===v("f-chain"))
     &&(!v("f-week")||p.release_week===v("f-week"))&&(!v("f-cat")||p.category_code===v("f-cat"))
     &&(!v("f-tag")||(p.tags||"").split("|").includes(v("f-tag")))&&(!v("f-status")||p.status===v("f-status"))
     &&(!reg||p.is_regional==="1")&&(!rev||p.needs_review==="1")

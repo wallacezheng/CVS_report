@@ -1,10 +1,20 @@
-name: daily-crawl
+name: crawl
 
 on:
   schedule:
-    # 每天台灣時間 07:17（UTC 23:17）。日本超商週二上新、全家「来週」週五傍晚公開，每天跑都能接到。
-    - cron: "17 23 * * *"
-  workflow_dispatch: {}
+    # 每週三台灣時間 07:17（UTC 週二 23:17）。
+    # 週三能同時看到：7-Eleven 本週＋下週、全家上週＋本週，每週跑一次不會漏商品。
+    - cron: "17 23 * * 2"
+  workflow_dispatch:
+    inputs:
+      translate:
+        description: "這次要不要翻譯新商品（會用到 Gemini 額度）"
+        type: boolean
+        default: true
+      max_translate:
+        description: "這次最多翻譯幾支（留空 = 用預設 200）"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -36,7 +46,9 @@ jobs:
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
           GCP_PROJECT: ${{ vars.GCP_PROJECT }}
           GCP_LOCATION: ${{ vars.GCP_LOCATION }}
-          MAX_ENRICH_PER_RUN: ${{ vars.MAX_ENRICH_PER_RUN }}
+          MAX_ENRICH_PER_RUN: ${{ inputs.max_translate || vars.MAX_ENRICH_PER_RUN }}
+          # 手動執行看勾選；排程執行看 Variables 的 AUTO_TRANSLATE（設 1 才翻譯，預設只爬不翻）
+          ENRICH_ENABLED: ${{ github.event_name == 'workflow_dispatch' && (inputs.translate && '1' || '0') || (vars.AUTO_TRANSLATE == '1' && '1' || '0') }}
           MAX_ENRICH_PER_MONTH: ${{ vars.MAX_ENRICH_PER_MONTH }}
           SHEET_ID: ${{ secrets.SHEET_ID }}
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}

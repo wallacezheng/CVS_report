@@ -4,7 +4,7 @@
 產出 CSV（可直接寄給同事），前端儀表板讀 CSV 顯示趨勢。
 
 ```
-GitHub Actions（每天 07:17）
+GitHub Actions（每週三 07:17，或手動執行）
   爬官網新品頁 → 合併商品主檔 → 檢查下架 → Gemini 翻譯分類（有快取）
   → 套用人工校正 → 算週趨勢 → 輸出 CSV → commit 回 repo
 GitHub Pages：docs/index.html 讀 docs/data/*.csv
@@ -16,7 +16,7 @@ Apps Script：每週一 09:00 寄出本週新品 CSV
 
 | 來源 | 狀態 | 說明 |
 |---|---|---|
-| 7-Eleven 日本 | ✅ 可用 | 每週二更新；今週／来週，11 個地區，每頁可 100 筆 |
+| 7-Eleven 日本 | ✅ 可用 | 每週二更新；今週／来週，11 個地區。需帶正常 User-Agent，否則會被 Imperva 擋（403）|
 | 全家 日本 | ✅ 可用 | 每週二更新；先週／今週／来週（来週頁週五傍晚才公開） |
 | Lawson 日本 | ⛔ 關閉 | 新品頁回傳錯誤，待找其他入口 |
 | CU 韓國 | ⚠ 實驗 | 清單由 AJAX 載入，端點參數待首次執行確認（sources 分頁開關） |
@@ -43,7 +43,14 @@ Apps Script：每週一 09:00 寄出本週新品 CSV
 4. **寄信**：Sheet → 擴充功能 → Apps Script，貼上 `apps_script/Code.gs`，
    在指令碼屬性設定 `GITHUB_RAW_BASE`、`DASHBOARD_URL`（私有 repo 再加 `GITHUB_TOKEN`），
    先執行 `sendTestToMe()` 測試，再執行 `setupTriggers()`。收件人在 `mail_list` 分頁管理。
-5. Actions 頁面手動執行一次 `daily-crawl`，確認 log 中各來源筆數不是 0。
+5. Actions 頁面手動執行一次 `crawl`，確認 log 中各來源筆數不是 0。
+
+## 執行頻率與翻譯開關（MVP 省成本模式）
+
+- **爬取**：每週三 07:17 自動跑一次（週三能同時看到兩家的前後週新品，不漏資料）。也可隨時到 Actions → crawl → Run workflow 手動跑。
+- **翻譯**：排程預設「只爬不翻」，未翻譯的商品會累積；手動執行時勾選 translate，就會一次補翻（每次上限 200 支，可在 max_translate 調整）。
+  想讓排程也自動翻譯：Variables 新增 `AUTO_TRANSLATE` = `1`。
+- 翻譯費用只跟「新商品數」有關（每支只翻一次），與爬取頻率無關。
 
 ## 日常維護
 

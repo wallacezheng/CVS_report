@@ -17,7 +17,7 @@ from pathlib import Path
 
 from .common import fetch, is_regional_jp, today_tw
 from .config_store import ConfigStore
-from .enrich import enrich, load_cache, save_cache
+from .enrich import enrich, load_cache, reclassify_alcohol, save_cache
 from .sources import RAW_FIELDS, cu_kr, familymart_jp, mognavi, naver_datalab, seven_jp
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -35,6 +35,7 @@ PRODUCT_FIELDS = [
     "times_listed", "status", "delisted_date", "lifecycle_days", "confidence", "needs_review",
 ]
 REVIEW_THRESHOLD = 0.75
+EXCLUDE_FROM_TRENDS = {"NON_FOOD", "ALCOHOL"}
 NEW_WINDOW_DAYS = 28
 
 
@@ -189,7 +190,7 @@ def apply_enrichment(master, cache, overrides) -> list[dict]:
 
 # ---------- 5. 趨勢 ----------
 def build_trends(products: list[dict], cats: dict[str, dict]):
-    food = [p for p in products if p.get("category_code") and p["category_code"] != "NON_FOOD"]
+    food = [p for p in products if p.get("category_code") and p["category_code"] not in EXCLUDE_FROM_TRENDS]
     by_cat = defaultdict(list)
     tag_count = Counter()
     for p in food:
@@ -271,6 +272,9 @@ def run(args) -> int:
 
     # 4. 翻譯分類
     cache = load_cache(Path(args.cache)) if args.cache else load_cache()
+    n_alc = reclassify_alcohol(cache, {k: p.get("name_original", "") for k, p in master.items()})
+    if n_alc:
+        print(f"[enrich] 改歸酒類 {n_alc} 支")
     errors += enrich(list(master.values()), cfg.categories(), cfg.tags(), cfg.glossary(), cache,
                      today=today.isoformat())
     save_cache(cache)
