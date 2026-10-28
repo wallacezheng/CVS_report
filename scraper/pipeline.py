@@ -316,6 +316,7 @@ def run(args) -> int:
         "\n".join([",".join(["category_code", "group_zh", "name_zh", "sort"])] +
                   [",".join([c["category_code"], c["group_zh"], c["name_zh"], str(c["sort"])])
                    for c in cfg.categories()]).encode("utf-8"))
+    errors = list(dict.fromkeys(errors))
     meta = {
         "updated_at": today.isoformat(), "this_week": this_week,
         "product_count": len(products),

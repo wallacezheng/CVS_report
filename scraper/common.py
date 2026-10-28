@@ -9,11 +9,9 @@ from datetime import date, datetime, timedelta, timezone
 import requests
 
 TZ_TW = timezone(timedelta(hours=8))
-USER_AGENT = os.environ.get(
-    "CRAWLER_UA",
-    "DSR-CVS-Intel/0.1 (internal research; contact: set CRAWLER_CONTACT)",
-)
-REQUEST_INTERVAL = float(os.environ.get("CRAWLER_INTERVAL_SEC", "2.0"))
+USER_AGENT = os.environ.get("CRAWLER_UA") or \
+    "DSR-CVS-Intel/0.1 (internal research; +https://github.com/wallacezheng/CVS_report)"
+REQUEST_INTERVAL = float(os.environ.get("CRAWLER_INTERVAL_SEC") or 2.0)
 
 _session = requests.Session()
 _session.headers.update({"User-Agent": USER_AGENT, "Accept-Language": "ja,ko;q=0.8,en;q=0.5"})

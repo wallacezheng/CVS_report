@@ -35,7 +35,8 @@ MAX_PER_MONTH = int(os.environ.get("MAX_ENRICH_PER_MONTH") or 2000)
 # 官網分類屬於非食品的，直接歸 NON_FOOD，不花 Gemini 費用
 NON_FOOD_SOURCE_CATEGORIES = {"キャラクターくじ・エンタメ雑貨など", "日用品", "スキンケア・コスメ",
                               "コンビニエンスウェア", "お酒", "생활용품"}
-MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+# 注意：GitHub 未設定的 vars 會傳入空字串，所以用 or 給預設值
+MODEL = os.environ.get("GEMINI_MODEL") or "gemini-2.5-flash"
 BATCH = 20
 
 RESPONSE_SCHEMA = {
@@ -151,7 +152,12 @@ def call_gemini(prompt: str) -> list[dict]:
         if resp.status_code in (429, 500, 503):
             time.sleep(20 * (attempt + 1))
             continue
-        raise RuntimeError(f"Gemini（{gemini_mode()}）{resp.status_code}: {resp.text[:300]}")
+        hint = ""
+        if resp.status_code == 404:
+            hint = f"（找不到模型 {MODEL}：可在 GitHub Variables 設 GEMINI_MODEL 換成可用型號）"
+        elif resp.status_code == 403:
+            hint = "（權限不足：確認服務帳號有 Vertex AI 使用者角色、專案已啟用 Vertex AI API 並綁定帳單）"
+        raise RuntimeError(f"Gemini（{gemini_mode()}）{resp.status_code}{hint}: {resp.text[:300]}")
     raise RuntimeError("Gemini 重試失敗")
 
 
