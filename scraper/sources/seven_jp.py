@@ -43,16 +43,38 @@ def parse_list(html: str, list_page: str) -> list[dict]:
     return rows
 
 
+def _debug_save(name: str, resp) -> None:
+    """抓不到資料時留下收到的頁面，方便判斷是被擋、改版還是編碼問題。"""
+    from pathlib import Path
+    d = Path(__file__).resolve().parents[2] / "data" / "debug"
+    d.mkdir(parents=True, exist_ok=True)
+    head = "\n".join(f"{k}: {v}" for k, v in resp.headers.items())
+    body = resp.text[:20000]
+    (d / f"{name}.txt").write_text(
+        f"URL: {resp.url}\nSTATUS: {resp.status_code}\nENCODING: {resp.encoding}\n"
+        f"LENGTH: {len(resp.content)}\n\n{head}\n\n----- BODY (前 20000 字) -----\n{body}",
+        encoding="utf-8")
+
+
 def crawl(weeks=("thisweek", "nextweek"), areas=AREAS, max_pages: int = 5) -> list[dict]:
     seen: dict[str, dict] = {}
+    saved_debug = False
     for week in weeks:
         for area in areas:
             for page in range(1, max_pages + 1):
                 url = f"{BASE}/{week}/area/{area}/{page}/l100/"
                 resp = fetch(url)
+                if resp.encoding is None or resp.encoding.lower() == "iso-8859-1":
+                    resp.encoding = resp.apparent_encoding or "utf-8"
+                n_links = len(ITEM_RE.findall(resp.text))
+                rows = parse_list(resp.text, week) if resp.status_code == 200 else []
+                print(f"[seven_jp] {week}/{area}/p{page} status={resp.status_code} "
+                      f"bytes={len(resp.content)} item_links={n_links} parsed={len(rows)}")
+                if not rows and not saved_debug:
+                    _debug_save(f"seven_jp_{week}_{area}_p{page}", resp)
+                    saved_debug = True
                 if resp.status_code != 200:
                     break
-                rows = parse_list(resp.text, week)
                 for r in rows:
                     # 同一 ID 在多個地區頁重複出現，只留一筆
                     seen.setdefault(f"{week}:{r['item_id']}", r)
