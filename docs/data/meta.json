@@ -1,18 +1,11 @@
 {
  "updated_at": "2026-10-28",
  "this_week": "2026-W44",
- "product_count": 385,
- "review_count": 182,
+ "product_count": 787,
+ "review_count": 584,
  "errors": [
-  "Gemini（vertex）404: ",
-  "Gemini（vertex）404: ",
-  "Gemini（vertex）404: ",
-  "Gemini（vertex）404: ",
-  "Gemini（vertex）404: ",
-  "Gemini（vertex）404: ",
-  "Gemini（vertex）404: ",
-  "Gemini（vertex）404: ",
-  "Gemini（vertex）404: "
+  "翻譯額度：本次上限 200 支（本月已用 0/2000），382 支留待下次",
+  "Gemini（vertex）404（找不到模型 gemini-2.5-flash：可在 GitHub Variables 設 GEMINI_MODEL 換成可用型號）: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"Publisher model `projects/cvsreport/locations/global/publishers/google/models/gemini-2.5-flash` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. F"
  ],
  "sources": {
   "seven_jp": 1,
