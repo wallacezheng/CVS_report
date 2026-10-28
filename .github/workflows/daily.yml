@@ -1,0 +1,54 @@
+name: daily-crawl
+
+on:
+  schedule:
+    # 每天台灣時間 07:17（UTC 23:17）。日本超商週二上新、全家「来週」週五傍晚公開，每天跑都能接到。
+    - cron: "17 23 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-crawl
+  cancel-in-progress: false
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Run pipeline
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+          CRAWLER_UA: ${{ vars.CRAWLER_UA }}
+        run: python -m scraper.pipeline
+
+      - name: Commit data
+        run: |
+          git config user.name "cvs-intel-bot"
+          git config user.email "cvs-intel-bot@users.noreply.github.com"
+          git add data docs/data
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "data: $(TZ=Asia/Taipei date +%F)"
+            git push
+          fi

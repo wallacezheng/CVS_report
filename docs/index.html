@@ -1,0 +1,286 @@
+<title>日韓超商新品雷達</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* 版面：頂部週次摘要 → 三個趨勢面板 → 可篩選的新品牆；像一份每週上架單 */
+:root{
+  --bg:#f6f6f2; --surface:#ffffff; --ink:#1d2228; --muted:#69707a; --line:#dfe0da;
+  --accent:#2b4c7e; --accent-soft:#e3e9f3;
+  --jp:#b0413e; --kr:#2f6f5e; --warn:#a15c00; --warn-soft:#fbefdc;
+  --heat0:#f0f1ec; --heat1:#d9e1ee; --heat2:#a9bcd9; --heat3:#6d8bbb; --heat4:#2b4c7e;
+  --f-display:"Zen Kaku Gothic New","Noto Sans TC",system-ui,sans-serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15181c; --surface:#1d2127; --ink:#e7e8e4; --muted:#9aa1ab; --line:#2f343b;
+  --accent:#8fb0e3; --accent-soft:#25324a; --jp:#e08480; --kr:#7cc3ad; --warn:#e7a54a; --warn-soft:#3a2c17;
+  --heat0:#22262c; --heat1:#25324a; --heat2:#34507c; --heat3:#5578b0; --heat4:#8fb0e3; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15181c; --surface:#1d2127; --ink:#e7e8e4; --muted:#9aa1ab; --line:#2f343b;
+  --accent:#8fb0e3; --accent-soft:#25324a; --jp:#e08480; --kr:#7cc3ad; --warn:#e7a54a; --warn-soft:#3a2c17;
+  --heat0:#22262c; --heat1:#25324a; --heat2:#34507c; --heat3:#5578b0; --heat4:#8fb0e3; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:28px}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance}
+h1{font-size:1.75rem;letter-spacing:.01em}
+h2{font-size:1.05rem}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+header.top{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:end;justify-content:space-between;border-bottom:2px solid var(--ink);padding-bottom:14px}
+.summary{display:flex;flex-wrap:wrap;gap:8px 28px}
+.summary div{display:grid}
+.summary b{font-family:var(--f-mono);font-size:1.5rem;font-weight:500;font-variant-numeric:tabular-nums}
+.summary span{font-size:.8rem;color:var(--muted)}
+.notice{background:var(--warn-soft);color:var(--ink);border-left:3px solid var(--warn);padding:10px 14px;font-size:.88rem;border-radius:2px}
+.notice ul{margin:4px 0 0;padding-left:18px}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px;display:grid;gap:12px;min-width:0;align-content:start}
+.panel header{display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap}
+.scroll{overflow-x:auto}
+svg text{fill:var(--muted);font-family:var(--f-mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.78rem;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+table{border-collapse:collapse;width:100%;font-size:.84rem}
+th,td{padding:5px 6px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:500;color:var(--muted);font-size:.75rem}
+td.num,th.num{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.heat td.cell{text-align:center;font-family:var(--f-mono);min-width:44px}
+.delta-up{color:var(--jp)} .delta-down{color:var(--kr)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding-block:10px;z-index:5;border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+select,input[type=search]{font:inherit;font-size:.86rem;padding:6px 8px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--ink)}
+input[type=search]{flex:1 1 180px;min-width:0}
+label.chk{font-size:.86rem;display:flex;gap:4px;align-items:center}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:grid;gap:6px;align-content:start;min-width:0}
+.card .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.74rem}
+.chip{border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--muted);white-space:nowrap}
+.chip.chain-jp{border-color:var(--jp);color:var(--jp)} .chip.chain-kr{border-color:var(--kr);color:var(--kr)}
+.chip.st-upcoming{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+.chip.st-delisted{background:var(--line);color:var(--muted);border-color:transparent}
+.chip.reg{background:var(--warn-soft);color:var(--warn);border-color:transparent}
+.chip.review{background:var(--warn);color:var(--surface);border-color:transparent}
+.card h3{font-family:var(--f-body);font-size:1rem;font-weight:700;line-height:1.4}
+.card .orig{font-size:.78rem;color:var(--muted);line-height:1.4}
+.card .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.price{font-family:var(--f-mono);font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:4px}
+.tag{font-size:.72rem;background:var(--accent-soft);color:var(--accent);padding:1px 7px;border-radius:3px;cursor:pointer;border:0;font-family:inherit}
+details{font-size:.8rem;color:var(--muted)}
+details summary{cursor:pointer}
+details a{color:var(--accent)}
+.empty{padding:28px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:6px}
+.more{justify-self:center;font:inherit;padding:8px 18px;border-radius:4px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
+footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+@media (max-width:520px){h1{font-size:1.4rem}.summary b{font-size:1.25rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">DSR｜日韓便利商店食品情報</div>
+      <h1>日韓超商新品雷達</h1>
+      <div class="muted" id="updated" style="font-size:.85rem"></div>
+    </div>
+    <div class="summary" id="summary"></div>
+  </header>
+
+  <div class="notice" id="notice" hidden></div>
+
+  <section class="panels">
+    <div class="panel">
+      <header><h2>各分類新品數</h2><span class="muted" style="font-size:.78rem">依發售週</span></header>
+      <div class="scroll" id="chart-cat"></div>
+      <div class="legend" id="legend-cat"></div>
+    </div>
+    <div class="panel">
+      <header><h2>口味／素材熱度</h2><span class="muted" style="font-size:.78rem">每週出現支數，前 14 名</span></header>
+      <div class="scroll"><table class="heat" id="tbl-tags"></table></div>
+    </div>
+    <div class="panel">
+      <header><h2>價格帶</h2><span class="muted" style="font-size:.78rem">含稅平均售價，日圓</span></header>
+      <div class="scroll"><table id="tbl-price"></table></div>
+    </div>
+    <div class="panel" style="grid-column:1/-1">
+      <header><h2>聲量與口碑</h2><span class="muted" style="font-size:.78rem">Naver DataLab・もぐナビ</span></header>
+      <div id="signals"></div>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:12px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <h2 style="font-size:1.25rem">新品清單</h2>
+      <span class="muted mono" id="count" style="font-size:.85rem"></span>
+    </div>
+    <div class="filters">
+      <input type="search" id="q" placeholder="搜尋中文或原文品名">
+      <select id="f-country"><option value="">全部國家</option><option value="JP">日本</option><option value="KR">韓國</option></select>
+      <select id="f-chain"><option value="">全部超商</option></select>
+      <select id="f-week"><option value="">全部週次</option></select>
+      <select id="f-cat"><option value="">全部分類</option></select>
+      <select id="f-tag"><option value="">全部標籤</option></select>
+      <select id="f-status"><option value="">全部狀態</option><option value="upcoming">即將上市</option><option value="new">新品</option><option value="active">販售中</option><option value="delisted">已下架</option></select>
+      <label class="chk"><input type="checkbox" id="f-reg">只看地區限定</label>
+      <label class="chk"><input type="checkbox" id="f-rev">只看待確認</label>
+    </div>
+    <div class="grid" id="grid"></div>
+    <button class="more" id="more" hidden>顯示更多</button>
+  </section>
+
+  <footer id="foot">資料來源：各超商官網新品頁。品名中譯與分類由 AI 產生，人工校正中；價格為官網標示含稅價。內部研究用。</footer>
+</div>
+
+<script>
+const CHAIN_ZH={seven_jp:"7-Eleven 日本",familymart_jp:"全家 日本",lawson_jp:"Lawson 日本",cu_kr:"CU 韓國",gs25_kr:"GS25 韓國",seven_kr:"7-Eleven 韓國",emart24_kr:"emart24 韓國"};
+const STATUS_ZH={upcoming:"即將上市",new:"新品",active:"販售中",delisted:"已下架"};
+const GROUP_COLORS={"鮮食":"#2b4c7e","熱食":"#b0413e","麵包":"#c08a2e","甜點":"#9a5c8f","零食":"#5b8c5a","冰品":"#4a9bb5","飲料":"#7a6a58","加工食品":"#8a8f99","冷凍食品":"#4f5d75"};
+const S={products:[],cats:{},weeklyCat:[],weeklyTags:[],signals:[],meta:{},shown:60};
+
+function parseCSV(text){
+  text=text.replace(/^﻿/,"");const rows=[];let row=[],f="",q=false;
+  for(let i=0;i<text.length;i++){const c=text[i];
+    if(q){if(c=='"'){if(text[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
+    else if(c=='"')q=true;else if(c==','){row.push(f);f=""}
+    else if(c=='\n'){row.push(f);rows.push(row);row=[];f=""}else if(c!='\r')f+=c}
+  if(f||row.length){row.push(f);rows.push(row)}
+  const h=rows.shift()||[];return rows.filter(r=>r.length>1).map(r=>Object.fromEntries(h.map((k,i)=>[k,r[i]??""])));
+}
+async function load(){
+  if(window.EMBED){const E=window.EMBED;
+    return{products:parseCSV(E.products),cats:parseCSV(E.categories),weeklyCat:parseCSV(E.weekly_category),weeklyTags:parseCSV(E.weekly_tags),signals:parseCSV(E.signals),meta:E.meta}}
+  const get=n=>fetch("data/"+n,{cache:"no-store"}).then(r=>r.ok?r.text():"");
+  const [p,c,w,t,s,m]=await Promise.all(["products.csv","categories.csv","weekly_category.csv","weekly_tags.csv","signals.csv","meta.json"].map(get));
+  return{products:parseCSV(p),cats:parseCSV(c),weeklyCat:parseCSV(w),weeklyTags:parseCSV(t),signals:parseCSV(s),meta:m?JSON.parse(m):{}};
+}
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const weekLabel=w=>{if(!w)return"";const [y,n]=w.split("-W");const d=new Date(Date.UTC(+y,0,4));const dow=d.getUTCDay()||7;d.setUTCDate(d.getUTCDate()-dow+1+(n-1)*7);return `${w.slice(5)}（${d.getUTCMonth()+1}/${d.getUTCDate()} 起）`};
+const wkHead=w=>w.slice(5)+(S.meta.this_week&&w>S.meta.this_week?" 預告":"");
+const fmtPrice=(p,c)=>p?(c==="KRW"?"₩":"¥")+Math.round(+p).toLocaleString():"—";
+const food=()=>S.products.filter(p=>p.category_code&&p.category_code!=="NON_FOOD");
+
+function renderSummary(){
+  const m=S.meta,f=food(),wk=m.this_week;
+  const thisWeek=f.filter(p=>p.release_week===wk).length;
+  const upcoming=f.filter(p=>p.status==="upcoming").length;
+  const regional=f.filter(p=>p.release_week===wk&&p.is_regional==="1").length;
+  const review=S.products.filter(p=>p.needs_review==="1").length;
+  document.getElementById("updated").textContent=`資料更新 ${m.updated_at||"—"}｜本週 ${weekLabel(wk)}`;
+  document.getElementById("summary").innerHTML=[
+    [thisWeek,"本週新品"],[upcoming,"即將上市"],[regional,"本週地區限定"],[review,"待人工確認"]]
+    .map(([n,l])=>`<div><b>${n}</b><span>${l}</span></div>`).join("");
+  const notes=[...(m.errors||[])];
+  const chains=new Set(S.products.map(p=>p.chain));
+  if(!["cu_kr","gs25_kr","seven_kr","emart24_kr"].some(c=>chains.has(c)))notes.push("韓國來源尚未接上：CU 的資料端點待確認、GS25 官網改版，目前只有日本資料。");
+  if(m.sample)notes.push(m.sample);
+  const n=document.getElementById("notice");
+  if(notes.length){n.hidden=false;n.innerHTML=`<b>資料狀態</b><ul>${notes.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`}
+}
+
+function renderCatChart(){
+  const rows=S.weeklyCat.filter(r=>r.category_code!=="NON_FOOD");
+  const weeks=[...new Set(rows.map(r=>r.week))].sort();
+  const groups=[...new Set(S.cats.sort((a,b)=>a.sort-b.sort).map(c=>c.group_zh))].filter(g=>rows.some(r=>r.category_group===g));
+  const data=weeks.map(w=>({w,vals:groups.map(g=>rows.filter(r=>r.week===w&&r.category_group===g).reduce((s,r)=>s+ +r.new_count,0))}));
+  const max=Math.max(1,...data.map(d=>d.vals.reduce((a,b)=>a+b,0)));
+  const step=max>80?20:max>40?10:5,top=Math.ceil(max/step)*step;
+  const W=Math.max(320,weeks.length*90+60),H=220,L=34,B=28,T=10,bw=Math.min(46,(W-L-10)/weeks.length*0.55);
+  const y=v=>T+(H-T-B)*(1-v/top);
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W}px" role="img" aria-label="各週各分類新品數堆疊長條圖">`;
+  for(let v=0;v<=top;v+=step)s+=`<line x1="${L}" x2="${W-6}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/><text x="${L-6}" y="${y(v)+4}" text-anchor="end">${v}</text>`;
+  data.forEach((d,i)=>{const cx=L+((W-L)/weeks.length)*(i+.5);let acc=0;
+    d.vals.forEach((v,gi)=>{if(!v)return;const y0=y(acc),y1=y(acc+v);acc+=v;
+      s+=`<rect x="${cx-bw/2}" y="${y1}" width="${bw}" height="${y0-y1}" fill="${GROUP_COLORS[groups[gi]]||"#888"}"><title>${groups[gi]}：${v}</title></rect>`});
+    s+=`<text x="${cx}" y="${y(acc)-4}" text-anchor="middle" style="fill:var(--ink)">${acc}</text><text x="${cx}" y="${H-8}" text-anchor="middle">${wkHead(d.w)}</text>`});
+  document.getElementById("chart-cat").innerHTML=s+"</svg>";
+  document.getElementById("legend-cat").innerHTML=groups.map(g=>`<span><i style="background:${GROUP_COLORS[g]||"#888"}"></i>${g}</span>`).join("");
+}
+
+function renderTags(){
+  const weeks=[...new Set(S.weeklyTags.map(r=>r.week))].sort();
+  const totals={};S.weeklyTags.forEach(r=>totals[r.tag]=(totals[r.tag]||0)+ +r.count);
+  const tags=Object.keys(totals).sort((a,b)=>totals[b]-totals[a]).slice(0,14);
+  const max=Math.max(1,...S.weeklyTags.map(r=>+r.count));
+  const lvl=v=>v?Math.min(4,Math.ceil(v/max*4)):0;
+  const get=(t,w)=>S.weeklyTags.filter(r=>r.tag===t&&r.week===w).reduce((s,r)=>s+ +r.count,0);
+  let h=`<tr><th>標籤</th>${weeks.map(w=>`<th class="num">${wkHead(w)}</th>`).join("")}<th class="num">本週較上週</th></tr>`;
+  tags.forEach(t=>{const vals=weeks.map(w=>get(t,w));
+    const ci=weeks.indexOf(S.meta.this_week),last=ci>=0?vals[ci]:0,prev=ci>0?vals[ci-1]:0,d=last-prev;
+    h+=`<tr><td><button class="tag" data-tag="${esc(t)}">${esc(t)}</button></td>${vals.map(v=>{const l=lvl(v);return`<td class="cell" style="background:var(--heat${l});color:${l>=3?"var(--surface)":"var(--ink)"}">${v||""}</td>`}).join("")}<td class="num ${d>0?"delta-up":d<0?"delta-down":""}">${ci>0?(d>0?"+":"")+d:"—"}</td></tr>`});
+  document.getElementById("tbl-tags").innerHTML=h;
+}
+
+function renderPrice(){
+  const rows=S.weeklyCat.filter(r=>r.category_code!=="NON_FOOD"&&r.country==="JP");
+  const weeks=[...new Set(rows.map(r=>r.week))].sort();
+  const codes=S.cats.filter(c=>rows.some(r=>r.category_code===c.category_code)).sort((a,b)=>a.sort-b.sort);
+  const avg=(code,w)=>{const rs=rows.filter(r=>r.category_code===code&&r.week===w&&r.avg_price);const n=rs.reduce((s,r)=>s+ +r.new_count,0);return n?rs.reduce((s,r)=>s+r.avg_price*r.new_count,0)/n:null};
+  let h=`<tr><th>分類</th>${weeks.map(w=>`<th class="num">${wkHead(w)}</th>`).join("")}</tr>`;
+  codes.forEach(c=>{h+=`<tr><td>${esc(c.name_zh)}</td>${weeks.map(w=>{const v=avg(c.category_code,w);return`<td class="num">${v?Math.round(v).toLocaleString():"·"}</td>`}).join("")}</tr>`});
+  document.getElementById("tbl-price").innerHTML=h;
+}
+
+function renderSignals(){
+  const el=document.getElementById("signals");
+  if(!S.signals.length){el.innerHTML=`<div class="empty" style="padding:18px;text-align:left"><b style="color:var(--ink)">尚未接上聲量資料</b><br>設定 Naver DataLab 金鑰後，這裡會顯示各標籤在韓國的週搜尋指數；在 Google Sheet 的 sources 分頁登記もぐナビ排行網址後，會顯示日本口碑排名。</div>`;return}
+  const tags=[...new Set(S.signals.filter(s=>s.source==="naver_datalab").map(s=>s.target))];
+  el.innerHTML=`<table><tr><th>標籤</th><th class="num">最新指數</th><th class="num">4 週前</th></tr>${tags.map(t=>{const ss=S.signals.filter(s=>s.target===t&&s.source==="naver_datalab").sort((a,b)=>a.date<b.date?-1:1);const l=ss.at(-1),p=ss.at(-5);return`<tr><td>${esc(t)}</td><td class="num">${l?(+l.value).toFixed(1):"—"}</td><td class="num">${p?(+p.value).toFixed(1):"—"}</td></tr>`}).join("")}</table>`;
+}
+
+function fillFilters(){
+  const opt=(id,vals,lab=v=>v)=>{const el=document.getElementById(id);vals.forEach(v=>{const o=document.createElement("option");o.value=v;o.textContent=lab(v);el.appendChild(o)})};
+  const f=food();
+  opt("f-chain",[...new Set(f.map(p=>p.chain))],c=>CHAIN_ZH[c]||c);
+  opt("f-week",[...new Set(f.map(p=>p.release_week))].sort().reverse(),weekLabel);
+  opt("f-cat",S.cats.filter(c=>c.category_code!=="NON_FOOD"&&f.some(p=>p.category_code===c.category_code)).sort((a,b)=>a.sort-b.sort).map(c=>c.category_code),c=>S.cats.find(x=>x.category_code===c).name_zh);
+  const tc={};f.forEach(p=>(p.tags||"").split("|").filter(Boolean).forEach(t=>tc[t]=(tc[t]||0)+1));
+  opt("f-tag",Object.keys(tc).sort((a,b)=>tc[b]-tc[a]),t=>`${t}（${tc[t]}）`);
+}
+
+function filtered(){
+  const v=id=>document.getElementById(id).value;const q=v("q").trim().toLowerCase();
+  const reg=document.getElementById("f-reg").checked,rev=document.getElementById("f-rev").checked;
+  return food().filter(p=>(!v("f-country")||p.country===v("f-country"))&&(!v("f-chain")||p.chain===v("f-chain"))
+    &&(!v("f-week")||p.release_week===v("f-week"))&&(!v("f-cat")||p.category_code===v("f-cat"))
+    &&(!v("f-tag")||(p.tags||"").split("|").includes(v("f-tag")))&&(!v("f-status")||p.status===v("f-status"))
+    &&(!reg||p.is_regional==="1")&&(!rev||p.needs_review==="1")
+    &&(!q||(p.name_zh+" "+p.name_original+" "+p.desc_zh).toLowerCase().includes(q)));
+}
+
+function renderGrid(){
+  const list=filtered();const catName=c=>(S.cats.find(x=>x.category_code===c)||{}).name_zh||c;
+  document.getElementById("count").textContent=`${list.length} 支`;
+  const g=document.getElementById("grid");
+  if(!list.length){g.innerHTML=`<div class="empty" style="grid-column:1/-1">沒有符合條件的商品，試著放寬篩選。</div>`;document.getElementById("more").hidden=true;return}
+  g.innerHTML=list.slice(0,S.shown).map(p=>{
+    const region=p.country==="KR"?"chain-kr":"chain-jp";
+    return`<article class="card">
+      <div class="meta"><span class="chip ${region}">${esc(CHAIN_ZH[p.chain]||p.chain)}</span><span class="chip">${esc(catName(p.category_code))}</span>
+      ${p.status==="upcoming"||p.status==="delisted"?`<span class="chip st-${p.status}">${STATUS_ZH[p.status]}</span>`:""}
+      ${p.is_regional==="1"?`<span class="chip reg">地區限定</span>`:""}${p.needs_review==="1"?`<span class="chip review">待確認</span>`:""}</div>
+      <h3>${esc(p.name_zh||p.name_original)}</h3>
+      <div class="orig" lang="${p.country==="KR"?"ko":"ja"}">${esc(p.name_original)}</div>
+      <div class="row"><span class="price">${fmtPrice(p.price_tax_incl,p.currency)}</span><span class="muted mono" style="font-size:.78rem">${p.release_date||""} 發售</span></div>
+      ${p.tags?`<div class="tags">${p.tags.split("|").map(t=>`<button class="tag" data-tag="${esc(t)}">${esc(t)}</button>`).join("")}</div>`:""}
+      <details><summary>說明與販售地區</summary>${p.desc_zh?`<p style="margin:6px 0">${esc(p.desc_zh)}</p>`:""}<p style="margin:6px 0">販售地區：${esc(p.regions||"—")}</p><a href="${esc(p.source_url)}" target="_blank" rel="noopener">官網商品頁 ↗</a></details>
+    </article>`}).join("");
+  document.getElementById("more").hidden=list.length<=S.shown;
+}
+
+function bind(){
+  ["q","f-country","f-chain","f-week","f-cat","f-tag","f-status","f-reg","f-rev"].forEach(id=>document.getElementById(id).addEventListener("input",()=>{S.shown=60;renderGrid()}));
+  document.getElementById("more").addEventListener("click",()=>{S.shown+=60;renderGrid()});
+  document.addEventListener("click",e=>{const t=e.target.closest(".tag");if(!t)return;
+    document.getElementById("f-tag").value=t.dataset.tag;S.shown=60;renderGrid();
+    document.querySelector(".filters").scrollIntoView({behavior:"smooth",block:"start"})});
+}
+
+load().then(d=>{Object.assign(S,d);renderSummary();renderCatChart();renderTags();renderPrice();renderSignals();fillFilters();bind();renderGrid()})
+  .catch(e=>{document.getElementById("grid").innerHTML=`<div class="empty">讀不到資料檔：${esc(e.message)}。請確認 docs/data/ 內有 products.csv。</div>`});
+</script>

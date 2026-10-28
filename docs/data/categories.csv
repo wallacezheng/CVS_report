@@ -1,0 +1,16 @@
+category_code,group_zh,name_zh,sort
+FRESH_RICE,鮮食,飯糰・壽司,10
+FRESH_BENTO,鮮食,便當・丼飯・炒飯,11
+FRESH_NOODLE,鮮食,麵類・義大利麵,12
+FRESH_SANDWICH,鮮食,三明治・漢堡・捲餅,13
+FRESH_DELI,鮮食,配菜・沙拉・湯品,14
+HOT_SNACK,熱食,熱食・炸物・包子,20
+BAKERY,麵包,麵包,30
+DESSERT,甜點,冷藏甜點,40
+SNACK_SAVORY,零食,鹹零食,50
+SNACK_SWEET,零食,甜零食・糖果,51
+ICE,冰品,冰淇淋・冰品,60
+DRINK,飲料,飲料,70
+INSTANT,加工食品,泡麵・加工食品,80
+FROZEN,冷凍食品,冷凍食品,81
+NON_FOOD,非食品,非食品（不納入分析）,99

@@ -1,0 +1,189 @@
+country,chain,item_id,name_original,price_tax_incl,currency,release_date,regions,source_category,source_url,list_page
+JP,familymart_jp,0411141,もち麦　枝豆ひじき　しそ風味,168,JPY,2026-10-20,東北、関東、関西、中国・四国、九州,おむすび,https://www.family.co.jp/goods/omusubi/0411141.html,lastweek
+JP,familymart_jp,0411332,ごちむすび　漬けまぐろ（わさび醤油たれ）,245,JPY,2026-10-20,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,おむすび,https://www.family.co.jp/goods/omusubi/0411332.html,lastweek
+JP,familymart_jp,0411066,【関東の一部】豚そぼろおむすび,198,JPY,2026-10-20,関東,おむすび,https://www.family.co.jp/goods/omusubi/0411066.html,lastweek
+JP,familymart_jp,0411097,【関東の一部】もち麦・スーパー大麦入り　野沢菜しらす,198,JPY,2026-10-20,関東,おむすび,https://www.family.co.jp/goods/omusubi/0411097.html,lastweek
+JP,familymart_jp,0417020,【九州】鶏めしおむすびセット,388,JPY,2026-10-20,九州,おむすび,https://www.family.co.jp/goods/omusubi/0417020.html,lastweek
+JP,familymart_jp,0415385,【東海】大きなおむすび　鮭菜めし,285,JPY,2026-10-20,東海,おむすび,https://www.family.co.jp/goods/omusubi/0415385.html,lastweek
+JP,familymart_jp,0415712,【北陸】おむすび2個セット（昆布佃煮・ゆかり）,388,JPY,2026-10-20,北陸,おむすび,https://www.family.co.jp/goods/omusubi/0415712.html,lastweek
+JP,familymart_jp,0730525,鉄板焼ハンバーグ弁当（コク深デミソース）,753,JPY,2026-10-20,全国,お弁当,https://www.family.co.jp/goods/obento/0730525.html,lastweek
+JP,familymart_jp,0736008,【関西】だし巻き玉子&そぼろ重,598,JPY,2026-10-20,関西,お弁当,https://www.family.co.jp/goods/obento/0736008.html,lastweek
+JP,familymart_jp,0920117,【関東・東海・関西】牛カルビとチーズのロール,398,JPY,2026-10-20,関東、東海、関西,サンドイッチ・ロールパン・バーガー,https://www.family.co.jp/goods/sandwich/0920117.html,lastweek
+JP,familymart_jp,0927116,【九州】テリヤキバーガー,328,JPY,2026-10-20,九州,サンドイッチ・ロールパン・バーガー,https://www.family.co.jp/goods/sandwich/0927116.html,lastweek
+JP,familymart_jp,1535877,【本気のチョコがけパン】本気のチョコクイニーアマン,198,JPY,2026-10-20,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,パン,https://www.family.co.jp/goods/bread/1535877.html,lastweek
+JP,familymart_jp,1535976,【本気のチョコがけパン】本気のチョコデニッシュメロンパン,198,JPY,2026-10-20,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,パン,https://www.family.co.jp/goods/bread/1535976.html,lastweek
+JP,familymart_jp,1534450,【本気のチョコがけパン】本気のチョコクリームパン,198,JPY,2026-10-20,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,パン,https://www.family.co.jp/goods/bread/1534450.html,lastweek
+JP,familymart_jp,0810029,【北海道・東北・関東】らぁ麺Q監修　至高の一杯　煮干し醤油らぁ麺,698,JPY,2026-10-20,北海道、東北、関東,そば・うどん・中華めん,https://www.family.co.jp/goods/noodle/0810029.html,lastweek
+JP,familymart_jp,0812283,こだわりだしのかき揚げうどん,498,JPY,2026-10-20,東北、関東、東海、北陸、関西、中国・四国,そば・うどん・中華めん,https://www.family.co.jp/goods/noodle/0812283.html,lastweek
+JP,familymart_jp,0812344,豚骨の旨み広がる　背脂醤油ラーメン,578,JPY,2026-10-20,北海道、東北、東海、北陸、関西、中国・四国、九州、沖縄,そば・うどん・中華めん,https://www.family.co.jp/goods/noodle/0812344.html,lastweek
+JP,familymart_jp,0812351,花椒の香りと2種の練り胡麻仕立て汁なし担担麺,538,JPY,2026-10-20,北海道、東北、関東、東海、北陸、関西、九州,そば・うどん・中華めん,https://www.family.co.jp/goods/noodle/0812351.html,lastweek
+JP,familymart_jp,0814720,【東北】相馬産あおさ入りかき揚げそば,429,JPY,2026-10-20,東北,そば・うどん・中華めん,https://www.family.co.jp/goods/noodle/0814720.html,lastweek
+JP,familymart_jp,0823357,生パスタ　濃い濃いトマトパスタ,538,JPY,2026-10-20,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,パスタ,https://www.family.co.jp/goods/pasta/0823357.html,lastweek
+JP,familymart_jp,1212464,5種野菜のまぜまぜサラダ,213,JPY,2026-10-20,東北、関東、東海、北陸、関西、中国・四国、九州,サラダ,https://www.family.co.jp/goods/salad/1212464.html,lastweek
+JP,familymart_jp,1140415,【北海道・東北・関東】香ばしジューシー　炭火焼き鶏せせり,430,JPY,2026-10-20,北海道、東北、関東,チルド惣菜,https://www.family.co.jp/goods/sidedishes/1140415.html,lastweek
+JP,familymart_jp,2234762,たんぱく質7.1g砂肝スティック,208,JPY,2026-10-20,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,チルド惣菜,https://www.family.co.jp/goods/sidedishes/2234762.html,lastweek
+JP,familymart_jp,2234519,たんぱく質22.4g　国産鶏のサラダチキン　淡路島の藻塩,298,JPY,2026-10-20,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,チルド惣菜,https://www.family.co.jp/goods/sidedishes/2234519.html,lastweek
+JP,familymart_jp,1022254,【関東・東海】生姜香る具だくさん中華スープ,460,JPY,2026-10-20,関東、東海,スープ・グラタン・お好み焼き,https://www.family.co.jp/goods/deli/1022254.html,lastweek
+JP,familymart_jp,1023022,【東京都の一部・神奈川県の一部】焼野菜の旨みを閉じ込めた食べるミネストローネ,528,JPY,2026-10-20,関東,スープ・グラタン・お好み焼き,https://www.family.co.jp/goods/deli/1023022.html,lastweek
+JP,familymart_jp,0254816,ビッグ焼きとり　かわタレ,198,JPY,2026-10-20,全国,ホットスナック・惣菜,https://www.family.co.jp/goods/friedfoods/0254816.html,lastweek
+JP,familymart_jp,0231350,やきいも,298,JPY,2026-10-20,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,ホットスナック・惣菜,https://www.family.co.jp/goods/friedfoods/0231350.html,lastweek
+JP,familymart_jp,0254786,ビッグ焼きとり　ももタレ,198,JPY,2026-10-20,全国,ホットスナック・惣菜,https://www.family.co.jp/goods/friedfoods/0254786.html,lastweek
+JP,familymart_jp,0254809,ビッグ焼きとり　もも塩,198,JPY,2026-10-20,全国,ホットスナック・惣菜,https://www.family.co.jp/goods/friedfoods/0254809.html,lastweek
+JP,familymart_jp,0254823,ビッグ焼きとり　かわ塩,198,JPY,2026-10-20,全国,ホットスナック・惣菜,https://www.family.co.jp/goods/friedfoods/0254823.html,lastweek
+JP,familymart_jp,1945119,【ファミマの無限クリーム】クリームに溺れるとろけるプリン,248,JPY,2026-10-20,全国,デザート,https://www.family.co.jp/goods/dessert/1945119.html,lastweek
+JP,familymart_jp,1943115,【ファミマの無限クリーム】ダブルクリームエクレア,298,JPY,2026-10-20,全国,デザート,https://www.family.co.jp/goods/dessert/1943115.html,lastweek
+JP,familymart_jp,1950984,食べマス　スヌーピー&チャーリー・ブラウン,398,JPY,2026-10-20,全国,デザート,https://www.family.co.jp/goods/dessert/1950984.html,lastweek
+JP,familymart_jp,1950960,食べマス　スヌーピー&ウッドストック,398,JPY,2026-10-20,全国,デザート,https://www.family.co.jp/goods/dessert/1950960.html,lastweek
+JP,familymart_jp,1954463,チョコのスティックケーキ,174,JPY,2026-10-20,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,デザート,https://www.family.co.jp/goods/dessert/1954463.html,lastweek
+JP,familymart_jp,1321883,スヌーピー　メープルバウムクーヘン,198,JPY,2026-10-20,全国,焼き菓子・和菓子,https://www.family.co.jp/goods/baked_sweets/1321883.html,lastweek
+JP,familymart_jp,1323603,スヌーピー　チョコケーキドーナツ,198,JPY,2026-10-20,東北、関東、東海、北陸、関西、中国・四国、九州,焼き菓子・和菓子,https://www.family.co.jp/goods/baked_sweets/1323603.html,lastweek
+JP,familymart_jp,3813829,支那そばや監修　芳醇鶏油塩らぁ麺,288,JPY,2026-10-20,全国,加工食品,https://www.family.co.jp/goods/processed_foods/3813829.html,lastweek
+JP,familymart_jp,4822127,サクほろ食感のチョコサブレ,298,JPY,2026-10-20,全国,お菓子,https://www.family.co.jp/goods/snack/4822127.html,lastweek
+JP,familymart_jp,4727880,クリート　ななつのほしグミbaby's,213,JPY,2026-10-20,全国,お菓子,https://www.family.co.jp/goods/snack/4727880.html,lastweek
+JP,familymart_jp,4220671,Afternoon Tea監修　ホット　アールグレイラテ　480ml,160,JPY,2026-10-20,全国,飲料,https://www.family.co.jp/goods/drink/4220671.html,lastweek
+JP,familymart_jp,4230304,Afternoon Tea監修　ホット　黒豆香るルイボスティー　480ml,140,JPY,2026-10-20,全国,飲料,https://www.family.co.jp/goods/drink/4230304.html,lastweek
+JP,familymart_jp,1751598,Afternoon Tea監修　ミルクに癒されるミルクティー,210,JPY,2026-10-20,全国,飲料,https://www.family.co.jp/goods/drink/1751598.html,lastweek
+JP,familymart_jp,1752342,Afternoon Tea監修　紅茶を愉しむミルクティー,210,JPY,2026-10-20,全国,飲料,https://www.family.co.jp/goods/drink/1752342.html,lastweek
+JP,familymart_jp,4220923,Afternoon Tea監修　ホット　はちみつ香るアップルティー　480ml,150,JPY,2026-10-20,全国,飲料,https://www.family.co.jp/goods/drink/4220923.html,lastweek
+JP,familymart_jp,3522929,厚切り三元豚使用ロースかつとじ,430,JPY,2026-10-20,全国,冷凍食品,https://www.family.co.jp/goods/frozen_foods/3522929.html,lastweek
+JP,familymart_jp,3533710,鬼金棒監修　カラシビ味噌らー麺,354,JPY,2026-10-20,全国,冷凍食品,https://www.family.co.jp/goods/frozen_foods/3533710.html,lastweek
+JP,familymart_jp,3534229,ハーブとココナッツの濃厚仕立てグリーンカレー,513,JPY,2026-10-20,全国,冷凍食品,https://www.family.co.jp/goods/frozen_foods/3534229.html,lastweek
+JP,familymart_jp,4795322,Fate/Grand Order ウエハース15,176,JPY,2026-10-20,全国,キャラクターくじ・エンタメ雑貨など,https://www.family.co.jp/goods/charakuji/4795322.html,lastweek
+JP,familymart_jp,7916090,一番くじ すみっコぐらし～もしもすみっコが進化したら？～,750,JPY,2026-10-20,全国,キャラクターくじ・エンタメ雑貨など,https://www.family.co.jp/goods/charakuji/7916090.html,lastweek
+JP,familymart_jp,4795131,PEANUTS -SNOOPY- パッケージチャーム&チョコボーロ,396,JPY,2026-10-20,全国,キャラクターくじ・エンタメ雑貨など,https://www.family.co.jp/goods/charakuji/4795131.html,lastweek
+JP,familymart_jp,0412056,リュウジの至高のレシピ　ペッパーツナマヨネーズおむすび,198,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,おむすび,https://www.family.co.jp/goods/omusubi/0412056.html,thisweek
+JP,familymart_jp,0411295,焦がし醤油たれまぶし飯　国産海苔の佃煮おむすび,168,JPY,2026-10-27,東北、関東、東海、北陸、関西、中国・四国、九州,おむすび,https://www.family.co.jp/goods/omusubi/0411295.html,thisweek
+JP,familymart_jp,0411974,大きなおむすび　梅おかか,298,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,おむすび,https://www.family.co.jp/goods/omusubi/0411974.html,thisweek
+JP,familymart_jp,0417068,【九州】もち麦　大きなおむすび　おかか（鰹節まぶし）,235,JPY,2026-10-27,九州,おむすび,https://www.family.co.jp/goods/omusubi/0417068.html,thisweek
+JP,familymart_jp,0415606,【北陸】青磯海苔　漬けサーモン,238,JPY,2026-10-27,北陸,おむすび,https://www.family.co.jp/goods/omusubi/0415606.html,thisweek
+JP,familymart_jp,0730020,麻辣湯風ごはん（麦入り）,598,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,お弁当,https://www.family.co.jp/goods/obento/0730020.html,thisweek
+JP,familymart_jp,0614184,リュウジの至高のレシピ　炙り豚生姜焼弁当,698,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,お弁当,https://www.family.co.jp/goods/obento/0614184.html,thisweek
+JP,familymart_jp,0510349,チーズハンバーグ寿司,298,JPY,2026-10-27,東北、関東、東海、北陸、関西、中国・四国、九州,お寿司,https://www.family.co.jp/goods/sushi/0510349.html,thisweek
+JP,familymart_jp,0515412,ミニいなり寿司5ヶ入,398,JPY,2026-10-27,東北、関東、東海、北陸、中国・四国、九州,お寿司,https://www.family.co.jp/goods/sushi/0515412.html,thisweek
+JP,familymart_jp,0920216,エッグハンバーグマフィン,378,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,サンドイッチ・ロールパン・バーガー,https://www.family.co.jp/goods/sandwich/0920216.html,thisweek
+JP,familymart_jp,0912808,【東京都の一部・神奈川県の一部】3種のチーズを楽しむサンドイッチ,498,JPY,2026-10-27,関東,サンドイッチ・ロールパン・バーガー,https://www.family.co.jp/goods/sandwich/0912808.html,thisweek
+JP,familymart_jp,0922739,【東京都の一部・神奈川県の一部】海老とアボカドのロールサンド,498,JPY,2026-10-27,関東,サンドイッチ・ロールパン・バーガー,https://www.family.co.jp/goods/sandwich/0922739.html,thisweek
+JP,familymart_jp,1530155,本気のチョコ生コッペパン（たっぷりチョコホイップ）,220,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,パン,https://www.family.co.jp/goods/bread/1530155.html,thisweek
+JP,familymart_jp,1512397,りんご&チーズクリームパン　4個入,200,JPY,2026-10-27,東北、関東、東海、北陸、関西、中国・四国、九州,パン,https://www.family.co.jp/goods/bread/1512397.html,thisweek
+JP,familymart_jp,1522303,大きな生コッペパン（ツナ&ポテト）,248,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,パン,https://www.family.co.jp/goods/bread/1522303.html,thisweek
+JP,familymart_jp,1512052,スイートポテト蒸しケーキ　4個入,190,JPY,2026-10-27,東北、関東、東海、北陸、関西、中国・四国、九州,パン,https://www.family.co.jp/goods/bread/1512052.html,thisweek
+JP,familymart_jp,1537161,とろもち練乳みるくクリームパン,160,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,パン,https://www.family.co.jp/goods/bread/1537161.html,thisweek
+JP,familymart_jp,1521009,ベーコンポテトフランス,198,JPY,2026-10-27,東北、関東、東海、北陸、関西、中国・四国、九州,パン,https://www.family.co.jp/goods/bread/1521009.html,thisweek
+JP,familymart_jp,0812320,【関東・九州】まろやかなクリームで味わう　明太クリームうどん,578,JPY,2026-10-27,関東、九州,そば・うどん・中華めん,https://www.family.co.jp/goods/noodle/0812320.html,thisweek
+JP,familymart_jp,0821513,リュウジの至高のレシピ　レモン香るねぎ塩焼そば,598,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,そば・うどん・中華めん,https://www.family.co.jp/goods/noodle/0821513.html,thisweek
+JP,familymart_jp,0821506,リュウジの至高のレシピ　ガリバタチキンパスタ,598,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,パスタ,https://www.family.co.jp/goods/pasta/0821506.html,thisweek
+JP,familymart_jp,1222371,甘辛唐揚げマヨパスタサラダ,398,JPY,2026-10-27,東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,サラダ,https://www.family.co.jp/goods/salad/1222371.html,thisweek
+JP,familymart_jp,1160932,旨さ痺れる逸品　四川風麻婆豆腐,450,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,チルド惣菜,https://www.family.co.jp/goods/sidedishes/1160932.html,thisweek
+JP,familymart_jp,1160956,国産親鳥の炭火焼（柚子こしょう付）,438,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,チルド惣菜,https://www.family.co.jp/goods/sidedishes/1160956.html,thisweek
+JP,familymart_jp,1130027,国産さばときのこのおろしポン酢,321,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,チルド惣菜,https://www.family.co.jp/goods/sidedishes/1130027.html,thisweek
+JP,familymart_jp,2230368,リュウジの至高のレシピ　ポテトサラダ,198,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,チルド惣菜,https://www.family.co.jp/goods/sidedishes/2230368.html,thisweek
+JP,familymart_jp,1132946,リュウジの至高のレシピ　ニラだれ鶏,348,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,チルド惣菜,https://www.family.co.jp/goods/sidedishes/1132946.html,thisweek
+JP,familymart_jp,1170887,【東海・北陸・関西】和風おろし豆腐ハンバーグ,438,JPY,2026-10-27,東海、北陸、関西,チルド惣菜,https://www.family.co.jp/goods/sidedishes/1170887.html,thisweek
+JP,familymart_jp,2236612,【北海道・東北・関東】たんぱく質22.3g　国産鶏サラダチキン　3種ハーブ&スパイス,298,JPY,2026-10-27,北海道、東北、関東,チルド惣菜,https://www.family.co.jp/goods/sidedishes/2236612.html,thisweek
+JP,familymart_jp,1022261,リュウジの至高のレシピ　辛旨チゲスープ,468,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,スープ・グラタン・お好み焼き,https://www.family.co.jp/goods/deli/1022261.html,thisweek
+JP,familymart_jp,0254830,ミルフィーユチキンカツ,258,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,ホットスナック・惣菜,https://www.family.co.jp/goods/friedfoods/0254830.html,thisweek
+JP,familymart_jp,0240673,リュウジの至高のレシピ　とろたま牛すきまん,258,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,中華まん,https://www.family.co.jp/goods/chukaman/0240673.html,thisweek
+JP,familymart_jp,1940015,【関東・九州】デビルズチョコケーキ,298,JPY,2026-10-27,関東、九州,デザート,https://www.family.co.jp/goods/dessert/1940015.html,thisweek
+JP,familymart_jp,1943054,【関東・沖縄】ザクほろシュー（キャラメルクリーム）,248,JPY,2026-10-27,関東、沖縄,デザート,https://www.family.co.jp/goods/dessert/1943054.html,thisweek
+JP,familymart_jp,1943146,【東海・北陸】加賀棒ほうじ茶　大きなエクレア,298,JPY,2026-10-27,東海、北陸,デザート,https://www.family.co.jp/goods/dessert/1943146.html,thisweek
+JP,familymart_jp,1940664,ガトーショコラ　6個入,348,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州,デザート,https://www.family.co.jp/goods/dessert/1940664.html,thisweek
+JP,familymart_jp,1940626,冷やして食べるしっとり食感のバナナバウム,218,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,デザート,https://www.family.co.jp/goods/dessert/1940626.html,thisweek
+JP,familymart_jp,1954593,冷やして食べるくりーむ大福　カスタード,213,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,デザート,https://www.family.co.jp/goods/dessert/1954593.html,thisweek
+JP,familymart_jp,0211475,焼きいもバターシェイク,380,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,コーヒー・フラッペ,https://www.family.co.jp/goods/cafe/0211475.html,thisweek
+JP,familymart_jp,3810064,コク旨博多豚骨,170,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,加工食品,https://www.family.co.jp/goods/processed_foods/3810064.html,thisweek
+JP,familymart_jp,3811832,濃厚札幌味噌,170,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,加工食品,https://www.family.co.jp/goods/processed_foods/3811832.html,thisweek
+JP,familymart_jp,3810156,醤油のキレとコク　鶏ガラ醤油,170,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,加工食品,https://www.family.co.jp/goods/processed_foods/3810156.html,thisweek
+JP,familymart_jp,3812051,花椒香る旨辛担々麺,170,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,加工食品,https://www.family.co.jp/goods/processed_foods/3812051.html,thisweek
+JP,familymart_jp,4726692,春日井　つぶグミサンダー,213,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,お菓子,https://www.family.co.jp/goods/snack/4726692.html,thisweek
+JP,familymart_jp,4822738,贅沢ミルクチョコプレッツェル,308,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,お菓子,https://www.family.co.jp/goods/snack/4822738.html,thisweek
+JP,familymart_jp,4813934,不二家　ザクザクアーモンドクッキー,248,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,お菓子,https://www.family.co.jp/goods/snack/4813934.html,thisweek
+JP,familymart_jp,1721775,カフェラテ　ミルクリッチ,238,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,飲料,https://www.family.co.jp/goods/drink/1721775.html,thisweek
+JP,familymart_jp,1750447,のむフルーチェ　イチゴ,288,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,飲料,https://www.family.co.jp/goods/drink/1750447.html,thisweek
+JP,familymart_jp,4220527,Afternoon Tea監修　黒糖ロイヤルミルクティー　370g,192,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,飲料,https://www.family.co.jp/goods/drink/4220527.html,thisweek
+JP,familymart_jp,3522912,黒酢とりんご酢の二重奏　揚げ鶏と彩り野菜の黒酢あん,430,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,冷凍食品,https://www.family.co.jp/goods/frozen_foods/3522912.html,thisweek
+JP,familymart_jp,3531785,自然解凍で手軽に　大学いも,289,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,冷凍食品,https://www.family.co.jp/goods/frozen_foods/3531785.html,thisweek
+JP,familymart_jp,3533581,リュウジの至高のレシピ　ペペロンチーノ,430,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,冷凍食品,https://www.family.co.jp/goods/frozen_foods/3533581.html,thisweek
+JP,familymart_jp,3444351,井村屋　フルーチェアイスバーイチゴ,218,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,アイス,https://www.family.co.jp/goods/ice/3444351.html,thisweek
+JP,familymart_jp,4797425,ドズル社×はぴだんぶい ポテトスティック,349,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,キャラクターくじ・エンタメ雑貨など,https://www.family.co.jp/goods/charakuji/4797425.html,thisweek
+JP,familymart_jp,7916588,一番くじ お文具といっしょ ～ちっちゃくなっちゃった!?～,700,JPY,2026-10-27,北海道、東北、関東、東海、北陸、関西、中国・四国、九州、沖縄,キャラクターくじ・エンタメ雑貨など,https://www.family.co.jp/goods/charakuji/7916588.html,thisweek
+JP,seven_jp,041201,天ぷらあら木監修　天まき,378,JPY,2026-10-27,北海道,,https://www.sej.co.jp/products/a/item/041201/hokkaido/,thisweek
+JP,seven_jp,044991,ピリ辛ねぎメンマおむすび,192.24,JPY,2026-10-27,北海道、東北、茨城県、栃木県、群馬県、埼玉県、新潟県、北陸,,https://www.sej.co.jp/products/a/item/044991/hokkaido/,thisweek
+JP,seven_jp,041032,鶏めし御飯幕の内,645.84,JPY,2026-10-27,北海道、東北、関東、甲信越、北陸、東海、近畿、中国、四国、九州,,https://www.sej.co.jp/products/a/item/041032/hokkaido/,thisweek
+JP,seven_jp,041193,旨辛牛焼肉の温玉ビビンバ丼（道産もち麦使用）,669.6,JPY,2026-10-27,北海道,,https://www.sej.co.jp/products/a/item/041193/hokkaido/,thisweek
+JP,seven_jp,054117,耳付きハムカツたまごサンド,421.2,JPY,2026-10-28,北海道,,https://www.sej.co.jp/products/a/item/054117/hokkaido/,thisweek
+JP,seven_jp,054118,耳付き３種ミックスサンド,410.4,JPY,2026-10-28,北海道,,https://www.sej.co.jp/products/a/item/054118/hokkaido/,thisweek
+JP,seven_jp,044992,背脂チャーシューおむすび,224.64,JPY,2026-10-27,東北、茨城県、栃木県、群馬県、埼玉県、新潟県、北陸、島根県、広島県、山口県,,https://www.sej.co.jp/products/a/item/044992/tohoku/,thisweek
+JP,seven_jp,040949,ハンバーグ＆唐揚げ弁当,753.84,JPY,2026-10-27,北海道、東北、埼玉県、千葉県、東京都、神奈川県、山梨県、長野県、東海、近畿、九州、沖縄,,https://www.sej.co.jp/products/a/item/040949/tohoku/,thisweek
+JP,seven_jp,041087,直火炙り焼豚と香ばし炒めのチャーハン,496.8,JPY,2026-10-27,東北、関東、甲信越、北陸、岐阜県、愛知県、三重県、中国、四国,,https://www.sej.co.jp/products/a/item/041087/tohoku/,thisweek
+JP,seven_jp,041646,寿司おむすび梅しそたくあん,192.24,JPY,2026-10-27,東北、茨城県、栃木県、群馬県、埼玉県、沖縄,,https://www.sej.co.jp/products/a/item/041646/tohoku/,thisweek
+JP,seven_jp,043849,手巻おにぎり　炭火焼牛カルビ,232.2,JPY,2026-10-27,千葉県,,https://www.sej.co.jp/products/a/item/043849/kanto/,thisweek
+JP,seven_jp,044984,３種具材の混ぜご飯おむすび,170.64,JPY,2026-10-27,埼玉県,,https://www.sej.co.jp/products/a/item/044984/kanto/,thisweek
+JP,seven_jp,040935,鶏ごぼうおむすび　紫峰使用,159.84,JPY,2026-10-27,茨城県,,https://www.sej.co.jp/products/a/item/040935/kanto/,thisweek
+JP,seven_jp,040940,ガーリックトマトソースハンバーグ＆唐揚げ弁当,645.84,JPY,2026-10-27,茨城県、栃木県、群馬県、埼玉県,,https://www.sej.co.jp/products/a/item/040940/kanto/,thisweek
+JP,seven_jp,040941,旨辛麻婆チャーハン（麦入り）,645.84,JPY,2026-10-27,茨城県、栃木県、群馬県、埼玉県,,https://www.sej.co.jp/products/a/item/040941/kanto/,thisweek
+JP,seven_jp,044985,炭火焼き豚みそ丼　秩父味噌ダレ,699.84,JPY,2026-10-27,埼玉県,,https://www.sej.co.jp/products/a/item/044985/kanto/,thisweek
+JP,seven_jp,044982,炭火焼き豚ロースのバーべキュー弁当（麦飯）,594,JPY,2026-10-27,千葉県、東京都、神奈川県,,https://www.sej.co.jp/products/a/item/044982/kanto/,thisweek
+JP,seven_jp,040918,ロースカツカレー,699.84,JPY,2026-10-27,茨城県、栃木県、群馬県、埼玉県,,https://www.sej.co.jp/products/a/item/040918/kanto/,thisweek
+JP,seven_jp,054107,ハム胡瓜サラダサンド　群馬県産胡瓜使用,302.4,JPY,2026-10-28,群馬県、埼玉県,,https://www.sej.co.jp/products/a/item/054107/kanto/,thisweek
+JP,seven_jp,054111,たんぱく質が摂れるチキン＆チリ,453.6,JPY,2026-10-28,東北、関東、甲信越、静岡県,,https://www.sej.co.jp/products/a/item/054111/kanto/,thisweek
+JP,seven_jp,054110,たんぱく質が摂れるチキンロール,429.84,JPY,2026-10-28,宮城県、山形県、福島県、関東、東海,,https://www.sej.co.jp/products/a/item/054110/kanto/,thisweek
+JP,seven_jp,041155,豚ロースとんかつ弁当,689.04,JPY,2026-10-27,山梨県、長野県,,https://www.sej.co.jp/products/a/item/041155/koshinetsu/,thisweek
+JP,seven_jp,044895,お好みおかず弁当,537.84,JPY,2026-10-27,福島県、関東、甲信越、北陸、東海、近畿、中国、九州,,https://www.sej.co.jp/products/a/item/044895/hokuriku/,thisweek
+JP,seven_jp,044888,海苔弁当,594,JPY,2026-10-27,北海道、東北、埼玉県、千葉県、東京都、神奈川県、甲信越、北陸、静岡県、九州,,https://www.sej.co.jp/products/a/item/044888/hokuriku/,thisweek
+JP,seven_jp,044903,塩麹仕立てのムネ唐揚げ弁当,699.84,JPY,2026-10-27,茨城県、甲信越、北陸、佐賀県、長崎県、宮崎県、鹿児島県、沖縄,,https://www.sej.co.jp/products/a/item/044903/hokuriku/,thisweek
+JP,seven_jp,041187,おおきなおむすび　きのこ炊き込みご飯,257.04,JPY,2026-10-27,岐阜県、愛知県、三重県,,https://www.sej.co.jp/products/a/item/041187/tokai/,thisweek
+JP,seven_jp,041176,舞茸おこわおむすび静岡県産舞茸使用,213.84,JPY,2026-10-27,静岡県,,https://www.sej.co.jp/products/a/item/041176/tokai/,thisweek
+JP,seven_jp,041144,新潟県産コシヒカリおむすびしらす大葉たらこ,267.84,JPY,2026-10-27,岐阜県、愛知県、三重県,,https://www.sej.co.jp/products/a/item/041144/tokai/,thisweek
+JP,seven_jp,041190,ピリ辛チキン＆鶏そぼろ弁当,702,JPY,2026-10-27,岐阜県、愛知県、三重県,,https://www.sej.co.jp/products/a/item/041190/tokai/,thisweek
+JP,seven_jp,041179,ガーリックチキン弁当,699.84,JPY,2026-10-27,岐阜県、愛知県、三重県,,https://www.sej.co.jp/products/a/item/041179/tokai/,thisweek
+JP,seven_jp,044677,直巻おむすび　具たっぷりとり五目,203.04,JPY,2026-10-27,埼玉県、千葉県、東京都、神奈川県、山梨県、長野県、近畿、島根県、広島県、山口県,,https://www.sej.co.jp/products/a/item/044677/kinki/,thisweek
+JP,seven_jp,044338,香ばし醤油炒め　コク旨チャーハンおむすび,159.84,JPY,2026-10-27,福島県、関東、新潟県、北陸、岐阜県、愛知県、三重県、近畿、中国、沖縄,,https://www.sej.co.jp/products/a/item/044338/kinki/,thisweek
+JP,seven_jp,041128,あさりと彩り野菜のわかめごはん（もち麦）,429.84,JPY,2026-10-27,近畿,,https://www.sej.co.jp/products/a/item/041128/kinki/,thisweek
+JP,seven_jp,041133,町中華のあんだく中華丼,624.24,JPY,2026-10-27,近畿,,https://www.sej.co.jp/products/a/item/041133/kinki/,thisweek
+JP,seven_jp,041119,町中華の肉の旨み広がる麻婆丼,624.24,JPY,2026-10-27,近畿,,https://www.sej.co.jp/products/a/item/041119/kinki/,thisweek
+JP,seven_jp,044986,豚焼肉弁当（唐辛子マヨネーズ）,667.44,JPY,2026-10-27,鳥取県、島根県、岡山県、広島県,,https://www.sej.co.jp/products/a/item/044986/chugoku/,thisweek
+JP,seven_jp,043649,ロースとんかつ弁当,699.84,JPY,2026-10-27,鳥取県、島根県、岡山県、広島県,,https://www.sej.co.jp/products/a/item/043649/chugoku/,thisweek
+JP,seven_jp,041127,町中華のあんだく天津飯,537.84,JPY,2026-10-27,近畿、鳥取県、島根県、岡山県、広島県、四国,,https://www.sej.co.jp/products/a/item/041127/chugoku/,thisweek
+JP,seven_jp,053834,ブリトーウインナー２本入り濃厚ボロネーゼ,311.04,JPY,2026-10-28,北海道、東北、関東、新潟県、北陸、東海、近畿、中国、四国、九州、沖縄,,https://www.sej.co.jp/products/a/item/053834/shikoku/,thisweek
+JP,seven_jp,042096,甘辛醤油たれのチキンカツ丼,645.84,JPY,2026-10-27,九州,,https://www.sej.co.jp/products/a/item/042096/kyushu/,thisweek
+JP,seven_jp,053765,ブリトーウインナー２本入りＢＢＱソース,311.04,JPY,2026-10-28,山梨県、長野県、近畿、九州,,https://www.sej.co.jp/products/a/item/053765/kyushu/,thisweek
+JP,seven_jp,091987,飯田商店監修　飯田将太のチャーシュー麺,699.84,JPY,2026-10-27,東北、関東、甲信越、北陸、東海、近畿、中国、四国、九州,,https://www.sej.co.jp/products/a/item/091987/kyushu/,thisweek
+JP,seven_jp,091956,ラーメンＷａｌｋｅｒ監修　博多豚骨×札幌味噌ラーメン,626.4,JPY,2026-10-28,東北、関東、甲信越、北陸、東海、近畿、中国、四国、九州,,https://www.sej.co.jp/products/a/item/091956/kyushu/,thisweek
+JP,seven_jp,043904,オムライスおむすび　完熟トマトソース,213.84,JPY,2026-10-27,沖縄,,https://www.sej.co.jp/products/a/item/043904/okinawa/,thisweek
+JP,seven_jp,054040,ジューシーハムサンド,374.76,JPY,2026-10-28,青森県、岩手県、宮城県、秋田県、山形県、埼玉県、千葉県、東京都、神奈川県、甲信越、北陸、東海、近畿、中国、四国、九州、沖縄,,https://www.sej.co.jp/products/a/item/054040/okinawa/,thisweek
+JP,seven_jp,091948,ふんわり玉子が出汁にとけこむ　かき玉うどん,429.84,JPY,2026-10-28,沖縄,,https://www.sej.co.jp/products/a/item/091948/okinawa/,thisweek
+JP,seven_jp,091139,中華蕎麦とみ田監修　デカ豚ラーメン,734.4,JPY,2026-10-28,北海道、東北、茨城県、栃木県、群馬県、埼玉県、東京都、甲信越、北陸、東海、近畿、中国、四国、九州、沖縄,,https://www.sej.co.jp/products/a/item/091139/okinawa/,thisweek
+JP,seven_jp,040283,道産秋鮭焼ほぐしごはん（もち麦入り）,464.4,JPY,2026-11-03,北海道,,https://www.sej.co.jp/products/a/item/040283/hokkaido/,nextweek
+JP,seven_jp,041222,焼きさば御飯（もち麦）,429.84,JPY,2026-11-03,北海道、東北、関東,,https://www.sej.co.jp/products/a/item/041222/hokkaido/,nextweek
+JP,seven_jp,040964,醤のコクと旨み　麻婆茄子丼,537.84,JPY,2026-11-03,北海道、東北、関東、静岡県、近畿、九州,,https://www.sej.co.jp/products/a/item/040964/hokkaido/,nextweek
+JP,seven_jp,041365,甘辛仕立てのエビチリチャーハン＆塩焼きそば,699.84,JPY,2026-11-03,北海道,,https://www.sej.co.jp/products/a/item/041365/hokkaido/,nextweek
+JP,seven_jp,054125,ごろっとみかんサンド,475.2,JPY,2026-11-04,北海道,,https://www.sej.co.jp/products/a/item/054125/hokkaido/,nextweek
+JP,seven_jp,043114,手巻おにぎり　焼たらこ,235.44,JPY,2026-11-03,福島県,,https://www.sej.co.jp/products/a/item/043114/tohoku/,nextweek
+JP,seven_jp,041094,五目おこわおむすび,181.44,JPY,2026-11-03,福島県,,https://www.sej.co.jp/products/a/item/041094/tohoku/,nextweek
+JP,seven_jp,040974,旨さ相盛おむすび　紅しゃけと明太子,321.84,JPY,2026-11-03,青森県、岩手県、秋田県、福島県、埼玉県、千葉県、東京都、神奈川県、島根県、広島県、山口県,,https://www.sej.co.jp/products/a/item/040974/tohoku/,nextweek
+JP,seven_jp,041101,小松菜と鮭のおむすび　宮城県産銀鮭使用,203.04,JPY,2026-11-03,宮城県、山形県,,https://www.sej.co.jp/products/a/item/041101/tohoku/,nextweek
+JP,seven_jp,041137,味付海苔おにぎり海老マヨネーズ,235.44,JPY,2026-11-03,茨城県、栃木県、群馬県、埼玉県,,https://www.sej.co.jp/products/a/item/041137/kanto/,nextweek
+JP,seven_jp,041440,ぷちもち食感！もち麦おむすび　３種きのこ,149.04,JPY,2026-11-03,埼玉県、千葉県、東京都、神奈川県、静岡県、近畿、島根県、広島県、山口県、九州,,https://www.sej.co.jp/products/a/item/041440/kanto/,nextweek
+JP,seven_jp,041438,栗の炊き込みご飯おむすび,213.84,JPY,2026-11-03,埼玉県、千葉県、東京都、神奈川県,,https://www.sej.co.jp/products/a/item/041438/kanto/,nextweek
+JP,seven_jp,041169,ソーセージステーキ＆豚焼肉弁当,678.24,JPY,2026-11-03,茨城県,,https://www.sej.co.jp/products/a/item/041169/kanto/,nextweek
+JP,seven_jp,041227,ガーリックトマトのグリルチキン弁当,699.84,JPY,2026-11-03,埼玉県、千葉県、東京都、神奈川県、静岡県、近畿、福岡県、佐賀県、大分県,,https://www.sej.co.jp/products/a/item/041227/kanto/,nextweek
+JP,seven_jp,041299,おおきなおむすび　きのこ炊き込み押麦ごはん,246.24,JPY,2026-11-03,新潟県、北陸,,https://www.sej.co.jp/products/a/item/041299/koshinetsu/,nextweek
+JP,seven_jp,041384,塩だれ仕立ての長禅寺菜炒飯おむすび,170.64,JPY,2026-11-03,山梨県,,https://www.sej.co.jp/products/a/item/041384/koshinetsu/,nextweek
+JP,seven_jp,041311,だし飯おむすび　枝豆ごはん,170.64,JPY,2026-11-03,新潟県,,https://www.sej.co.jp/products/a/item/041311/koshinetsu/,nextweek
+JP,seven_jp,041336,新潟県産新之助おむすび　炭火焼紅鮭切り身,300.24,JPY,2026-11-03,新潟県,,https://www.sej.co.jp/products/a/item/041336/koshinetsu/,nextweek
+JP,seven_jp,041620,海老天と舞茸かき揚げの天丼,689.04,JPY,2026-11-03,山梨県、長野県,,https://www.sej.co.jp/products/a/item/041620/koshinetsu/,nextweek
+JP,seven_jp,040949,ハンバーグ＆唐揚げ弁当,753.84,JPY,2026-11-03,埼玉県、千葉県、東京都、神奈川県、甲信越、北陸、静岡県、近畿、島根県、広島県、山口県、沖縄,,https://www.sej.co.jp/products/a/item/040949/kanto/,nextweek
+JP,seven_jp,041375,野菜の旨み　うま煮チャーハン,699.84,JPY,2026-11-03,新潟県、北陸,,https://www.sej.co.jp/products/a/item/041375/hokuriku/,nextweek
+JP,seven_jp,040957,トマトの旨み広がる　バターチキンカレー,594,JPY,2026-11-03,東北、関東、甲信越、北陸、東海、九州,,https://www.sej.co.jp/products/a/item/040957/tohoku/,nextweek
+JP,seven_jp,041428,手巻寿司　まぐろたたきわさび醤油巻,278.64,JPY,2026-11-03,東北、埼玉県、千葉県、東京都、神奈川県、甲信越、北陸、東海、近畿、中国、四国、九州、沖縄,,https://www.sej.co.jp/products/a/item/041428/kanto/,nextweek
+JP,seven_jp,044558,だしむすび　たまご醤油,181.44,JPY,2026-11-03,埼玉県、千葉県、東京都、神奈川県、山梨県、長野県、東海、近畿,,https://www.sej.co.jp/products/a/item/044558/kanto/,nextweek
+JP,seven_jp,041719,山形県産つや姫おむすび　炭火焼紅鮭切り身,300.24,JPY,2026-11-03,近畿,,https://www.sej.co.jp/products/a/item/041719/kinki/,nextweek
+JP,seven_jp,041240,２種盛り　チーズチキンカツ弁当,734.4,JPY,2026-11-03,近畿,,https://www.sej.co.jp/products/a/item/041240/kinki/,nextweek
+JP,seven_jp,041256,高菜と明太子のごはん（もち麦）,429.84,JPY,2026-11-03,近畿,,https://www.sej.co.jp/products/a/item/041256/kinki/,nextweek
+JP,seven_jp,040993,手巻おにぎり　ピリ辛高菜,203.04,JPY,2026-11-03,東北、関東、甲信越、北陸、東海、近畿、島根県、広島県、山口県,,https://www.sej.co.jp/products/a/item/040993/kanto/,nextweek
+JP,seven_jp,041427,おむすび２個入り　わかめ・とり五目,291.6,JPY,2026-11-03,鳥取県、島根県、岡山県、広島県、四国,,https://www.sej.co.jp/products/a/item/041427/chugoku/,nextweek
+JP,seven_jp,054121,ご褒美サンド　厚切りヒレカツ,378,JPY,2026-11-04,東北、関東、甲信越、北陸、東海、近畿、中国、四国、九州、沖縄,,https://www.sej.co.jp/products/a/item/054121/kanto/,nextweek
+JP,seven_jp,054119,ビーフ＆マッケンチーズ,453.6,JPY,2026-11-05,東北、関東、甲信越、北陸、東海、近畿、中国、四国,,https://www.sej.co.jp/products/a/item/054119/kanto/,nextweek
+JP,seven_jp,041292,温玉ビビンバ丼（もち麦）,699.84,JPY,2026-11-03,九州,,https://www.sej.co.jp/products/a/item/041292/kyushu/,nextweek
+JP,seven_jp,041388,濃厚豚骨醤油ご飯　半熟味付玉子おむすび,224.64,JPY,2026-11-05,沖縄,,https://www.sej.co.jp/products/a/item/041388/okinawa/,nextweek
+JP,seven_jp,041589,北海道産秋鮭ほぐしのだしごはん（もち麦）,464.4,JPY,2026-11-03,青森県、岩手県、秋田県、福島県、山梨県、長野県、島根県、広島県、山口県、沖縄,,https://www.sej.co.jp/products/a/item/041589/tohoku/,nextweek
