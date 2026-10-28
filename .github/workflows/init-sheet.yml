@@ -1,0 +1,26 @@
+name: init-sheet
+
+# 第一次設定用：把 config/*.csv 寫進 Google Sheet，建立所有分頁。
+# 注意：會覆蓋 Sheet 中同名分頁的內容，只在初次設定或想重置時執行。
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "輸入 YES 確認（會覆蓋 Sheet 中同名分頁）"
+        required: true
+
+jobs:
+  init:
+    if: ${{ github.event.inputs.confirm == 'YES' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Create sheet tabs
+        env:
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: python tools/init_sheet.py
