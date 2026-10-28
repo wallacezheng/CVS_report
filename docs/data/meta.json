@@ -1,16 +1,18 @@
 {
  "updated_at": "2026-10-28",
  "this_week": "2026-W44",
- "product_count": 187,
+ "product_count": 205,
  "review_count": 2,
- "errors": [],
+ "errors": [
+  "seven_jp 抓到 0 筆，可能網站改版"
+ ],
  "sources": {
-  "seven_jp": "1",
-  "familymart_jp": "1",
-  "lawson_jp": "0",
-  "cu_kr": "0",
-  "gs25_kr": "0",
-  "naver_datalab": "1",
-  "mognavi_onigiri": "0"
+  "seven_jp": 1,
+  "familymart_jp": 1,
+  "lawson_jp": 0,
+  "cu_kr": 0,
+  "gs25_kr": 0,
+  "naver_datalab": 1,
+  "mognavi_onigiri": 0
  }
 }
