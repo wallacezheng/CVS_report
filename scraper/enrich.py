@@ -176,13 +176,13 @@ def resolve_model() -> str:
                        "）。請到 Vertex AI Model Garden 確認可用型號，在 GitHub Variables 設 GEMINI_MODEL")
 
 
-def call_gemini(prompt: str) -> list[dict]:
+def call_gemini(prompt: str, schema: dict | None = None) -> list[dict]:
     model = resolve_model()
     url, params, headers = _endpoint(model)
     body = {
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.2, "responseMimeType": "application/json",
-                             "responseSchema": RESPONSE_SCHEMA},
+                             "responseSchema": schema or RESPONSE_SCHEMA},
     }
     for attempt in range(3):
         resp = requests.post(url, params=params, headers=headers, json=body, timeout=120)

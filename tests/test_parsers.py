@@ -80,13 +80,57 @@ class TestFamilyMart(unittest.TestCase):
         self.assertEqual(rows[1]["source_category"], "おむすび")
 
 
+MOG_RANK_HTML = """
+<p>情報更新：2026年10月23日</p>
+<h2>コンビニおにぎり・コンビニ手巻寿司部門</h2>
+<ul>
+<li><a href="/product/1299093"><img src="a.jpg"></a><span>1位</span>
+<a href="/product/1299093">セブン-イレブン 銀しゃりむすび ツナマヨネーズ</a>
+<span>4.0</span><span>クチコミ 5件</span><span>159円</span></li>
+<li><a href="/product/688409"><img src="b.jpg"></a><span>2位</span>
+<a href="/product/688409">セブン-イレブン 阿部商店監修 いかめしおむすび</a>
+<span>4.9</span><span>クチコミ 20件</span></li>
+</ul>
+<h2>コンビニ弁当部門</h2>
+<ul><li><a href="/product/555">セブン-イレブン 海苔弁当</a><span>3.8</span><span>12件</span></li></ul>
+"""
+
+MOG_PRODUCT_HTML = """
+<h1>セブン-イレブン 阿部商店監修 いかめしおむすび</h1>
+<p>発売日：2026/9/29</p><p>食べたい 106</p><p>4.9 点</p><p>クチコミ 20件</p>
+<div class="review"><span>Cinnamo-n</span><span>2026/10/28 04:39</span>
+<p>テレビのおいしい給食を観て、いかめしが食べたい〜と家族に言われ購入。</p>
+<a href="/assessment/11364851">続きを読む</a></div>
+<div class="review"><span>やなぎん</span><span>2026/10/07 11:51</span>
+<p>店頭にあったので興味本位で購入 いかめしの風味は楽しめる</p>
+<a href="/assessment/11330861">続きを読む</a></div>
+"""
+
+
 class TestMognavi(unittest.TestCase):
-    def test_parse(self):
-        html = "<p>第3位：『セブン-イレブン ぷちもち食感！もち麦おむすび 梅ひじき』</p>" \
-               "<p>第2位：『デイリーヤマザキ 香ばしい醤油の焼おにぎり』</p>"
-        rows = mognavi.parse_ranking(html, "onigiri")
-        self.assertEqual([r["value"] for r in rows], [3, 2])
-        self.assertEqual(rows[0]["chain"], "seven_jp")
+    def test_ranking(self):
+        rows = mognavi.parse_ranking(MOG_RANK_HTML, "seven_jp", "1")
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(rows[0]["rank"], 1)
+        self.assertEqual(rows[0]["mognavi_id"], "1299093")
+        self.assertEqual(rows[1]["rank"], 2)
+        self.assertEqual(rows[1]["review_count"], "20")
+        self.assertEqual(rows[1]["score"], "4.9")
+        self.assertIn("おにぎり", rows[0]["section"])
+        self.assertIn("弁当", rows[2]["section"])
+        self.assertEqual(rows[2]["rank"], 1)
+        self.assertEqual(rows[0]["ranking_type"], "おすすめ")
+        self.assertEqual(rows[0]["site_updated"], "2026年10月23日")
+
+    def test_product(self):
+        d = mognavi.parse_product(MOG_PRODUCT_HTML, "688409")
+        self.assertEqual(d["release_date"], "2026-09-29")
+        self.assertEqual(d["tabetai"], "106")
+        self.assertEqual(d["review_count"], "20")
+        self.assertEqual(len(d["reviews"]), 2)
+        self.assertEqual(d["reviews"][0]["date"], "2026/10/28")
+        self.assertTrue(d["reviews"][0]["text"].startswith("テレビ"))
+        self.assertNotIn("続きを読む", d["reviews"][0]["text"])
 
 
 if __name__ == "__main__":

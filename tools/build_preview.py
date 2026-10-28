@@ -14,8 +14,8 @@ note = sys.argv[2] if len(sys.argv) > 2 else ""
 meta = json.loads((D / "meta.json").read_text(encoding="utf-8"))
 if note:
     meta["sample"] = note
-embed = {k: (D / f"{k}.csv").read_text(encoding="utf-8")
-         for k in ("products", "categories", "weekly_category", "weekly_tags", "signals")}
+embed = {k: (D / f"{k}.csv").read_text(encoding="utf-8") if (D / f"{k}.csv").exists() else ""
+         for k in ("products", "categories", "weekly_category", "weekly_tags", "signals", "press_signals")}
 embed["meta"] = meta
 html = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")
 script = "<script>window.EMBED=" + json.dumps(embed, ensure_ascii=False).replace("</", "<\\/") + ";</script>\n"

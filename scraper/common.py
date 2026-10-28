@@ -95,3 +95,38 @@ def is_regional_jp(regions: str) -> bool:
 
 def normalize_space(s: str) -> str:
     return re.sub(r"[\s　]+", " ", s or "").strip()
+
+
+# 都道府縣 → 7-Eleven／全家使用的大區（全家用「関西」「中国・四国」）
+PREF_TO_AREA = {
+    "北海道": {"北海道"},
+    **{x: {"東北"} for x in ["青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県"]},
+    **{x: {"関東"} for x in ["茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県"]},
+    **{x: {"甲信越"} for x in ["山梨県", "長野県", "新潟県"]},
+    **{x: {"北陸"} for x in ["富山県", "石川県", "福井県"]},
+    **{x: {"東海"} for x in ["岐阜県", "静岡県", "愛知県", "三重県"]},
+    **{x: {"近畿", "関西"} for x in ["滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県"]},
+    **{x: {"中国", "中国・四国"} for x in ["鳥取県", "島根県", "岡山県", "広島県", "山口県"]},
+    **{x: {"四国", "中国・四国"} for x in ["徳島県", "香川県", "愛媛県", "高知県"]},
+    **{x: {"九州"} for x in ["福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県"]},
+    "沖縄県": {"沖縄"}, "沖縄": {"沖縄"},
+}
+
+
+def _parts(regions: str) -> list[str]:
+    return [p.strip() for p in re.split(r"[、,，]", regions or "") if p.strip()]
+
+
+def new_areas(before: str, after: str) -> list[str]:
+    """after 中有、但 before 未涵蓋的地區（縣已被大區涵蓋就不算新）。"""
+    b = set(_parts(before))
+    if "全国" in b:
+        return []
+    out = []
+    for x in _parts(after):
+        if x in b:
+            continue
+        if x in PREF_TO_AREA and (PREF_TO_AREA[x] & b):
+            continue  # 這個縣所屬的大區本來就在販售範圍內
+        out.append(x)  # 新的縣，或新的大區（大區可能只多出部分縣，仍算擴大）
+    return out

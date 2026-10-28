@@ -66,6 +66,10 @@ label.chk{font-size:.86rem;display:flex;gap:4px;align-items:center}
 .chip.st-delisted{background:var(--line);color:var(--muted);border-color:transparent}
 .chip.reg{background:var(--warn-soft);color:var(--warn);border-color:transparent}
 .chip.review{background:var(--warn);color:var(--surface);border-color:transparent}
+.chip.hit{background:var(--jp);color:var(--surface);border-color:transparent}
+.hit-summary{display:flex;flex-wrap:wrap;gap:8px}
+.hit-summary button{font:inherit;font-size:.84rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.hit-summary button b{font-family:var(--f-mono);margin-left:6px;color:var(--jp)}
 .card h3{font-family:var(--f-body);font-size:1rem;font-weight:700;line-height:1.4}
 .card .orig{font-size:.78rem;color:var(--muted);line-height:1.4}
 .card .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
@@ -109,8 +113,10 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
       <div class="scroll"><table id="tbl-price"></table></div>
     </div>
     <div class="panel" style="grid-column:1/-1">
-      <header><h2>聲量與口碑</h2><span class="muted" style="font-size:.78rem">Naver DataLab・もぐナビ</span></header>
-      <div id="signals"></div>
+      <header><h2>熱賣訊號</h2><span class="muted" style="font-size:.78rem">官方新聞稿・地區擴張・聯名監修</span></header>
+      <div class="hit-summary" id="hit-summary"></div>
+      <div class="scroll"><table id="tbl-press"></table></div>
+      <p class="muted" style="font-size:.78rem;margin:0">もぐナビ口碑排行僅供內部研究，存放於 Google Sheet「もぐナビ排行」分頁，不在此公開頁面顯示。</p>
     </div>
   </section>
 
@@ -128,6 +134,7 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
       <select id="f-tag"><option value="">全部標籤</option></select>
       <select id="f-status"><option value="">全部狀態</option><option value="upcoming">即將上市</option><option value="new">新品</option><option value="active">販售中</option><option value="delisted">已下架</option></select>
       <label class="chk"><input type="checkbox" id="f-reg">只看地區限定</label>
+      <label class="chk"><input type="checkbox" id="f-hit">只看有熱賣訊號</label>
       <label class="chk"><input type="checkbox" id="f-rev">只看待確認</label>
     </div>
     <div class="grid" id="grid"></div>
@@ -154,10 +161,10 @@ function parseCSV(text){
 }
 async function load(){
   if(window.EMBED){const E=window.EMBED;
-    return{products:parseCSV(E.products),cats:parseCSV(E.categories),weeklyCat:parseCSV(E.weekly_category),weeklyTags:parseCSV(E.weekly_tags),signals:parseCSV(E.signals),meta:E.meta}}
+    return{products:parseCSV(E.products),cats:parseCSV(E.categories),weeklyCat:parseCSV(E.weekly_category),weeklyTags:parseCSV(E.weekly_tags),signals:parseCSV(E.signals),press:parseCSV(E.press_signals||""),meta:E.meta}}
   const get=n=>fetch("data/"+n,{cache:"no-store"}).then(r=>r.ok?r.text():"");
-  const [p,c,w,t,s,m]=await Promise.all(["products.csv","categories.csv","weekly_category.csv","weekly_tags.csv","signals.csv","meta.json"].map(get));
-  return{products:parseCSV(p),cats:parseCSV(c),weeklyCat:parseCSV(w),weeklyTags:parseCSV(t),signals:parseCSV(s),meta:m?JSON.parse(m):{}};
+  const [p,c,w,t,s,m,ps]=await Promise.all(["products.csv","categories.csv","weekly_category.csv","weekly_tags.csv","signals.csv","meta.json","press_signals.csv"].map(get));
+  return{products:parseCSV(p),cats:parseCSV(c),weeklyCat:parseCSV(w),weeklyTags:parseCSV(t),signals:parseCSV(s),press:parseCSV(ps),meta:m?JSON.parse(m):{}};
 }
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const weekLabel=w=>{if(!w)return"";const [y,n]=w.split("-W");const d=new Date(Date.UTC(+y,0,4));const dow=d.getUTCDay()||7;d.setUTCDate(d.getUTCDate()-dow+1+(n-1)*7);return `${w.slice(5)}（${d.getUTCMonth()+1}/${d.getUTCDate()} 起）`};
@@ -179,7 +186,7 @@ function renderSummary(){
     .map(([n,l])=>`<div><b>${n}</b><span>${l}</span></div>`).join("");
   const notes=[...(m.errors||[])];
   const pending=S.products.filter(p=>!p.category_code).length;
-  if(pending)notes.push(`${pending} 支商品尚未翻譯，暫不顯示；下次執行翻譯後會出現。`);
+  if(pending&&!notes.some(n=>n.includes("待翻譯")))notes.push(`${pending} 支商品尚未翻譯，暫不顯示；下次執行翻譯後會出現。`);
   const chains=new Set(S.products.map(p=>p.chain));
   if(!["cu_kr","gs25_kr","seven_kr","emart24_kr"].some(c=>chains.has(c)))notes.push("韓國來源尚未接上：CU 的資料端點待確認、GS25 官網改版，目前只有日本資料。");
   if(m.sample)notes.push(m.sample);
@@ -231,10 +238,15 @@ function renderPrice(){
 }
 
 function renderSignals(){
-  const el=document.getElementById("signals");
-  if(!S.signals.length){el.innerHTML=`<div class="empty" style="padding:18px;text-align:left"><b style="color:var(--ink)">尚未接上聲量資料</b><br>設定 Naver DataLab 金鑰後，這裡會顯示各標籤在韓國的週搜尋指數；在 Google Sheet 的 sources 分頁登記もぐナビ排行網址後，會顯示日本口碑排名。</div>`;return}
-  const tags=[...new Set(S.signals.filter(s=>s.source==="naver_datalab").map(s=>s.target))];
-  el.innerHTML=`<table><tr><th>標籤</th><th class="num">最新指數</th><th class="num">4 週前</th></tr>${tags.map(t=>{const ss=S.signals.filter(s=>s.target===t&&s.source==="naver_datalab").sort((a,b)=>a.date<b.date?-1:1);const l=ss.at(-1),p=ss.at(-5);return`<tr><td>${esc(t)}</td><td class="num">${l?(+l.value).toFixed(1):"—"}</td><td class="num">${p?(+p.value).toFixed(1):"—"}</td></tr>`}).join("")}</table>`;
+  const f=food();const cnt={};
+  f.forEach(p=>(p.hit_signals||"").split("|").filter(Boolean).forEach(h=>cnt[h]=(cnt[h]||0)+1));
+  const order=["官方公布銷量","熱賣販售休止","再販／復刻","增產／擴大販售","官方第一名","熱賣擴張","聯名／監修"];
+  const keys=Object.keys(cnt).sort((a,b)=>(order.indexOf(a)+99*(order.indexOf(a)<0))-(order.indexOf(b)+99*(order.indexOf(b)<0)));
+  document.getElementById("hit-summary").innerHTML=keys.length?keys.map(k=>`<button data-hit="${esc(k)}">${esc(k)}<b>${cnt[k]}</b></button>`).join(""):
+    `<span class="muted" style="font-size:.86rem">尚無訊號。地區擴張需累積數週資料；官方新聞稿需開啟翻譯後分析。</span>`;
+  const rows=(S.press||[]).filter(r=>r.signal_type&&r.signal_type!=="collab").sort((a,b)=>a.date<b.date?1:-1).slice(0,12);
+  document.getElementById("tbl-press").innerHTML=rows.length?`<tr><th>日期</th><th>超商</th><th>訊號</th><th>對象</th><th>內容</th><th class="num">對應新品</th></tr>`+
+    rows.map(r=>`<tr><td class="mono">${esc(r.date)}</td><td>${esc(CHAIN_ZH[r.chain]||r.chain)}</td><td><span class="chip hit">${esc(r.signal_zh)}</span></td><td style="white-space:normal;min-width:10em">${esc(r.target_ja)}</td><td style="white-space:normal;min-width:14em"><a href="${esc(r.url)}" target="_blank" rel="noopener" style="color:var(--accent)">${esc(r.detail_zh)}${r.number_text?`（${esc(r.number_text)}）`:""}</a></td><td class="num">${(r.matched_keys||"").split("|").filter(Boolean).length||"·"}</td></tr>`).join(""):"";
 }
 
 function fillFilters(){
@@ -249,12 +261,13 @@ function fillFilters(){
 
 function filtered(){
   const v=id=>document.getElementById(id).value;const q=v("q").trim().toLowerCase();
-  const reg=document.getElementById("f-reg").checked,rev=document.getElementById("f-rev").checked;
+  const reg=document.getElementById("f-reg").checked,rev=document.getElementById("f-rev").checked,hit=document.getElementById("f-hit").checked;
   const base=v("f-cat")==="ALCOHOL"?listable():food();
   return base.filter(p=>(!v("f-country")||p.country===v("f-country"))&&(!v("f-chain")||p.chain===v("f-chain"))
     &&(!v("f-week")||p.release_week===v("f-week"))&&(!v("f-cat")||p.category_code===v("f-cat"))
     &&(!v("f-tag")||(p.tags||"").split("|").includes(v("f-tag")))&&(!v("f-status")||p.status===v("f-status"))
-    &&(!reg||p.is_regional==="1")&&(!rev||p.needs_review==="1")
+    &&(!reg||p.is_regional==="1")&&(!rev||p.needs_review==="1")&&(!hit||!!p.hit_signals)
+    &&(!S.hitFilter||(p.hit_signals||"").split("|").includes(S.hitFilter))
     &&(!q||(p.name_zh+" "+p.name_original+" "+p.desc_zh).toLowerCase().includes(q)));
 }
 
@@ -268,7 +281,7 @@ function renderGrid(){
     return`<article class="card">
       <div class="meta"><span class="chip ${region}">${esc(CHAIN_ZH[p.chain]||p.chain)}</span><span class="chip">${esc(catName(p.category_code))}</span>
       ${p.status==="upcoming"||p.status==="delisted"?`<span class="chip st-${p.status}">${STATUS_ZH[p.status]}</span>`:""}
-      ${p.is_regional==="1"?`<span class="chip reg">地區限定</span>`:""}${p.needs_review==="1"?`<span class="chip review">待確認</span>`:""}</div>
+      ${p.is_regional==="1"?`<span class="chip reg">地區限定</span>`:""}${p.needs_review==="1"?`<span class="chip review">待確認</span>`:""}${(p.hit_signals||"").split("|").filter(h=>h&&h!=="聯名／監修").map(h=>`<span class="chip hit">${esc(h)}</span>`).join("")}</div>
       <h3>${esc(p.name_zh||p.name_original)}</h3>
       <div class="orig" lang="${p.country==="KR"?"ko":"ja"}">${esc(p.name_original)}</div>
       <div class="row"><span class="price">${fmtPrice(p.price_tax_incl,p.currency)}</span><span class="muted mono" style="font-size:.78rem">${p.release_date||""} 發售</span></div>
@@ -279,7 +292,9 @@ function renderGrid(){
 }
 
 function bind(){
-  ["q","f-country","f-chain","f-week","f-cat","f-tag","f-status","f-reg","f-rev"].forEach(id=>document.getElementById(id).addEventListener("input",()=>{S.shown=60;renderGrid()}));
+  ["q","f-country","f-chain","f-week","f-cat","f-tag","f-status","f-reg","f-rev","f-hit"].forEach(id=>document.getElementById(id).addEventListener("input",()=>{S.shown=60;S.hitFilter="";renderGrid()}));
+  document.getElementById("hit-summary").addEventListener("click",e=>{const b=e.target.closest("button[data-hit]");if(!b)return;
+    S.hitFilter=b.dataset.hit;S.shown=60;renderGrid();document.querySelector(".filters").scrollIntoView({behavior:"smooth",block:"start"})});
   document.getElementById("more").addEventListener("click",()=>{S.shown+=60;renderGrid()});
   document.addEventListener("click",e=>{const t=e.target.closest(".tag");if(!t)return;
     document.getElementById("f-tag").value=t.dataset.tag;S.shown=60;renderGrid();

@@ -1,0 +1,45 @@
+name: mognavi
+
+# もぐナビ週排行與口碑（內部研究）：每週六 08:17（台灣時間）執行；排行每週五更新。
+# 結果只寫入 Google Sheet（もぐナビ排行／もぐナビ口碑／mognavi_cache），不寫入公開 repo、不寄信。
+on:
+  schedule:
+    - cron: "17 0 * * 6"
+  workflow_dispatch:
+    inputs:
+      translate:
+        description: "用 Gemini 比對官網商品並產生中文口碑摘要"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mognavi
+  cancel-in-progress: false
+
+jobs:
+  mognavi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Run mognavi job
+        env:
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          GCP_PROJECT: ${{ vars.GCP_PROJECT }}
+          GCP_LOCATION: ${{ vars.GCP_LOCATION }}
+          CRAWLER_UA: ${{ vars.CRAWLER_UA }}
+          MOGNAVI_TOP_N: ${{ vars.MOGNAVI_TOP_N }}
+          MOGNAVI_MAX_PRODUCTS: ${{ vars.MOGNAVI_MAX_PRODUCTS }}
+          ENRICH_ENABLED: ${{ github.event_name == 'workflow_dispatch' && (inputs.translate && '1' || '0') || '1' }}
+        run: python -m scraper.mognavi_job

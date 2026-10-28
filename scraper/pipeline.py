@@ -15,10 +15,11 @@ from collections import Counter, defaultdict
 from datetime import date, timedelta
 from pathlib import Path
 
-from .common import fetch, is_regional_jp, today_tw
+from .common import fetch, is_regional_jp, new_areas, today_tw
 from .config_store import ConfigStore
 from .enrich import enrich, load_cache, reclassify_alcohol, save_cache
-from .sources import RAW_FIELDS, cu_kr, familymart_jp, mognavi, naver_datalab, seven_jp
+from .signals import apply_hit_signals, update_press
+from .sources import RAW_FIELDS, cu_kr, familymart_jp, naver_datalab, seven_jp
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -33,7 +34,12 @@ PRODUCT_FIELDS = [
     "category_code", "tags", "price_tax_incl", "currency", "release_date", "release_week",
     "regions", "is_regional", "source_category", "source_url", "first_seen", "last_seen",
     "times_listed", "status", "delisted_date", "lifecycle_days", "confidence", "needs_review",
+    "regions_all", "expansion_count", "last_expanded", "max_expansion_lag", "hit_signals",
 ]
+REGION_HISTORY_FIELDS = ["date", "product_key", "name_original", "first_release", "expanded_release",
+                         "lag_days", "kind", "added_areas", "regions_all_after"]
+# 首發後超過這個天數才擴大販售地區，視為「熱賣擴張」；之內視為原本就規劃好的分批上市
+HIT_EXPANSION_LAG_DAYS = 14
 REVIEW_THRESHOLD = 0.75
 EXCLUDE_FROM_TRENDS = {"NON_FOOD", "ALCOHOL"}
 NEW_WINDOW_DAYS = 28
@@ -91,16 +97,14 @@ def crawl_signals(cfg: ConfigStore, errors: list[str]) -> list[dict]:
             out.extend(naver_datalab.crawl(kw))
     except Exception as e:
         errors.append(f"naver_datalab 失敗：{e}")
-    try:
-        out.extend(mognavi.crawl(cfg.ranking_urls("mognavi_ranking")))
-    except Exception as e:
-        errors.append(f"mognavi 失敗：{e}")
     return out
 
 
 # ---------- 2. 合併商品主檔 ----------
-def merge_products(master: dict[str, dict], raw: list[dict], today: date) -> None:
+def merge_products(master: dict[str, dict], raw: list[dict], today: date) -> list[dict]:
+    """合併到主檔；回傳本次偵測到的「地區擴張」事件。"""
     t = today.isoformat()
+    events = []
     for r in raw:
         key = f"{r['chain']}:{r['item_id']}"
         p = master.get(key)
@@ -114,17 +118,39 @@ def merge_products(master: dict[str, dict], raw: list[dict], today: date) -> Non
                 p[f] = r[f]
         if r.get("price_tax_incl") not in (None, ""):
             p["price_tax_incl"] = str(r["price_tax_incl"])
+        first_release = p.get("release_date") or ""
         # 同一商品在新地區再次上市：保留最早上市日，地區取最新
         if r.get("release_date"):
             if not p["release_date"] or r["release_date"] < p["release_date"]:
                 p["release_date"] = r["release_date"]
         if r.get("regions"):
             p["regions"] = r["regions"]
+            # 地區擴張：累計販售地區出現新的區域（縣限定 → 擴大，通常代表賣得好）
+            if p.get("regions_all"):
+                added = new_areas(p["regions_all"], r["regions"])
+                if added:
+                    p["regions_all"] = p["regions_all"] + "、" + "、".join(added)
+                    lag = ""
+                    if first_release and r.get("release_date"):
+                        lag = (date.fromisoformat(r["release_date"]) - date.fromisoformat(first_release)).days
+                    kind = "熱賣擴張" if lag != "" and lag >= HIT_EXPANSION_LAG_DAYS else "分批上市"
+                    if kind == "熱賣擴張":
+                        p["expansion_count"] = str(int(p.get("expansion_count") or 0) + 1)
+                        p["last_expanded"] = t
+                    if lag != "":
+                        p["max_expansion_lag"] = str(max(int(p.get("max_expansion_lag") or 0), lag))
+                    events.append({"date": t, "product_key": key, "name_original": p["name_original"],
+                                   "first_release": first_release, "expanded_release": r.get("release_date", ""),
+                                   "lag_days": lag, "kind": kind, "added_areas": "、".join(added),
+                                   "regions_all_after": p["regions_all"]})
+            else:
+                p["regions_all"] = r["regions"]
         p["is_regional"] = "1" if (p["country"] == "JP" and is_regional_jp(p["regions"])) else "0"
         p["last_seen"] = t
         p["times_listed"] = str(int(p.get("times_listed") or 0) + 1)
         if p.get("status") == "delisted":  # 又出現在新品頁 → 復活
             p["status"], p["delisted_date"], p["lifecycle_days"] = "", "", ""
+    return events
 
 
 def update_status(master: dict[str, dict], today: date) -> None:
@@ -262,7 +288,12 @@ def run(args) -> int:
 
     # 2. 主檔
     master = {r["product_key"]: r for r in read_csv(DATA / "products.csv")}
-    merge_products(master, raw, today)
+    events = merge_products(master, raw, today)
+    if events:
+        hist = read_csv(DATA / "region_history.csv") + events
+        write_csv(DATA / "region_history.csv", hist, REGION_HISTORY_FIELDS)
+        n_hit = sum(e["kind"] == "熱賣擴張" for e in events)
+        print(f"[signals] 地區擴大 {len(events)} 支（熱賣擴張 {n_hit}、分批上市 {len(events) - n_hit}）")
     update_status(master, today)
 
     # 3. 生命週期
@@ -286,6 +317,11 @@ def run(args) -> int:
     write_csv(DATA / "review_queue.csv", review,
               ["product_key", "name_original", "name_zh", "category_code", "tags", "confidence",
                "reason", "source_url", "added"])
+
+    # 熱賣訊號：官方新聞稿＋地區擴張＋聯名
+    if not args.raw:
+        update_press(list(master.values()), today, errors)
+    apply_hit_signals(list(master.values()))
 
     products = sorted(master.values(), key=lambda p: (p.get("release_date") or "", p["product_key"]),
                       reverse=True)
@@ -314,7 +350,11 @@ def run(args) -> int:
     export_for_mail(products, cats, this_week, DATA / "exports" / f"new_{this_week}.csv")
     export_for_mail(products, cats, this_week, DATA / "exports" / "new_this_week.csv")
     DOCS_DATA.mkdir(parents=True, exist_ok=True)
-    for name in ("products.csv", "weekly_category.csv", "weekly_tags.csv", "signals.csv"):
+    for name in ("press_signals.csv", "region_history.csv"):
+        if not (DATA / name).exists():
+            write_csv(DATA / name, [], [])
+    for name in ("products.csv", "weekly_category.csv", "weekly_tags.csv", "signals.csv",
+                 "press_signals.csv", "region_history.csv"):
         (DOCS_DATA / name).write_bytes((DATA / name).read_bytes())
     (DOCS_DATA / "categories.csv").write_bytes(
         "\n".join([",".join(["category_code", "group_zh", "name_zh", "sort"])] +

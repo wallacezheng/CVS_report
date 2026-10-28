@@ -5,4 +5,5 @@ lawson_jp,product,https://www.lawson.co.jp/recommend/new/,0,2026-10-28 測試回
 cu_kr,product,https://cu.bgfretail.com/product/product.do?category=product&depth2=4,0,AJAX 端點待首次執行確認後再開啟
 gs25_kr,product,https://gs25.gsretail.com/,0,官網改版為單頁應用，待找資料端點
 naver_datalab,signal,https://openapi.naver.com/v1/datalab/search,1,需 NAVER_CLIENT_ID／SECRET
-mognavi_onigiri,mognavi_ranking,,0,填入「コンビニおにぎり」最新排行文章網址後開啟
+mognavi,mognavi_ranking,https://mognavi.jp/brand/2113/ranking,1,內部研究：每週六抓 7-Eleven／全家／Lawson 週排行＋口碑，只寫入 Sheet
+familymart_press,press,https://www.family.co.jp/company/news_releases.html,1,官方新聞稿：擷取累計銷量、再販、熱賣休止等熱賣訊號
