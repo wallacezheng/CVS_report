@@ -14,6 +14,7 @@ import gspread
 
 ROOT = Path(__file__).resolve().parent.parent
 TABS = {
+    "使用手冊": "manual",
     "categories": None, "tags": None, "glossary": None, "overrides": None, "sources": None,
     "review_queue": ["product_key", "name_original", "name_zh", "category_code", "tags",
                      "confidence", "reason", "source_url", "added"],
@@ -55,10 +56,17 @@ except gspread.exceptions.APIError as e:
 except gspread.exceptions.SpreadsheetNotFound:
     fail(f"找不到 Sheet：確認 SHEET_ID 正確，且已共用給 {info.get('client_email')}（編輯者）")
 
+# INIT_TABS：all（全部，會覆蓋）或以逗號分隔的分頁名稱，例如「使用手冊」
+want = os.environ.get("INIT_TABS", "").strip() or "all"
+selected = TABS if want == "all" else {t: TABS[t] for t in [x.strip() for x in want.split(",")] if t in TABS}
+if not selected:
+    fail(f"tabs 填的分頁名稱不認得：{want}。可用：{'、'.join(TABS)}")
+
 existing = {ws.title for ws in sh.worksheets()}
-for tab, header in TABS.items():
-    if header is None:
-        with (ROOT / "config" / f"{tab}.csv").open(encoding="utf-8-sig") as f:
+for tab, header in selected.items():
+    if header is None or isinstance(header, str):
+        name = header if isinstance(header, str) else tab
+        with (ROOT / "config" / f"{name}.csv").open(encoding="utf-8-sig") as f:
             values = list(csv.reader(f))
     else:
         values = [header]
@@ -66,4 +74,12 @@ for tab, header in TABS.items():
     ws.clear()
     ws.update(values, "A1")
     ws.freeze(rows=1)
+    if tab == "使用手冊":
+        ws.format("A1:C1", {"textFormat": {"bold": True}})
+        ws.columns_auto_resize(0, 1)
+        ws.format("C:C", {"wrapStrategy": "WRAP"})
+        try:
+            sh.reorder_worksheets([ws] + [w for w in sh.worksheets() if w.id != ws.id])
+        except Exception:
+            pass
     print(f"{tab}: {len(values) - 1} 列")

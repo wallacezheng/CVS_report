@@ -6,8 +6,12 @@ on:
   workflow_dispatch:
     inputs:
       confirm:
-        description: "輸入 YES 確認（會覆蓋 Sheet 中同名分頁）"
+        description: "輸入 YES 確認（會覆蓋 Sheet 中所選的分頁）"
         required: true
+      tabs:
+        description: "要寫入的分頁：all＝全部；只更新手冊就填「使用手冊」（多個用逗號分隔）"
+        required: true
+        default: "使用手冊"
 
 jobs:
   init:
@@ -23,4 +27,5 @@ jobs:
         env:
           SHEET_ID: ${{ secrets.SHEET_ID }}
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          INIT_TABS: ${{ inputs.tabs }}
         run: python tools/init_sheet.py

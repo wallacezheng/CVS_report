@@ -1,0 +1,53 @@
+章節,項目,說明
+系統概覽,這是什麼,每週自動抓取日本便利商店（7-Eleven、全家）的新品，以 Gemini 翻成繁體中文、分類、加口味標籤，產出 CSV 與儀表板。
+系統概覽,儀表板網址,https://wallacezheng.github.io/CVS_report/
+系統概覽,程式與資料,GitHub：https://github.com/wallacezheng/CVS_report（資料在 data/，儀表板讀 docs/data/）
+系統概覽,這份 Sheet 的角色,主控台：分類表、標籤字典、翻譯術語、人工校正、來源開關、收件名單都在這裡改，下次執行就生效。
+每週流程,自動排程,每週三 07:17 自動爬一次（GitHub Actions 的 crawl）。週三能同時看到 7-Eleven 本週＋下週、全家上週＋本週，不漏商品。
+每週流程,預設只爬不翻,排程只抓資料不翻譯，未翻譯的商品會累積，儀表板頂端會顯示待翻譯數量。
+每週流程,為什麼不能太久不爬,官網只保留前後一週的新品頁，隔超過一週沒爬，那幾週的商品就補不回來。
+手動執行,步驟,GitHub repo → Actions → 左側 crawl → 右側 Run workflow → 選項 → 綠色 Run workflow。約 5～10 分鐘。
+手動執行,translate 選項,勾選＝這次把累積的未翻譯商品一起翻；不勾＝只爬資料。
+手動執行,max_translate 選項,這次最多翻幾支，留空＝200。累積很多時可多跑幾次。
+手動執行,看結果,執行完成後打開儀表板（可能需等 1～2 分鐘 GitHub Pages 更新），或看 repo 的 data/products.csv。
+翻譯與費用,計價方式,翻譯費用只跟「新商品數」有關：每支商品只翻一次，之後讀快取，與爬取頻率無關。
+翻譯與費用,用量紀錄,data/gemini_usage.csv 記錄每次呼叫次數、翻譯支數、token 用量與使用的型號。
+翻譯與費用,上限設定,GitHub → Settings → Secrets and variables → Actions → Variables：MAX_ENRICH_PER_RUN（單次上限，預設 200）、MAX_ENRICH_PER_MONTH（每月上限，預設 2000）。
+翻譯與費用,不送翻譯的商品,非食品（一番賞、周邊、日用品、化妝品）與酒類以規則判定，不花 Gemini 費用。
+翻譯與費用,讓排程也自動翻譯,Variables 新增 AUTO_TRANSLATE＝1。
+翻譯與費用,指定 Gemini 型號,預設自動偵測可用的最新 Flash 型號；要固定型號就在 Variables 設 GEMINI_MODEL。
+翻譯與費用,帳單保險,Google Cloud → 帳單 → 預算與快訊，設定每月上限與提醒信。
+人工校正,review_queue 分頁,AI 信心度低於 0.75 或尚未翻譯的商品會列在這裡（由程式寫入，請勿手動編輯）。
+人工校正,怎麼改,在 overrides 分頁新增一列：product_key（從 review_queue 或儀表板複製）、field、value、note、editor。
+人工校正,可改的欄位,name_zh（中譯品名）、desc_zh（說明）、category_code（分類代碼）、tags（標籤，多個用 | 分隔）
+人工校正,範例,familymart_jp:4795322 | category_code | NON_FOOD | 食玩以卡片為主 | Wallace
+人工校正,效力,校正後的值永遠優先於 AI，之後重新翻譯也不會蓋掉。
+分類與標籤,categories 分頁,分類表。新增分類：加一列並給唯一代碼（英文大寫）。停用：active 改 0。
+分類與標籤,特殊分類,NON_FOOD（非食品，不顯示）、ALCOHOL（酒類，不計入食品趨勢，儀表板可用分類篩選查看）。
+分類與標籤,已翻譯商品要重新分類,在 overrides 逐筆改；或刪除 repo 中 data/enrich_cache.csv 的對應列，下次翻譯時會重跑。
+分類與標籤,tags 分頁,口味／素材標籤字典。新增標籤時填日文、韓文同義詞（用 | 分隔），AI 只會從這份清單選標籤。
+分類與標籤,glossary 分頁,翻譯術語表：原文 → 指定中譯，確保譯名一致（例：おむすび → 飯糰）。
+來源管理,sources 分頁,每個來源一列，enabled＝1 開、0 關。網站壞掉時先關掉，避免每次報錯。
+來源管理,目前可用,7-Eleven 日本（seven_jp）、全家日本（familymart_jp）
+來源管理,待開發,Lawson 日本、CU／GS25 韓國、もぐナビ口碑排行、Naver DataLab 搜尋趨勢
+來源管理,7-Eleven 注意事項,網站有 Imperva 防護，程式必須帶正常的 User-Agent；遇到 403 會自動停止。
+來源管理,使用條款,7-Eleven 條款禁止營利目的使用；目前為內部研究。對外提供或收費前，所有來源需另做合規評估。
+寄信,收件名單,mail_list 分頁：email、name、frequency（weekly／daily）、enabled（1／0）、note。
+寄信,寄送內容,本週新品摘要＋附件 CSV（中文欄位，Excel 可直接開）＋儀表板連結。
+寄信,設定方式,本 Sheet → 擴充功能 → Apps Script，貼上 repo 中 apps_script/Code.gs；在專案設定加指令碼屬性 GITHUB_RAW_BASE、DASHBOARD_URL；先執行 sendTestToMe 測試，再執行 setupTriggers。
+寄信,寄送紀錄,mail_log 分頁（第一次寄信後自動建立）。
+金鑰與帳號,Google Cloud 專案,CVSreport（機構 dsigroup.com.tw）。公司政策禁止 API 金鑰，因此以服務帳號呼叫 Vertex AI。
+金鑰與帳號,服務帳號,cvs-report-bot@cvsreport.iam.gserviceaccount.com；角色：Vertex AI 使用者；本 Sheet 共用為編輯者。
+金鑰與帳號,GitHub Secrets,GOOGLE_SERVICE_ACCOUNT_JSON（服務帳號金鑰全文）、SHEET_ID（本 Sheet 網址 /d/ 與 /edit 之間那串）
+金鑰與帳號,金鑰保管,JSON 金鑰檔等同密碼：只放 GitHub Secrets，不要放進 repo、聊天或 email。外洩時到服務帳號的「金鑰」分頁刪除並重建。
+疑難排解,儀表板頂端「資料狀態」,每次執行的錯誤與提醒都會顯示在這裡，先看這裡。
+疑難排解,某來源 0 筆,網站可能改版或擋連線。repo 的 data/debug/ 會留下收到的頁面，交給工程端判斷。
+疑難排解,Gemini 404,找不到型號：在 Variables 設 GEMINI_MODEL 為可用型號（Vertex AI → Model Garden 查詢）。
+疑難排解,Gemini 403,服務帳號缺少 Vertex AI 使用者角色，或專案未啟用 Vertex AI API、未綁定帳單。
+疑難排解,讀不到 Sheet,確認 Sheet 已共用給服務帳號（編輯者），且專案已啟用 Google Sheets API 與 Google Drive API。
+疑難排解,更新本手冊,修改 repo 中 config/manual.csv，再到 Actions → init-sheet 執行，tabs 填「使用手冊」。
+檔案說明,data/products.csv,商品主檔：一商品一列，含首次／最後出現日、狀態、下架日、生命週期天數。
+檔案說明,data/weekly_category.csv,週 × 超商 × 分類的新品數與價格。
+檔案說明,data/weekly_tags.csv,週 × 標籤的出現支數。
+檔案說明,data/exports/new_this_week.csv,本週新品中文版（寄信附件）。
+檔案說明,data/raw/,每次爬取的原始資料，供回溯與除錯。
