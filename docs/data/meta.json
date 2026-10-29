@@ -1,18 +1,18 @@
 {
- "updated_at": "2026-10-28",
+ "updated_at": "2026-10-29",
  "this_week": "2026-W44",
- "product_count": 787,
- "review_count": 361,
+ "product_count": 790,
+ "review_count": 163,
  "errors": [
-  "本次未開啟翻譯，359 支商品待翻譯（手動執行時勾選翻譯即可補上）"
+  "翻譯額度：本次上限 200 支（本月已用 200/2000），161 支留待下次"
  ],
  "sources": {
-  "seven_jp": "1",
-  "familymart_jp": "1",
-  "lawson_jp": "0",
-  "cu_kr": "0",
-  "gs25_kr": "0",
-  "naver_datalab": "1",
-  "mognavi_onigiri": "0"
+  "seven_jp": 1,
+  "familymart_jp": 1,
+  "lawson_jp": 0,
+  "cu_kr": 0,
+  "gs25_kr": 0,
+  "naver_datalab": 1,
+  "mognavi_onigiri": 0
  }
 }
