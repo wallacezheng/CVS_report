@@ -1,10 +1,8 @@
 name: mognavi
 
-# もぐナビ週排行與口碑（內部研究）：每週六 08:17（台灣時間）執行；排行每週五更新。
-# 結果只寫入 Google Sheet（もぐナビ排行／もぐナビ口碑／mognavi_cache），不寫入公開 repo、不寄信。
+# もぐナビ週排行與口碑（內部研究）。結果只寫入 Google Sheet，不寫入公開 repo、不寄信。
+# 2026-10-29 起もぐナビ對本程式回應 403（第一次執行後被封鎖），已停用自動排程；不做繞過。
 on:
-  schedule:
-    - cron: "17 0 * * 6"
   workflow_dispatch:
     inputs:
       translate:

@@ -113,7 +113,7 @@ def main() -> int:
     if sh is None:
         print("::error::もぐナビ資料只寫入 Google Sheet，需設定 SHEET_ID 與 GOOGLE_SERVICE_ACCOUNT_JSON")
         return 1
-    if not cfg.source_enabled("mognavi", default=True):
+    if not cfg.source_enabled("mognavi", default=False):
         print("sources 分頁中 mognavi 已停用，略過")
         return 0
     today = today_tw()
