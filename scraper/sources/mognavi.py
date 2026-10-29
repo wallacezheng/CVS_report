@@ -35,6 +35,7 @@ PRODUCT_RE = re.compile(r"/product/(\d+)")
 ASSESS_RE = re.compile(r"/assessment/(\d+)")
 
 _last = 0.0
+DIAG: list[str] = []  # 每個排行頁的診斷摘要，由 job 寫成 GitHub 註記
 
 
 def _get(url: str):
@@ -186,13 +187,26 @@ def crawl(brands: dict[str, tuple[str, str]] | None = None, top_n: int = 5,
     known = known or {}
     today = today_tw()
     ranks: list[dict] = []
+    DIAG.clear()
     for chain, (_label, brand_id) in brands.items():
         for rtype in RANKING_TYPES:
             resp = _get(f"{BASE}/brand/{brand_id}/ranking/{rtype}")
-            print(f"[mognavi] brand {brand_id} ranking/{rtype} status={resp.status_code} bytes={len(resp.content)}")
+            all_rows = parse_ranking(resp.text, chain, rtype) if resp.status_code == 200 else []
+            soup = BeautifulSoup(resp.text, "html.parser")
+            title = normalize_space(soup.title.get_text()) if soup.title else ""
+            n_links = len(PRODUCT_RE.findall(resp.text))
+            ranks_seen = sorted({r["rank"] for r in all_rows})[:8]
+            sections = list(dict.fromkeys(r["section"] for r in all_rows))[:3]
+            msg = (f"{chain} ranking/{rtype}: status={resp.status_code} bytes={len(resp.content)} "
+                   f"title={title[:40]} product_links={n_links} parsed={len(all_rows)} "
+                   f"ranks={ranks_seen} sections={sections}")
+            print(f"[mognavi] {msg}")
+            DIAG.append(msg)
+            if resp.status_code in (403, 429, 503):
+                raise RuntimeError(f"もぐナビ回應 {resp.status_code}（可能被擋），已停止。{msg}")
             if resp.status_code != 200:
                 continue
-            got = [r for r in parse_ranking(resp.text, chain, rtype) if r["rank"] <= top_n]
+            got = [r for r in all_rows if r["rank"] <= top_n]
             for r in got:
                 r["name_ja"] = clean_product_name(r["name_ja"])
             ranks.extend(got)

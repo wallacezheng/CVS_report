@@ -127,9 +127,17 @@ def main() -> int:
     for pid, c in cache.items():
         known[pid] = {**c, "reviews": json.loads(c.get("reviews_json") or "[]")}
 
-    ranks, details = mognavi.crawl(top_n=top_n, max_products=max_products, known=known)
+    try:
+        ranks, details = mognavi.crawl(top_n=top_n, max_products=max_products, known=known)
+    except RuntimeError as e:
+        print(f"::error::{e}")
+        return 1
+    for d in mognavi.DIAG:
+        print(f"::notice::{d}")
     if not ranks:
-        print("::warning::もぐナビ排行抓到 0 列，可能被擋或網站改版")
+        # 抓不到就不要動 Sheet，避免把本週已有的資料清空
+        print("::warning::もぐナビ排行抓到 0 列，Sheet 未變更（見上方各頁診斷）")
+        return 1
 
     chain_of = {}
     for r in ranks:
