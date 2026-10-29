@@ -27,7 +27,7 @@ NOTE = "內部研究・不寄信"
 CHAIN_PREFIX = {"seven_jp": "セブン-イレブン", "familymart_jp": "ファミリーマート", "lawson_jp": "ローソン"}
 CACHE_FIELDS = ["mognavi_id", "chain", "name_ja", "release_date", "tabetai", "avg_score", "review_count",
                 "fetched_at", "reviews_json", "matched_key", "match_confidence", "name_zh", "summary_zh",
-                "sentiment", "summarized_review_count", "summarized_at"]
+                "sentiment", "summarized_review_count", "summarized_at", "parser_version", "summarized_version"]
 RANK_HEADER = ["週次", "抓取日", "超商", "排行類型", "品類", "名次", "もぐナビ商品名", "中譯", "對應商品key",
                "對應信心", "分數(7分制)", "口碑數", "食べたい數", "發售日", "口碑摘要", "評價傾向", "網址", "備註"]
 REVIEW_HEADER = ["review_id", "mognavi_id", "商品名", "日期", "內容（原文摘錄）", "抓取日"]
@@ -142,6 +142,7 @@ def main() -> int:
             "release_date": d.get("release_date", ""), "tabetai": d.get("tabetai", ""),
             "avg_score": d.get("avg_score", ""), "review_count": d.get("review_count", ""),
             "fetched_at": d.get("fetched_at", ""),
+            "parser_version": d.get("parser_version", c.get("parser_version", "")),
             "reviews_json": json.dumps(d.get("reviews", []), ensure_ascii=False),
         })
         if not c["name_ja"]:
@@ -152,7 +153,8 @@ def main() -> int:
     with (ROOT / "data" / "products.csv").open(encoding="utf-8") as f:
         products = [p for p in csv.DictReader(f) if p.get("country") == "JP"]
     todo = [c for c in cache.values() if c["mognavi_id"] in details and
-            (not c.get("summarized_at") or c.get("summarized_review_count") != c.get("review_count"))]
+            (not c.get("summarized_at") or c.get("summarized_review_count") != c.get("review_count")
+             or c.get("summarized_version") != mognavi.PARSER_VERSION)]
     errors = []
     if todo and os.environ.get("ENRICH_ENABLED", "1") != "0" and gemini_mode():
         try:
@@ -171,6 +173,7 @@ def main() -> int:
                     c["sentiment"] = f"{float(r.get('sentiment') or 0):.2f}"
                     c["summarized_review_count"] = c.get("review_count", "")
                     c["summarized_at"] = today.isoformat()
+                    c["summarized_version"] = mognavi.PARSER_VERSION
         except Exception as e:
             errors.append(f"Gemini：{e}")
     print(f"[mognavi] Gemini 比對／摘要 {len(todo)} 筆待處理；錯誤：{errors or '無'}")
@@ -189,14 +192,24 @@ def main() -> int:
     keep = [[o.get(h, "") for h in RANK_HEADER] for o in old if str(o.get("週次")) != week]
     write_tab(sh, "もぐナビ排行", RANK_HEADER, keep + rank_rows)
 
-    seen_reviews = {str(r.get("review_id")) for r in read_tab(sh, "もぐナビ口碑")}
-    new_reviews = []
+    # 口碑分頁：舊資料＋本次資料合併後整頁重寫（以 review_id 去重，本次重新解析的覆蓋舊的）
+    merged: dict[str, list] = {}
+    refetched = {pid for pid, d in details.items() if d.get("fetched_at") == today.isoformat()}
+    for o in read_tab(sh, "もぐナビ口碑"):
+        rid, pid = str(o.get("review_id", "")), str(o.get("mognavi_id", ""))
+        if pid in refetched or len(rid) < 5 or not str(o.get("內容（原文摘錄）", "")).strip():
+            continue  # 重新抓過的商品以新結果為準；舊的錯誤列（年份 ID、空白內容）一併清掉
+        merged[rid] = [o.get(h, "") for h in REVIEW_HEADER]
+    new_count = 0
     for pid, d in details.items():
         for rv in d.get("reviews", []):
-            if str(rv["review_id"]) not in seen_reviews:
-                new_reviews.append([rv["review_id"], pid, cache.get(pid, {}).get("name_ja", ""),
-                                    rv.get("date", ""), rv.get("text", ""), today.isoformat()])
-    write_tab(sh, "もぐナビ口碑", REVIEW_HEADER, new_reviews, mode="append")
+            rid = str(rv["review_id"])
+            new_count += rid not in merged
+            merged[rid] = [rid, pid, cache.get(pid, {}).get("name_ja", ""),
+                           rv.get("date", ""), rv.get("text", ""), today.isoformat()]
+    rows = sorted(merged.values(), key=lambda r: (str(r[1]), str(r[3])), reverse=True)
+    write_tab(sh, "もぐナビ口碑", REVIEW_HEADER, rows)
+    new_reviews = [None] * new_count
     write_tab(sh, "mognavi_cache", CACHE_FIELDS, [[c.get(f, "") for f in CACHE_FIELDS] for c in cache.values()])
 
     print(f"[mognavi] 寫入 Sheet：排行 {len(rank_rows)} 列、新口碑 {len(new_reviews)} 則、快取 {len(cache)} 筆")

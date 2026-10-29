@@ -63,9 +63,44 @@ def _container(a: Tag, pattern: re.Pattern) -> Tag:
     return node
 
 
+PARSER_VERSION = "2"  # 解析規則改版時遞增，快取中舊版的商品頁會重新抓取與摘要
+RANK_HEAD_RE = re.compile(r"^第\s*\d+\s*位")
+
+
 def _heading_before(el: Tag) -> str:
-    h = el.find_previous(["h2", "h3", "h4"])
-    return normalize_space(h.get_text()) if h else ""
+    """找所屬的品類標題（例：「コンビニおにぎり・コンビニ手巻寿司部門」）。
+
+    排行頁的每個商品名稱本身也是標題（「第4位 セブン-イレブン …」），要跳過。
+    """
+    fallback = ""
+    for h in el.find_all_previous(["h2", "h3", "h4"]):
+        t = normalize_space(h.get_text())
+        if not t or RANK_HEAD_RE.match(t) or "の商品情報" in t or PRODUCT_RE.search(str(h)):
+            continue
+        if "部門" in t:
+            return re.sub(r"\s*(週間|月間)?(おすすめ|食べたい)?ランキング.*$", "", t)
+        fallback = fallback or t
+    return fallback
+
+
+_NOISE_RE = re.compile(r"^(画像提供者|メーカー|製造者)")
+_REVIEW_HEAD_RE = re.compile(
+    r"^(?:ピックアップクチコミ\s*)?"            # 精選標記
+    r"(?:\S{1,30}?\s*さん)\s*"               # 投稿者名稱（不保存）
+    r"(?:\d{1,2}\s+)?")                       # 評分（7 分制）
+
+
+def clean_review(text: str) -> str:
+    t = re.sub(r"続きを読む.*$", "", text)
+    t = re.sub(r"\d{4}/\d{1,2}/\d{1,2}(\s*\d{1,2}:\d{2})?", " ", t)
+    t = normalize_space(t)
+    t = _REVIEW_HEAD_RE.sub("", t, count=1)
+    return t.strip()
+
+
+def clean_product_name(name: str) -> str:
+    m = re.match(r"^「(.+)」の商品情報$", name.strip())
+    return m.group(1) if m else name.strip()
 
 
 def _num(pattern: str, text: str):
@@ -110,25 +145,31 @@ def parse_product(html: str, pid: str, max_reviews: int = 5) -> dict:
     soup = BeautifulSoup(html, "html.parser")
     full = normalize_space(soup.get_text(" "))
     h1 = soup.find("h1")
-    rel = re.search(r"発売日[：:\s]*(\d{4})/(\d{1,2})/(\d{1,2})", full)
-    reviews, seen = [], set()
+    rel = re.search(r"発売日[：:\s]*(\d{4})[/年.-](\d{1,2})[/月.-](\d{1,2})", full)
+    # 同一則口碑可能有多個連結（標題、續きを読む），各自取區塊後選內文最完整的那個
+    best: dict[str, dict] = {}
+    order: list[str] = []
     for a in soup.find_all("a", href=ASSESS_RE):
         rid = ASSESS_RE.search(a["href"]).group(1)
-        if rid in seen:
+        if len(rid) < 5:  # 年份之類的非口碑連結
             continue
-        seen.add(rid)
-        box = _container(a, ASSESS_RE)
-        text = normalize_space(box.get_text(" "))
+        text = normalize_space(_container(a, ASSESS_RE).get_text(" "))
+        if _NOISE_RE.match(text):
+            continue
+        body = clean_review(text)
+        if len(body) < 8 or _NOISE_RE.match(body) or re.fullmatch(r"「.*」の?クチコミ", body):
+            continue
         date = re.search(r"(\d{4}/\d{1,2}/\d{1,2})", text)
-        body = re.sub(r"続きを読む.*$", "", text)
-        body = re.sub(r"^.*?\d{4}/\d{1,2}/\d{1,2}\s*\d{1,2}:\d{2}\s*", "", body)
-        reviews.append({"review_id": rid, "date": date.group(1) if date else "",
-                        "text": body[:400]})
-        if len(reviews) >= max_reviews:
-            break
+        cand = {"review_id": rid, "date": date.group(1) if date else "", "text": body[:400]}
+        if rid not in best:
+            order.append(rid)
+            best[rid] = cand
+        elif (bool(cand["date"]), len(cand["text"])) > (bool(best[rid]["date"]), len(best[rid]["text"])):
+            best[rid] = cand
+    reviews = [best[r] for r in order][:max_reviews]
     return {
         "mognavi_id": pid,
-        "name_ja": normalize_space(h1.get_text()) if h1 else "",
+        "name_ja": clean_product_name(normalize_space(h1.get_text())) if h1 else "",
         "release_date": f"{rel.group(1)}-{int(rel.group(2)):02d}-{int(rel.group(3)):02d}" if rel else "",
         "tabetai": _num(r"食べたい\D{0,6}?(\d[\d,]*)", full),
         "avg_score": _num(r"(\d\.\d)\s*(?:点|/\s*7)", full),
@@ -152,6 +193,8 @@ def crawl(brands: dict[str, tuple[str, str]] | None = None, top_n: int = 5,
             if resp.status_code != 200:
                 continue
             got = [r for r in parse_ranking(resp.text, chain, rtype) if r["rank"] <= top_n]
+            for r in got:
+                r["name_ja"] = clean_product_name(r["name_ja"])
             ranks.extend(got)
     for r in ranks:
         r["crawled_at"] = today.isoformat()
@@ -160,7 +203,7 @@ def crawl(brands: dict[str, tuple[str, str]] | None = None, top_n: int = 5,
     todo = []
     for pid in dict.fromkeys(r["mognavi_id"] for r in ranks):
         k = known.get(pid)
-        if k and k.get("fetched_at") and \
+        if k and k.get("fetched_at") and k.get("parser_version") == PARSER_VERSION and \
                 (today - date.fromisoformat(k["fetched_at"])).days < refresh_days:
             details[pid] = k
         else:
@@ -172,6 +215,7 @@ def crawl(brands: dict[str, tuple[str, str]] | None = None, top_n: int = 5,
             continue
         d = parse_product(resp.text, pid, max_reviews)
         d["fetched_at"] = today.isoformat()
+        d["parser_version"] = PARSER_VERSION
         details[pid] = d
     print(f"[mognavi] 排行 {len(ranks)} 列、商品頁新抓 {min(len(todo), max_products)} 筆、沿用 {len(details) - min(len(todo), max_products)} 筆")
     return ranks, details
