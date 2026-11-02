@@ -1,6 +1,7 @@
 """來源試探：對指定網址各送一次 GET，記錄狀態碼並把回應存到 data/probe/，供工程端研究頁面結構。
 
 用法（GitHub Actions → probe → Run workflow）：urls 填一個或多個網址，以空白或換行分隔，最多 10 個。
+要送 POST（例如 AJAX 清單端點），寫成 POST:網址|參數1=值&參數2=值。
 請求間隔沿用 REQUEST_INTERVAL（預設 3 秒），只抓指定網址，不跟隨頁面上的連結。
 """
 from __future__ import annotations
@@ -26,7 +27,8 @@ def slug(url: str) -> str:
 
 
 def main() -> int:
-    urls = [u for u in re.split(r"\s+", os.environ.get("PROBE_URLS", "")) if u.startswith("http")][:MAX_URLS]
+    urls = [u for u in re.split(r"\s+", os.environ.get("PROBE_URLS", ""))
+            if u.startswith("http") or u.startswith("POST:http")][:MAX_URLS]
     if not urls:
         print("::error::沒有網址")
         return 1
@@ -34,7 +36,12 @@ def main() -> int:
     lines = []
     for u in urls:
         try:
-            r = fetch(u, retries=0)
+            if u.startswith("POST:"):
+                target, _, qs = u[5:].partition("|")
+                data = dict(p.split("=", 1) for p in qs.split("&") if "=" in p)
+                r = fetch(target, method="POST", data=data, retries=0)
+            else:
+                r = fetch(u, retries=0)
             ext = ".json" if "json" in r.headers.get("content-type", "") else ".html"
             path = OUT / (slug(u) + ext)
             path.write_bytes(r.content[:3_000_000])
