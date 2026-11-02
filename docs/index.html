@@ -1,13 +1,19 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>日韓超商新品雷達</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* 版面：頂部週次摘要 → 三個趨勢面板 → 可篩選的新品牆；像一份每週上架單 */
+/* 版面：密碼鎖 → 頂部（標題＋國家切換）→ 頁籤（新品總覽／熱賣訊號／もぐナビ口碑）→ 各頁內容。頁籤與國家可持續擴充 */
 :root{
   --bg:#f6f6f2; --surface:#ffffff; --ink:#1d2228; --muted:#69707a; --line:#dfe0da;
   --accent:#2b4c7e; --accent-soft:#e3e9f3;
   --jp:#b0413e; --kr:#2f6f5e; --warn:#a15c00; --warn-soft:#fbefdc;
+  --good:#2f6f5e; --good-soft:#e2f0eb; --bad:#b0413e; --bad-soft:#f6e3e2; --anno:#d23c3c;
   --heat0:#f0f1ec; --heat1:#d9e1ee; --heat2:#a9bcd9; --heat3:#6d8bbb; --heat4:#2b4c7e;
   --f-display:"Zen Kaku Gothic New","Noto Sans TC",system-ui,sans-serif;
   --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
@@ -16,28 +22,75 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#15181c; --surface:#1d2127; --ink:#e7e8e4; --muted:#9aa1ab; --line:#2f343b;
   --accent:#8fb0e3; --accent-soft:#25324a; --jp:#e08480; --kr:#7cc3ad; --warn:#e7a54a; --warn-soft:#3a2c17;
+  --good:#7cc3ad; --good-soft:#1d3530; --bad:#e08480; --bad-soft:#3a2224; --anno:#ff6b6b;
   --heat0:#22262c; --heat1:#25324a; --heat2:#34507c; --heat3:#5578b0; --heat4:#8fb0e3; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#15181c; --surface:#1d2127; --ink:#e7e8e4; --muted:#9aa1ab; --line:#2f343b;
   --accent:#8fb0e3; --accent-soft:#25324a; --jp:#e08480; --kr:#7cc3ad; --warn:#e7a54a; --warn-soft:#3a2c17;
+  --good:#7cc3ad; --good-soft:#1d3530; --bad:#e08480; --bad-soft:#3a2224; --anno:#ff6b6b;
   --heat0:#22262c; --heat1:#25324a; --heat2:#34507c; --heat3:#5578b0; --heat4:#8fb0e3; color-scheme:dark}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
-.wrap{max-width:1180px;margin:0 auto;display:grid;gap:28px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:22px}
 h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance}
 h1{font-size:1.75rem;letter-spacing:.01em}
 h2{font-size:1.05rem}
 .eyebrow{font-size:.75rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
 .mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 .muted{color:var(--muted)}
-header.top{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:end;justify-content:space-between;border-bottom:2px solid var(--ink);padding-bottom:14px}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* 密碼鎖 */
+.lock{min-height:80vh;display:grid;place-items:center}
+.lock form{width:min(400px,100%);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:28px;display:grid;gap:14px}
+.lock h1{font-size:1.5rem}
+.lock input{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);width:100%}
+.lock button{font:inherit;font-weight:700;padding:10px;border-radius:6px;border:0;background:var(--accent);color:var(--surface);cursor:pointer}
+.lock button:disabled{opacity:.6;cursor:wait}
+.lock .err{color:var(--bad);font-size:.85rem;min-height:1.2em;margin:0}
+
+/* 頂部、國家切換、頁籤 */
+header.top{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:end;justify-content:space-between}
+.top-r{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface)}
+.seg button{font:inherit;font-size:.86rem;border:0;background:transparent;color:var(--muted);padding:5px 14px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.seg button:disabled{cursor:not-allowed;opacity:.55}
+.seg small{font-size:.7rem;margin-left:4px}
+.logout{font:inherit;font-size:.8rem;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:5px 12px;cursor:pointer}
+nav.tabs{display:flex;gap:4px;border-bottom:2px solid var(--ink);overflow-x:auto;scrollbar-width:none}
+nav.tabs button{font:inherit;font-family:var(--f-display);font-weight:700;font-size:.95rem;border:0;background:transparent;color:var(--muted);
+  padding:10px 16px 9px;border-radius:6px 6px 0 0;cursor:pointer;white-space:nowrap;position:relative;top:2px;border-bottom:2px solid transparent}
+nav.tabs button[aria-selected="true"]{color:var(--ink);background:var(--surface);border:1px solid var(--line);border-bottom:2px solid var(--surface)}
+nav.tabs .lk{font-size:.75rem;margin-left:4px}
+.tabpanel{display:grid;gap:22px}
+
 .summary{display:flex;flex-wrap:wrap;gap:8px 28px}
 .summary div{display:grid}
 .summary b{font-family:var(--f-mono);font-size:1.5rem;font-weight:500;font-variant-numeric:tabular-nums}
 .summary span{font-size:.8rem;color:var(--muted)}
-.notice{background:var(--warn-soft);color:var(--ink);border-left:3px solid var(--warn);padding:10px 14px;font-size:.88rem;border-radius:2px}
-.notice ul{margin:4px 0 0;padding-left:18px}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px}
+
+/* 風琴夾 */
+.accs{display:grid;border:1px solid var(--line);border-radius:6px;background:var(--surface);overflow:hidden}
+.acc + .acc{border-top:1px solid var(--line)}
+.acc > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:12px 16px 12px 40px;position:relative;user-select:none;color:var(--ink);font-size:inherit}
+.acc > summary::-webkit-details-marker{display:none}
+.acc > summary::before{content:"";position:absolute;left:18px;top:50%;width:7px;height:7px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:translateY(-70%) rotate(-45deg);transition:transform .15s}
+.acc[open] > summary::before{transform:translateY(-50%) rotate(45deg)}
+.acc > summary:hover{background:var(--bg)}
+.acc-t{font-family:var(--f-display);font-weight:700;font-size:.95rem}
+.acc-s{font-size:.8rem;color:var(--muted)}
+.acc-warn .acc-t{color:var(--warn)}
+.acc-warn[open]{background:var(--warn-soft)}
+.acc-body{padding:4px 18px 18px;font-size:.86rem;display:grid;gap:12px;color:var(--ink)}
+.acc-body ul{margin:0;padding-left:20px}
+
+/* 面板、圖表、表格 */
 .panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px;display:grid;gap:12px;min-width:0;align-content:start}
 .panel header{display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap}
@@ -51,13 +104,14 @@ th{font-weight:500;color:var(--muted);font-size:.75rem}
 td.num,th.num{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 .heat td.cell{text-align:center;font-family:var(--f-mono);min-width:44px}
 .delta-up{color:var(--jp)} .delta-down{color:var(--kr)}
+
+/* 篩選與商品卡 */
 .filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding-block:10px;z-index:5;border-bottom:1px solid var(--line)}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
 select,input[type=search]{font:inherit;font-size:.86rem;padding:6px 8px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--ink)}
 input[type=search]{flex:1 1 180px;min-width:0}
 label.chk{font-size:.86rem;display:flex;gap:4px;align-items:center}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.grid.wide{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:grid;gap:6px;align-content:start;min-width:0}
 .card .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.74rem}
 .chip{border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--muted);white-space:nowrap}
@@ -67,96 +121,244 @@ label.chk{font-size:.86rem;display:flex;gap:4px;align-items:center}
 .chip.reg{background:var(--warn-soft);color:var(--warn);border-color:transparent}
 .chip.review{background:var(--warn);color:var(--surface);border-color:transparent}
 .chip.hit{background:var(--jp);color:var(--surface);border-color:transparent}
-.hit-summary{display:flex;flex-wrap:wrap;gap:8px}
-.hit-summary button{font:inherit;font-size:.84rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
-.hit-summary button b{font-family:var(--f-mono);margin-left:6px;color:var(--jp)}
+.chip.rank{background:var(--accent-soft);color:var(--accent);border-color:transparent;white-space:normal}
+.chip.match{background:var(--good-soft);color:var(--good);border-color:transparent}
 .card h3{font-family:var(--f-body);font-size:1rem;font-weight:700;line-height:1.4}
 .card .orig{font-size:.78rem;color:var(--muted);line-height:1.4}
 .card .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .price{font-family:var(--f-mono);font-size:.95rem}
 .tags{display:flex;flex-wrap:wrap;gap:4px}
 .tag{font-size:.72rem;background:var(--accent-soft);color:var(--accent);padding:1px 7px;border-radius:3px;cursor:pointer;border:0;font-family:inherit}
-details{font-size:.8rem;color:var(--muted)}
-details summary{cursor:pointer}
-details a{color:var(--accent)}
-.ilink{font-size:.8rem;padding:5px 12px;border-radius:999px;border:1px solid var(--warn);color:var(--warn);text-decoration:none;background:var(--warn-soft)}
-.ilink:hover{text-decoration:underline}
-.empty{padding:28px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:6px}
+.card details{font-size:.8rem;color:var(--muted)}
+.card details summary{cursor:pointer;color:var(--accent)}
+.hit-summary{display:flex;flex-wrap:wrap;gap:8px}
+.hit-summary button{font:inherit;font-size:.84rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.hit-summary button[aria-pressed="true"]{border-color:var(--jp);background:var(--bad-soft)}
+.hit-summary button b{font-family:var(--f-mono);margin-left:6px;color:var(--jp)}
+.empty{padding:28px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:6px;grid-column:1/-1}
 .more{justify-self:center;font:inherit;padding:8px 18px;border-radius:4px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
+
+/* もぐナビ卡片 */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;border-block:1px solid var(--line);padding:8px 0}
+.stats div{display:grid;text-align:center}
+.stats b{font-family:var(--f-mono);font-size:1.05rem;font-weight:500}
+.stats span{font-size:.72rem;color:var(--muted)}
+.summ{font-size:.88rem;background:var(--bg);border-radius:4px;padding:8px 10px}
+.summ .good{color:var(--good);font-weight:500}.summ .bad{color:var(--bad);font-weight:500}
+.senti{display:flex;align-items:center;gap:8px;font-size:.74rem;color:var(--muted)}
+.bar{flex:1;height:6px;background:var(--line);border-radius:3px;position:relative;overflow:hidden}
+.bar i{position:absolute;top:0;bottom:0}
+.rv{border-left:2px solid var(--line);padding:2px 0 2px 10px;margin:8px 0;color:var(--ink)}
+.rv .d{font-size:.72rem;color:var(--muted);font-family:var(--f-mono)}
+
+/* 「怎麼看這張卡」紅框標註 */
+.stage{position:relative;display:grid;grid-template-columns:1fr minmax(300px,360px) 1fr;gap:20px 64px;align-items:stretch}
+.stage .card{align-self:start;margin-top:8px}
+.stage .card a,.stage .card details{pointer-events:none}
+.co-col{display:flex;flex-direction:column;justify-content:space-around;gap:10px;position:relative;z-index:2}
+.co{border:1px solid var(--anno);border-radius:5px;padding:7px 10px;font-size:.8rem;line-height:1.45;background:var(--surface)}
+.co b{color:var(--anno);font-size:.86rem}
+.co .n{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--anno);color:#fff;font:700 .68rem var(--f-mono);margin-right:6px;vertical-align:1px}
+.co .tip{display:block;color:var(--muted);margin-top:2px}
+#guide-lines{position:absolute;inset:0;pointer-events:none;z-index:3;overflow:visible}
+.combo{width:100%;border-collapse:collapse;font-size:.84rem}
+.combo th,.combo td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;white-space:normal}
+.combo td:first-child{white-space:nowrap;font-weight:500}
+
 footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
-@media (max-width:520px){h1{font-size:1.4rem}.summary b{font-size:1.25rem}}
+@media (max-width:760px){
+  .stage{grid-template-columns:1fr;gap:12px}
+  #guide-card{order:-1;padding:10px 0 0 10px}
+  .stage .card{margin-top:0}
+  .co-col{display:contents}
+  .co[data-n="1"]{order:1}.co[data-n="2"]{order:2}.co[data-n="3"]{order:3}.co[data-n="4"]{order:4}.co[data-n="5"]{order:5}
+  .co[data-n="6"]{order:6}.co[data-n="7"]{order:7}.co[data-n="8"]{order:8}.co[data-n="9"]{order:9}.co[data-n="10"]{order:10}
+}
+@media (max-width:520px){h1{font-size:1.4rem}.summary b{font-size:1.25rem}nav.tabs button{padding:9px 11px 8px;font-size:.88rem}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
+</head>
+<body>
 
-<div class="wrap">
+<!-- 密碼鎖 -->
+<div class="lock" id="lock" hidden>
+  <form id="lock-form" autocomplete="on">
+    <div class="eyebrow">DSR｜智慧數據整合研究部</div>
+    <h1>日韓超商新品雷達</h1>
+    <p class="muted" style="margin:0;font-size:.88rem">內部研究用，請輸入密碼。</p>
+    <input type="text" name="username" value="dsr" autocomplete="username" hidden>
+    <input type="password" id="pw" name="password" placeholder="密碼" autocomplete="current-password" required>
+    <button type="submit" id="pw-btn">進入</button>
+    <p class="err" id="pw-err" role="alert"></p>
+    <p class="muted" style="margin:0;font-size:.76rem">密碼只在你的瀏覽器裡用來解密資料，不會傳送到任何伺服器。關閉分頁後需重新輸入。</p>
+  </form>
+</div>
+
+<div class="wrap" id="app" hidden>
   <header class="top">
     <div>
       <div class="eyebrow">DSR｜日韓便利商店食品情報</div>
       <h1>日韓超商新品雷達</h1>
       <div class="muted" id="updated" style="font-size:.85rem"></div>
     </div>
-    <div style="display:grid;gap:10px;justify-items:end">
-      <div class="summary" id="summary"></div>
-      <div id="internal-links" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+    <div class="top-r">
+      <div class="seg" role="group" aria-label="國家">
+        <button type="button" data-country="JP" aria-pressed="true">日本</button>
+        <button type="button" data-country="KR" aria-pressed="false" disabled title="韓國資料尚未接上">韓國<small>準備中</small></button>
+      </div>
+      <button type="button" class="logout" id="logout" hidden>登出</button>
     </div>
   </header>
 
-  <div class="notice" id="notice" hidden></div>
+  <nav class="tabs" role="tablist" aria-label="頁面">
+    <button type="button" role="tab" id="t-new" aria-controls="p-new" data-tab="new">新品總覽</button>
+    <button type="button" role="tab" id="t-hits" aria-controls="p-hits" data-tab="hits">熱賣訊號</button>
+    <button type="button" role="tab" id="t-mognavi" aria-controls="p-mognavi" data-tab="mognavi">もぐナビ口碑<span class="lk">🔒</span></button>
+  </nav>
 
-  <section class="panels">
-    <div class="panel">
-      <header><h2>各分類新品數</h2><span class="muted" style="font-size:.78rem">依發售週</span></header>
-      <div class="scroll" id="chart-cat"></div>
-      <div class="legend" id="legend-cat"></div>
+  <!-- 新品總覽 -->
+  <section class="tabpanel" role="tabpanel" id="p-new" aria-labelledby="t-new">
+    <div class="summary" id="summary"></div>
+    <div class="accs" id="status-accs" hidden>
+      <details class="acc acc-warn"><summary><span class="acc-t">資料狀態</span><span class="acc-s" id="status-sub"></span></summary>
+        <div class="acc-body"><ul id="status-list"></ul></div></details>
     </div>
-    <div class="panel">
-      <header><h2>口味／素材熱度</h2><span class="muted" style="font-size:.78rem">每週出現支數，前 14 名</span></header>
-      <div class="scroll"><table class="heat" id="tbl-tags"></table></div>
-    </div>
-    <div class="panel">
-      <header><h2>價格帶</h2><span class="muted" style="font-size:.78rem">含稅平均售價，日圓</span></header>
-      <div class="scroll"><table id="tbl-price"></table></div>
-    </div>
-    <div class="panel" style="grid-column:1/-1">
-      <header><h2>熱賣訊號</h2><span class="muted" style="font-size:.78rem">官方新聞稿・地區擴張・聯名監修</span></header>
-      <div class="hit-summary" id="hit-summary"></div>
-      <div class="scroll"><table id="tbl-press"></table></div>
-      <p class="muted" style="font-size:.78rem;margin:0">もぐナビ口碑排行僅供內部研究，存放於 Google Sheet「もぐナビ排行」分頁，不在此公開頁面顯示。</p>
-    </div>
+    <section class="panels">
+      <div class="panel">
+        <header><h2>各分類新品數</h2><span class="muted" style="font-size:.78rem">依發售週</span></header>
+        <div class="scroll" id="chart-cat"></div>
+        <div class="legend" id="legend-cat"></div>
+      </div>
+      <div class="panel">
+        <header><h2>口味／素材熱度</h2><span class="muted" style="font-size:.78rem">每週出現支數，前 14 名</span></header>
+        <div class="scroll"><table class="heat" id="tbl-tags"></table></div>
+      </div>
+      <div class="panel">
+        <header><h2>價格帶</h2><span class="muted" style="font-size:.78rem" id="price-unit">含稅平均售價</span></header>
+        <div class="scroll"><table id="tbl-price"></table></div>
+      </div>
+    </section>
+    <section style="display:grid;gap:12px">
+      <div class="sec-head"><h2 style="font-size:1.25rem">新品清單</h2><span class="muted mono" id="count" style="font-size:.85rem"></span></div>
+      <div class="filters">
+        <input type="search" id="q" placeholder="搜尋中文或原文品名">
+        <select id="f-chain"><option value="">全部超商</option></select>
+        <select id="f-week"><option value="">全部週次</option></select>
+        <select id="f-cat"><option value="">全部食品分類</option></select>
+        <select id="f-tag"><option value="">全部標籤</option></select>
+        <select id="f-status"><option value="">全部狀態</option><option value="upcoming">即將上市</option><option value="new">新品</option><option value="active">販售中</option><option value="delisted">已下架</option></select>
+        <label class="chk"><input type="checkbox" id="f-reg">只看地區限定</label>
+        <label class="chk"><input type="checkbox" id="f-hit">只看有熱賣訊號</label>
+        <label class="chk"><input type="checkbox" id="f-rev">只看待確認</label>
+      </div>
+      <div class="grid" id="grid"></div>
+      <button class="more" id="more" hidden>顯示更多</button>
+    </section>
   </section>
 
-  <section style="display:grid;gap:12px">
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
-      <h2 style="font-size:1.25rem">新品清單</h2>
-      <span class="muted mono" id="count" style="font-size:.85rem"></span>
+  <!-- 熱賣訊號 -->
+  <section class="tabpanel" role="tabpanel" id="p-hits" aria-labelledby="t-hits" hidden>
+    <div class="sec-head">
+      <div><h2 style="font-size:1.25rem">熱賣訊號</h2><div class="muted" style="font-size:.84rem">官方新聞稿公布的銷量、再販、熱賣休止，加上地區擴張與聯名監修。點下方訊號可篩選商品。</div></div>
+    </div>
+    <div class="hit-summary" id="hit-summary"></div>
+    <div class="panels">
+      <div class="panel" style="grid-column:1/-1">
+        <header><h2>官方新聞稿</h2><span class="muted" style="font-size:.78rem">由 AI 從超商新聞稿擷取</span></header>
+        <div class="scroll"><table id="tbl-press"></table></div>
+      </div>
+      <div class="panel" style="grid-column:1/-1">
+        <header><h2>熱賣擴張</h2><span class="muted" style="font-size:.78rem">首發 14 天後又擴大販售地區</span></header>
+        <div class="scroll" id="expansion"></div>
+      </div>
+    </div>
+    <section style="display:grid;gap:12px">
+      <div class="sec-head"><h2 style="font-size:1.1rem">有訊號的商品</h2><span class="muted mono" id="hit-count" style="font-size:.85rem"></span></div>
+      <div class="grid" id="hit-grid"></div>
+    </section>
+  </section>
+
+  <!-- もぐナビ口碑 -->
+  <section class="tabpanel" role="tabpanel" id="p-mognavi" aria-labelledby="t-mognavi" hidden>
+    <div class="sec-head">
+      <div><h2 style="font-size:1.25rem">もぐナビ口碑排行</h2><div class="muted" id="m-sub" style="font-size:.84rem"></div></div>
+      <div class="summary" id="m-summary"></div>
+    </div>
+    <div class="accs">
+      <details class="acc acc-warn" id="m-info">
+        <summary><span class="acc-t">⚠ 僅供內部討論・資料來源與狀態</span><span class="acc-s" id="m-info-sub"></span></summary>
+        <div class="acc-body">
+          <p style="margin:0">資料來自日本食品口碑網站もぐナビ（mognavi.jp），利用規約限制私的利用以外的使用，請勿截圖外流、轉寄或放進對客戶的資料。中文摘要由 AI 依口碑原文產生。</p>
+          <ul id="m-state"></ul>
+        </div>
+      </details>
+      <details class="acc" id="guide">
+        <summary><span class="acc-t">📖 怎麼看這張卡</span><span class="acc-s">欄位說明與判讀方式</span></summary>
+        <div class="acc-body" style="gap:18px">
+          <div class="muted" style="font-size:.82rem">以 7-Eleven 宇治抹茶餅乾為例。紅框編號對應旁邊的說明。</div>
+          <div class="stage" id="stage">
+            <div class="co-col co-left">
+              <div class="co" data-n="1"><span class="n">1</span><b>超商</b><span class="tip">這個商品是哪一家超商賣的。</span></div>
+              <div class="co" data-n="2"><span class="n">2</span><b>排行標籤</b><span class="tip">もぐナビ該超商的週排行名次與品類。「おすすめ」＝吃過的人推薦；「食べたい」＝還沒吃、想吃的人多。</span></div>
+              <div class="co" data-n="4"><span class="n">4</span><b>品名</b><span class="tip">上面是 AI 中文意譯，下面是日文原名。</span></div>
+              <div class="co" data-n="5"><span class="n">5</span><b>平均分數</b><span class="tip">吃過的人打分的平均，<b style="font-size:inherit">滿分 7 分</b>。5.2／7 約等於 74 分，屬於好評。</span></div>
+              <div class="co" data-n="6"><span class="n">6</span><b>想吃</b><span class="tip">按了「食べたい」的人數，代表<b style="font-size:inherit">購買前的期待</b>，跟有沒有吃過無關。</span></div>
+            </div>
+            <div id="guide-card"></div>
+            <div class="co-col co-right">
+              <div class="co" data-n="3"><span class="n">3</span><b>本系統新品</b><span class="tip">AI 判斷它就是我們從超商官網抓到的近期新品；沒有這個標籤多半是長銷品。</span></div>
+              <div class="co" data-n="7"><span class="n">7</span><b>口碑數</b><span class="tip">實際寫了評價的人數，也是平均分數的樣本數。越多，分數越可信。</span></div>
+              <div class="co" data-n="8"><span class="n">8</span><b>好評／負評摘要</b><span class="tip">AI 讀口碑原文後整理的重點。只根據頁面上最多 5 則摘錄，看成「代表性意見」。</span></div>
+              <div class="co" data-n="9"><span class="n">9</span><b>評價傾向</b><span class="tip">AI 判斷這幾則口碑偏好評或負評，−1～+1。綠色往右＝偏好評，紅色往左＝偏負評。</span></div>
+              <div class="co" data-n="10"><span class="n">10</span><b>口碑原文</b><span class="tip">點開看日文原文摘錄（已去掉投稿者名稱），可對照 AI 摘要有沒有說錯。</span></div>
+            </div>
+            <svg id="guide-lines" aria-hidden="true"></svg>
+          </div>
+          <div>
+            <h2 style="font-size:1rem;margin-bottom:6px">數字搭配著看</h2>
+            <div class="scroll"><table class="combo">
+              <tr><th>組合</th><th>代表什麼</th><th>產品開發上的意義</th></tr>
+              <tr><td>想吃高、口碑少</td><td>剛上市、話題熱，還沒被驗證</td><td>觀察中的潛力品，下週看分數是否撐得住（例：宇治抹茶餅乾 201 人想吃、29 人評價）</td></tr>
+              <tr><td>分數高、口碑多</td><td>已被市場驗證</td><td>可當產品開發的參考標竿</td></tr>
+              <tr><td>想吃高、分數低</td><td>期待被拉高，實際沒達標</td><td>多半是宣傳、包裝和實物有落差，值得避開</td></tr>
+              <tr><td>負評內容</td><td>消費者具體不滿的點</td><td>最直接的開發提醒（例：「看不到包裝圖上的白巧克力碎」＝包裝與實物落差會拉低評價）</td></tr>
+            </table></div>
+          </div>
+        </div>
+      </details>
     </div>
     <div class="filters">
-      <input type="search" id="q" placeholder="搜尋中文或原文品名">
-      <select id="f-country"><option value="">全部國家</option><option value="JP">日本</option><option value="KR">韓國</option></select>
-      <select id="f-chain"><option value="">全部超商</option></select>
-      <select id="f-week"><option value="">全部週次</option></select>
-      <select id="f-cat"><option value="">全部食品分類</option></select>
-      <select id="f-tag"><option value="">全部標籤</option></select>
-      <select id="f-status"><option value="">全部狀態</option><option value="upcoming">即將上市</option><option value="new">新品</option><option value="active">販售中</option><option value="delisted">已下架</option></select>
-      <label class="chk"><input type="checkbox" id="f-reg">只看地區限定</label>
-      <label class="chk"><input type="checkbox" id="f-hit">只看有熱賣訊號</label>
-      <label class="chk"><input type="checkbox" id="f-rev">只看待確認</label>
+      <input type="search" id="m-q" placeholder="搜尋商品名（中、日文）或口碑內容">
+      <select id="m-chain"><option value="">全部超商</option></select>
+      <select id="m-sort">
+        <option value="tabetai">依「想吃」數排序</option>
+        <option value="score">依平均分數排序</option>
+        <option value="reviews">依口碑數排序</option>
+        <option value="senti">依評價傾向排序</option>
+        <option value="release">依發售日（新到舊）</option>
+      </select>
+      <label class="chk"><input type="checkbox" id="m-match">只看對應到我們新品的</label>
+      <span class="muted mono" id="m-count" style="font-size:.85rem;margin-left:auto"></span>
     </div>
-    <div class="grid" id="grid"></div>
-    <button class="more" id="more" hidden>顯示更多</button>
+    <div class="grid wide" id="m-grid"></div>
   </section>
 
-  <footer id="foot">資料來源：各超商官網新品頁。品名中譯與分類由 AI 產生，人工校正中；價格為官網標示含稅價。內部研究用。</footer>
+  <footer id="foot">資料來源：各超商官網新品頁與新聞稿；もぐナビ（內部研究）。品名中譯與分類由 AI 產生，人工校正中；價格為官網標示含稅價。</footer>
 </div>
 
 <script>
 const CHAIN_ZH={seven_jp:"7-Eleven 日本",familymart_jp:"全家 日本",lawson_jp:"Lawson 日本",cu_kr:"CU 韓國",gs25_kr:"GS25 韓國",seven_kr:"7-Eleven 韓國",emart24_kr:"emart24 韓國"};
+const CHAIN_SHORT={seven_jp:"7-Eleven",familymart_jp:"全家",lawson_jp:"Lawson"};
 const STATUS_ZH={upcoming:"即將上市",new:"新品",active:"販售中",delisted:"已下架"};
+const CURRENCY={JP:"日圓",KR:"韓元"};
 const GROUP_COLORS={"鮮食":"#2b4c7e","熱食":"#b0413e","麵包":"#c08a2e","甜點":"#9a5c8f","零食":"#5b8c5a","冰品":"#4a9bb5","飲料":"#7a6a58","加工食品":"#8a8f99","冷凍食品":"#4f5d75"};
-const S={products:[],cats:{},weeklyCat:[],weeklyTags:[],signals:[],meta:{},shown:60};
+const HIT_ORDER=["官方公布銷量","熱賣販售休止","再販／復刻","增產／擴大販售","官方第一名","熱賣擴張","系列擴充","聯名／監修"];
+const S={products:[],cats:[],weeklyCat:[],weeklyTags:[],press:[],regions:[],meta:{},shown:60,country:"JP",tab:"new",hitFilter:"",mog:null};
+const PW_KEY="cvs_radar_pw";
 
+/* ---------- 工具 ---------- */
 function parseCSV(text){
-  text=text.replace(/^﻿/,"");const rows=[];let row=[],f="",q=false;
+  text=(text||"").replace(/^﻿/,"");const rows=[];let row=[],f="",q=false;
   for(let i=0;i<text.length;i++){const c=text[i];
     if(q){if(c=='"'){if(text[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
     else if(c=='"')q=true;else if(c==','){row.push(f);f=""}
@@ -164,51 +366,69 @@ function parseCSV(text){
   if(f||row.length){row.push(f);rows.push(row)}
   const h=rows.shift()||[];return rows.filter(r=>r.length>1).map(r=>Object.fromEntries(h.map((k,i)=>[k,r[i]??""])));
 }
-async function load(){
-  if(window.EMBED){const E=window.EMBED;
-    return{products:parseCSV(E.products),cats:parseCSV(E.categories),weeklyCat:parseCSV(E.weekly_category),weeklyTags:parseCSV(E.weekly_tags),signals:parseCSV(E.signals),press:parseCSV(E.press_signals||""),meta:E.meta}}
-  const get=n=>fetch("data/"+n,{cache:"no-store"}).then(r=>r.ok?r.text():"");
-  const [p,c,w,t,s,m,ps]=await Promise.all(["products.csv","categories.csv","weekly_category.csv","weekly_tags.csv","signals.csv","meta.json","press_signals.csv"].map(get));
-  return{products:parseCSV(p),cats:parseCSV(c),weeklyCat:parseCSV(w),weeklyTags:parseCSV(t),signals:parseCSV(s),press:parseCSV(ps),meta:m?JSON.parse(m):{}};
-}
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const $=id=>document.getElementById(id);
 const weekLabel=w=>{if(!w)return"";const [y,n]=w.split("-W");const d=new Date(Date.UTC(+y,0,4));const dow=d.getUTCDay()||7;d.setUTCDate(d.getUTCDate()-dow+1+(n-1)*7);return `${w.slice(5)}（${d.getUTCMonth()+1}/${d.getUTCDate()} 起）`};
 const wkHead=w=>w.slice(5)+(S.meta.this_week&&w>S.meta.this_week?" 預告":"");
 const fmtPrice=(p,c)=>p?(c==="KRW"?"₩":"¥")+Math.round(+p).toLocaleString():"—";
 const EXCL=new Set(["NON_FOOD","ALCOHOL"]);
-const food=()=>S.products.filter(p=>p.category_code&&!EXCL.has(p.category_code));
-const listable=()=>S.products.filter(p=>p.category_code&&p.category_code!=="NON_FOOD");
+const inCountry=p=>(p.country||"JP")===S.country;
+const food=()=>S.products.filter(p=>inCountry(p)&&p.category_code&&!EXCL.has(p.category_code));
+const listable=()=>S.products.filter(p=>inCountry(p)&&p.category_code&&p.category_code!=="NON_FOOD");
+const catName=c=>(S.cats.find(x=>x.category_code===c)||{}).name_zh||c;
+const ssGet=k=>{try{return sessionStorage.getItem(k)}catch(e){return null}};
+const ssSet=(k,v)=>{try{v==null?sessionStorage.removeItem(k):sessionStorage.setItem(k,v)}catch(e){}};
 
+/* ---------- 解密（Web Crypto；格式見 scraper/secure_export.py） ---------- */
+async function decryptBundle(b,pw){
+  const u8=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+  const base=await crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveKey"]);
+  const key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:u8(b.salt),iterations:b.iter,hash:"SHA-256"},base,{name:"AES-GCM",length:256},false,["decrypt"]);
+  const plain=await crypto.subtle.decrypt({name:"AES-GCM",iv:u8(b.iv)},key,u8(b.ct));
+  return JSON.parse(new TextDecoder().decode(plain));
+}
+
+/* ---------- 資料載入 ---------- */
+async function loadPublic(){
+  if(window.EMBED){const E=window.EMBED;
+    return{products:parseCSV(E.products),cats:parseCSV(E.categories),weeklyCat:parseCSV(E.weekly_category),weeklyTags:parseCSV(E.weekly_tags),
+      press:parseCSV(E.press_signals),regions:parseCSV(E.region_history),meta:E.meta||{}}}
+  const get=n=>fetch("data/"+n,{cache:"no-store"}).then(r=>r.ok?r.text():"").catch(()=>"");
+  const [p,c,w,t,m,ps,rh]=await Promise.all(["products.csv","categories.csv","weekly_category.csv","weekly_tags.csv","meta.json","press_signals.csv","region_history.csv"].map(get));
+  return{products:parseCSV(p),cats:parseCSV(c),weeklyCat:parseCSV(w),weeklyTags:parseCSV(t),press:parseCSV(ps),regions:parseCSV(rh),meta:m?JSON.parse(m):{}};
+}
+async function loadEncrypted(){
+  if(window.MOG_ENC!==undefined)return window.MOG_ENC;
+  try{const r=await fetch("data/mognavi.enc.json",{cache:"no-store"});return r.ok?await r.json():null}catch(e){return null}
+}
+
+/* ---------- 新品總覽 ---------- */
 function renderSummary(){
   const m=S.meta,f=food(),wk=m.this_week;
-  const thisWeek=f.filter(p=>p.release_week===wk).length;
-  const upcoming=f.filter(p=>p.status==="upcoming").length;
-  const regional=f.filter(p=>p.release_week===wk&&p.is_regional==="1").length;
-  const review=S.products.filter(p=>p.needs_review==="1").length;
-  document.getElementById("internal-links").innerHTML=(m.internal_links||[]).map(l=>
-    `<a class="ilink" href="${esc(l.url)}" target="_blank" rel="noopener" title="需公司 Google 帳號，且已被共用 CVS_report 試算表">🔒 ${esc(l.label||"內部頁面")}</a>`).join("");
-  document.getElementById("updated").textContent=`資料更新 ${m.updated_at||"—"}｜本週 ${weekLabel(wk)}`;
-  document.getElementById("summary").innerHTML=[
-    [thisWeek,"本週新品"],[upcoming,"即將上市"],[regional,"本週地區限定"],[review,"待人工確認"]]
+  $("updated").textContent=`資料更新 ${m.updated_at||"—"}｜本週 ${weekLabel(wk)}`;
+  $("summary").innerHTML=[
+    [f.filter(p=>p.release_week===wk).length,"本週新品"],[f.filter(p=>p.status==="upcoming").length,"即將上市"],
+    [f.filter(p=>p.release_week===wk&&p.is_regional==="1").length,"本週地區限定"],
+    [S.products.filter(p=>inCountry(p)&&p.needs_review==="1").length,"待人工確認"]]
     .map(([n,l])=>`<div><b>${n}</b><span>${l}</span></div>`).join("");
   const notes=[...(m.errors||[])];
-  const pending=S.products.filter(p=>!p.category_code).length;
+  const pending=S.products.filter(p=>inCountry(p)&&!p.category_code).length;
   if(pending&&!notes.some(n=>n.includes("待翻譯")))notes.push(`${pending} 支商品尚未翻譯，暫不顯示；下次執行翻譯後會出現。`);
-  const chains=new Set(S.products.map(p=>p.chain));
-  if(!["cu_kr","gs25_kr","seven_kr","emart24_kr"].some(c=>chains.has(c)))notes.push("韓國來源尚未接上：CU 的資料端點待確認、GS25 官網改版，目前只有日本資料。");
   if(m.sample)notes.push(m.sample);
-  const n=document.getElementById("notice");
-  if(notes.length){n.hidden=false;n.innerHTML=`<b>資料狀態</b><ul>${notes.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`}
+  $("status-accs").hidden=!notes.length;
+  $("status-sub").textContent=notes.length?`${notes.length} 則`:"";
+  $("status-list").innerHTML=notes.map(x=>`<li>${esc(x)}</li>`).join("");
 }
 
 function renderCatChart(){
-  const rows=S.weeklyCat.filter(r=>!EXCL.has(r.category_code));
+  const rows=S.weeklyCat.filter(r=>!EXCL.has(r.category_code)&&(r.country||"JP")===S.country);
   const weeks=[...new Set(rows.map(r=>r.week))].sort();
-  const groups=[...new Set(S.cats.sort((a,b)=>a.sort-b.sort).map(c=>c.group_zh))].filter(g=>rows.some(r=>r.category_group===g));
+  if(!weeks.length){$("chart-cat").innerHTML=`<div class="empty">尚無資料</div>`;$("legend-cat").innerHTML="";return}
+  const groups=[...new Set([...S.cats].sort((a,b)=>a.sort-b.sort).map(c=>c.group_zh))].filter(g=>rows.some(r=>r.category_group===g));
   const data=weeks.map(w=>({w,vals:groups.map(g=>rows.filter(r=>r.week===w&&r.category_group===g).reduce((s,r)=>s+ +r.new_count,0))}));
   const max=Math.max(1,...data.map(d=>d.vals.reduce((a,b)=>a+b,0)));
-  const step=max>80?20:max>40?10:5,top=Math.ceil(max/step)*step;
-  const W=Math.max(320,weeks.length*90+60),H=220,L=34,B=28,T=10,bw=Math.min(46,(W-L-10)/weeks.length*0.55);
+  const step=max>200?50:max>80?20:max>40?10:5,top=Math.ceil(max/step)*step;
+  const W=Math.max(320,weeks.length*90+60),H=220,L=34,B=28,T=14,bw=Math.min(46,(W-L-10)/weeks.length*0.55);
   const y=v=>T+(H-T-B)*(1-v/top);
   let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W}px" role="img" aria-label="各週各分類新品數堆疊長條圖">`;
   for(let v=0;v<=top;v+=step)s+=`<line x1="${L}" x2="${W-6}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/><text x="${L-6}" y="${y(v)+4}" text-anchor="end">${v}</text>`;
@@ -216,98 +436,238 @@ function renderCatChart(){
     d.vals.forEach((v,gi)=>{if(!v)return;const y0=y(acc),y1=y(acc+v);acc+=v;
       s+=`<rect x="${cx-bw/2}" y="${y1}" width="${bw}" height="${y0-y1}" fill="${GROUP_COLORS[groups[gi]]||"#888"}"><title>${groups[gi]}：${v}</title></rect>`});
     s+=`<text x="${cx}" y="${y(acc)-4}" text-anchor="middle" style="fill:var(--ink)">${acc}</text><text x="${cx}" y="${H-8}" text-anchor="middle">${wkHead(d.w)}</text>`});
-  document.getElementById("chart-cat").innerHTML=s+"</svg>";
-  document.getElementById("legend-cat").innerHTML=groups.map(g=>`<span><i style="background:${GROUP_COLORS[g]||"#888"}"></i>${g}</span>`).join("");
+  $("chart-cat").innerHTML=s+"</svg>";
+  $("legend-cat").innerHTML=groups.map(g=>`<span><i style="background:${GROUP_COLORS[g]||"#888"}"></i>${g}</span>`).join("");
 }
 
 function renderTags(){
-  const weeks=[...new Set(S.weeklyTags.map(r=>r.week))].sort();
-  const totals={};S.weeklyTags.forEach(r=>totals[r.tag]=(totals[r.tag]||0)+ +r.count);
+  const src=S.weeklyTags.filter(r=>(r.country||"JP")===S.country);
+  const weeks=[...new Set(src.map(r=>r.week))].sort();
+  const totals={};src.forEach(r=>totals[r.tag]=(totals[r.tag]||0)+ +r.count);
   const tags=Object.keys(totals).sort((a,b)=>totals[b]-totals[a]).slice(0,14);
-  const max=Math.max(1,...S.weeklyTags.map(r=>+r.count));
+  const max=Math.max(1,...src.map(r=>+r.count));
   const lvl=v=>v?Math.min(4,Math.ceil(v/max*4)):0;
-  const get=(t,w)=>S.weeklyTags.filter(r=>r.tag===t&&r.week===w).reduce((s,r)=>s+ +r.count,0);
+  const get=(t,w)=>src.filter(r=>r.tag===t&&r.week===w).reduce((s,r)=>s+ +r.count,0);
   let h=`<tr><th>標籤</th>${weeks.map(w=>`<th class="num">${wkHead(w)}</th>`).join("")}<th class="num">本週較上週</th></tr>`;
   tags.forEach(t=>{const vals=weeks.map(w=>get(t,w));
     const ci=weeks.indexOf(S.meta.this_week),last=ci>=0?vals[ci]:0,prev=ci>0?vals[ci-1]:0,d=last-prev;
     h+=`<tr><td><button class="tag" data-tag="${esc(t)}">${esc(t)}</button></td>${vals.map(v=>{const l=lvl(v);return`<td class="cell" style="background:var(--heat${l});color:${l>=3?"var(--surface)":"var(--ink)"}">${v||""}</td>`}).join("")}<td class="num ${d>0?"delta-up":d<0?"delta-down":""}">${ci>0?(d>0?"+":"")+d:"—"}</td></tr>`});
-  document.getElementById("tbl-tags").innerHTML=h;
+  $("tbl-tags").innerHTML=tags.length?h:`<tr><td class="muted">尚無資料</td></tr>`;
 }
 
 function renderPrice(){
-  const rows=S.weeklyCat.filter(r=>!EXCL.has(r.category_code)&&r.country==="JP");
+  const rows=S.weeklyCat.filter(r=>!EXCL.has(r.category_code)&&(r.country||"JP")===S.country);
+  $("price-unit").textContent=`含稅平均售價，${CURRENCY[S.country]||""}`;
   const weeks=[...new Set(rows.map(r=>r.week))].sort();
   const codes=S.cats.filter(c=>rows.some(r=>r.category_code===c.category_code)).sort((a,b)=>a.sort-b.sort);
   const avg=(code,w)=>{const rs=rows.filter(r=>r.category_code===code&&r.week===w&&r.avg_price);const n=rs.reduce((s,r)=>s+ +r.new_count,0);return n?rs.reduce((s,r)=>s+r.avg_price*r.new_count,0)/n:null};
   let h=`<tr><th>分類</th>${weeks.map(w=>`<th class="num">${wkHead(w)}</th>`).join("")}</tr>`;
   codes.forEach(c=>{h+=`<tr><td>${esc(c.name_zh)}</td>${weeks.map(w=>{const v=avg(c.category_code,w);return`<td class="num">${v?Math.round(v).toLocaleString():"·"}</td>`}).join("")}</tr>`});
-  document.getElementById("tbl-price").innerHTML=h;
-}
-
-function renderSignals(){
-  const f=food();const cnt={};
-  f.forEach(p=>(p.hit_signals||"").split("|").filter(Boolean).forEach(h=>cnt[h]=(cnt[h]||0)+1));
-  const order=["官方公布銷量","熱賣販售休止","再販／復刻","增產／擴大販售","官方第一名","熱賣擴張","聯名／監修"];
-  const keys=Object.keys(cnt).sort((a,b)=>(order.indexOf(a)+99*(order.indexOf(a)<0))-(order.indexOf(b)+99*(order.indexOf(b)<0)));
-  document.getElementById("hit-summary").innerHTML=keys.length?keys.map(k=>`<button data-hit="${esc(k)}">${esc(k)}<b>${cnt[k]}</b></button>`).join(""):
-    `<span class="muted" style="font-size:.86rem">尚無訊號。地區擴張需累積數週資料；官方新聞稿需開啟翻譯後分析。</span>`;
-  const rows=(S.press||[]).filter(r=>r.signal_type&&r.signal_type!=="collab").sort((a,b)=>a.date<b.date?1:-1).slice(0,12);
-  document.getElementById("tbl-press").innerHTML=rows.length?`<tr><th>日期</th><th>超商</th><th>訊號</th><th>對象</th><th>內容</th><th class="num">對應新品</th></tr>`+
-    rows.map(r=>`<tr><td class="mono">${esc(r.date)}</td><td>${esc(CHAIN_ZH[r.chain]||r.chain)}</td><td><span class="chip hit">${esc(r.signal_zh)}</span></td><td style="white-space:normal;min-width:10em">${esc(r.target_ja)}</td><td style="white-space:normal;min-width:14em"><a href="${esc(r.url)}" target="_blank" rel="noopener" style="color:var(--accent)">${esc(r.detail_zh)}${r.number_text?`（${esc(r.number_text)}）`:""}</a></td><td class="num">${(r.matched_keys||"").split("|").filter(Boolean).length||"·"}</td></tr>`).join(""):"";
+  $("tbl-price").innerHTML=codes.length?h:`<tr><td class="muted">尚無資料</td></tr>`;
 }
 
 function fillFilters(){
-  const opt=(id,vals,lab=v=>v)=>{const el=document.getElementById(id);vals.forEach(v=>{const o=document.createElement("option");o.value=v;o.textContent=lab(v);el.appendChild(o)})};
+  const opt=(id,vals,lab=v=>v)=>{const el=$(id);const first=el.options[0];el.innerHTML="";el.appendChild(first);
+    vals.forEach(v=>{const o=document.createElement("option");o.value=v;o.textContent=lab(v);el.appendChild(o)})};
   const f=listable();
   opt("f-chain",[...new Set(f.map(p=>p.chain))],c=>CHAIN_ZH[c]||c);
   opt("f-week",[...new Set(f.map(p=>p.release_week))].sort().reverse(),weekLabel);
-  opt("f-cat",S.cats.filter(c=>c.category_code!=="NON_FOOD"&&f.some(p=>p.category_code===c.category_code)).sort((a,b)=>a.sort-b.sort).map(c=>c.category_code),c=>S.cats.find(x=>x.category_code===c).name_zh);
+  opt("f-cat",S.cats.filter(c=>c.category_code!=="NON_FOOD"&&f.some(p=>p.category_code===c.category_code)).sort((a,b)=>a.sort-b.sort).map(c=>c.category_code),catName);
   const tc={};f.forEach(p=>(p.tags||"").split("|").filter(Boolean).forEach(t=>tc[t]=(tc[t]||0)+1));
   opt("f-tag",Object.keys(tc).sort((a,b)=>tc[b]-tc[a]),t=>`${t}（${tc[t]}）`);
 }
 
 function filtered(){
-  const v=id=>document.getElementById(id).value;const q=v("q").trim().toLowerCase();
-  const reg=document.getElementById("f-reg").checked,rev=document.getElementById("f-rev").checked,hit=document.getElementById("f-hit").checked;
+  const v=id=>$(id).value;const q=v("q").trim().toLowerCase();
+  const reg=$("f-reg").checked,rev=$("f-rev").checked,hit=$("f-hit").checked;
   const base=v("f-cat")==="ALCOHOL"?listable():food();
-  return base.filter(p=>(!v("f-country")||p.country===v("f-country"))&&(!v("f-chain")||p.chain===v("f-chain"))
+  return base.filter(p=>(!v("f-chain")||p.chain===v("f-chain"))
     &&(!v("f-week")||p.release_week===v("f-week"))&&(!v("f-cat")||p.category_code===v("f-cat"))
     &&(!v("f-tag")||(p.tags||"").split("|").includes(v("f-tag")))&&(!v("f-status")||p.status===v("f-status"))
     &&(!reg||p.is_regional==="1")&&(!rev||p.needs_review==="1")&&(!hit||!!p.hit_signals)
-    &&(!S.hitFilter||(p.hit_signals||"").split("|").includes(S.hitFilter))
     &&(!q||(p.name_zh+" "+p.name_original+" "+p.desc_zh).toLowerCase().includes(q)));
 }
 
-function renderGrid(){
-  const list=filtered();const catName=c=>(S.cats.find(x=>x.category_code===c)||{}).name_zh||c;
-  document.getElementById("count").textContent=`${list.length} 支`;
-  const g=document.getElementById("grid");
-  if(!list.length){g.innerHTML=`<div class="empty" style="grid-column:1/-1">沒有符合條件的商品，試著放寬篩選。</div>`;document.getElementById("more").hidden=true;return}
-  g.innerHTML=list.slice(0,S.shown).map(p=>{
-    const region=p.country==="KR"?"chain-kr":"chain-jp";
-    return`<article class="card">
-      <div class="meta"><span class="chip ${region}">${esc(CHAIN_ZH[p.chain]||p.chain)}</span><span class="chip">${esc(catName(p.category_code))}</span>
-      ${p.status==="upcoming"||p.status==="delisted"?`<span class="chip st-${p.status}">${STATUS_ZH[p.status]}</span>`:""}
-      ${p.is_regional==="1"?`<span class="chip reg">地區限定</span>`:""}${p.needs_review==="1"?`<span class="chip review">待確認</span>`:""}${(p.hit_signals||"").split("|").filter(h=>h&&h!=="聯名／監修").map(h=>`<span class="chip hit">${esc(h)}</span>`).join("")}</div>
-      <h3>${esc(p.name_zh||p.name_original)}</h3>
-      <div class="orig" lang="${p.country==="KR"?"ko":"ja"}">${esc(p.name_original)}</div>
-      <div class="row"><span class="price">${fmtPrice(p.price_tax_incl,p.currency)}</span><span class="muted mono" style="font-size:.78rem">${p.release_date||""} 發售</span></div>
-      ${p.tags?`<div class="tags">${p.tags.split("|").map(t=>`<button class="tag" data-tag="${esc(t)}">${esc(t)}</button>`).join("")}</div>`:""}
-      <details><summary>說明與販售地區</summary>${p.desc_zh?`<p style="margin:6px 0">${esc(p.desc_zh)}</p>`:""}<p style="margin:6px 0">販售地區：${esc(p.regions||"—")}</p><a href="${esc(p.source_url)}" target="_blank" rel="noopener">官網商品頁 ↗</a></details>
-    </article>`}).join("");
-  document.getElementById("more").hidden=list.length<=S.shown;
+function productCard(p){
+  const region=p.country==="KR"?"chain-kr":"chain-jp";
+  const hits=(p.hit_signals||"").split("|").filter(h=>h&&h!=="聯名／監修"&&h!=="系列擴充");
+  return`<article class="card">
+    <div class="meta"><span class="chip ${region}">${esc(CHAIN_ZH[p.chain]||p.chain)}</span><span class="chip">${esc(catName(p.category_code))}</span>
+    ${p.status==="upcoming"||p.status==="delisted"?`<span class="chip st-${p.status}">${STATUS_ZH[p.status]}</span>`:""}
+    ${p.is_regional==="1"?`<span class="chip reg">地區限定</span>`:""}${p.needs_review==="1"?`<span class="chip review">待確認</span>`:""}${hits.map(h=>`<span class="chip hit">${esc(h)}</span>`).join("")}</div>
+    <h3>${esc(p.name_zh||p.name_original)}</h3>
+    <div class="orig" lang="${p.country==="KR"?"ko":"ja"}">${esc(p.name_original)}</div>
+    <div class="row"><span class="price">${fmtPrice(p.price_tax_incl,p.currency)}</span><span class="muted mono" style="font-size:.78rem">${p.release_date||""} 發售</span></div>
+    ${p.tags?`<div class="tags">${p.tags.split("|").map(t=>`<button class="tag" data-tag="${esc(t)}">${esc(t)}</button>`).join("")}</div>`:""}
+    <details><summary>說明與販售地區</summary>${p.desc_zh?`<p style="margin:6px 0">${esc(p.desc_zh)}</p>`:""}<p style="margin:6px 0">販售地區：${esc(p.regions||"—")}</p><a href="${esc(p.source_url)}" target="_blank" rel="noopener">官網商品頁 ↗</a></details>
+  </article>`;
 }
+
+function renderGrid(){
+  const list=filtered();
+  $("count").textContent=`${list.length} 支`;
+  if(!list.length){$("grid").innerHTML=`<div class="empty">沒有符合條件的商品，試著放寬篩選。</div>`;$("more").hidden=true;return}
+  $("grid").innerHTML=list.slice(0,S.shown).map(productCard).join("");
+  $("more").hidden=list.length<=S.shown;
+}
+
+/* ---------- 熱賣訊號 ---------- */
+function renderHits(){
+  const f=food();const cnt={};
+  f.forEach(p=>(p.hit_signals||"").split("|").filter(Boolean).forEach(h=>cnt[h]=(cnt[h]||0)+1));
+  const rank=k=>{const i=HIT_ORDER.indexOf(k);return i<0?99:i};
+  const keys=Object.keys(cnt).sort((a,b)=>rank(a)-rank(b));
+  $("hit-summary").innerHTML=keys.length?[`<button data-hit="" aria-pressed="${!S.hitFilter}">全部<b>${f.filter(p=>p.hit_signals).length}</b></button>`]
+    .concat(keys.map(k=>`<button data-hit="${esc(k)}" aria-pressed="${S.hitFilter===k}">${esc(k)}<b>${cnt[k]}</b></button>`)).join(""):
+    `<span class="muted" style="font-size:.86rem">尚無訊號。地區擴張需累積數週資料；官方新聞稿需開啟翻譯後分析。</span>`;
+  const chains=new Set(S.products.filter(inCountry).map(p=>p.chain));
+  const rows=(S.press||[]).filter(r=>r.signal_type&&r.signal_type!=="collab"&&chains.has(r.chain)).sort((a,b)=>a.date<b.date?1:-1).slice(0,20);
+  $("tbl-press").innerHTML=rows.length?`<tr><th>日期</th><th>超商</th><th>訊號</th><th>對象</th><th>內容</th><th class="num">對應新品</th></tr>`+
+    rows.map(r=>`<tr><td class="mono">${esc(r.date)}</td><td>${esc(CHAIN_ZH[r.chain]||r.chain)}</td><td><span class="chip hit">${esc(r.signal_zh)}</span></td><td style="white-space:normal;min-width:10em">${esc(r.target_ja)}</td><td style="white-space:normal;min-width:14em"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.detail_zh)}${r.number_text?`（${esc(r.number_text)}）`:""}</a></td><td class="num">${(r.matched_keys||"").split("|").filter(Boolean).length||"·"}</td></tr>`).join("")
+    :`<tr><td class="muted">尚無新聞稿訊號</td></tr>`;
+  const exp=(S.regions||[]).filter(r=>r.kind==="熱賣擴張"&&r.product_key&&S.products.some(p=>p.product_key===r.product_key&&inCountry(p)));
+  const batch=(S.regions||[]).filter(r=>r.kind!=="熱賣擴張").length;
+  $("expansion").innerHTML=exp.length?`<table><tr><th>日期</th><th>商品</th><th class="num">首發後天數</th><th>新增地區</th></tr>${exp.slice(-20).reverse().map(r=>{
+      const p=S.products.find(x=>x.product_key===r.product_key)||{};
+      return`<tr><td class="mono">${esc(r.date)}</td><td style="white-space:normal">${esc(p.name_zh||r.name_original)}</td><td class="num">${esc(r.lag_days)}</td><td style="white-space:normal">${esc(r.added_areas)}</td></tr>`}).join("")}</table>`
+    :`<div class="muted" style="font-size:.86rem">尚無熱賣擴張。需商品首發 14 天以上又擴大販售地區才算；目前累積 ${batch} 筆一般分批上市紀錄。</div>`;
+  const list=f.filter(p=>p.hit_signals&&(!S.hitFilter||p.hit_signals.split("|").includes(S.hitFilter)))
+    .sort((a,b)=>{const ra=Math.min(...a.hit_signals.split("|").map(rank)),rb=Math.min(...b.hit_signals.split("|").map(rank));return ra-rb||(a.release_date<b.release_date?1:-1)});
+  $("hit-count").textContent=`${list.length} 支`;
+  $("hit-grid").innerHTML=list.length?list.slice(0,120).map(productCard).join(""):`<div class="empty">沒有符合的商品</div>`;
+}
+
+/* ---------- もぐナビ口碑 ---------- */
+function summaryHtml(s){
+  if(!s)return'<span class="muted">尚無中文摘要</span>';
+  return esc(s).replace(/好評：/g,'<span class="good">好評：</span>').replace(/負評：/g,'<span class="bad">負評：</span>');
+}
+function sentiBar(v){
+  if(v===null||v===undefined||isNaN(v))return"";
+  const w=Math.min(50,Math.abs(v)*50),left=v>=0?50:50-w,col=v>=0?"var(--good)":"var(--bad)";
+  return`<div class="senti" data-a="9"><span>負評</span><div class="bar"><i style="left:${left}%;width:${w}%;background:${col}"></i></div><span>好評</span><span class="mono">${v>0?"+":""}${(+v).toFixed(2)}</span></div>`;
+}
+function mogCard(p){
+  const ranks=(p.ranks||[]).map(r=>`<span class="chip rank" data-a="2" title="${esc(r.section||"")}">${esc(r.type)}${r.rank?" 第"+r.rank+"名":""}${r.section?"｜"+esc(r.section):""}</span>`).join("");
+  const rv=(p.reviews||[]).length?`<details data-a="10"><summary>口碑原文（${p.reviews.length} 則摘錄）</summary>${p.reviews.map(r=>`<div class="rv" lang="ja"><div class="d">${esc(r.date)}</div>${esc(r.text)}</div>`).join("")}</details>`:"";
+  return`<article class="card">
+    <div class="meta"><span class="chip chain-jp" data-a="1">${esc(CHAIN_SHORT[p.chain]||p.chain||"超商")}</span>${ranks}
+    ${p.matched_key?`<span class="chip match" data-a="3">本系統新品</span>`:""}${p.release_date?`<span class="chip">${esc(p.release_date)} 發售</span>`:""}</div>
+    <div data-a="4"><h3>${esc(p.name_zh||p.name_ja)}</h3><div class="orig" lang="ja">${esc(p.name_ja)}</div></div>
+    <div class="stats"><div data-a="5"><b>${p.score?(+p.score).toFixed(1):"—"}</b><span>平均分數 /7</span></div>
+    <div data-a="6"><b>${p.tabetai||0}</b><span>想吃</span></div><div data-a="7"><b>${p.review_count||0}</b><span>口碑數</span></div></div>
+    <div class="summ" data-a="8">${summaryHtml(p.summary)}</div>${sentiBar(p.sentiment)}${rv}
+    <a href="${esc(p.url)}" target="_blank" rel="noopener" style="font-size:.8rem">もぐナビ商品頁 ↗</a>
+  </article>`;
+}
+function renderMognavi(){
+  const D=S.mog;
+  if(S.country!=="JP"){$("m-grid").innerHTML=`<div class="empty">もぐナビ是日本的口碑網站，只有日本資料。</div>`;return}
+  if(!D){$("m-grid").innerHTML=`<div class="empty">もぐナビ資料尚未產生。請管理者設定 DASHBOARD_PASSWORD 後，在 GitHub Actions 執行 mognavi（mode 選 export）。</div>`;
+    $("m-summary").innerHTML="";$("m-sub").textContent="";return}
+  const ps=D.products||[];
+  $("m-sub").textContent=`資料抓取 ${D.fetchedFrom===D.fetchedTo?D.fetchedTo:D.fetchedFrom+" ～ "+D.fetchedTo}${D.rankWeek?"｜排行週次 "+D.rankWeek:""}`;
+  $("m-summary").innerHTML=[[ps.length,"收錄商品"],[ps.reduce((s,p)=>s+(p.reviews||[]).length,0),"口碑摘錄"],
+    [ps.filter(p=>p.summary).length,"有中文摘要"],[ps.filter(p=>p.matched_key).length,"對應到新品"]]
+    .map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join("");
+  const msgs=[`資料最後更新：${D.fetchedTo||"—"}${D.rankWeek?"；排行週次 "+D.rankWeek:""}。もぐナビ為手動更新，每週最多一次（短時間內重複存取曾被網站暫時封鎖）。`];
+  if(!D.rankWeek)msgs.push("排行名次目前沒有資料，商品依「想吃」數排序。");
+  msgs.push("長期、可對外使用的資料需改走もぐナビbiz 正式授權。");
+  $("m-state").innerHTML=msgs.map(m=>`<li>${esc(m)}</li>`).join("");
+  $("m-info-sub").textContent=`資料更新 ${D.fetchedTo||"—"}`;
+  const sel=$("m-chain");if(sel.options.length<=1){[...new Set(ps.map(p=>p.chain).filter(Boolean))].forEach(c=>{const o=document.createElement("option");o.value=c;o.textContent=CHAIN_SHORT[c]||c;sel.appendChild(o)})}
+  const q=$("m-q").value.trim().toLowerCase(),chain=$("m-chain").value,sort=$("m-sort").value,only=$("m-match").checked;
+  const key={tabetai:p=>p.tabetai||0,score:p=>p.score||0,reviews:p=>p.review_count||0,senti:p=>p.sentiment==null?-9:p.sentiment,release:p=>p.release_date||""}[sort];
+  const list=ps.filter(p=>(!chain||p.chain===chain)&&(!only||p.matched_key)&&(!q||(p.name_ja+" "+p.name_zh+" "+p.summary+" "+(p.reviews||[]).map(r=>r.text).join(" ")).toLowerCase().includes(q)))
+    .sort((a,b)=>{const x=key(a),y=key(b);return x<y?1:x>y?-1:0});
+  $("m-count").textContent=`${list.length} 支`;
+  $("m-grid").innerHTML=list.length?list.map(mogCard).join(""):`<div class="empty">沒有符合條件的商品。</div>`;
+}
+
+/* 說明區：範例卡＋紅框＋引線 */
+const GUIDE_EXAMPLE={chain:"seven_jp",name_ja:"セブン-イレブン セブンカフェ 宇治抹茶クッキー",name_zh:"7-ELEVEN SEVEN CAFE 宇治抹茶餅乾",
+  score:5.2,tabetai:201,review_count:29,sentiment:0.6,matched_key:"example",release_date:"",
+  summary:"好評：尺寸大且酥鬆柔軟，抹茶香氣足帶有微苦與甜味，很有滿足感；負評：實物看不到包裝圖上的白巧克力碎。",
+  ranks:[{type:"食べたい",rank:2,section:"クッキー・パイ・ビスケット"}],url:"#",
+  reviews:[{date:"",text:"（說明用範例）"},{date:"",text:"…"},{date:"",text:"…"}]};
+function drawGuide(){
+  const stage=$("stage");if(!stage||stage.offsetParent===null)return;
+  const svg=$("guide-lines"),card=stage.querySelector(".card");if(!svg||!card)return;
+  const base=stage.getBoundingClientRect(),wide=stage.clientWidth>=760;
+  svg.setAttribute("width",stage.clientWidth);svg.setAttribute("height",stage.clientHeight);
+  let out="";
+  stage.querySelectorAll(".co").forEach(co=>{
+    const n=co.dataset.n,t=card.querySelector(`[data-a="${n}"]`);if(!t)return;
+    const r=t.getBoundingClientRect(),pad=3,x=r.left-base.left-pad,y=r.top-base.top-pad,w=r.width+pad*2,h=r.height+pad*2;
+    out+=`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="4" fill="none" stroke="var(--anno)" stroke-width="2"/>`;
+    if(wide){
+      const lr=co.getBoundingClientRect(),left=co.parentNode.classList.contains("co-left");
+      const ly=lr.top-base.top+lr.height/2,ty=y+h/2,lx=left?lr.right-base.left:lr.left-base.left,tx=left?x:x+w;
+      const mx=left?Math.min(tx-12,lx+(tx-lx)*.5):Math.max(tx+12,lx-(lx-tx)*.5);
+      out+=`<path d="M${lx} ${ly} H${mx} L${tx} ${ty}" fill="none" stroke="var(--anno)" stroke-width="1.5"/><circle cx="${tx}" cy="${ty}" r="3" fill="var(--anno)"/>`;
+    }
+    out+=`<circle cx="${x}" cy="${y}" r="9" fill="var(--anno)"/><text x="${x}" y="${y+3.5}" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="IBM Plex Mono,monospace">${n}</text>`;
+  });
+  svg.innerHTML=out;
+}
+
+/* ---------- 頁籤與國家 ---------- */
+const TABS=["new","hits","mognavi"];
+function showTab(tab,push){
+  if(!TABS.includes(tab))tab="new";S.tab=tab;
+  TABS.forEach(t=>{$("t-"+t).setAttribute("aria-selected",String(t===tab));$("t-"+t).tabIndex=t===tab?0:-1;$("p-"+t).hidden=t!==tab});
+  if(push&&location.hash!=="#"+tab){try{history.replaceState(null,"","#"+tab)}catch(e){location.hash=tab}}
+  if(tab==="mognavi")requestAnimationFrame(drawGuide);
+}
+function setCountry(c){
+  S.country=c;S.hitFilter="";S.shown=60;
+  document.querySelectorAll(".seg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.country===c)));
+  renderAll();
+}
+function renderAll(){renderSummary();renderCatChart();renderTags();renderPrice();fillFilters();renderGrid();renderHits();renderMognavi()}
 
 function bind(){
-  ["q","f-country","f-chain","f-week","f-cat","f-tag","f-status","f-reg","f-rev","f-hit"].forEach(id=>document.getElementById(id).addEventListener("input",()=>{S.shown=60;S.hitFilter="";renderGrid()}));
-  document.getElementById("hit-summary").addEventListener("click",e=>{const b=e.target.closest("button[data-hit]");if(!b)return;
-    S.hitFilter=b.dataset.hit;S.shown=60;renderGrid();document.querySelector(".filters").scrollIntoView({behavior:"smooth",block:"start"})});
-  document.getElementById("more").addEventListener("click",()=>{S.shown+=60;renderGrid()});
+  ["q","f-chain","f-week","f-cat","f-tag","f-status","f-reg","f-rev","f-hit"].forEach(id=>$(id).addEventListener("input",()=>{S.shown=60;renderGrid()}));
+  $("more").addEventListener("click",()=>{S.shown+=60;renderGrid()});
+  $("hit-summary").addEventListener("click",e=>{const b=e.target.closest("button[data-hit]");if(!b)return;S.hitFilter=b.dataset.hit;renderHits()});
+  ["m-q","m-chain","m-sort","m-match"].forEach(id=>$(id).addEventListener("input",renderMognavi));
   document.addEventListener("click",e=>{const t=e.target.closest(".tag");if(!t)return;
-    document.getElementById("f-tag").value=t.dataset.tag;S.shown=60;renderGrid();
-    document.querySelector(".filters").scrollIntoView({behavior:"smooth",block:"start"})});
+    showTab("new",true);$("f-tag").value=t.dataset.tag;S.shown=60;renderGrid();document.querySelector("#p-new .filters").scrollIntoView({behavior:"smooth",block:"start"})});
+  document.querySelector("nav.tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-tab]");if(b)showTab(b.dataset.tab,true)});
+  document.querySelector("nav.tabs").addEventListener("keydown",e=>{if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;
+    const i=TABS.indexOf(S.tab),n=TABS[(i+(e.key==="ArrowRight"?1:TABS.length-1))%TABS.length];showTab(n,true);$("t-"+n).focus()});
+  document.querySelectorAll(".seg button").forEach(b=>b.addEventListener("click",()=>{if(!b.disabled)setCountry(b.dataset.country)}));
+  window.addEventListener("hashchange",()=>showTab(location.hash.slice(1),false));
+  $("guide").addEventListener("toggle",function(){if(!this.open)return;const gc=$("guide-card");if(!gc.innerHTML)gc.innerHTML=mogCard(GUIDE_EXAMPLE);requestAnimationFrame(drawGuide)});
+  let rt;window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(drawGuide,120)});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(drawGuide);
+  $("logout").addEventListener("click",()=>{ssSet(PW_KEY,null);location.reload()});
 }
 
-load().then(d=>{Object.assign(S,d);renderSummary();renderCatChart();renderTags();renderPrice();renderSignals();fillFilters();bind();renderGrid()})
-  .catch(e=>{document.getElementById("grid").innerHTML=`<div class="empty">讀不到資料檔：${esc(e.message)}。請確認 docs/data/ 內有 products.csv。</div>`});
+/* ---------- 啟動：有加密檔就要求密碼 ---------- */
+async function start(mog,locked){
+  $("lock").hidden=true;$("app").hidden=false;$("logout").hidden=!locked;
+  S.mog=mog;
+  try{Object.assign(S,await loadPublic())}catch(e){$("grid").innerHTML=`<div class="empty">讀不到資料檔：${esc(e.message)}</div>`}
+  const hasKR=S.products.some(p=>p.country==="KR");
+  const kr=document.querySelector('.seg button[data-country="KR"]');kr.disabled=!hasKR;if(hasKR)kr.innerHTML="韓國";
+  bind();renderAll();showTab(location.hash.slice(1)||"new",false);
+}
+async function boot(){
+  const enc=await loadEncrypted();
+  if(!enc){start(null,false);return}           // 尚未設定密碼：不鎖，もぐナビ頁籤顯示說明
+  const saved=ssGet(PW_KEY);
+  if(saved){try{const d=await decryptBundle(enc,saved);start(d,true);return}catch(e){ssSet(PW_KEY,null)}}
+  $("lock").hidden=false;$("pw").focus();
+  $("lock-form").addEventListener("submit",async e=>{
+    e.preventDefault();const pw=$("pw").value;if(!pw)return;
+    $("pw-btn").disabled=true;$("pw-btn").textContent="驗證中…";$("pw-err").textContent="";
+    try{const d=await decryptBundle(enc,pw);ssSet(PW_KEY,pw);start(d,true)}
+    catch(err){$("pw-err").textContent="密碼不正確，請再試一次。";$("pw").select()}
+    finally{$("pw-btn").disabled=false;$("pw-btn").textContent="進入"}
+  });
+}
+boot();
 </script>
+</body>
+</html>

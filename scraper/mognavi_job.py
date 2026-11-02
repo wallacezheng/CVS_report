@@ -129,6 +129,90 @@ def write_tab(sh, name: str, header: list[str], rows: list[list], mode: str = "r
     return ws
 
 
+ENC_PATH = ROOT / "docs" / "data" / "mognavi.enc.json"
+
+
+def build_export(cache_rows: list[dict], rank_rows: list[dict], review_rows: list[dict]) -> dict:
+    """整理成儀表板「もぐナビ口碑」頁籤用的資料（與 apps_script/Mognavi.gs 的 getMognaviData 相同結構）。"""
+    def fmt_date(v):
+        return str(v or "").replace("/", "-")
+
+    reviews_by = {}
+    for r in review_rows:
+        pid, rid = str(r.get("mognavi_id", "")), str(r.get("review_id", ""))
+        text = mognavi.clean_review(str(r.get("內容（原文摘錄）", "")))
+        if not pid or len(rid) < 5 or len(text) < 8 or re.match(r"^(画像提供者|メーカー|製造者)", text):
+            continue
+        reviews_by.setdefault(pid, []).append({"date": fmt_date(r.get("日期")), "text": text})
+
+    latest_week = max((str(r.get("週次", "")) for r in rank_rows), default="")
+    ranks_by = {}
+    for r in rank_rows:
+        if str(r.get("週次", "")) != latest_week:
+            continue
+        pid = re.sub(r".*/product/", "", str(r.get("網址", "")))
+        ranks_by.setdefault(pid, []).append({"type": r.get("排行類型", ""), "section": r.get("品類", ""),
+                                             "rank": int(r["名次"]) if str(r.get("名次", "")).isdigit() else None})
+
+    def num(v):
+        try:
+            return float(v)
+        except (TypeError, ValueError):
+            return None
+
+    products = []
+    for c in cache_rows:
+        pid = str(c.get("mognavi_id", ""))
+        name = mognavi.clean_product_name(str(c.get("name_ja", "")))
+        if not pid or not name:
+            continue
+        revs = reviews_by.get(pid)
+        if not revs:
+            try:
+                revs = [{"date": fmt_date(x.get("date")), "text": mognavi.clean_review(str(x.get("text", "")))}
+                        for x in json.loads(c.get("reviews_json") or "[]")]
+                revs = [x for x in revs if len(x["text"]) >= 8 and not re.match(r"^(画像提供者|メーカー|製造者)", x["text"])]
+            except (ValueError, TypeError, AttributeError):
+                revs = []
+        revs.sort(key=lambda x: x["date"], reverse=True)
+        senti = num(c.get("sentiment")) if str(c.get("sentiment", "")) != "" else None
+        products.append({
+            "id": pid, "chain": str(c.get("chain", "")), "name_ja": name, "name_zh": str(c.get("name_zh", "")),
+            "release_date": fmt_date(c.get("release_date")), "tabetai": int(num(c.get("tabetai")) or 0),
+            "score": num(c.get("avg_score")), "review_count": int(num(c.get("review_count")) or 0),
+            "summary": str(c.get("summary_zh", "")), "sentiment": senti,
+            "matched_key": str(c.get("matched_key", "")), "fetched_at": fmt_date(c.get("fetched_at")),
+            "ranks": ranks_by.get(pid, []), "reviews": revs[:5], "url": f"https://mognavi.jp/product/{pid}",
+        })
+    fetched = sorted(p["fetched_at"] for p in products if p["fetched_at"])
+    return {"products": products, "rankWeek": latest_week,
+            "fetchedFrom": fetched[0] if fetched else "", "fetchedTo": fetched[-1] if fetched else "",
+            "generatedAt": today_tw().isoformat()}
+
+
+def export_encrypted(sh) -> bool:
+    """從 Sheet 讀取もぐナビ資料，加密後寫到 docs/data/mognavi.enc.json（需設定 DASHBOARD_PASSWORD）。"""
+    from .secure_export import encrypt_json
+    pw = os.environ.get("DASHBOARD_PASSWORD", "")
+    if not pw:
+        print("::warning::未設定 DASHBOARD_PASSWORD，未產生儀表板用的加密檔")
+        return False
+    try:
+        payload = build_export(read_tab(sh, "mognavi_cache"), read_tab(sh, "もぐナビ排行"), read_tab(sh, "もぐナビ口碑"))
+    except Exception as e:
+        print(f"::error::讀取 Sheet 失敗，未更新加密檔：{e}")
+        return False
+    if not payload["products"]:
+        print("::warning::Sheet 中沒有もぐナビ商品資料，未更新加密檔")
+        return False
+    ENC_PATH.parent.mkdir(parents=True, exist_ok=True)
+    ENC_PATH.write_text(json.dumps(encrypt_json(payload, pw, payload["fetchedTo"]), ensure_ascii=False),
+                        encoding="utf-8")
+    print(f"::notice::已產生加密檔 docs/data/mognavi.enc.json：{len(payload['products'])} 個商品、"
+          f"排行週次 {payload['rankWeek'] or '無'}")
+    return True
+
+
 def cleanup(sh) -> int:
     """不連もぐナビ，只整理 Sheet 上已寫入的排行：移除側欄雜訊列、品類改成簡短名稱。"""
     try:
@@ -167,8 +251,13 @@ def main() -> int:
     if not forced and not cfg.source_enabled("mognavi", default=False):
         print("sources 分頁中 mognavi 已停用，略過（手動執行時可選擇強制執行一次）")
         return 0
-    if os.environ.get("MOGNAVI_MODE", "update") == "cleanup":
-        return cleanup(sh)
+    mode = os.environ.get("MOGNAVI_MODE", "update")
+    if mode == "export":
+        return 0 if export_encrypted(sh) else 1
+    if mode == "cleanup":
+        rc = cleanup(sh)
+        export_encrypted(sh)
+        return rc
     if os.environ.get("MOGNAVI_MODE", "update") == "probe":
         code, msg = mognavi.probe()
         print(f"::notice::試探結果（未寫入任何資料）：{msg}")
@@ -293,6 +382,7 @@ def main() -> int:
           + ("（中途被擋，只寫入已抓到的部分；舊資料保留）" if mognavi.BLOCKED else ""))
     for e in errors:
         print(f"::warning::{e}")
+    export_encrypted(sh)
     return 0
 
 

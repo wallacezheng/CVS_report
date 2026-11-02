@@ -66,5 +66,6 @@ jobs:
             echo "no changes"
           else
             git commit -m "data: $(TZ=Asia/Taipei date +%F)"
+            git pull --rebase --autostash
             git push
           fi

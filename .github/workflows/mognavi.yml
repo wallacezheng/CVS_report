@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "probe＝只試探 1 個請求、不寫入；update＝更新資料（寫入前自動備份，抓不到不覆蓋）；cleanup＝不連網，只整理 Sheet 上的排行"
+        description: "probe＝只試探 1 個請求；update＝更新資料（自動備份、抓不到不覆蓋）；cleanup＝不連網整理排行；export＝不連網，只重新產生儀表板加密檔"
         type: choice
-        options: [probe, update, cleanup]
+        options: [probe, update, cleanup, export]
         default: probe
       translate:
         description: "用 Gemini 比對官網商品並產生中文口碑摘要"
@@ -16,7 +16,7 @@ on:
         default: true
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: mognavi
@@ -44,8 +44,22 @@ jobs:
           CRAWLER_UA: ${{ vars.CRAWLER_UA }}
           MOGNAVI_TOP_N: ${{ vars.MOGNAVI_TOP_N }}
           MOGNAVI_MAX_PRODUCTS: ${{ vars.MOGNAVI_MAX_PRODUCTS }}
+          DASHBOARD_PASSWORD: ${{ secrets.DASHBOARD_PASSWORD }}
           MOGNAVI_MODE: ${{ inputs.mode || 'update' }}
           # 手動執行時不看 sources 分頁的開關（已停用也可手動試一次）；排程已移除
           MOGNAVI_FORCE: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
           ENRICH_ENABLED: ${{ github.event_name == 'workflow_dispatch' && (inputs.translate && '1' || '0') || '1' }}
         run: python -m scraper.mognavi_job
+
+      - name: Commit encrypted dashboard data
+        run: |
+          git config user.name "cvs-intel-bot"
+          git config user.email "cvs-intel-bot@users.noreply.github.com"
+          git add docs/data/mognavi.enc.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "加密檔沒有變更"
+          else
+            git commit -m "data: もぐナビ加密檔 $(TZ=Asia/Taipei date +%F)"
+            git pull --rebase --autostash
+            git push
+          fi
