@@ -38,6 +38,7 @@ jobs:
           SHEET_ID: ${{ secrets.SHEET_ID }}
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MAX_GEMINI_USD_PER_MONTH: ${{ vars.MAX_GEMINI_USD_PER_MONTH }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
           GCP_PROJECT: ${{ vars.GCP_PROJECT }}
           GCP_LOCATION: ${{ vars.GCP_LOCATION }}
@@ -55,7 +56,7 @@ jobs:
         run: |
           git config user.name "cvs-intel-bot"
           git config user.email "cvs-intel-bot@users.noreply.github.com"
-          git add docs/data/mognavi.enc.json 2>/dev/null || true
+          git add docs/data/mognavi.enc.json data/gemini_usage.csv 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "加密檔沒有變更"
           else

@@ -19,7 +19,7 @@ from pathlib import Path
 
 from .common import today_tw
 from .config_store import ConfigStore
-from .enrich import call_gemini, gemini_mode, resolve_model
+from .enrich import call_gemini, gemini_mode, log_usage, resolve_model
 from .sources import mognavi
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -395,6 +395,7 @@ def main() -> int:
                     c["summarized_version"] = mognavi.PARSER_VERSION
         except Exception as e:
             errors.append(f"Gemini：{e}")
+        log_usage(today.isoformat(), "mognavi", len(todo))
     print(f"[mognavi] Gemini 比對／摘要 {len(todo)} 筆待處理；錯誤：{errors or '無'}")
 
     # 寫入 Sheet

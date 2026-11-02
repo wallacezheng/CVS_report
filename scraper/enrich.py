@@ -32,7 +32,48 @@ CACHE = ROOT / "data" / "enrich_cache.csv"
 CACHE_FIELDS = ["product_key", "name_zh", "desc_zh", "category_code", "tags", "confidence", "model",
                 "enriched_at"]
 USAGE = ROOT / "data" / "gemini_usage.csv"
-USAGE_FIELDS = ["date", "calls", "items", "prompt_tokens", "output_tokens", "model"]
+USAGE_FIELDS = ["date", "source", "calls", "items", "prompt_tokens", "output_tokens", "thought_tokens",
+                "est_usd", "model"]
+# 每月 Gemini 花費上限（美元，估算值）。超過就不再呼叫，下個月自動恢復。
+MAX_USD_PER_MONTH = float(os.environ.get("MAX_GEMINI_USD_PER_MONTH") or 10)
+# 每百萬 token 單價（美元）。刻意用偏高的定價估算：3.x Flash 2027 年起的正式價，寧可高估。
+PRICES = [("gemini-2.5-flash-lite", 0.10, 0.40), ("gemini-2.5-flash", 0.30, 2.50),
+          ("flash-lite", 0.30, 2.50), ("flash", 1.50, 7.50)]
+DEFAULT_PRICE = (1.50, 9.00)
+
+
+def _price(model: str) -> tuple[float, float]:
+    for key, i, o in PRICES:
+        if key in (model or ""):
+            return i, o
+    return DEFAULT_PRICE
+
+
+def _est_usd(model: str, prompt: int, output: int, thoughts: int = 0) -> float:
+    i, o = _price(model)
+    return (prompt * i + (output + thoughts) * o) / 1_000_000
+
+
+class BudgetExceeded(RuntimeError):
+    pass
+
+
+def month_spend(month: str) -> float:
+    """本月已記錄的估算花費（美元）。舊紀錄沒有 est_usd 時依 token 數重算。"""
+    if not USAGE.exists():
+        return 0.0
+    total = 0.0
+    with USAGE.open(encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            if not str(r.get("date", "")).startswith(month):
+                continue
+            try:
+                total += float(r.get("est_usd") or 0) or _est_usd(
+                    r.get("model", ""), int(r.get("prompt_tokens") or 0), int(r.get("output_tokens") or 0),
+                    int(r.get("thought_tokens") or 0))
+            except ValueError:
+                continue
+    return total
 MAX_PER_RUN = int(os.environ.get("MAX_ENRICH_PER_RUN") or 200)
 MAX_PER_MONTH = int(os.environ.get("MAX_ENRICH_PER_MONTH") or 2000)
 # 官網分類屬於非食品的，直接歸 NON_FOOD，不花 Gemini 費用
@@ -143,7 +184,7 @@ def gemini_mode() -> str:
     return ""
 
 
-_LAST_USAGE = {"prompt": 0, "output": 0}
+_LAST_USAGE = {"prompt": 0, "output": 0, "thoughts": 0, "calls": 0, "usd": 0.0}
 
 
 def _endpoint(model: str) -> tuple[str, dict, dict]:
@@ -178,6 +219,11 @@ def resolve_model() -> str:
 
 def call_gemini(prompt: str, schema: dict | None = None) -> list[dict]:
     model = resolve_model()
+    from datetime import date as _date
+    spent = month_spend(_date.today().isoformat()[:7]) + _LAST_USAGE["usd"]
+    if spent >= MAX_USD_PER_MONTH:
+        raise BudgetExceeded(f"本月 Gemini 估算花費 US${spent:.2f} 已達上限 US${MAX_USD_PER_MONTH:.2f}，"
+                             "本次不再呼叫（可在 GitHub Variables 調整 MAX_GEMINI_USD_PER_MONTH）")
     url, params, headers = _endpoint(model)
     body = {
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
@@ -189,8 +235,13 @@ def call_gemini(prompt: str, schema: dict | None = None) -> list[dict]:
         if resp.status_code == 200:
             data = resp.json()
             u = data.get("usageMetadata", {})
-            _LAST_USAGE["prompt"] += u.get("promptTokenCount", 0)
-            _LAST_USAGE["output"] += u.get("candidatesTokenCount", 0)
+            pt, ot, tt = (u.get("promptTokenCount", 0), u.get("candidatesTokenCount", 0),
+                          u.get("thoughtsTokenCount", 0))
+            _LAST_USAGE["prompt"] += pt
+            _LAST_USAGE["output"] += ot
+            _LAST_USAGE["thoughts"] += tt
+            _LAST_USAGE["calls"] += 1
+            _LAST_USAGE["usd"] += _est_usd(model, pt, ot, tt)
             text = data["candidates"][0]["content"]["parts"][0]["text"]
             return json.loads(text)
         if resp.status_code in (429, 500, 503):
@@ -220,14 +271,20 @@ def _month_count(cache: dict[str, dict], month: str) -> int:
                if (r.get("enriched_at") or "").startswith(month) and r.get("model") != "rule")
 
 
-def _log_usage(today: str, calls: int, items: int) -> None:
+def log_usage(today: str, source: str, items: int) -> None:
+    """把這段期間的 Gemini 用量寫一列到 data/gemini_usage.csv，然後歸零計數。沒呼叫就不寫。"""
+    if not _LAST_USAGE["calls"]:
+        return
     rows = []
     if USAGE.exists():
         with USAGE.open(encoding="utf-8") as f:
             rows = list(csv.DictReader(f))
-    rows.append({"date": today, "calls": calls, "items": items,
+    rows.append({"date": today, "source": source, "calls": _LAST_USAGE["calls"], "items": items,
                  "prompt_tokens": _LAST_USAGE["prompt"], "output_tokens": _LAST_USAGE["output"],
+                 "thought_tokens": _LAST_USAGE["thoughts"], "est_usd": f"{_LAST_USAGE['usd']:.4f}",
                  "model": MODEL})
+    for k in _LAST_USAGE:
+        _LAST_USAGE[k] = 0.0 if k == "usd" else 0
     USAGE.parent.mkdir(parents=True, exist_ok=True)
     with USAGE.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=USAGE_FIELDS)
@@ -286,6 +343,9 @@ def enrich(items: list[dict], categories, tags, glossary, cache: dict[str, dict]
         try:
             calls += 1
             results = call_gemini(build_prompt(batch, categories, tags, glossary))
+        except BudgetExceeded as e:
+            errors.append(str(e))
+            break
         except Exception as e:
             errors.append(str(e))
             continue
@@ -308,5 +368,5 @@ def enrich(items: list[dict], categories, tags, glossary, cache: dict[str, dict]
                 "enriched_at": today,
             }
             done += 1
-    _log_usage(today, calls, done)
+    log_usage(today, "translate", done)
     return errors

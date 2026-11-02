@@ -12,7 +12,7 @@ import re
 from datetime import date, timedelta
 from pathlib import Path
 
-from .enrich import call_gemini, gemini_mode, resolve_model
+from .enrich import call_gemini, gemini_mode, log_usage, resolve_model
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -130,6 +130,7 @@ def update_press(products: list[dict], today: date, errors: list[str]) -> None:
                                      "number_text": s.get("number_text", ""), "url": b["url"]})
         except Exception as e:
             errors.append(f"新聞稿分析失敗：{e}")
+        log_usage(today.isoformat(), "press", len(new))
     elif new:
         errors.append(f"全家新聞稿有 {len(new)} 篇待分析（需開啟翻譯）")
     # 每次都重新比對（商品主檔會增加）

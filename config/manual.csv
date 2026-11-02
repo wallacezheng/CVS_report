@@ -11,8 +11,10 @@
 手動執行,max_translate 選項,這次最多翻幾支，留空＝200。累積很多時可多跑幾次。
 手動執行,看結果,執行完成後打開儀表板（可能需等 1～2 分鐘 GitHub Pages 更新），或看 repo 的 data/products.csv。
 翻譯與費用,計價方式,翻譯費用只跟「新商品數」有關：每支商品只翻一次，之後讀快取，與爬取頻率無關。
-翻譯與費用,用量紀錄,data/gemini_usage.csv 記錄每次呼叫次數、翻譯支數、token 用量與使用的型號。
+翻譯與費用,用量紀錄,data/gemini_usage.csv 記錄每次執行的用途（translate 翻譯／press 新聞稿／mognavi 口碑）、呼叫次數、token 用量（含思考 token）與估算美元花費。估算用偏高的單價，實際帳單通常更低。
 翻譯與費用,上限設定,GitHub → Settings → Secrets and variables → Actions → Variables：MAX_ENRICH_PER_RUN（單次上限，預設 200）、MAX_ENRICH_PER_MONTH（每月上限，預設 2000）。
+翻譯與費用,每月花費上限,Variables 新增 MAX_GEMINI_USD_PER_MONTH（美元，預設 10）。本月估算花費達上限後，程式停止呼叫 Gemini，下個月自動恢復；爬取照常進行。
+翻譯與費用,雙重保險,程式上限只管本系統；服務帳號金鑰外洩被盜用時擋不住。請另外在 Google Cloud 設預算快訊與 Vertex AI 每日請求配額。
 翻譯與費用,不送翻譯的商品,非食品（一番賞、周邊、日用品、化妝品）與酒類以規則判定，不花 Gemini 費用。
 翻譯與費用,讓排程也自動翻譯,Variables 新增 AUTO_TRANSLATE＝1。
 翻譯與費用,指定 Gemini 型號,預設自動偵測可用的最新 Flash 型號；要固定型號就在 Variables 設 GEMINI_MODEL。
