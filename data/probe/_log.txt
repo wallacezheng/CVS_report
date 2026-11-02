@@ -5,3 +5,6 @@
 404    19934 bytes text/html https://www.lawson.co.jp/recommend/new/list/ → www.lawson.co.jp_recommend_new_list.html
 # 2026-11-02T09:23:18.461077Z
 200    64162 bytes text/html https://www.lawson.co.jp/recommend/new/list/1533836_5162.html → www.lawson.co.jp_recommend_new_list_1533836_5162.html.html
+# 2026-11-02T09:51:34.499327Z
+200    69043 bytes text/html https://www.lawson.co.jp/company/news/detail/1533820_2504.html → www.lawson.co.jp_company_news_detail_1533820_2504.html.html
+200    49427 bytes text/html https://www.lawson.co.jp/company/news/detail/1530807_2504.html → www.lawson.co.jp_company_news_detail_1530807_2504.html.html
