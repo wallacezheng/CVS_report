@@ -63,6 +63,7 @@ familymart_jp:1130027,國產鯖魚菇菇蘿蔔泥柚子醋,,FRESH_DELI,海鮮|�
 familymart_jp:1130096,義式蒜辣雞胗,以橄欖油、大蒜與辣椒香煎調味的下酒冷藏小菜,FRESH_DELI,雞肉|蒜味|辣味,0.95,gemini-3.8-flash,2026-11-02
 familymart_jp:1132946,Ryuji至高食譜 韭菜醬雞,,FRESH_DELI,雞肉|聯名・IP,0.95,sample-manual,
 familymart_jp:1133059,飛魚高湯拌日本產綠花椰烤豆腐,東京都及神奈川縣部分地區限定販售,FRESH_DELI,和風高湯,0.90,gemini-3.8-flash,2026-11-02
+familymart_jp:1135657,味仙本店監修 香辣甘醋醬唐揚炸雞,關東部分及東海地區限定,FRESH_DELI,雞肉|辣味|名店監修,0.95,gemini-3.8-flash,2026-11-02
 familymart_jp:1140415,炭烤雞頸肉,北海道・東北・關東販售,FRESH_DELI,雞肉,0.9,sample-manual,
 familymart_jp:1150551,甜辣醬煮扁鱈,使用甘辛醬汁細火燉煮的銀鱈魚熟食,FRESH_DELI,海鮮,0.90,gemini-3.8-flash,2026-11-02
 familymart_jp:1160932,四川風麻婆豆腐,,FRESH_DELI,麻辣・花椒|中華・町中華,0.95,sample-manual,
@@ -72,6 +73,7 @@ familymart_jp:1212464,五種蔬菜拌拌沙拉,,FRESH_DELI,,0.95,sample-manual,
 familymart_jp:1212556,捏碎脆片塔可風沙拉,食用前將玉米脆片捏碎拌入的墨西哥塔可風味沙拉,FRESH_DELI,,0.95,gemini-3.8-flash,2026-11-02
 familymart_jp:1222371,甜辣唐揚炸雞美乃滋義大利麵沙拉,,FRESH_DELI,雞肉,0.9,sample-manual,
 familymart_jp:1313864,蜂蜜地瓜燒,添加蜂蜜調味的日式甜地瓜點心,DESSERT,地瓜,0.95,gemini-3.8-flash,2026-11-02
+familymart_jp:1319118,整顆栗子銅鑼燒,包入一整顆完整栗子,DESSERT,栗子,0.95,gemini-3.8-flash,2026-11-02
 familymart_jp:1321883,史努比 楓糖年輪蛋糕,IP聯名,DESSERT,聯名・IP,0.85,sample-manual,
 familymart_jp:1323603,史努比 巧克力蛋糕甜甜圈,IP聯名,DESSERT,聯名・IP|巧克力,0.85,sample-manual,
 familymart_jp:1510355,牛奶鮮奶油多拿滋 4入,,BAKERY,奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
@@ -173,6 +175,8 @@ seven_jp:010146,,,ALCOHOL,,1.00,rule,2026-10-28
 seven_jp:010486,,,ALCOHOL,,1.00,rule,2026-10-28
 seven_jp:010925,,,ALCOHOL,,1.00,rule,2026-10-28
 seven_jp:011481,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:011636,Clear Asahi 生啤酒 罐裝 500ml,,ALCOHOL,,0.95,gemini-3.8-flash,2026-11-02
+seven_jp:011637,Clear Asahi 生啤酒 罐裝 350ml,,ALCOHOL,,0.95,gemini-3.8-flash,2026-11-02
 seven_jp:011638,,,ALCOHOL,,1.00,rule,2026-10-28
 seven_jp:011643,7-Premium Ales艾爾啤酒 350ml,,ALCOHOL,,0.95,gemini-3.8-flash,2026-10-29
 seven_jp:011644,7-Premium Ales艾爾啤酒 500ml,,ALCOHOL,,0.95,gemini-3.8-flash,2026-10-29
@@ -193,8 +197,11 @@ seven_jp:011671,Asahi The Bitterist啤酒 500ml,強調麥芽苦韻與深邃層�
 seven_jp:020469,雲海蕎麥燒酎 25度盒裝 900ml,經典蕎麥蒸餾燒酎大容量紙包裝,ALCOHOL,,0.95,gemini-3.8-flash,2026-10-28
 seven_jp:020549,菊水 五郎八濁酒 180ml,新潟菊水酒造秋冬限定的濃郁甘甜濁酒。,ALCOHOL,,0.95,gemini-3.8-flash,2026-10-29
 seven_jp:020766,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:020793,克 新 無手勝流 25度番薯燒酎 900ml,鹿兒島本格芋燒酎,ALCOHOL,地瓜,0.95,gemini-3.8-flash,2026-11-02
 seven_jp:021805,大關One Cup 清酒 濃郁特醇 300ml,致敬拉麵用語濃厚濃醇風味的杯裝清酒,ALCOHOL,,0.90,gemini-3.8-flash,2026-10-28
+seven_jp:030040,-196無糖調酒 梨子蘋果與葡萄 350ml,,ALCOHOL,水果,0.95,gemini-3.8-flash,2026-11-02
 seven_jp:030121,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:030124,-196無糖調酒 梨子蘋果與葡萄 500ml,,ALCOHOL,水果,0.95,gemini-3.8-flash,2026-11-02
 seven_jp:030143,,,ALCOHOL,,1.00,rule,2026-10-28
 seven_jp:030268,,,ALCOHOL,,1.00,rule,2026-10-28
 seven_jp:030327,Shuri High 沖繩泡盛調酒 350ml,沖繩首里泡盛基底的罐裝沙瓦調酒,ALCOHOL,,0.90,gemini-3.8-flash,2026-10-29
@@ -210,6 +217,7 @@ seven_jp:031648,,,ALCOHOL,,1.00,rule,2026-10-28
 seven_jp:032540,,,ALCOHOL,,1.00,rule,2026-10-28
 seven_jp:032542,,,ALCOHOL,,1.00,rule,2026-10-28
 seven_jp:032543,,,ALCOHOL,,1.00,rule,2026-10-28
+seven_jp:032549,布希米爾愛爾蘭威士忌 瓶裝 700ml,愛爾蘭單一麥芽威士忌品牌,ALCOHOL,,0.95,gemini-3.8-flash,2026-11-02
 seven_jp:040283,北海道秋鮭烤鮭魚鬆飯（含糯麥）,北海道限定,FRESH_BENTO,鮭魚|秋季限定|糯麥・雜穀,0.95,sample-manual,
 seven_jp:040918,里肌豬排咖哩,,FRESH_BENTO,豬肉|咖哩,0.95,sample-manual,
 seven_jp:040935,雞肉牛蒡飯糰（紫峰米）,茨城限定,FRESH_RICE,雞肉,0.95,sample-manual,
@@ -218,8 +226,10 @@ seven_jp:040941,香辣麻婆炒飯（含麥）,,FRESH_BENTO,麻辣・花椒|辣�
 seven_jp:040949,漢堡排＆唐揚炸雞便當,,FRESH_BENTO,雞肉,0.95,sample-manual,
 seven_jp:040957,番茄奶油雞咖哩,,FRESH_BENTO,咖哩|番茄|雞肉,0.95,sample-manual,
 seven_jp:040964,醬香麻婆茄子丼,,FRESH_BENTO,麻辣・花椒|中華・町中華,0.95,sample-manual,
+seven_jp:040973,飯糰便當,附多種小菜的飯糰組合便當,FRESH_BENTO,,0.95,gemini-3.8-flash,2026-11-02
 seven_jp:040974,雙拼飯糰 紅鮭＆明太子,,FRESH_RICE,鮭魚|明太子・鱈魚子,0.95,sample-manual,
 seven_jp:040993,手卷飯糰 微辣高菜,,FRESH_RICE,辣味,0.95,sample-manual,
+seven_jp:040995,五目豆皮壽司,,FRESH_RICE,,0.95,gemini-3.8-flash,2026-11-02
 seven_jp:041032,雞肉炊飯幕之內便當,,FRESH_BENTO,雞肉,0.95,sample-manual,
 seven_jp:041087,直火炙燒叉燒香炒炒飯,,FRESH_BENTO,豬肉|中華・町中華,0.95,sample-manual,
 seven_jp:041090,五目糯米飯糰,蒸煮入味的日式傳統五目糯米飯糰。,FRESH_RICE,,0.95,gemini-3.8-flash,2026-10-29
