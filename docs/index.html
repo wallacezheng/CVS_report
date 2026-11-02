@@ -217,6 +217,7 @@ label.chk{font-size:.86rem;display:flex;gap:4px;align-items:center}
 .xdet{display:grid;gap:8px}
 .xdet table td,.xdet table th{white-space:nowrap}
 .badge-new{display:inline-block;font-size:.7rem;background:var(--jp);color:var(--surface);border-radius:3px;padding:0 5px;margin-left:6px;font-family:var(--f-body)}
+.xpts{margin:0;padding-left:20px;display:grid;gap:4px;font-size:.86rem;background:var(--bg);border-radius:6px;padding:10px 12px 10px 28px}
 .linkbtn{font:inherit;font-size:.8rem;border:0;background:transparent;color:var(--accent);cursor:pointer;padding:0;text-decoration:underline}
 footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
 @media (max-width:760px){
@@ -299,7 +300,7 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
         <tr><td>上方四個數字</td><td>這週有多少新東西？</td><td>本週新品、下週預告、地區限定、待人工確認的支數。地區限定多，代表超商在做區域試賣。</td></tr>
         <tr><td>各分類新品數</td><td>超商把力氣放在哪類？</td><td>某個顏色連續變厚＝該品類加碼。季節轉換時最明顯（例：入秋後熱食、甜點增加）。</td></tr>
         <tr><td>口味／素材熱度</td><td>什麼口味在流行？</td><td>顏色越深越多；最右欄 + 號是本週升溫的口味，可以當選題起點。</td></tr>
-        <tr><td>品類 × 口味</td><td>某個品類最近流行什麼口味？</td><td>點一列看該品類的口味明細；「新組合」＝本週第一次出現在這個品類的口味，是最早的創新訊號。資料累積數週後再看占比變化。</td></tr>
+        <tr><td>品類 × 口味</td><td>某個品類最近流行什麼口味？</td><td>先選維度（口味、口感、型態…），點一列看明細。「新組合」＝本週第一次出現在這個品類；「跨超商升溫」＝兩家以上同時增加；「價格溢價」＝含此標籤的商品比品類一般價格貴多少；「熱賣」＝其中有官方銷量等訊號的支數與倍數；最後一欄是另一國同品類的占比。</td></tr>
         <tr><td>價格帶</td><td>賣多少錢？有沒有往上走？</td><td>同品類價格連續上升＝在推高價版本。拿來對照我們客戶的定價。</td></tr>
         <tr><td>新品清單</td><td>具體是哪些商品？</td><td>用篩選回頭找上面看到的趨勢；點卡片可看說明、販售地區與官網連結。</td></tr>
         <tr class="grp"><td colspan="3">熱賣訊號</td></tr>
@@ -826,21 +827,59 @@ function renderXtab(){
   $("x-mat").innerHTML=h;
   renderXdet(byCat[S.xCat]||[],ws);
 }
+const median=a=>{const v=a.filter(x=>x>0).sort((x,y)=>x-y);if(!v.length)return null;const m=v.length>>1;return v.length%2?v[m]:(v[m-1]+v[m])/2};
+const HIT_EXCL=new Set(["聯名／監修"]); // 由標籤推導的訊號不算，避免和「聯名・IP」標籤循環
+const isHit=p=>(p.hit_signals||"").split("|").some(h=>h&&!HIT_EXCL.has(h));
 function renderXdet(ps,ws){
-  const c=S.xCat,cur=S.meta.this_week,showW=ws.slice(-6),dim=$("x-type").value;
+  const c=S.xCat,cur=S.meta.this_week,showW=ws.slice(-6),dim=$("x-type").value,ch=$("x-chain").value;
   const tc={};ps.forEach(p=>tagsOf(p).filter(t=>inDim(t,dim)).forEach(t=>tc[t]=(tc[t]||0)+1));
   const rows=Object.keys(tc).sort((a,b)=>tc[b]-tc[a]);
+  const has=t=>p=>tagsOf(p).includes(t);
   // 新組合：本週有、但在本品類「本週之前」的所有資料都沒出現過
-  const before=new Set(food().filter(p=>p.category_code===c&&p.release_week&&p.release_week<cur&&(!$("x-chain").value||p.chain===$("x-chain").value)).flatMap(tagsOf));
-  const cnt=(t,w)=>ps.filter(p=>p.release_week===w&&tagsOf(p).includes(t)).length;
-  const ci=showW.indexOf(cur);
-  let h=`<tr><th>口味／素材</th><th class="num">支數</th><th class="num">占比</th>${showW.map(w=>`<th class="num">${wkHead(w)}</th>`).join("")}<th class="num">週增減</th><th></th></tr>`;
-  rows.forEach(t=>{const vals=showW.map(w=>cnt(t,w));const d=ci>0?vals[ci]-vals[ci-1]:null;
-    const isNew=ci>=0&&vals[ci]>0&&!before.has(t);
-    h+=`<tr><td>${esc(t)}${isNew?'<span class="badge-new">新組合</span>':""}</td><td class="num">${tc[t]}</td><td class="num">${Math.round(tc[t]/ps.length*100)}%</td>${vals.map(v=>`<td class="num">${v||"·"}</td>`).join("")}<td class="num ${d>0?"delta-up":d<0?"delta-down":""}">${d===null?"—":(d>0?"+":"")+d}</td><td><button class="linkbtn" data-xgo="${esc(t)}">看商品</button></td></tr>`});
+  const before=new Set(food().filter(p=>p.category_code===c&&p.release_week&&p.release_week<cur&&(!ch||p.chain===ch)).flatMap(tagsOf));
+  const ci=showW.indexOf(cur),prev=ci>0?showW[ci-1]:null;
+  const catMed=median(ps.map(p=>+p.price_tax_incl));
+  const hitBase=ps.filter(isHit).length/ps.length;
+  // 另一國同品類（全部週次，因韓國資料較新）
+  const other=S.country==="JP"?"KR":"JP",otherName=other==="KR"?"韓國":"日本";
+  const op=S.products.filter(p=>(p.country||"JP")===other&&p.category_code===c);
+  const R=[];
+  rows.forEach(t=>{
+    const its=ps.filter(has(t));
+    const vals=showW.map(w=>its.filter(p=>p.release_week===w).length);
+    const d=ci>0?vals[ci]-vals[ci-1]:null;
+    const chains=[...new Set(its.map(p=>p.chain))];
+    const rising=ci>0?chains.filter(x=>its.filter(p=>p.chain===x&&p.release_week===cur).length>its.filter(p=>p.chain===x&&p.release_week===prev).length):[];
+    const med=its.length>=3?median(its.map(p=>+p.price_tax_incl)):null;
+    const prem=med&&catMed?med/catMed-1:null;
+    const hits=its.filter(isHit).length;
+    const lift=hitBase>0&&hits>=2?(hits/its.length)/hitBase:null;
+    const oShare=op.length>=10?op.filter(has(t)).length/op.length:null;
+    R.push({t,n:its.length,share:its.length/ps.length,vals,d,chains,rising,prem,hits,lift,oShare,
+      isNew:ci>=0&&vals[ci]>0&&!before.has(t)});
+  });
+  const pct=x=>(x>0?"+":"")+Math.round(x*100)+"%";
+  let h=`<tr><th>標籤</th><th class="num">支數</th><th class="num">占比</th>${showW.map(w=>`<th class="num">${wkHead(w)}</th>`).join("")}<th class="num">週增減</th><th class="num" title="這段期間有推出含此標籤商品的超商數">超商</th><th class="num" title="含此標籤商品的價格中位數，相對本品類中位數">價格溢價</th><th class="num" title="有官方銷量、再販、擴大販售等熱賣訊號的支數（不含聯名監修本身）">熱賣</th><th class="num" title="${otherName}同品類（全部週次）含此標籤的比例">${otherName}占比</th><th></th></tr>`;
+  R.forEach(r=>{
+    h+=`<tr><td>${esc(r.t)}${r.isNew?'<span class="badge-new">新組合</span>':""}${r.rising.length>=2?'<span class="badge-new" style="background:var(--accent)">跨超商升溫</span>':""}</td><td class="num">${r.n}</td><td class="num">${Math.round(r.share*100)}%</td>${r.vals.map(v=>`<td class="num">${v||"·"}</td>`).join("")}<td class="num ${r.d>0?"delta-up":r.d<0?"delta-down":""}">${r.d===null?"—":(r.d>0?"+":"")+r.d}</td>
+    <td class="num" title="${esc(r.chains.map(x=>CHAIN_ZH[x]||x).join("、"))}">${r.chains.length}</td>
+    <td class="num ${r.prem>0.05?"delta-up":r.prem<-0.05?"delta-down":""}">${r.prem===null?"—":pct(r.prem)}</td>
+    <td class="num">${r.hits?r.hits+(r.lift?` <span class="muted">×${r.lift.toFixed(1)}</span>`:""):"·"}</td>
+    <td class="num">${r.oShare===null?"—":Math.round(r.oShare*100)+"%"}</td>
+    <td><button class="linkbtn" data-xgo="${esc(r.t)}">看商品</button></td></tr>`});
+  // 本期重點（自動摘要）
+  const pts=[];
+  const nw=R.filter(r=>r.isNew).map(r=>r.t);if(nw.length)pts.push(`<b>新組合</b>：${esc(nw.slice(0,6).join("、"))} 本週第一次出現在${esc(catName(c))}。`);
+  const ri=R.filter(r=>r.rising.length>=2).map(r=>`${r.t}（${r.rising.map(x=>CHAIN_SHORT[x]||CHAIN_ZH[x]||x).join("、")}）`);if(ri.length)pts.push(`<b>跨超商升溫</b>：${esc(ri.slice(0,4).join("、"))}，兩家以上同時加碼，較像產業趨勢而非單一檔期。`);
+  const pr=R.filter(r=>r.prem!==null&&r.prem>=0.1).sort((a,b)=>b.prem-a.prem);if(pr.length)pts.push(`<b>價格溢價</b>：${esc(pr.slice(0,3).map(r=>`${r.t} ${pct(r.prem)}`).join("、"))}（相對本品類價格中位數）。`);
+  const li=R.filter(r=>r.lift&&r.lift>=1.5).sort((a,b)=>b.lift-a.lift);if(li.length)pts.push(`<b>熱賣關聯</b>：含 ${esc(li.slice(0,3).map(r=>r.t).join("、"))} 的商品出現熱賣訊號的比例，是本品類平均的 ${li[0].lift.toFixed(1)} 倍以上。`);
+  const df=R.filter(r=>r.oShare!==null&&Math.abs(r.share-r.oShare)>=0.1).sort((a,b)=>Math.abs(b.share-b.oShare)-Math.abs(a.share-a.oShare));
+  if(df.length)pts.push(`<b>日韓差異</b>：${esc(df.slice(0,3).map(r=>`${r.t}（${S.country==="JP"?"日本":"韓國"} ${Math.round(r.share*100)}% vs ${otherName} ${Math.round(r.oShare*100)}%）`).join("、"))}。`);
   const untagged=ps.filter(p=>!tagsOf(p).some(t=>inDim(t,dim))).length;
   $("x-det").innerHTML=`<h3 style="font-size:1rem;margin:6px 0 0">${esc(catName(c))}的${esc($("x-type").selectedOptions[0].textContent)}明細 <span class="muted mono" style="font-size:.8rem;font-weight:400">${ps.length} 支${untagged?`，其中 ${untagged} 支沒有這個維度的標籤`:""}</span></h3>
-    <div class="scroll"><table>${rows.length?h:'<tr><td class="muted">沒有口味標籤</td></tr>'}</table></div>`;
+    ${pts.length?`<ul class="xpts">${pts.map(x=>`<li>${x}</li>`).join("")}</ul>`:""}
+    <div class="scroll"><table>${rows.length?h:'<tr><td class="muted">沒有這個維度的標籤</td></tr>'}</table></div>
+    <p class="hint">價格溢價、熱賣倍數至少 3 支／2 支才計算；標籤由 AI 判斷、樣本少，請當成觀察方向，引用前點「看商品」確認。</p>`;
 }
 
 function renderAll(){renderGuide();renderSummary();renderCatChart();renderTags();renderPrice();renderXtab();fillFilters();renderGrid();renderHits();renderMognavi()}
