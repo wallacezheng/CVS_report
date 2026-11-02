@@ -99,7 +99,7 @@ def match_products(target: str, chain: str, products: list[dict]) -> list[str]:
 
 
 def update_press(products: list[dict], today: date, errors: list[str]) -> None:
-    from .sources import press_fm, press_lawson
+    from .sources import press_fm, press_lawson, press_sej
     press = _read(DATA / "press_releases.csv")
     sigs = _read(DATA / "press_signals.csv")
     seen = {p["release_id"] for p in press}
@@ -108,7 +108,8 @@ def update_press(products: list[dict], today: date, errors: list[str]) -> None:
     years = sorted({today.year, (today - timedelta(weeks=8)).year})
     new = []
     for name, job in (("全家", lambda: press_fm.crawl(seen, years, since, cap)),
-                      ("Lawson", lambda: press_lawson.crawl(seen, since, cap))):
+                      ("Lawson", lambda: press_lawson.crawl(seen, since, cap)),
+                      ("7-Eleven", lambda: press_sej.crawl(seen, years, since, cap))):
         try:
             new.extend(job())
         except Exception as e:  # 一家失敗不影響另一家

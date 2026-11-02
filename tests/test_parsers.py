@@ -196,3 +196,15 @@ class LawsonPressTest(unittest.TestCase):
         self.assertEqual(rows[0]["date"], "2026-10-30")
         self.assertTrue(all(r["chain"] == "lawson_jp" for r in rows))
         self.assertFalse(any("フォロワー" in r["title"] for r in rows))  # サービス類不收
+
+
+class SejPressTest(unittest.TestCase):
+    def test_list_keeps_product_news_only(self):
+        from pathlib import Path
+        from scraper.sources import press_sej
+        html = (Path(__file__).parent / "fixtures" / "sej_news_2026.html").read_text(encoding="utf-8")
+        rows = press_sej.parse_list(html)
+        self.assertTrue(rows)
+        self.assertEqual(rows[0]["release_id"], "sej_2026_202610291100")
+        self.assertEqual(rows[0]["date"], "2026-10-29")
+        self.assertTrue(all(r["chain"] == "seven_jp" for r in rows))
