@@ -3,7 +3,9 @@
  "this_week": "2026-W45",
  "product_count": 1485,
  "review_count": 2,
- "errors": [],
+ "errors": [
+  "重新貼標失敗：HTTPSConnectionPool(host='aiplatform.googleapis.com', port=443): Read timed out. (read timeout=120)"
+ ],
  "sources": {
   "seven_jp": 1,
   "familymart_jp": 1,
