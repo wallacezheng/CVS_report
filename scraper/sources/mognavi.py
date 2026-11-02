@@ -35,6 +35,7 @@ PRODUCT_RE = re.compile(r"/product/(\d+)")
 ASSESS_RE = re.compile(r"/assessment/(\d+)")
 
 _last = 0.0
+BLOCKED: list[str] = []  # 被擋時記錄原因；有值就停止後續請求（不重試、不繞過）
 DIAG: list[str] = []  # 每個排行頁的診斷摘要，由 job 寫成 GitHub 註記
 
 
@@ -188,8 +189,11 @@ def crawl(brands: dict[str, tuple[str, str]] | None = None, top_n: int = 5,
     today = today_tw()
     ranks: list[dict] = []
     DIAG.clear()
+    BLOCKED.clear()
     for chain, (_label, brand_id) in brands.items():
         for rtype in RANKING_TYPES:
+            if BLOCKED:
+                break
             resp = _get(f"{BASE}/brand/{brand_id}/ranking/{rtype}")
             all_rows = parse_ranking(resp.text, chain, rtype) if resp.status_code == 200 else []
             soup = BeautifulSoup(resp.text, "html.parser")
@@ -203,7 +207,8 @@ def crawl(brands: dict[str, tuple[str, str]] | None = None, top_n: int = 5,
             print(f"[mognavi] {msg}")
             DIAG.append(msg)
             if resp.status_code in (403, 429, 503):
-                raise RuntimeError(f"もぐナビ回應 {resp.status_code}（可能被擋），已停止。{msg}")
+                BLOCKED.append(f"もぐナビ回應 {resp.status_code}（可能被擋），已停止後續請求。{msg}")
+                break
             if resp.status_code != 200:
                 continue
             got = [r for r in all_rows if r["rank"] <= top_n]
@@ -223,7 +228,12 @@ def crawl(brands: dict[str, tuple[str, str]] | None = None, top_n: int = 5,
         else:
             todo.append(pid)
     for pid in todo[:max_products]:
+        if BLOCKED:
+            break
         resp = _get(f"{BASE}/product/{pid}")
+        if resp.status_code in (403, 429, 503):
+            BLOCKED.append(f"商品頁 {pid} 回應 {resp.status_code}（可能被擋），已停止後續請求")
+            break
         if resp.status_code != 200:
             print(f"[mognavi] product {pid} status={resp.status_code}")
             continue
@@ -233,3 +243,12 @@ def crawl(brands: dict[str, tuple[str, str]] | None = None, top_n: int = 5,
         details[pid] = d
     print(f"[mognavi] 排行 {len(ranks)} 列、商品頁新抓 {min(len(todo), max_products)} 筆、沿用 {len(details) - min(len(todo), max_products)} 筆")
     return ranks, details
+
+
+def probe(brand_id: str = "2113") -> tuple[int, str]:
+    """試探模式：只送 1 個請求（7-Eleven おすすめ排行），回傳狀態碼與解析結果摘要，不寫入任何資料。"""
+    resp = _get(f"{BASE}/brand/{brand_id}/ranking/1")
+    rows = parse_ranking(resp.text, "seven_jp", "1") if resp.status_code == 200 else []
+    soup = BeautifulSoup(resp.text, "html.parser")
+    title = normalize_space(soup.title.get_text()) if soup.title else ""
+    return resp.status_code, f"status={resp.status_code} title={title[:40]} 解析到 {len(rows)} 列排行"

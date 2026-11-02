@@ -5,6 +5,11 @@ name: mognavi
 on:
   workflow_dispatch:
     inputs:
+      mode:
+        description: "probe＝只試探 1 個請求、不寫入；update＝更新資料（寫入前自動備份，抓不到不覆蓋）"
+        type: choice
+        options: [probe, update]
+        default: probe
       translate:
         description: "用 Gemini 比對官網商品並產生中文口碑摘要"
         type: boolean
@@ -39,5 +44,8 @@ jobs:
           CRAWLER_UA: ${{ vars.CRAWLER_UA }}
           MOGNAVI_TOP_N: ${{ vars.MOGNAVI_TOP_N }}
           MOGNAVI_MAX_PRODUCTS: ${{ vars.MOGNAVI_MAX_PRODUCTS }}
+          MOGNAVI_MODE: ${{ inputs.mode || 'update' }}
+          # 手動執行時不看 sources 分頁的開關（已停用也可手動試一次）；排程已移除
+          MOGNAVI_FORCE: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
           ENRICH_ENABLED: ${{ github.event_name == 'workflow_dispatch' && (inputs.translate && '1' || '0') || '1' }}
         run: python -m scraper.mognavi_job

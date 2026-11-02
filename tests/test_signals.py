@@ -68,18 +68,27 @@ class FakeWS:
         self.rows.extend([list(r) for r in rows])
     def freeze(self, **k):
         pass
+    def duplicate(self, new_sheet_name=None, **k):
+        self.sheet.tabs[new_sheet_name] = FakeWS([list(r) for r in self.rows])
 
 
 class FakeSheet:
     def __init__(self):
         self.tabs = {}
+        self.fail_read = False
     def worksheet(self, name):
+        import gspread
         if name not in self.tabs:
-            raise KeyError(name)
+            raise gspread.exceptions.WorksheetNotFound(name)
+        if self.fail_read:
+            raise RuntimeError("API quota")
         return self.tabs[name]
     def add_worksheet(self, name, **k):
         self.tabs[name] = FakeWS()
+        self.tabs[name].sheet = self
         return self.tabs[name]
+    def del_worksheet(self, ws):
+        self.tabs = {k: v for k, v in self.tabs.items() if v is not ws}
 
 
 class TestMognaviJob(unittest.TestCase):
@@ -92,6 +101,8 @@ class TestMognaviJob(unittest.TestCase):
         details = {"688409": {"mognavi_id": "688409", "name_ja": ranks[0]["name_ja"], "release_date": "2026-09-29",
                               "tabetai": "106", "avg_score": "4.9", "review_count": "20", "fetched_at": "2026-10-31",
                               "reviews": [{"review_id": "11364851", "date": "2026/10/28", "text": "おいしい"}]}}
+        details["688409"]["parser_version"] = "2"
+        details["688409"]["fetched_at"] = __import__("scraper.common", fromlist=["x"]).today_tw().isoformat()
         sheet = FakeSheet()
         cfg = mock.Mock(sheet=sheet)
         cfg.source_enabled.return_value = True
@@ -121,3 +132,64 @@ class TestMognaviJob(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestMognaviSafety(unittest.TestCase):
+    """抓不到或中途被擋時，不可覆蓋既有資料。"""
+    def setUp(self):
+        from scraper import mognavi_job
+        self.job = mognavi_job
+        self.sheet = FakeSheet()
+        for name, header in [("もぐナビ排行", mognavi_job.RANK_HEADER), ("もぐナビ口碑", mognavi_job.REVIEW_HEADER),
+                             ("mognavi_cache", mognavi_job.CACHE_FIELDS)]:
+            self.sheet.add_worksheet(name)
+            self.sheet.tabs[name].rows = [list(header)]
+        rank = dict.fromkeys(mognavi_job.RANK_HEADER, "")
+        rank.update({"週次": "2026-W44", "超商": "seven_jp", "排行類型": "おすすめ", "名次": 1,
+                     "網址": "https://mognavi.jp/product/111"})
+        self.sheet.tabs["もぐナビ排行"].rows.append([rank[h] for h in mognavi_job.RANK_HEADER])
+        self.sheet.tabs["もぐナビ口碑"].rows.append(["99999", "111", "舊商品", "2026-10-01", "舊的口碑內容很好吃", "2026-10-28"])
+        c = dict.fromkeys(mognavi_job.CACHE_FIELDS, "")
+        c.update({"mognavi_id": "111", "name_ja": "舊商品", "review_count": "9",
+                  "reviews_json": '[{"review_id":"99999","date":"2026/10/01","text":"舊的口碑內容很好吃"}]',
+                  "summary_zh": "好評：舊摘要", "fetched_at": "2026-10-28"})
+        self.sheet.tabs["mognavi_cache"].rows.append([c[h] for h in mognavi_job.CACHE_FIELDS])
+        self.snapshot = {k: [list(r) for r in v.rows] for k, v in self.sheet.tabs.items()}
+
+    def run_job(self, ranks, details, blocked=()):
+        cfg = mock.Mock(sheet=self.sheet)
+        cfg.source_enabled.return_value = True
+        def fake_crawl(**k):
+            self.job.mognavi.BLOCKED[:] = list(blocked)
+            return ranks, details
+        with mock.patch.object(self.job, "ConfigStore", return_value=cfg), \
+                mock.patch.object(self.job.mognavi, "crawl", side_effect=fake_crawl), \
+                mock.patch.object(self.job, "gemini_mode", return_value=""):
+            return self.job.main()
+
+    def test_nothing_fetched_leaves_sheet_untouched(self):
+        rc = self.run_job([], {"111": {"fetched_at": "2026-10-28", "reviews": []}}, ["403"])
+        self.assertEqual(rc, 1)
+        self.assertEqual({k: v.rows for k, v in self.sheet.tabs.items()}, self.snapshot)
+
+    def test_sheet_read_error_aborts(self):
+        self.sheet.fail_read = True
+        rc = self.run_job([{"chain": "seven_jp"}], {})
+        self.assertEqual(rc, 1)
+        self.sheet.fail_read = False
+        self.assertEqual({k: v.rows for k, v in self.sheet.tabs.items()}, self.snapshot)
+
+    def test_blank_refetch_keeps_old_reviews_and_backs_up(self):
+        today = __import__("scraper.common", fromlist=["x"]).today_tw().isoformat()
+        details = {"111": {"mognavi_id": "111", "name_ja": "", "reviews": [], "review_count": "",
+                           "fetched_at": today, "parser_version": self.job.mognavi.PARSER_VERSION}}
+        rc = self.run_job([], details, ["商品頁 222 回應 403"])
+        self.assertEqual(rc, 0)
+        reviews = self.sheet.tabs["もぐナビ口碑"].get_all_records()
+        self.assertEqual([str(r["review_id"]) for r in reviews], ["99999"])
+        cache = self.sheet.tabs["mognavi_cache"].get_all_records()[0]
+        self.assertEqual(cache["name_ja"], "舊商品")
+        self.assertIn("舊的口碑", cache["reviews_json"])
+        self.assertEqual(len(self.sheet.tabs["もぐナビ排行"].get_all_records()), 1)  # 舊排行保留
+        for n in ("もぐナビ排行", "もぐナビ口碑", "mognavi_cache"):
+            self.assertIn(f"備份_{n}", self.sheet.tabs)
