@@ -1,17 +1,20 @@
 {
  "updated_at": "2026-11-02",
  "this_week": "2026-W45",
- "product_count": 842,
- "review_count": 2,
- "errors": [],
+ "product_count": 1004,
+ "review_count": 20,
+ "errors": [
+  "HTTPSConnectionPool(host='aiplatform.googleapis.com', port=443): Read timed out. (read timeout=120)"
+ ],
  "sources": {
   "seven_jp": 1,
   "familymart_jp": 1,
-  "lawson_jp": 0,
+  "lawson_jp": 1,
   "cu_kr": 0,
   "gs25_kr": 0,
   "naver_datalab": 1,
-  "mognavi_onigiri": 0
+  "mognavi": 0,
+  "familymart_press": 1
  },
  "internal_links": []
 }
