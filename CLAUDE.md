@@ -54,8 +54,8 @@ Variables（可選）：MAX_ENRICH_PER_RUN、MAX_ENRICH_PER_MONTH、MAX_GEMINI_U
 - 儀表板改版後用 playwright 截圖檢查桌機、手機、深色模式；もぐナビ頁籤需用測試密碼產生假加密檔。
 
 ## 目前進度（每步更新）
-- 2026-11-02 已完成：三家新品（7-Eleven、全家、Lawson）、全家新聞稿熱賣訊號、地區擴張、もぐナビ（加密頁籤）、密碼鎖、使用導覽頁籤、Gemini 用量紀錄與每月上限、probe 工具。
+- 2026-11-02 已完成：三家新品（7-Eleven、全家、Lawson）、三家新聞稿熱賣訊號、地區擴張、もぐナビ（加密頁籤）、密碼鎖、使用導覽頁籤、Gemini 用量紀錄與每月上限、probe 工具。
 - 2026-11-02 Lawson 新聞稿已上線（19 篇 → 32 個訊號，官方銷量 9 個）。
-- 2026-11-02 7-Eleven 新聞稿：`scraper/sources/press_sej.py` 已接進 `signals.update_press`（只收「商品」標籤）。**待驗證**：crawl（translate=true）後檢查 `data/press_signals.csv` 有 chain=seven_jp 的訊號。
-- 下一步：日本完成 → 韓國（評估見 Project 文件「來源評估與決策紀錄」：emart24 可直接做；CU／GS25 需 probe；Naver 新聞 API 需 Wallace 申請金鑰）。
+- 2026-11-02 7-Eleven 新聞稿已上線（13 篇 → 18 個訊號，官方銷量 3 個）。**日本部分完成**：三家新品＋三家新聞稿熱賣訊號。
+- 下一步：韓國（評估見 Project 文件「來源評估與決策紀錄」：emart24 可直接做；CU／GS25 需 probe；Naver 新聞 API 需 Wallace 申請金鑰）。
 - 待 Wallace：GCP 預算快訊與 Vertex AI 配額；もぐナビbiz 授權洽詢。
