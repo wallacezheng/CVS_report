@@ -183,3 +183,16 @@ class LawsonTest(unittest.TestCase):
         self.assertFalse(is_regional_jp(f(["※沖縄地域のローソンではお取り扱いしておりません。"])))
         self.assertEqual(f(["※中部地域のローソンのみのお取り扱いとなります。"]), "甲信越、北陸、東海")
         self.assertTrue(is_regional_jp(f(["※中部地域のローソンのみのお取り扱いとなります。"])))
+
+
+class LawsonPressTest(unittest.TestCase):
+    def test_list_keeps_product_news_only(self):
+        from pathlib import Path
+        from scraper.sources import press_lawson
+        html = (Path(__file__).parent / "fixtures" / "lawson_news_20261102.html").read_text(encoding="utf-8")
+        rows = press_lawson.parse_list(html)
+        self.assertEqual(len(rows), 106)
+        self.assertEqual(rows[0]["release_id"], "lw_1533990")
+        self.assertEqual(rows[0]["date"], "2026-10-30")
+        self.assertTrue(all(r["chain"] == "lawson_jp" for r in rows))
+        self.assertFalse(any("フォロワー" in r["title"] for r in rows))  # サービス類不收

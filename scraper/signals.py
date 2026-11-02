@@ -99,17 +99,20 @@ def match_products(target: str, chain: str, products: list[dict]) -> list[str]:
 
 
 def update_press(products: list[dict], today: date, errors: list[str]) -> None:
-    from .sources import press_fm
+    from .sources import press_fm, press_lawson
     press = _read(DATA / "press_releases.csv")
     sigs = _read(DATA / "press_signals.csv")
     seen = {p["release_id"] for p in press}
     since = (today - timedelta(weeks=int(os.environ.get("PRESS_LOOKBACK_WEEKS") or 8))).isoformat()
-    try:
-        new = press_fm.crawl(seen, sorted({today.year, (today - timedelta(weeks=8)).year}), since,
-                             int(os.environ.get("MAX_PRESS_PER_RUN") or 30))
-    except Exception as e:
-        errors.append(f"全家新聞稿抓取失敗：{e}")
-        return
+    cap = int(os.environ.get("MAX_PRESS_PER_RUN") or 30)
+    years = sorted({today.year, (today - timedelta(weeks=8)).year})
+    new = []
+    for name, job in (("全家", lambda: press_fm.crawl(seen, years, since, cap)),
+                      ("Lawson", lambda: press_lawson.crawl(seen, since, cap))):
+        try:
+            new.extend(job())
+        except Exception as e:  # 一家失敗不影響另一家
+            errors.append(f"{name}新聞稿抓取失敗：{e}")
     if new and os.environ.get("ENRICH_ENABLED", "1").strip() != "0" and gemini_mode():
         try:
             resolve_model()
@@ -132,7 +135,7 @@ def update_press(products: list[dict], today: date, errors: list[str]) -> None:
             errors.append(f"新聞稿分析失敗：{e}")
         log_usage(today.isoformat(), "press", len(new))
     elif new:
-        errors.append(f"全家新聞稿有 {len(new)} 篇待分析（需開啟翻譯）")
+        errors.append(f"官方新聞稿有 {len(new)} 篇待分析（需開啟翻譯）")
     # 每次都重新比對（商品主檔會增加）
     for s in sigs:
         s["matched_keys"] = "|".join(match_products(s.get("target_ja", ""), s.get("chain", ""), products))
