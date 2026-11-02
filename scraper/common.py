@@ -18,6 +18,15 @@ _session.headers.update({"User-Agent": USER_AGENT, "Accept-Language": "ja,ko;q=0
 _last_request = 0.0
 
 
+def _fix_encoding(resp: requests.Response) -> None:
+    """伺服器沒在標頭宣告 charset 時（如 Lawson），requests 會當成 ISO-8859-1 造成亂碼：改讀頁面 meta，否則用 UTF-8。"""
+    ctype = resp.headers.get("content-type", "").lower()
+    if "charset" in ctype or not ("html" in ctype or "text" in ctype or not ctype):
+        return
+    m = re.search(rb'charset=["\']?([A-Za-z0-9_-]+)', resp.content[:4096])
+    resp.encoding = m.group(1).decode("ascii") if m else "utf-8"
+
+
 def fetch(url: str, *, method: str = "GET", data: dict | None = None, timeout: int = 30,
           retries: int = 2) -> requests.Response:
     """禮貌性抓取：每次請求間隔 REQUEST_INTERVAL 秒，失敗重試。"""
@@ -29,6 +38,7 @@ def fetch(url: str, *, method: str = "GET", data: dict | None = None, timeout: i
         _last_request = time.time()
         try:
             resp = _session.request(method, url, data=data, timeout=timeout)
+            _fix_encoding(resp)
             if resp.status_code >= 500 and attempt < retries:
                 time.sleep(5 * (attempt + 1))
                 continue
