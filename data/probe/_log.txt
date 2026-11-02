@@ -1,0 +1,5 @@
+# 2026-11-02T09:22:47.001361Z
+200      175 bytes text/html https://www.lawson.co.jp/recommend/new/ → www.lawson.co.jp_recommend_new.html
+200    39317 bytes text/html https://www.lawson.co.jp/recommend/original/ → www.lawson.co.jp_recommend_original.html
+200   122240 bytes text/html https://www.lawson.co.jp/company/news/ → www.lawson.co.jp_company_news.html
+404    19934 bytes text/html https://www.lawson.co.jp/recommend/new/list/ → www.lawson.co.jp_recommend_new_list.html
