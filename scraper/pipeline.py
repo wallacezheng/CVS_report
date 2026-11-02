@@ -366,6 +366,11 @@ def run(args) -> int:
         "product_count": len(products),
         "review_count": len(review), "errors": errors,
         "sources": {s["source_id"]: s.get("enabled") for s in cfg.data["sources"]},
+        # 內部頁面連結（只放網址；頁面本身需公司帳號登入、且被共用 Sheet 才看得到資料）
+        "internal_links": [{"id": s["source_id"], "url": s["url"], "label": s.get("note", "")}
+                           for s in cfg.data["sources"]
+                           if s.get("type") == "internal_link" and str(s.get("enabled", "1")) == "1"
+                           and str(s.get("url", "")).startswith("https://script.google.com/")],
     }
     (DOCS_DATA / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1),
                                          encoding="utf-8")

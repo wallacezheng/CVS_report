@@ -7,3 +7,4 @@ gs25_kr,product,https://gs25.gsretail.com/,0,官網改版為單頁應用，待�
 naver_datalab,signal,https://openapi.naver.com/v1/datalab/search,1,需 NAVER_CLIENT_ID／SECRET
 mognavi,mognavi_ranking,https://mognavi.jp/brand/2113/ranking,0,2026-10-29 起回應 403（被封鎖），已停用；改洽もぐナビbiz 正式授權
 familymart_press,press,https://www.family.co.jp/company/news_releases.html,1,官方新聞稿：擷取累計銷量、再販、熱賣休止等熱賣訊號
+mognavi_page,internal_link,,1,內部：もぐナビ口碑排行

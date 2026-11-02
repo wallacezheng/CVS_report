@@ -79,6 +79,8 @@ label.chk{font-size:.86rem;display:flex;gap:4px;align-items:center}
 details{font-size:.8rem;color:var(--muted)}
 details summary{cursor:pointer}
 details a{color:var(--accent)}
+.ilink{font-size:.8rem;padding:5px 12px;border-radius:999px;border:1px solid var(--warn);color:var(--warn);text-decoration:none;background:var(--warn-soft)}
+.ilink:hover{text-decoration:underline}
 .empty{padding:28px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:6px}
 .more{justify-self:center;font:inherit;padding:8px 18px;border-radius:4px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
 footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
@@ -93,7 +95,10 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
       <h1>日韓超商新品雷達</h1>
       <div class="muted" id="updated" style="font-size:.85rem"></div>
     </div>
-    <div class="summary" id="summary"></div>
+    <div style="display:grid;gap:10px;justify-items:end">
+      <div class="summary" id="summary"></div>
+      <div id="internal-links" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+    </div>
   </header>
 
   <div class="notice" id="notice" hidden></div>
@@ -180,6 +185,8 @@ function renderSummary(){
   const upcoming=f.filter(p=>p.status==="upcoming").length;
   const regional=f.filter(p=>p.release_week===wk&&p.is_regional==="1").length;
   const review=S.products.filter(p=>p.needs_review==="1").length;
+  document.getElementById("internal-links").innerHTML=(m.internal_links||[]).map(l=>
+    `<a class="ilink" href="${esc(l.url)}" target="_blank" rel="noopener" title="需公司 Google 帳號，且已被共用 CVS_report 試算表">🔒 ${esc(l.label||"內部頁面")}</a>`).join("");
   document.getElementById("updated").textContent=`資料更新 ${m.updated_at||"—"}｜本週 ${weekLabel(wk)}`;
   document.getElementById("summary").innerHTML=[
     [thisWeek,"本週新品"],[upcoming,"即將上市"],[regional,"本週地區限定"],[review,"待人工確認"]]

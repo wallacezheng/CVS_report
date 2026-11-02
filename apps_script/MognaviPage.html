@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<base target="_top">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* 版面：與公開儀表板同一套色票；頂部摘要 → 篩選列 → 商品卡（口碑可展開） */
+:root{
+  --bg:#f6f6f2; --surface:#fff; --ink:#1d2228; --muted:#69707a; --line:#dfe0da;
+  --accent:#2b4c7e; --accent-soft:#e3e9f3; --jp:#b0413e; --good:#2f6f5e; --good-soft:#e2f0eb;
+  --bad:#b0413e; --bad-soft:#f6e3e2; --warn:#a15c00; --warn-soft:#fbefdc;
+  --f-display:"Zen Kaku Gothic New","Noto Sans TC",system-ui,sans-serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#15181c; --surface:#1d2127; --ink:#e7e8e4; --muted:#9aa1ab; --line:#2f343b;
+  --accent:#8fb0e3; --accent-soft:#25324a; --jp:#e08480; --good:#7cc3ad; --good-soft:#1d3530;
+  --bad:#e08480; --bad-soft:#3a2224; --warn:#e7a54a; --warn-soft:#3a2c17; color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;
+  padding:20px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px))}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:20px}
+h1,h2{font-family:var(--f-display);margin:0;text-wrap:balance}
+h1{font-size:1.6rem}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;color:var(--muted)}
+.muted{color:var(--muted)}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+header.top{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:end;justify-content:space-between;border-bottom:2px solid var(--ink);padding-bottom:14px}
+.summary{display:flex;flex-wrap:wrap;gap:8px 28px}
+.summary div{display:grid}
+.summary b{font-family:var(--f-mono);font-size:1.4rem;font-weight:500}
+.summary span{font-size:.8rem;color:var(--muted)}
+.notice{background:var(--warn-soft);border-left:3px solid var(--warn);padding:10px 14px;font-size:.86rem;border-radius:2px}
+.notice b{color:var(--warn)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;background:var(--bg);padding:10px 0;z-index:5;border-bottom:1px solid var(--line)}
+select,input[type=search]{font:inherit;font-size:.86rem;padding:6px 8px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--ink)}
+input[type=search]{flex:1 1 200px;min-width:0}
+label.chk{font-size:.86rem;display:flex;gap:4px;align-items:center}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;display:grid;gap:8px;align-content:start;min-width:0}
+.meta{display:flex;flex-wrap:wrap;gap:6px;font-size:.74rem}
+.chip{border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--muted);white-space:nowrap}
+.chip.chain{border-color:var(--jp);color:var(--jp)}
+.chip.rank{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+.chip.match{background:var(--good-soft);color:var(--good);border-color:transparent}
+.card h3{margin:0;font-size:1rem;line-height:1.4}
+.orig{font-size:.78rem;color:var(--muted);line-height:1.4}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;border-block:1px solid var(--line);padding:8px 0}
+.stats div{display:grid;text-align:center}
+.stats b{font-family:var(--f-mono);font-size:1.05rem;font-weight:500}
+.stats span{font-size:.72rem;color:var(--muted)}
+.summ{font-size:.88rem;background:var(--bg);border-radius:4px;padding:8px 10px}
+.summ .good{color:var(--good);font-weight:500}.summ .bad{color:var(--bad);font-weight:500}
+.senti{display:flex;align-items:center;gap:8px;font-size:.74rem;color:var(--muted)}
+.bar{flex:1;height:6px;background:var(--line);border-radius:3px;position:relative;overflow:hidden}
+.bar i{position:absolute;top:0;bottom:0;left:50%}
+details{font-size:.84rem}
+details summary{cursor:pointer;color:var(--accent)}
+.rv{border-left:2px solid var(--line);padding:2px 0 2px 10px;margin:8px 0}
+.rv .d{font-size:.72rem;color:var(--muted);font-family:var(--f-mono)}
+a{color:var(--accent)}
+.empty{padding:28px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:6px;grid-column:1/-1}
+footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">DSR｜日本超商口碑・內部研究</div>
+      <h1>もぐナビ口碑排行</h1>
+      <div class="muted" id="sub" style="font-size:.85rem">讀取中…</div>
+    </div>
+    <div class="summary" id="summary"></div>
+  </header>
+
+  <div class="notice"><b>僅供內部討論</b>：資料來自日本食品口碑網站もぐナビ（mognavi.jp），利用規約限制私的利用以外的使用，請勿截圖外流、轉寄或放進對客戶的資料。中文摘要由 AI 依口碑原文產生。</div>
+  <div class="notice" id="state" hidden></div>
+
+  <div class="filters">
+    <input type="search" id="q" placeholder="搜尋商品名（中、日文）或口碑內容">
+    <select id="f-chain"><option value="">全部超商</option></select>
+    <select id="f-sort">
+      <option value="tabetai">依「想吃」數排序</option>
+      <option value="score">依平均分數排序</option>
+      <option value="reviews">依口碑數排序</option>
+      <option value="senti">依評價傾向排序</option>
+      <option value="release">依發售日（新到舊）</option>
+    </select>
+    <label class="chk"><input type="checkbox" id="f-match">只看對應到我們新品的</label>
+    <span class="muted mono" id="count" style="font-size:.85rem;margin-left:auto"></span>
+  </div>
+
+  <div class="grid" id="grid"><div class="empty">讀取 Sheet 資料中…</div></div>
+
+  <footer>分數為もぐナビ 7 分制平均；「想吃」為網站上按「食べたい」的人數；評價傾向 −1（多負評）～ +1（多好評）由 AI 判讀。資料存放於 Google Sheet：mognavi_cache／もぐナビ排行／もぐナビ口碑。</footer>
+</div>
+
+<script>
+var CHAIN_ZH={seven_jp:"7-Eleven",familymart_jp:"全家",lawson_jp:"Lawson"};
+var D={products:[]};
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+function summaryHtml(s){
+  if(!s)return '<span class="muted">尚無中文摘要</span>';
+  return esc(s).replace(/好評：/g,'<span class="good">好評：</span>').replace(/負評：/g,'<span class="bad">負評：</span>');
+}
+function sentiBar(v){
+  if(v===null||isNaN(v))return "";
+  var w=Math.min(50,Math.abs(v)*50),left=v>=0?50:50-w,col=v>=0?"var(--good)":"var(--bad)";
+  return '<div class="senti"><span>負評</span><div class="bar"><i style="left:'+left+'%;width:'+w+'%;background:'+col+'"></i></div><span>好評</span><span class="mono">'+(v>0?"+":"")+v.toFixed(2)+'</span></div>';
+}
+
+function render(){
+  var q=document.getElementById("q").value.trim().toLowerCase();
+  var chain=document.getElementById("f-chain").value;
+  var sort=document.getElementById("f-sort").value;
+  var onlyMatch=document.getElementById("f-match").checked;
+  var list=D.products.filter(function(p){
+    if(chain&&p.chain!==chain)return false;
+    if(onlyMatch&&!p.matched_key)return false;
+    if(!q)return true;
+    var hay=(p.name_ja+" "+p.name_zh+" "+p.summary+" "+p.reviews.map(function(r){return r.text}).join(" ")).toLowerCase();
+    return hay.indexOf(q)>=0;
+  });
+  var key={tabetai:function(p){return p.tabetai},score:function(p){return p.score||0},reviews:function(p){return p.review_count},
+    senti:function(p){return p.sentiment==null?-9:p.sentiment},release:function(p){return p.release_date||""}}[sort];
+  list.sort(function(a,b){var x=key(a),y=key(b);return x<y?1:x>y?-1:0});
+  document.getElementById("count").textContent=list.length+" 支";
+  var g=document.getElementById("grid");
+  if(!list.length){g.innerHTML='<div class="empty">沒有符合條件的商品。</div>';return}
+  g.innerHTML=list.map(function(p){
+    var ranks=p.ranks.map(function(r){return '<span class="chip rank">'+esc(r.type)+(r.rank?" 第"+r.rank+"名":"")+'</span>'}).join("");
+    var rv=p.reviews.length?'<details><summary>口碑原文（'+p.reviews.length+' 則摘錄）</summary>'+p.reviews.map(function(r){
+      return '<div class="rv" lang="ja"><div class="d">'+esc(r.date)+'</div>'+esc(r.text)+'</div>'}).join("")+'</details>':'';
+    return '<article class="card">'+
+      '<div class="meta"><span class="chip chain">'+esc(CHAIN_ZH[p.chain]||p.chain||"超商")+'</span>'+ranks+
+      (p.matched_key?'<span class="chip match">本系統新品</span>':'')+
+      (p.release_date?'<span class="chip">'+esc(p.release_date)+' 發售</span>':'')+'</div>'+
+      '<h3>'+esc(p.name_zh||p.name_ja)+'</h3>'+
+      '<div class="orig" lang="ja">'+esc(p.name_ja)+'</div>'+
+      '<div class="stats"><div><b>'+(p.score?p.score.toFixed(1):"—")+'</b><span>平均分數 /7</span></div>'+
+      '<div><b>'+p.tabetai+'</b><span>想吃</span></div><div><b>'+p.review_count+'</b><span>口碑數</span></div></div>'+
+      '<div class="summ">'+summaryHtml(p.summary)+'</div>'+sentiBar(p.sentiment)+rv+
+      '<a href="'+esc(p.url)+'" target="_blank" rel="noopener" style="font-size:.8rem">もぐナビ商品頁 ↗</a>'+
+    '</article>';
+  }).join("");
+}
+
+function init(data){
+  D=data;
+  var ps=D.products;
+  document.getElementById("sub").textContent="資料抓取 "+(D.fetchedFrom===D.fetchedTo?D.fetchedTo:D.fetchedFrom+" ～ "+D.fetchedTo)+"｜頁面產生 "+D.generatedAt;
+  var withSum=ps.filter(function(p){return p.summary}).length;
+  var matched=ps.filter(function(p){return p.matched_key}).length;
+  var revs=ps.reduce(function(s,p){return s+p.reviews.length},0);
+  document.getElementById("summary").innerHTML=[[ps.length,"收錄商品"],[revs,"口碑摘錄"],[withSum,"有中文摘要"],[matched,"對應到新品"]]
+    .map(function(x){return '<div><b>'+x[0]+'</b><span>'+x[1]+'</span></div>'}).join("");
+  var st=document.getElementById("state"),msgs=[];
+  if(!D.rankWeek)msgs.push("排行名次目前沒有資料（10/29 程式錯誤清空），以下為 10/28 週排行前 5 名收錄的商品，依「想吃」數排序。");
+  msgs.push("もぐナビ自 10/29 起封鎖自動存取，資料停留在 "+(D.fetchedTo||"10/28")+"；長期資料需改走もぐナビbiz 正式授權。");
+  st.hidden=false;st.innerHTML=msgs.map(esc).join("<br>");
+  var chains=[];ps.forEach(function(p){if(p.chain&&chains.indexOf(p.chain)<0)chains.push(p.chain)});
+  var sel=document.getElementById("f-chain");
+  chains.forEach(function(c){var o=document.createElement("option");o.value=c;o.textContent=CHAIN_ZH[c]||c;sel.appendChild(o)});
+  ["q","f-chain","f-sort","f-match"].forEach(function(id){document.getElementById(id).addEventListener("input",render)});
+  render();
+}
+function fail(e){
+  document.getElementById("grid").innerHTML='<div class="empty">讀不到資料：'+esc(e&&e.message||e)+'<br>請確認你的 Google 帳號已被共用這份 Sheet。</div>';
+}
+
+if(window.google&&google.script&&google.script.run){
+  google.script.run.withSuccessHandler(init).withFailureHandler(fail).getMognaviData();
+}else if(window.MOCK_DATA){init(window.MOCK_DATA)}
+</script>
+</body>
+</html>
