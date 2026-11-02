@@ -1,4 +1,485 @@
 product_key,name_zh,desc_zh,category_code,tags,confidence,model,enriched_at
+cu_kr:27917,Sobaba黃金炸雞小杯裝,韓國熱銷Sobaba酥脆炸雞系列，裹上濃郁特調黃金醬汁。,HOT_SNACK,雞肉|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:27938,大象 NewCare黑芝麻全高蛋白飲,,DRINK,高蛋白,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28103,BakeHouse405 大理石巧克力鮮奶油麵包,CU自有烘焙品牌BakeHouse405系列,BAKERY,巧克力|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28114,星巴克 葡萄柚蜂蜜紅茶 350ml,,DRINK,紅茶|水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28118,東遠 維他命C摩洛血橙飲 500ml,,DRINK,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28120,三立 寶可夢布朗尼甜甜圈,寶可夢聯名系列,BAKERY,聯名・IP|巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28121,三立 寶可夢蘋果鮮奶油麵包,寶可夢聯名系列,BAKERY,聯名・IP|水果|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28123,三立 香甜玉米蛋糕,,BAKERY,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28124,三立 美感黃起司手撕麵包,,BAKERY,起司,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28126,熊津 Victoria檸檬氣泡水 500ml,,DRINK,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28139,M's Bakery 黑糖麻糬奶茶蛋糕捲,,DESSERT,紅茶,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28141,CJ Foodville 湯匙舀餅乾巧克力杯,以湯匙舀著吃的杯裝巧克力餅乾甜點,DESSERT,巧克力,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28142,CJ Foodville 湯匙舀餅乾焦糖杯,以湯匙舀著吃的杯裝焦糖餅乾甜點,DESSERT,焦糖,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28150,BakeHouse405 大理石檸檬開心果鮮奶油麵包,CU自有烘焙品牌BakeHouse405系列,BAKERY,水果|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28153,哈根達斯 巧克力香草冰淇淋蛋糕,,ICE,巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28161,Ourhome 一口里肌炸豬排,,FROZEN,豬肉,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28162,JOY 草莓達克瓦茲,,DESSERT,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28165,CJ 狂暴脆皮蒜味無骨炸雞 210g,CJ旗下SOBABA系列酥脆蒜醬炸雞,FROZEN,雞肉|蒜味,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28166,CJ 狂暴脆皮辣味無骨炸雞 210g,CJ旗下SOBABA系列酥脆辣味炸雞,FROZEN,雞肉|辣味,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28170,BakeHouse405 巧克力鮮奶油鹽麵包,CU自有烘焙品牌BakeHouse405系列,BAKERY,巧克力|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28171,BakeHouse405 大理石草莓煉乳鮮奶油麵包,CU自有烘焙品牌BakeHouse405系列,BAKERY,水果|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28173,DS軟糖驚喜蛋,附贈驚喜玩具的造型水果軟糖,SNACK_SWEET,,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28175,超甜玉米義大利麵,嚴選超甜水果玉米熬煮濃醬義大利麵,FRESH_NOODLE,奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28178,不倒翁起司辣雞美乃滋丼飯,微波即食辣炒雞丁佐起司美乃滋蓋飯,FRESH_BENTO,起司|雞肉|辣味|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28179,不倒翁漢江泡麵袋裝,重現漢江公園煮麵機風味的袋裝拉麵,INSTANT,韓式|辣味,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28180,不倒翁奶油醬油豬肉丼飯,微波即食奶油醬油風味肉燥蓋飯杯,FRESH_BENTO,豬肉|奶油・鮮奶油|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28181,樂天HOT6 THE KING藍色能量飲料,韓國樂天HOT6熱門能量飲料低卡系列,DRINK,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28182,三立PRO-H玉米奶油麵包,高蛋白麵包系列，填入香甜玉米奶油餡,BAKERY,奶油・鮮奶油|高蛋白,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28183,紅豆泥蒸糕派,三立將傳統紅豆蒸糕變身千層派甜點,DESSERT,,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28185,美井堂奶油咖哩寬冬粉,美井堂微波即食濃郁奶油咖哩醬寬粉,INSTANT,咖哩|奶油・鮮奶油|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28187,涼拌香脆辣蘿蔔絲,一味餐桌口感脆口彈牙的辣拌乾蘿蔔絲,FRESH_DELI,辣味|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28188,杏仁炒小魚乾,一味餐桌堅果炒小魚乾經典小菜,FRESH_DELI,海鮮|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28189,涼拌蒜苔,一味餐桌韓式辣醬拌蒜薹家常小菜,FRESH_DELI,蒜味|韓式|辣味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28190,調味醬醃芝麻葉,一味餐桌韓式醃漬芝麻葉佐料小菜,FRESH_DELI,韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28191,醬煮蓮藕,一味餐桌韓式傳統甜鹹醬煮蓮藕小菜,FRESH_DELI,韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28192,延世大學米莉的書房生乳包,延世生乳包與米莉的書房聯名款,BAKERY,奶油・鮮奶油|聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28194,起司豬排可樂餅麵包,福利社麵包系列，夾入起司炸豬排可樂餅,BAKERY,起司|豬肉,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28195,Toowoomba奶油培根麵疙瘩,一餐旅行系列，微辣濃郁白醬麵疙瘩,FRESH_NOODLE,奶油・鮮奶油|辣味|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28198,Campbell康寶葡萄盒裝,500克盒裝生鮮康寶葡萄,FRESH_DELI,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28199,酷企鵝軟糖,三麗鷗酷企鵝造型軟糖,SNACK_SWEET,聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28202,蠟筆小新水蜜桃雪酪冰淇淋,蠟筆小新聯名款水蜜桃風味雪酪,ICE,水果|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28203,小白雪酪冰淇淋,蠟筆小新寵物小白聯名款清爽雪酪冰品。,ICE,聯名・IP,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28204,Omachi 豬肉風味碗麵 小型碗,越南知名品牌馬鈴薯麵條豬肉風味杯麵。,INSTANT,豬肉,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28205,Omachi 牛肉風味碗麵 小型碗,越南知名品牌馬鈴薯麵條牛肉風味杯麵。,INSTANT,牛肉,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28210,Joy 開心果達克瓦茲,外酥內軟的達克瓦茲餅皮夾開心果內餡。,DESSERT,,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28212,海太 自由時間 皇家伯爵奶茶風味巧克力棒,經典牛軋糖巧克力棒推出濃厚伯爵奶茶風味。,SNACK_SWEET,巧克力|紅茶,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28213,海太 新堂洞辣炒年糕脆條 友利奶奶炸醬風味,新堂洞年糕脆條與辣炒年糕名店聯名炸醬味。,SNACK_SAVORY,韓式|聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28218,Nuldam 黑橄欖貝果,添加黑橄欖碎粒烘烤的嚼勁貝果。,BAKERY,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28222,藝株 紅咖哩醬,泰式料理調味用紅咖哩調理醬包。,INSTANT,咖哩,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28224,紅曼堂 花生黃豆粉年糕吐司,吐司夾入Q彈年糕、花生醬與香濃黃豆粉。,FRESH_SANDWICH,韓式,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28233,BakeHouse405 牛奶奶油蒙布朗麵包,CU自有烘焙品牌，夾入香濃牛奶鮮奶油。,BAKERY,奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28234,Today 捲尺口香糖 西瓜風味,經典西瓜香甜風味的捲尺造型口香糖。,SNACK_SWEET,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28235,Today 捲尺口香糖 熱帶水果風味,拉出長條形狀的熱帶水果風味捲尺口香糖。,SNACK_SWEET,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28236,Natoo (G)I-DLE 音樂棒棒糖,附帶聲音效果或聯名設計的趣味棒棒糖。,SNACK_SWEET,聯名・IP,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28239,CLOOP 蘋果醋零卡西打汽水 500ml,添加蘋果醋的清爽零卡碳酸飲料。,DRINK,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28240,牛骨海帶芽刀削麵,濃郁牛骨高湯搭配海帶芽的韓式刀削麵。,INSTANT,韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28241,三立 紅豆生乳捲蛋糕,以湯匙挖著吃的紅豆鮮奶油捲蛋糕。,DESSERT,奶油・鮮奶油,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28243,Yuraga 生巧克力麻糬,Q彈麻糬包入濃郁滑順生巧克力。,DESSERT,巧克力,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28244,Daily 甜椒 2入,生鮮彩椒2入裝。,FRESH_DELI,,0.80,gemini-3.8-flash,2026-11-02
+cu_kr:28247,樂天 蘋果鮮奶油麵包,香甜蘋果醬結合濃郁鮮奶油內餡。,BAKERY,奶油・鮮奶油|水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28248,Tutto 牛奶蜜柑果凍,牛奶果凍基底搭配甘甜蜜柑果肉。,DESSERT,水果,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28250,三友 皇家澤西牛奶最中雪糕,採用香濃澤西牛奶冰淇淋搭配酥脆最中餅殼,ICE,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28252,超級披薩 培根起司披薩,鋪滿培根碎與牽絲莫札瑞拉起司的單人份披薩,FRESH_DELI,起司|豬肉,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28253,BBQ大將炙燒牛排,濃郁美式燒烤醬調味的冷藏即食厚切牛排,FRESH_DELI,牛肉,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28254,BBQ大將美式豬肋排 200g,微波即食，裹滿煙燻甜鹹烤肉醬汁的豬肋排,FRESH_DELI,豬肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28255,祭祀用當季新蘋果 3入,節慶祭祀專用等級的大顆飽滿新鮮蘋果,FRESH_DELI,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28256,鍵盤鍵帽造型軟糖,趣味電腦鍵盤鍵帽外觀的造型水果軟糖,SNACK_SWEET,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28257,Nuldam 培根起司貝果,鹹香培根與濃郁起司搭配的嚼勁貝果,FRESH_SANDWICH,起司|豬肉,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28258,黃金甜瓜 單入,便利商店直送高甜度新鮮黃金甜瓜,FRESH_DELI,水果,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28259,海鹽焦糖長崎蛋糕,BAKE 405烘焙系列，鹹甜交織的海鹽焦糖風味,BAKERY,焦糖,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28260,濃巧克力長崎蛋糕,BAKE 405烘焙系列，濃郁可可風味綿密長崎蛋糕,BAKERY,巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28262,人魚漢頓雪酪冰淇淋,三麗鷗人氣角色人魚漢頓聯名款清爽雪酪杯冰,ICE,聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28263,布丁狗雪酪冰淇淋,三麗鷗人氣角色布丁狗聯名款清爽雪酪杯冰,ICE,聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28264,KOPIKO 無糖咖啡糖 32g,知名咖啡糖品牌推出的無糖配方隨身包,SNACK_SWEET,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28268,Yuraga 生巧克力抹茶麻糬,濃郁微苦的生巧克力包裹抹茶麻糬皮,DESSERT,巧克力|抹茶,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28274,元的玉米鮮奶油麵包,BAKE 405烘焙系列，爆漿玉米風味甜鮮奶油內餡,BAKERY,奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28279,Pocopia 檸檬莓果馬卡龍,清爽酸甜的檸檬與莓果風味內餡馬卡龍,DESSERT,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28280,梅伊的肉桂捲,BAKE 405烘焙系列，散發濃郁肉桂香氣,BAKERY,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28281,珍娜的草莓醬夾心麵包,BAKE 405烘焙系列，夾入香甜草莓果醬,BAKERY,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28282,Pocopia 鐵盒奶油餅乾,精美鐵罐包裝的濃郁奶油餅乾,SNACK_SWEET,奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28283,海太 艾許奶油羅馬酥餅,使用法國頂級艾許奶油製作的經典奶酥餅乾,SNACK_SWEET,奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28284,東遠高蛋白鮪魚罐頭 135g,主打高蛋白質補充的常溫罐頭,INSTANT,鮪魚|海鮮|高蛋白,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28285,榮進 MUKUIT 消水氣泡飲 500ml,主打消水代謝機能的氣泡飲,DRINK,,0.80,gemini-3.8-flash,2026-11-02
+cu_kr:28286,榮進 PDRN 氣泡飲 500ml,添加美容成分 PDRN 的機能氣泡水,DRINK,,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28287,三祐皇家澤西牛奶巧克力最中冰淇淋,日本澤西牛乳製作巧克力摩納卡,ICE,巧克力,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28288,小小兵印章冰棒,小小兵聯名造型冰棒,ICE,聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28289,Pokepia 水果軟糖,寶可夢主題包裝水果軟糖,SNACK_SWEET,水果|聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28290,Misty 貓咪姿勢軟糖,可愛貓咪造型軟糖,SNACK_SWEET,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28291,SAMG 酥脆非油炸薯片海苔味 40g,烘烤非油炸脆片,SNACK_SAVORY,,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28292,Pokepia 妙蛙種子爆米花,寶可夢主題包裝零食,SNACK_SAVORY,聯名・IP,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28293,Pokepia 小火龍爆米花,寶可夢主題包裝零食,SNACK_SAVORY,聯名・IP,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28294,Pokepia 傑尼龜爆米花,寶可夢主題包裝零食,SNACK_SAVORY,聯名・IP,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28301,紅曼堂原味優格糯米糕,人氣甜點紅曼堂聯名大福糯米糕,DESSERT,名店監修|聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28305,延世大學雙重巧克力鮮奶油三明治蛋糕,延世大學聯名甜點系列夾心蛋糕,DESSERT,巧克力|奶油・鮮奶油|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28308,BakeHouse405 南的菠蘿麵包,CU 自有烘焙品牌 BakeHouse405 系列,BAKERY,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28309,現炸玉米派,超商櫃檯現炸熱食點心,HOT_SNACK,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28310,現炸蘋果派,超商櫃檯現炸熱食點心,HOT_SNACK,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28311,Bang 能量飲料蜜桃芒果風味 355ml,,DRINK,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28312,Bang 能量飲料櫻桃香草風味 355ml,,DRINK,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28313,Ricola 利口樂清新薄荷糖,草本清新潤喉糖,SNACK_SWEET,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28315,生薑怪獸機能飲 100ml,瓶裝生薑濃縮機能健康飲,DRINK,,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28317,電馭叛客 原味能量飲料,電馭叛客賽博龐克聯名經典原味能量飲料。,DRINK,聯名・IP,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28318,電馭叛客 霓虹能量飲料 355ml,電馭叛客賽博龐克風格概念的機能能量汽水。,DRINK,聯名・IP,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28319,電馭叛客 紫羅蘭能量飲料,電馭叛客遊戲風格的紫羅蘭葡萄風味能量補充飲料。,DRINK,聯名・IP,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28320,青蔥風味脆餅 80g,充滿濃郁青蔥香氣的薄脆鹹蘇打餅乾。,SNACK_SAVORY,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28321,Sempio 質優辣火山牛肉乾 30g,Sempio 旗下的厚切牛肉乾，主打極致辛辣的火山風味。,SNACK_SAVORY,牛肉|辣味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28322,CJ bibigo 牛骨高湯 500g,慢火熬煮濃郁醇厚的韓式常溫牛骨高湯調理包。,INSTANT,牛肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28323,大象 宗家炒辣蘿蔔泡菜 80g,經過香油翻炒、口感爽脆下飯的小包裝熟成辣蘿蔔塊。,FRESH_DELI,韓式|辣味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28324,樂天 七星蜜桃荔枝氣泡飲 500ml,融合甜蜜水蜜桃與荔枝香氣的七星汽水系列飲品。,DRINK,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28325,樂天 七星葡萄荔枝氣泡飲 500ml,結合清甜葡萄與荔枝香氣的七星汽水系列飲品。,DRINK,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28326,Samlip Pro-H 玉米菠蘿麵包,主打高蛋白營養機能的香甜玉米風味菠蘿麵包。,BAKERY,高蛋白,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28327,PBICK 辣味海帶芽烏龍麵,湯頭辛辣爽口的即食海帶芽烏龍麵。,INSTANT,辣味|海鮮,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28328,Samlip 味覺蘋果瑞士捲 2入,Samlip 味覺客系列，包入香甜蘋果果醬內餡的蛋糕捲。,DESSERT,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28329,Samlip 3點1刻奶茶長崎蛋糕,Samlip 攜手台灣 3點1刻奶茶風味的鬆軟長崎蛋糕。,BAKERY,紅茶|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28330,Samlip 3點1刻奶茶迷你夾心麵包,Samlip 攜手台灣 3點1刻奶茶推出的迷你口袋夾心麵包。,BAKERY,紅茶|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28331,BakeHouse405 巧克利芙的巧克力糖餅,超商自有烘焙與角色聯名推出的巧克力內餡糖餅。,BAKERY,巧克力|韓式|聯名・IP,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28333,Samlip 德式香腸濃起司捲餅,包入香脆熱狗香腸與濃郁切達起司的捲餅。,FRESH_SANDWICH,起司|豬肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28334,Samlip 起司烤牛肉捲餅,以韓式烤牛肉搭配濃郁起司的墨西哥捲餅。,FRESH_SANDWICH,起司|牛肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28335,韓一 布帳馬車海瓜子刀削麵,還原韓國路邊布帳馬車風味的鮮甜海瓜子刀削麵。,FRESH_NOODLE,海鮮|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28336,Binggrae 白桃蒟蒻果凍,Binggrae 推出的蜜桃風味低卡蒟蒻果凍。,SNACK_SWEET,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28337,Binggrae 麝香葡萄蒟蒻果凍,Binggrae 推出的青葡萄風味低卡蒟蒻果凍。,SNACK_SWEET,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28338,Wellcare麥普蘭巧克力植物蛋白飲 350ml,巧克力風味植物性蛋白質營養機能飲品,DRINK,巧克力|高蛋白,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28339,Wellcare麥普蘭杏仁植物蛋白飲 350ml,杏仁風味植物性蛋白質營養機能飲品,DRINK,高蛋白,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28340,Wellcare麥普蘭黑芝麻植物蛋白飲 350ml,黑芝麻風味植物性蛋白質營養機能飲品,DRINK,高蛋白,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28343,韓式辣炒魷魚絲,拌炒特調韓式辣醬的經典下飯小菜,FRESH_DELI,韓式|辣味|海鮮,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28344,醬炒小魚乾,韓式小菜經典甜鹹醬炒細吻仔魚乾,FRESH_DELI,韓式|海鮮,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28345,樂天原味蘋果卡士達蛋糕,夾入蘋果內餡的蜂蜜長崎蛋糕蛋糕,BAKERY,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28346,Dodram韓豚五花豬肉片 300g,冷藏生鮮韓國產豬五花肉切片,FRESH_DELI,豬肉,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28347,Dodram韓豚梅花豬肉片 300g,冷藏生鮮韓國產豬梅花肉切片,FRESH_DELI,豬肉,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28348,草莓優格蝴蝶餅乾,裹上酸甜草莓優格風味淋醬的脆餅,SNACK_SWEET,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28349,福利社韓式排骨肉可樂餅麵包,夾入韓式烤牛肉餅的酥炸可樂餅麵包,BAKERY,韓式|豬肉,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28350,Peripera草莓布丁,美妝品牌聯名草莓風味甜點布丁,DESSERT,聯名・IP|水果,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28351,滿料粉紅醬奔帽粉條炒年糕,搭配寬粉條與濃郁粉紅醬炒年糕,FRESH_DELI,韓式|辣味|起司,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28353,中度發酵生醃魟魚生魚片,傳統適度發酵風味醃漬魟魚小菜,FRESH_DELI,海鮮|韓式,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28354,重發酵生醃魟魚生魚片,傳統重度發酵風味醃漬魟魚小菜,FRESH_DELI,海鮮|韓式,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28355,三麗鷗星光軟糖,三麗鷗聯名星形造型水果軟糖,SNACK_SWEET,聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28356,Pepper Lunch胡椒牛肉丼飯,胡椒廚房風味鐵板炒牛肉丼飯便當,FRESH_BENTO,牛肉|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28357,雪花高麗菜絲 180g,細切沙拉用生鮮高麗菜絲,FRESH_DELI,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28358,雪花切絲紫甘藍 180g,細切沙拉用生鮮紫甘藍絲,FRESH_DELI,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28359,百吉百變怪雪酪冰淇淋,寶可夢百變怪聯名款水果雪酪冰淇淋,ICE,聯名・IP|水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28360,Xylo薄荷糖 34g,木糖醇薄荷清涼喉糖,SNACK_SWEET,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28361,木糖醇薄荷無糖涼糖 34g,清涼醒腦的木糖醇留蘭薄荷潤喉糖,SNACK_SWEET,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28363,紅曼堂 優格草莓大福麻糬,知名麻糬專賣店聯名，酸甜優格草莓餡,DESSERT,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28364,ZOY 濃郁Q彈巧克力馬卡龍,口感Q彈且內餡濃醇的厚餡馬卡龍,DESSERT,巧克力,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28365,Yuraga 酥脆巧克力年糕蛋糕,軟糯年糕與酥脆巧克力顆粒融合的甜點蛋糕,DESSERT,巧克力,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28371,Lalasweet 低糖熔岩巧克力蛋糕,主打健康低糖的濃郁熔岩爆漿巧克力蛋糕,DESSERT,巧克力,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28372,Lalasweet 黃起司雪花脆皮甜筒,低卡冰淇淋品牌推出的濃郁黃起司甜筒,ICE,起司,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28374,善友 蜂蜜黃金地瓜脆片 50g,香脆地瓜片裹上甜美蜂蜜風味,SNACK_SWEET,地瓜,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28375,哈根達斯 焦糖脆餅品脫冰淇淋,焦糖香氣搭配脆餅碎片的品脫容量冰淇淋,ICE,焦糖,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28376,哈根達斯 摩卡咖啡品脫冰淇淋,咖啡香氣與濃醇巧克力的品脫容量冰淇淋,ICE,巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28377,哈根達斯 焦糖脆餅迷你杯冰淇淋,濃郁焦糖醬與香脆荷蘭煎餅顆粒,ICE,焦糖,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28378,哈根達斯 覆盆子餅乾雪糕,覆盆子果香與脆脆餅乾顆粒的雪糕,ICE,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28379,雞塊蛋沙拉,香脆雞塊搭配滑順雞蛋沙拉,FRESH_DELI,雞肉|蛋,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28382,新世界 地瓜鮮奶油馬芬,香甜地瓜餡搭配滑順鮮奶油的馬芬蛋糕,BAKERY,地瓜|奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28383,美乃滋雞肉長堡,長型漢堡包夾入經典美乃滋炸雞內餡,FRESH_SANDWICH,雞肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28384,初聲文字馬卡龍,印有韓文初聲子音圖案的造型馬卡龍,DESSERT,,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28385,奇波雷煙燻辣椒雞胸肉三明治,香辣奇波雷風味醬搭配高蛋白雞胸肉,FRESH_SANDWICH,雞肉|辣味|高蛋白,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28388,三立 澳式起司披薩麵包,濃郁起司風味的焗烤披薩麵包,BAKERY,起司,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28389,迷你豆皮壽司唐揚炸雞組合,迷你豆皮壽司與唐揚炸雞的輕食組合,FRESH_RICE,雞肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28393,SPAM午餐肉泡菜炒飯三角飯糰,經典SPAM午餐肉搭配韓式泡菜炒飯,FRESH_RICE,韓式|豬肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28394,真實起司地瓜炸豬排便當,濃郁起司與香甜地瓜內餡的炸豬排便當,FRESH_BENTO,起司|地瓜|豬肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28395,三立 紅豆包子,單顆包裝傳統甜紅豆蒸包,HOT_SNACK,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28396,三立 蜜地瓜包子,單顆包裝甜地瓜餡蒸包,HOT_SNACK,地瓜,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28397,東西食品 總統牌無鹽奶油 200g,法國知名總統牌無鹽發酵奶油,FRESH_DELI,奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28398,東西食品 總統牌有鹽奶油 200g,法國知名總統牌有鹽發酵奶油,FRESH_DELI,奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28399,Peachy Freesia 脆脆水果糖,酥脆糖心水果風味糖果,SNACK_SWEET,水果,0.80,gemini-3.8-flash,2026-11-02
+cu_kr:28400,Peachy Freesia 脆脆泡泡糖,帶有酥脆口感的泡泡糖零食,SNACK_SWEET,,0.80,gemini-3.8-flash,2026-11-02
+cu_kr:28401,Mizzi Halls XS 檸檬蘇打喉糖,無糖迷你顆粒薄荷喉糖，檸檬蘇打風味,SNACK_SWEET,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28402,水香米經典韓式飯捲,使用優質水香米製作的經典原味韓式飯捲,FRESH_RICE,韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28403,Renew 一手一餐高蛋白巧克力飲,隨手包高蛋白代餐飲品，巧克力風味,DRINK,巧克力|高蛋白,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28404,Renew 一手一餐高蛋白穀物飲,隨手包高蛋白代餐飲品，綜合穀物風味,DRINK,高蛋白,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28405,Renew 一手一餐高蛋白草莓飲,隨手包高蛋白代餐飲品，草莓風味,DRINK,水果|高蛋白,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28406,Renew 一手一餐高蛋白栗子拿鐵,隨手包高蛋白代餐飲品，栗子拿鐵風味,DRINK,栗子|高蛋白,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28407,Renew 一手一餐高蛋白開心果飲,隨手包高蛋白代餐飲品，開心果風味,DRINK,高蛋白,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28408,PBICK 原味麻辣辣炒年糕,經典麻辣風味的即食辣炒年糕,INSTANT,辣味|麻辣・花椒|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28409,PBICK 麻辣粉紅醬辣炒年糕,微辣奶油粉紅醬結合麻辣風味的即食辣炒年糕,INSTANT,辣味|麻辣・花椒|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28410,Recipe 抹茶琴鍵巧克力,造型如琴鍵般的抹茶風味巧克力磚,SNACK_SWEET,抹茶|巧克力,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28411,三立 紅豆包子4入,四入裝傳統甜紅豆蒸包,HOT_SNACK,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28412,三立 蜜地瓜包子4入,四入裝地瓜包子，內餡為甜蜜地瓜餡,HOT_SNACK,地瓜,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28413,三立 3點1刻奶茶餅乾,與台灣3點1刻奶茶聯名合作的甜味餅乾,SNACK_SWEET,紅茶|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28414,三立 3點1刻奶茶費南雪,與台灣3點1刻奶茶聯名推出的費南雪常溫糕點,BAKERY,紅茶|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28415,三立 3點1刻奶茶滿月夾心蛋糕,Samlip經典滿月海綿蛋糕聯名台灣3點1刻奶茶,BAKERY,紅茶|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28416,三立 辣味雞肉捲餅,香辣調味嫩雞肉內餡墨西哥捲餅,FRESH_SANDWICH,雞肉|辣味,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28417,三立 肉汁起司捲餅,濃郁肉汁醬搭配拉絲起司餡墨西哥捲餅,FRESH_SANDWICH,起司,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28418,辣味厚切炸豬排三角飯糰,包入一整塊辛辣調味厚切炸豬排,FRESH_RICE,豬肉|辣味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28419,迷你碎肉蛋鬆火腿炒飯便當,拌入火腿與蛋鬆肉末炒飯的份量適中便當,FRESH_BENTO,豬肉|蛋,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28420,軟Q純米辣炒年糕杯,使用嚼勁純米年糕的即食辣炒年糕杯,INSTANT,韓式|辣味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28421,彈牙小麥辣炒年糕杯,使用Q彈小麥年糕條的即食辣炒年糕,INSTANT,韓式|辣味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28422,甘熟王香蕉 3入,高甜度完熟甘熟王小包裝香蕉,FRESH_DELI,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28423,HERSHEY'S 熔岩巧克力蛋糕,Hershey's聯名熔岩巧克力夾心蛋糕,SNACK_SWEET,巧克力|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28424,HERSHEY'S 融心焦糖蛋糕,Hershey's聯名流心焦糖小蛋糕,SNACK_SWEET,焦糖|聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28425,辣雞風味炒飯 200g,辛辣過癮的辣雞醬汁風味炒飯,FRESH_BENTO,辣味|韓式|雞肉,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28426,Lalasweet 脆皮香草雪糕,主打低卡健康品牌的酥脆外皮香草雪糕,ICE,巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28427,Zanmang Loopy 甜覆盆莓軟糖,人氣露比Loopy聯名覆盆莓風味軟糖,SNACK_SWEET,水果|聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28428,Zanmang Loopy 甜藍莓軟糖,人氣露比Loopy聯名藍莓風味軟糖,SNACK_SWEET,水果|聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28429,起司辣味洋釀炸雞馬鈴薯便當,辣味韓式洋釀炸雞搭配起司與馬鈴薯配菜,FRESH_BENTO,起司|雞肉|辣味|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28430,三麗鷗甜味米果,三麗鷗聯名包裝甜味仙貝米果,SNACK_SAVORY,聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28431,Nuldam 巧克力甜甜圈蛋糕,甜甜圈造型的濃郁巧克力風味蛋糕,BAKERY,巧克力,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28432,擠擠棉花糖霜,袋裝可直接擠著食用的綿密棉花糖,SNACK_SWEET,,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28433,台灣式花生鮮奶油三明治,台灣古早味風格濃郁花生鮮奶油內餡,FRESH_SANDWICH,奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28434,皮卡丘雪酪冰淇淋,寶可夢皮卡丘聯名款水蜜桃風味雪酪,ICE,水果|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28435,新世界 蜜地瓜切片蛋糕,香甜蜜地瓜製作的切片蛋糕甜點,DESSERT,地瓜,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28436,不倒翁 碎碎麵 薯條風味,經典搖搖點心碎碎麵，搭配炸薯條風味調味粉,SNACK_SAVORY,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28437,三立 3點1刻奶茶聖代,三立與台灣3點1刻聯名之奶茶風味聖代冰品,ICE,紅茶|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28438,披薩切糕,將傳統韓式切糕結合披薩醬料與起司,FRESH_DELI,起司|番茄|韓式,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28439,延世大學 公州栗子鮮奶油麵包,使用韓國公州特產栗子餡與飽滿鮮奶油,BAKERY,栗子|奶油・鮮奶油|秋季限定,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28445,韓式烤豬肉溫沙拉,可微波加熱享用的韓式甜鹹烤豬肉沙拉,FRESH_DELI,豬肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28446,辣烤牛肉口袋餅,皮塔口袋餅夾入辣味韓式烤牛肉,FRESH_SANDWICH,辣味|牛肉|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28447,新世界 地瓜湯匙蛋糕,杯裝可用湯匙挖著吃的香濃地瓜泥蛋糕,DESSERT,地瓜,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28448,滿滿培根明太子白醬麵,濃郁奶油白醬拌入大量培根與明太子,FRESH_NOODLE,明太子・鱈魚子|豬肉|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28449,砂鍋韓式烤牛肉定食便當,還原傳統砂鍋韓式甜鹹烤牛肉風味的便當,FRESH_BENTO,牛肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28450,麻糬黑生巧克力,軟糯麻糬皮包覆濃郁微苦黑生巧克力,DESSERT,巧克力,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28451,雙層烤牛肉照燒漢堡,雙層韓式烤肉排搭配照燒風味醬汁,FRESH_SANDWICH,牛肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28452,雙倍鮪魚美乃滋三角飯糰雙拼組,增量雙倍內餡的鮪魚美乃滋三角飯糰組合,FRESH_RICE,鮪魚|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28453,塔塔醬整隻鮮蝦堡,包含完整蝦仁的蝦排搭配濃郁塔塔醬,FRESH_SANDWICH,海鮮,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28454,金泉黑豬辣魷魚雙拼韓式飯捲,結合金泉黑豬肉與辣炒魷魚的雙拼韓式飯捲,FRESH_RICE,韓式|海鮮|豬肉|辣味,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28455,早安 蛋沙拉火腿起司厚三明治,CU早安系列，滿滿蛋沙拉與火腿起司餡料,FRESH_SANDWICH,蛋|豬肉|起司,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28456,三立 蔬菜包子,韓國Samlip經典豬肉蔬菜餡蒸包單入裝,HOT_SNACK,豬肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28457,三立 蔬菜包子4入,韓國Samlip經典豬肉蔬菜餡蒸包4入家庭號,BAKERY,豬肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28458,三立 披薩包子,韓國Samlip經典披薩風味蒸包單入裝,HOT_SNACK,起司|番茄,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28459,三立 披薩包子4入,韓國Samlip經典披薩風味蒸包4入家庭號,BAKERY,起司|番茄,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28460,原味炸雞腿,超商現炸熱食,HOT_SNACK,雞肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28461,Sweetory 竹筍造型巧克力餅乾,,SNACK_SWEET,巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28462,Today 陀螺發射旋轉糖果玩具,附旋轉陀螺玩具的食玩糖果,SNACK_SWEET,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28463,義式臘腸火腿巧巴達三明治,,FRESH_SANDWICH,豬肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28464,和牛漢堡排漢堡,,FRESH_SANDWICH,牛肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28465,鮪魚火腿雙拼小海苔飯捲,,FRESH_RICE,韓式|鮪魚|豬肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28466,三立 3點1刻奶茶生鮮奶油麵包,聯名台灣3點1刻奶茶,BAKERY,奶油・鮮奶油|紅茶|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28467,三立 三重起司墨西哥捲餅,,FRESH_SANDWICH,起司,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28468,三立 總匯披薩風味墨西哥捲餅,,FRESH_SANDWICH,起司|豬肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28469,三立 Hershey's濃巧克力滿月麵包,與HERSHEY'S巧克力聯名商品,BAKERY,巧克力|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28470,高蛋白韓式烤牛肉水煮蛋沙拉,,FRESH_DELI,高蛋白|牛肉|蛋|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28471,三立 美閣黃起司夾心麵包,,BAKERY,起司,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28472,美井堂 越南河粉,,INSTANT,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28473,A-SOP 草莓奶茶甜筒冰淇淋,,ICE,水果|紅茶,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28474,A-SOP 伯爵紅茶栗子甜筒冰淇淋,,ICE,紅茶|栗子,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28475,辣炒豬肉野菜拌飯便當,,FRESH_BENTO,韓式|豬肉|辣味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28476,樂天 Ghana奶油起司貓舌餅乾,,SNACK_SWEET,起司|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28477,樂天 卡士達起司莓果蛋糕6入,,SNACK_SWEET,起司|水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28478,樂天 Moncher起司焦糖派6入,,SNACK_SWEET,起司|焦糖|巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28479,百濟 辛辣米線,,INSTANT,辣味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28481,東和 檸檬萊姆氣泡活命水,檸檬萊姆風味清爽消化系碳酸氣泡飲500ml,DRINK,水果,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28482,PurePlus 水梨雙和飲,添加水梨風味的傳統雙和茶養生飲品75ml瓶裝,DRINK,水果,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28483,O'table 韓式醬煮豬肉,經典韓式醬油燉煮豬肉小菜,FRESH_DELI,豬肉|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28484,O'table 麻婆豆腐,Foodwell冷藏即食配菜系列,FRESH_DELI,中華・町中華|麻辣・花椒|辣味,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28485,O'table 甜辣醬肉丸,Foodwell冷藏即食配菜系列,FRESH_DELI,辣味|豬肉,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28486,窯烤玉米起司,窯烤風味的香濃起司玉米配菜,FRESH_DELI,起司,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28487,好時經典巧克力夢幻蛋糕,使用Hershey's巧克力的濃郁小蛋糕,BAKERY,巧克力|聯名・IP,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28488,西洲 布丁狗造型軟糖,三麗鷗人氣角色布丁狗造型軟糖,SNACK_SWEET,聯名・IP,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28489,寶可夢口紅造型糖果,寶可夢聯名口紅旋轉造型糖果,SNACK_SWEET,聯名・IP,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28490,KPOP 發聲音樂糖果 3,結合音樂播放功能的趣味聲響糖果,SNACK_SWEET,,0.80,gemini-3.8-flash,2026-11-02
+cu_kr:28491,寶可夢百變怪冰棒,寶可夢百變怪聯名款冰棒,ICE,聯名・IP,0.80,gemini-3.8-flash,2026-11-02
+cu_kr:28492,Ace 飽滿柑橘水果軟糖,富含柑橘果汁風味的造型水果軟糖,SNACK_SWEET,水果,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28493,Nuldam 杏仁甜甜圈蛋糕,口感紮實的杏仁風味甜甜圈造型蛋糕,BAKERY,,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28494,無花果迷你蛋糕捲,M's出品的精緻無花果風味迷你捲蛋糕,DESSERT,水果,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28495,寶可夢鯉魚王雪酪冰棒,寶可夢聯名鯉魚王造型水果雪酪冰品,ICE,聯名・IP|水果,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28496,PBICK 烤箱烤豬梅花肉串,以烤箱烘烤的豬梅花肉串燒,HOT_SNACK,豬肉,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28497,PBICK 烤箱烤豬背肩肉串,以烤箱烘烤的特選豬二層肉（背肩肉）串燒,HOT_SNACK,豬肉,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28498,VitaDay 蜂蜜檸檬維他命飲料,容量481ml寶特瓶裝,DRINK,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28499,VitaDay 巨峰葡萄維他命飲料,容量481ml寶特瓶裝,DRINK,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28500,VitaDay 石榴維他命飲料,容量481ml寶特瓶裝,DRINK,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28503,瑞士蓮夾餡綜合巧克力球3入,經典Lindor軟心夾餡綜合口味巧克力球,SNACK_SWEET,巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28504,地瓜火腿起司三明治,香甜地瓜泥搭配鹹香火腿與切達起司,FRESH_SANDWICH,地瓜|起司|豬肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28506,農心小狸貓海苔圈餅乾,延伸自經典小狸貓泡麵的海味海苔圈造型餅乾,SNACK_SAVORY,海鮮,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28507,Kicker抹茶威化巧克力棒,可口威化餅裹上微苦甘甜的抹茶巧克力外層,SNACK_SWEET,抹茶|巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28508,延世雙重巧克力奶油長崎麵包,韓式傳統大象麵包夾入滿滿雙重巧克力生乳餡,BAKERY,巧克力|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28512,蔬菜起司棒餅乾,經典長條脆餅裹上蔬菜與起司調味,SNACK_SAVORY,起司,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28513,MontNoir卡布奇諾黑巧克力餅乾,卡布奇諾咖啡香氣與黑巧克力的精緻搭配,SNACK_SWEET,巧克力,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28514,MontNoir黑巧克力餅乾,濃郁微苦的黑巧克力風味夾心餅乾,SNACK_SWEET,巧克力,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28515,BakeHouse405晴天米蜂蜜蛋糕,CU自有烘焙品牌與大田名店晴天晴天聯名,BAKERY,聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28520,Beryls草莓巧克球,馬來西亞Beryls草莓白巧克力風味零食,SNACK_SWEET,巧克力|水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28521,Beryls榛果巧克球,馬來西亞Beryls吉安杜佳榛果風味巧克力,SNACK_SWEET,巧克力,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28523,煙燻鴨肉溫沙拉,附煙燻鴨肉，可加熱食用的溫沙拉餐盒,FRESH_DELI,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28524,披薩口袋餅,皮塔口袋麵包夾入起司披薩風味餡料,FRESH_SANDWICH,起司|番茄,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28525,豆皮壽司與火腿炒飯雙拼便當,日式豆皮壽司與經典火腿炒飯的雙重組合,FRESH_BENTO,豬肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28526,金泉核桃美乃滋辣炒豬肉韓式飯捲,採用慶尚北道金泉核桃搭配美乃滋辣炒豬肉,FRESH_RICE,豬肉|辣味|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28527,辣味雞肉巧巴達三明治,歐式巧巴達麵包夾入特調辣味雞肉餡,FRESH_SANDWICH,雞肉|辣味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28528,沾醬通心粉起司與玉米片便當,美式起司通心粉佐沾醬與香脆墨西哥玉米片,FRESH_BENTO,起司,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28529,包飯醬辣炒豬肉大三角飯糰,大份量三角飯糰搭配韓式包飯醬辣炒豬肉,FRESH_RICE,豬肉|辣味|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28530,延世公州栗子生乳蛋糕捲,採用韓國公州產栗子製成的濃郁奶油餡,DESSERT,栗子|奶油・鮮奶油|秋季限定,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28531,熔岩整塊莫札瑞拉起司韓式肉餅漢堡,搭配濃郁莫札瑞拉起司與傳統韓式烤肉餅,FRESH_SANDWICH,起司|豬肉|牛肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28532,濃郁沾醬起司辣炸雞便當,韓式調味辣炸雞附起司沾醬,FRESH_BENTO,起司|雞肉|辣味|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28533,熱壓黑橄欖辣雞起司三明治,微波加熱即食熱壓三明治,FRESH_SANDWICH,起司|雞肉|辣味,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28534,Loacker萊佳巧克力威化餅 25g,,SNACK_SWEET,巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28535,Loacker萊佳香草威化餅 25g,,SNACK_SWEET,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28536,Languly鹽味牛奶夾心餅乾,日式貓舌餅乾夾牛奶內餡,SNACK_SWEET,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28537,蛋炒飯辣炒豬肉三角飯糰,蛋炒飯搭配韓式辣炒豬肉內餡,FRESH_RICE,蛋|豬肉|辣味|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28538,微笑優格軟糖 原味牛奶,,SNACK_SWEET,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28539,微笑優格軟糖 蜜桃風味,,SNACK_SWEET,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28540,青椒美乃滋雙層漢堡,特製青陽辣椒美乃滋醬,FRESH_SANDWICH,辣味|牛肉|豬肉,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28541,無花果金沙奶酥蛋糕,,DESSERT,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28542,北城路烏龍辣炒年糕杯,大邱北城路風格年糕烏龍麵,INSTANT,辣味|韓式,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28543,鳥巢天婦羅蒜味辣炒年糕,搭配鳥巢狀酥炸配料的蒜香辣炒年糕,INSTANT,辣味|蒜味|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28544,辣味香腸蓋飯,紮實飽足系列微波蓋飯,FRESH_BENTO,豬肉|辣味,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28545,韓廚高特製豆皮壽司韓式飯捲,韓國調理科學高等學校合作款,FRESH_RICE,韓式,0.80,gemini-3.8-flash,2026-11-02
+cu_kr:28546,莫札代拉火腿起司三明治,義大利摩塔德拉火腿搭配起司,FRESH_SANDWICH,起司|豬肉,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28547,海太 PRETZ魔性玉米餅乾棒,魔性甜鹹烤玉米風味,SNACK_SAVORY,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28548,不倒翁 牛肉湯飯 500g,韓國常溫調理包,INSTANT,牛肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28549,不倒翁 乾白菜牛排骨湯 500g,韓國常溫調理包,INSTANT,牛肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28550,三立 名人烏龍麵 2人份,,INSTANT,和風高湯,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28551,Zesty燻椒漢堡,知名漢堡店聯名款，搭配煙燻辣椒醬,FRESH_SANDWICH,辣味,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28552,三立 紅豆包子單入裝,內餡填入香甜綿密紅豆泥的單顆裝經典熱包子,HOT_SNACK,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28553,三立 細菌人濃郁巧克力派,麵包超人系列聯名濃醇巧克力風味千層酥派,BAKERY,巧克力|聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28554,三立 吐司超人鮮奶油夾心吐司,麵包超人系列聯名滑順鮮奶油內餡三明治吐司,BAKERY,奶油・鮮奶油|聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28555,三立 塔麻可吉鮮肉包子,塔麻可吉聯名包裝的經典豬肉餡蒸包,HOT_SNACK,豬肉|聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28556,三立 塔麻可吉辣味包子,塔麻可吉聯名包裝的韓式辣醬風味熱包子,HOT_SNACK,辣味|聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28557,三立 3點1刻奶茶布丁,聯名台灣知名奶茶品牌3點1刻的滑嫩布丁,DESSERT,紅茶|聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28558,三立 辣味BBQ披薩麵包,佐以香辣烤肉醬與披薩配料的鹹食調理麵包,BAKERY,辣味|起司,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28559,高蛋白炙烤雞肉水煮蛋沙拉,搭配直火炙烤雞肉與水煮蛋的高蛋白輕食沙拉,FRESH_DELI,雞肉|蛋|高蛋白,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28560,三立 味覺巴斯克乳酪蛋糕,帶有焦香外皮與綿密內餡的巴斯克乳酪蛋糕,DESSERT,起司,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28561,南陽 喝的藍莓優酪乳,濃郁藍莓果香的飲用型優酪乳,DRINK,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28562,南陽 喝的草莓優酪乳 300ml,酸甜草莓風味的飲用型優酪乳,DRINK,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28563,南陽 喝的水蜜桃優酪乳 300ml,添加清甜水蜜桃果香的飲用型優酪乳,DRINK,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28564,珍珠火腿 天下健康雞肉棒 16入,隨開即食的小包裝高蛋白隨身雞肉棒,SNACK_SAVORY,雞肉|高蛋白,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28565,延世 地瓜生巧克力,融合香甜地瓜風味的濃郁生巧克力,DESSERT,巧克力|地瓜,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28566,沾醬火辣炒豬肉韓式飯捲,包入香辣炒豬肉並附專屬沾醬一同享用的飯捲,FRESH_RICE,豬肉|辣味|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28567,樂天 即溶三合一咖啡薄片口香糖,還原經典韓式即溶三合一咖啡香氣的片狀口香糖,SNACK_SWEET,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28568,辣炒豬肉肉丸三重奏便當,搭配經典韓式辣炒豬肉與肉丸的主題便當,FRESH_BENTO,豬肉|辣味|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28569,寶勝 無骨方塊火辣豬腳 200g,切成立方小塊方便食用的去骨香辣豬腳,FRESH_DELI,豬肉|辣味|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28570,窯烤義式臘腸披薩,以窯烤餅皮搭配經典義式臘腸的個人披薩,FRESH_DELI,起司|豬肉,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28571,小小兵隨機公仔盲抽糖果,隨附小小兵隨機玩具公仔的趣味糖果,SNACK_SWEET,聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28572,真好 冷藏起司生巧克力派,香濃起司夾餡搭配濃郁外層巧克力的冷藏甜點,DESSERT,起司|巧克力,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28573,Alex KISKIS草莓薄荷糖,酸甜草莓果香清涼口含糖,SNACK_SWEET,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28574,Alex KISKIS水蜜桃薄荷糖,清爽水蜜桃果香清涼口含糖,SNACK_SWEET,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28575,Alex 哈士奇造型棉花糖,呆萌哈士奇造型軟綿棉花糖,SNACK_SWEET,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28576,Alex 黃狗造型棉花糖,可愛小黃狗造型軟萌棉花糖,SNACK_SWEET,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28577,Alex 貴賓狗造型棉花糖,立體立體小狗造型軟萌棉花糖,SNACK_SWEET,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28588,抹茶生巧克力大福,軟糯麻糬皮包裹微苦濃郁抹茶生巧克力餡,DESSERT,抹茶|巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28589,Crown 金黃楓糖玉米脆果,裹上香甜加拿大楓糖漿的酥脆玉米點心,SNACK_SWEET,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28590,好麗友 濃起司波卡洋芋片 60g,經典薄切洋芋片裹上濃郁鹹香切達黃起司粉,SNACK_SAVORY,起司,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28595,青陽辣椒無骨炸雞,微波即食，帶有爽口青陽辣椒辛香的無骨雞塊,FRESH_DELI,雞肉|辣味,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28596,Winners 火辣鬼怪脆米果,香脆帶勁的火辣風味休閒零食,SNACK_SAVORY,辣味,0.80,gemini-3.8-flash,2026-11-02
+cu_kr:28597,BakeHaus405 鹹香雞肉麵包,CU自有烘焙品牌，鹹香雞肉調味麵包,BAKERY,雞肉,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28600,榛果麻糬軟餅乾,包裹Q彈麻糬內餡的濃郁榛果風味軟餅乾,DESSERT,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28601,蜂蜜瑞可達小番茄沙拉,清爽小番茄搭配香甜蜂蜜瑞可達起司,FRESH_DELI,起司|番茄,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28602,金泉青椒冬粉韓式飯捲,以微辣青椒炒雜菜冬粉為主角的特色飯捲,FRESH_RICE,韓式|辣味,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28603,趙興 韓式烤牛肉披薩,甜鹹醬香韓式烤牛肉風味單人份披薩,FRESH_DELI,牛肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28604,趙興 馬鈴薯披薩,經典美式馬鈴薯培根風味單人份披薩,FRESH_DELI,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28605,炸豬排青陽辣椒奶油義大利麵,濃郁白醬融入韓式青陽辣椒，搭配大塊炸豬排,FRESH_NOODLE,豬肉|辣味|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28606,綜合熱狗堡分享餐,多種口味熱狗堡的家庭分享組合包,FRESH_SANDWICH,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28608,濃起司洋釀全雞排漢堡,整塊厚切炸雞排佐以香濃切達起司與韓式洋釀醬,FRESH_SANDWICH,起司|雞肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28609,炸魚板鮪魚美乃滋大三角飯糰,特大份量三角飯糰，包覆酥炸魚板與經典鮪魚美乃滋,FRESH_RICE,鮪魚,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28610,不倒翁 低糖羅勒墨西哥捲餅,減糖配方餅皮搭配香濃羅勒風味內餡的捲餅,FROZEN,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28611,不倒翁 低糖辣味墨西哥捲餅,減糖配方餅皮包覆香辣肉餡的健康取向捲餅,FROZEN,辣味,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28612,陶鍋老泡菜燉雞便當,陳年老泡菜搭配嫩雞肉燉煮的陶鍋風味便當,FRESH_BENTO,雞肉|韓式|辣味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28613,東海 無骨脆皮炸雞,去骨雞肉裹粉酥炸的下酒菜與點心選擇,FRESH_DELI,雞肉,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28614,起司蛋糕生乳捲,彈牙麻糬蛋糕體包覆濃郁起司風味內餡,DESSERT,起司|奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28615,熔岩玉米起司大蒜吐司,大蒜吐司夾入香甜玉米與熔岩起司,FRESH_SANDWICH,起司|蒜味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28616,Languly 宇治抹茶夾心餅乾,使用宇治抹茶製作的香濃夾心餅乾,SNACK_SWEET,抹茶,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28617,Languly 巧克力夾心餅乾,日本伊藤白蘭地餅乾體搭配濃郁巧克力夾心,SNACK_SWEET,巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28618,Jules Destrooper 原味奶油鬆餅,比利時進口經典濃郁牛油風味脆餅,SNACK_SWEET,奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28619,Jules Destrooper 巧克力奶油鬆餅,比利時進口奶油鬆餅裹上濃醇巧克力,SNACK_SWEET,巧克力|奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28620,得天 香辣洋芋片,CU自有平價品牌得天推出的香辣口味洋芋片,SNACK_SAVORY,辣味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28621,榛果咖啡風味糖果,,SNACK_SWEET,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28622,Harim 匠人拉麵辛辣小杯麵,真材實料高湯熬煮的濃郁香辣湯頭杯麵,INSTANT,辣味|豚骨・拉麵風味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28623,Harim 匠人拉麵清湯小杯麵,主打真材實料熬煮白湯高湯的清爽風味杯麵,INSTANT,豚骨・拉麵風味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28624,野蘇子鍋巴麵疙瘩,濃郁野蘇子湯頭加入香脆鍋巴與手工感麵疙瘩,FRESH_DELI,韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28625,炸物泡菜鍋烏龍麵,酸辣泡菜湯底搭配綜合炸物與彈牙烏龍麵,FRESH_NOODLE,韓式|辣味,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28626,熔岩切達起司辣雞韓式飯捲,濃郁切達起司搭配香辣辣雞內餡的韓式飯捲,FRESH_RICE,起司|雞肉|辣味|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28627,熔岩起司辣炒雞排飯棒,濃郁牽絲起司搭配辣炒雞排的條狀手握飯糰棒,FRESH_RICE,起司|雞肉|韓式|辣味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28628,農心 NEW炒浣熊拉麵大碗麵,農心經典浣熊麵的辣炒乾麵版本大碗裝,INSTANT,辣味|海鮮,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28629,三立 Hi-Myen 麻辣燙麵 2人份,附麻辣花椒湯頭與彈牙生麵的雙人份快煮調理包,INSTANT,麻辣・花椒|辣味|中華・町中華,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28630,三立 泡菜包子 1入,包入香辣脆口泡菜餡的單入蒸包,HOT_SNACK,韓式|辣味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28631,三立 披薩包子 1入,內餡為蕃茄醬與融化起司風味的熱包子,HOT_SNACK,起司|番茄,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28632,三立 蔬菜包子 1入,韓國冬季經典單入熱蒸蔬菜肉餡包子,HOT_SNACK,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28633,三立 羅爾彭娜蘋果捲麵包,麵包超人角色羅爾彭娜聯名甜蘋果餡螺旋麵包,BAKERY,聯名・IP|水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28634,三立 咖哩麵包超人咖哩麵包,咖哩麵包超人聯名款濃郁咖哩餡麵包,BAKERY,聯名・IP|咖哩,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28635,三立 麵包超人草莓紅豆麵包,麵包超人聯名包裝，內餡結合草莓醬與紅豆泥,BAKERY,聯名・IP|水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28636,朴課長 早晨香草咖啡,適合晨間提神的微甜香草風味咖啡,DRINK,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28637,朴課長 餐後拿鐵咖啡,適合飯後解膩享用的順口拿鐵咖啡,DRINK,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28638,朴課長 活力焦糖咖啡,上班族應援概念的濃醇焦糖風味咖啡,DRINK,焦糖,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28639,皇冠 酸甘甜巨濟柚子軟糖,採用韓國巨濟島特產柚子汁製成的酸甜軟糖,SNACK_SWEET,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28640,首爾牛奶 腸胃舒適牛乳 900ml,減輕乳糖負擔、易消化的鮮乳製品,DRINK,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28641,結球白菜心 1入,便利商店單入裝生鮮白菜心蔬菜,FRESH_DELI,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28642,綜合炸排香菇醬燒豬雙拼便當,,FRESH_BENTO,豬肉|菇類|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28643,直火無骨洋釀炸雞,裹上經典甜辣洋釀醬汁的無骨雞肉塊,FRESH_DELI,雞肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28644,Q彈豬肉凍佐蝦醬,附韓式鹹香蝦醬的切片豬肉凍冷盤下酒菜,FRESH_DELI,豬肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28645,鍾根堂 I'm Vita 維他命飲 100ml,韓國知名藥廠推出的瓶裝綜合維他命能量飲,DRINK,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28646,醬醃韓式烤牛肉 300g,大份量甜鹹醬汁醃製牛肉，加熱即可食用,FRESH_DELI,牛肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28647,辣拌魷魚絲炸魚板韓式飯捲,,FRESH_RICE,海鮮|韓式|辣味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28648,直火鹽烤綜合豬腸,以直火鹽烤呈現原汁原味的綜合豬腸下酒小菜,FRESH_DELI,豬肉|韓式,0.85,gemini-3.8-flash,2026-11-02
+cu_kr:28649,丹特 玉米脆片天麻茶即飲杯,附玉米脆片的沖泡式天麻山藥養生穀物熱飲杯,DRINK,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28650,YOZM 呆呆拍檔原味希臘優格杯,聯名卡通Pat & Mat的無糖原味濃厚希臘優格,FRESH_DELI,聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28651,BakeHouse405 MIMICHEE 咖哩蔬菜麵包,CU自有烘焙品牌與角色聯名推出的咖哩蔬菜餡麵包,BAKERY,咖哩|聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28652,Daily 迷你小柑橘 500g,生鮮盒裝一口小柑橘,FRESH_DELI,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28653,Seoju 人魚漢頓Q彈青蘋果軟糖,三麗鷗人魚漢頓聯名款青蘋果風味軟糖,SNACK_SWEET,水果|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28654,Lalasweet 巴斯克起司冰淇淋品脫杯,主打低卡健康概念的巴斯克乳酪蛋糕風味冰淇淋,ICE,起司,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28655,Lalasweet 芒果優格冰淇淋品脫杯,主打低卡健康概念的芒果優格風味品脫冰淇淋,ICE,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28656,四味韓式洋釀炸雞分享盒便當,一次享受四種不同醬汁調味的韓式炸雞便當組合,FRESH_BENTO,雞肉|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28657,Daily 露天柑橘 800g,露地栽培生鮮柑橘袋裝,FRESH_DELI,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28658,Daily 天紅小蘋果 500g,生鮮盒裝迷你蘋果,FRESH_DELI,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28659,Keroro軍曹 Tamama紅豆銅鑼燒,Keroro軍曹聯名系列，附角色貼紙,DESSERT,聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28660,Keroro軍曹 Giroro披薩麵包,Keroro軍曹聯名系列，附角色貼紙,BAKERY,起司|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28661,農心 瑞士蓮特級黑巧克力,,SNACK_SWEET,巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28662,海太 Jagarico沙拉口味薯條 55g,經典爽脆口感的沙拉蔬菜風味馬鈴薯條,SNACK_SAVORY,,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28663,BakeHouse405 地瓜豆沙麵包,CU自有烘焙品牌BakeHouse405麵包,BAKERY,地瓜,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28664,農心 加倍佳瘋狂表情造型軟糖,加倍佳棒棒糖品牌推出的搞怪表情造型軟糖,SNACK_SWEET,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28665,農心 辣味鍋巴脆片迷你包,,SNACK_SAVORY,辣味,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28669,熔岩起司泡菜披薩糖醋肉便當,融合起司、泡菜與糖醋肉的韓式創意便當,FRESH_BENTO,起司|豬肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28671,Dodram 韓豚冷凍五花肉 300g,韓國國產品牌韓豚冷凍五花肉切片,FROZEN,豬肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28675,雞柳馬鈴薯泥沙拉,酥脆雞柳搭配綿密馬鈴薯泥的輕食沙拉,FRESH_DELI,雞肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28676,Ourhome BHC 醬油辣椒烤雞拌飯,與韓國炸雞品牌BHC聯名，重現醬油辣椒炸雞拌飯,INSTANT,雞肉|辣味|聯名・IP|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28677,Ourhome BHC 招牌起司粉風味義大利麵,與韓國知名炸雞品牌BHC聯名推出的起司風味麵,INSTANT,起司|聯名・IP|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28678,熔岩起司烤肉野菇堡,結合韓式烤肉、炒菇與融化熔岩起司醬,FRESH_SANDWICH,起司|菇類|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28679,雙層烤肉起司堡,份量加倍的雙層韓式烤肉風味漢堡肉排與起司,FRESH_SANDWICH,起司|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28680,濃起司洋釀炸雞米棒,長條狀飯糰內餡為濃郁起司搭配韓式洋釀炸雞,FRESH_RICE,起司|雞肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28681,Dodram 國產冷凍五花肉片 300g,韓國在地豬肉品牌冷凍五花肉切片,FROZEN,豬肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28683,焗烤起司義大利麵,,FRESH_NOODLE,起司,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28684,熱壓黑橄欖肯瓊雞肉三明治,微波加熱後食用，內含黑橄欖與肯瓊風味雞肉,FRESH_SANDWICH,雞肉,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28685,Jules Destrooper 原味威化鬆餅,比利時進口經典奶油威化餅乾,SNACK_SWEET,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28686,Jules Destrooper 巧克力夾心餅乾 114g,比利時進口餅乾,SNACK_SWEET,巧克力,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28687,Kidswell 牛奶小熊蛋糕 2入,,DESSERT,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28688,Kidswell 迷你起司蛋糕 2入,,DESSERT,起司,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28689,玉米鮪魚蛋雙拼豆皮壽司,玉米鮪魚與雞蛋雙重口味的豆皮壽司組合,FRESH_RICE,鮪魚|蛋|海鮮,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28690,黃起司蛋白霜餅乾,,SNACK_SWEET,起司|蛋,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28691,冬日布帳馬車烏龍麵,重現韓國路邊攤布帳馬車風味的暖胃烏龍麵,FRESH_NOODLE,韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28692,乾炒海鮮炒碼麵,,FRESH_NOODLE,海鮮|辣味|韓式,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28693,薩拉米莫札瑞拉窯烤三明治,使用窯烤麵包夾入薩拉米香腸與莫札瑞拉起司,FRESH_SANDWICH,起司|豬肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28694,CJ bibigo 嫩蘿蔔泡菜 1.5kg,大容量包裝韓國傳統嫩蘿蔔葉泡菜,FRESH_DELI,韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28695,CJ bibigo 蘿蔔纓泡菜 1.5kg,大容量包裝韓國傳統帶葉小蘿蔔泡菜,FRESH_DELI,韓式,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28696,海太 黃起司脆餅,,SNACK_SAVORY,起司,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28697,樂天 巧酥麻糬冰淇淋,Q彈麻糬皮包裹巧酥冰淇淋,ICE,巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28698,奶油乳酪摩卡咖啡麵包,經典韓式摩卡羅宋包內餡包起司,BAKERY,起司,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28699,Get Morning 布里歐培根三明治,使用奶油布里歐麵包,FRESH_SANDWICH,豬肉,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28700,樂天 小熊餅乾巧克力牛奶 190ml,經典小熊餅乾風味保久乳,DRINK,巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28701,每日去皮青蔥 200g,生鮮已處理去皮青蔥,FRESH_DELI,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28702,每日鮮採菠菜 200g,生鮮冷藏蔬菜,FRESH_DELI,,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28704,幸福鹽烤蛋 2入,韓國汗蒸幕風味鹽味熟蛋,FRESH_DELI,蛋,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28705,熔岩起司牛肉焗烤,,FRESH_DELI,起司|牛肉,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28706,YOZM 希臘優酪乳佐藍莓果醬,附藍莓果肉果醬,DRINK,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28707,沾醬水牛城辣雞翅佐馬鈴薯便當,附專用沾醬,FRESH_BENTO,雞肉|辣味,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28708,塔麻可吉 角色巧克力餅乾,附塔麻可吉收集貼紙,SNACK_SWEET,巧克力|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28709,每日鮮切甜柿 150g,即食生鮮切片水果,FRESH_DELI,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28710,Nuldam 原味蜂蜜蛋糕,,BAKERY,蛋,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28711,KERORO 烤麵包脆餅,Keroro軍曹聯名點心,SNACK_SWEET,聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28712,KERORO 香蕉麵包布丁,附Keroro軍曹聯名封入貼紙,DESSERT,水果|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28713,露地蜜柑網袋裝 5入,生鮮產地直送柑橘,FRESH_DELI,水果,0.90,gemini-3.8-flash,2026-11-02
+cu_kr:28714,Mogu Mogu芒果風味椰果飲料 500ml,含Q彈椰果顆粒,DRINK,水果,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28715,樂天 Ghana鹽味牛奶夾心巧克力,,SNACK_SWEET,巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28717,Whittaker's 杏仁牛奶巧克力,紐西蘭Whittaker's進口,SNACK_SWEET,巧克力,0.95,gemini-3.8-flash,2026-11-02
+cu_kr:28718,Whittaker's 經典香濃牛奶巧克力,紐西蘭Whittaker's進口,SNACK_SWEET,巧克力,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8800268814010,Yellow 蛋白奶昔綜合穀物風味,便於攜帶沖泡的高蛋白粉飲,DRINK,高蛋白|糯麥・雜穀,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8800268814027,Yellow 蛋白奶昔巧克力風味,便於攜帶沖泡的高蛋白粉飲,DRINK,巧克力|高蛋白,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8800268814034,Yellow 蛋白奶昔玉米脆片風味,便於攜帶沖泡的高蛋白粉飲,DRINK,高蛋白,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8800323762997,熟成辛奇鮪魚清爽韓式飯捲,使用風味深沉的老泡菜搭配清爽鮪魚,FRESH_RICE,鮪魚|韓式|辣味,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8800323763222,醬燒牛蒡韓式飯捲,以甘甜鹹香的燉煮牛蒡為主角的經典飯捲,FRESH_RICE,韓式,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8800323763260,辣醬小魚乾三角飯糰,以韓式辣椒醬拌炒小魚乾為內餡,FRESH_RICE,海鮮|辣味|韓式,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8800323763284,鹹甜小魚乾三角飯糰,包入韓式傳統鹹甜炒小魚乾家常配菜,FRESH_RICE,海鮮|韓式,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8800323763307,清爽高蛋白韓式飯捲,注重蛋白質營養配比的健康取向飯捲,FRESH_RICE,高蛋白|韓式|蛋,0.85,gemini-3.8-flash,2026-11-02
+emart24_kr:8800323763321,增量版 鮪魚泡菜韓式飯捲,,FRESH_RICE,鮪魚|韓式|辣味,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8800323763345,火腿蔥香烤肉便當,附有片狀火腿可包裹蔥花烤肉一同享用,FRESH_BENTO,豬肉|韓式,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8800323763369,增量版 淳昌辣椒醬炒豬肉便當,使用韓國著名淳昌辣椒醬調味的增量便當,FRESH_BENTO,豬肉|辣味|韓式,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8800323763406,鮪魚泡菜三角飯糰,,FRESH_RICE,鮪魚|韓式|辣味,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8800348944309,BBONI 烤地瓜厚軟餅乾,口感扎實的美式厚餅乾融合烤地瓜香氣,SNACK_SWEET,地瓜|秋季限定,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8800348944606,BBONI 栗子麻糬鮮奶油麵包,內餡包裹栗子粒、Q彈麻糬與香濃鮮奶油,BAKERY,栗子|奶油・鮮奶油|秋季限定,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8800348944699,再婚皇后 秘密反轉蛋沙拉三明治,韓國熱門網漫再婚皇后聯名款,FRESH_SANDWICH,蛋|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8800348944897,火腿番茄起司三明治,,FRESH_SANDWICH,豬肉|番茄|起司,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8800348946310,增量版 墨西哥辣椒鮪魚起司三明治,份量升級微辣爽口的鮪魚起司三明治,FRESH_SANDWICH,鮪魚|起司|辣味,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8800398700764,再婚皇后 蘑菇奶油義大利麵,韓國熱門網漫再婚皇后聯名款,FRESH_NOODLE,菇類|奶油・鮮奶油|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8800398700832,沙拉可樂餅三明治漢堡,結合酥脆可樂餅與清爽蔬菜沙拉的漢堡包,FRESH_SANDWICH,,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8800398700870,奶油醬燉牛肉丼飯,以韓式醬牛肉搭配香濃奶油的經典拌飯組合,FRESH_BENTO,牛肉|韓式|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8800398700894,加大版 經典鮪魚美乃滋三角飯糰,份量升級加大的鮪魚沙拉三角飯糰,FRESH_RICE,鮪魚,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8800398700931,加大版 是拉差火腿鮪魚夾心堡,增量版漢堡，夾入火腿、鮪魚沙拉與是拉差辣醬,FRESH_SANDWICH,鮪魚|豬肉|辣味,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8800398700955,加大版 辣醬炒豬肉拌麵,份量升級，經典韓式辣醬炒豬肉搭配拌麵,FRESH_NOODLE,豬肉|辣味|韓式,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8800398701129,整顆大蒜橄欖油義大利麵,豪邁加入整顆大蒜炒製的香蒜橄欖油義大利麵,FRESH_NOODLE,蒜味,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8801206007297,低糖地瓜最中冰淇淋,主打減糖配方的烤地瓜風味摩納卡冰淇淋,ICE,地瓜,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8801550005598,烤地瓜拿鐵沖泡杯,香甜濃郁的烤地瓜風味即溶熱拿鐵杯,DRINK,地瓜,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8801550005604,檸檬薑茶沖泡杯,附杯子與茶包粉末的熱水現沖即飲杯,DRINK,水果,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8806371360611,聖水310 鹽焦糖巧克力拿鐵,聖水310系列，微鹹海鹽提味的濃郁巧克力拿鐵,DRINK,巧克力|焦糖,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8806371360628,聖水310 香濃穀物拿鐵,聖水310系列，烘烤香氣濃郁的韓式穀物拿鐵,DRINK,,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8806379940815,黃色韓式搓澡巾1入,,NON_FOOD,,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8806379940891,黃色泡泡洗碗菜瓜布2入,,NON_FOOD,,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8809081563136,再婚皇后 皇家伯爵奶茶沖泡杯,知名網漫再婚皇后聯名沖泡熱飲杯,DRINK,紅茶|聯名・IP,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8809330024647,香油火腿泡菜丼飯,火腿炒泡菜佐香濃芝麻油的經典韓式蓋飯,FRESH_BENTO,豬肉|辣味|韓式,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8809330024654,奶油醬燉肉丼飯,韓式經典醬燉肉絲搭配濃郁奶油拌飯,FRESH_BENTO,豬肉|牛肉|韓式,0.85,gemini-3.8-flash,2026-11-02
+emart24_kr:8809494072331,聖水310 香蕉麵包布丁,聖水310冷藏美式香蕉麵包布丁甜點,DESSERT,水果,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8809494072348,聖水310 地瓜融化鮮奶油麵包,聖水310系列，包入香濃地瓜泥與鮮奶油,BAKERY,地瓜|奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8809565383007,特大雙層鮮蝦厚蛋堡,份量加大的蝦排搭配厚煎蛋漢堡,FRESH_SANDWICH,海鮮|蛋,0.90,gemini-3.8-flash,2026-11-02
+emart24_kr:8809618590451,再婚皇后 巧克力千層蛋糕,知名韓國網漫再婚皇后聯名甜點,DESSERT,巧克力|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8809909951244,辣味炸雞丼飯,搭配韓式香辣醬汁的雞肉丼飯,FRESH_BENTO,雞肉|辣味|韓式,0.95,gemini-3.8-flash,2026-11-02
+emart24_kr:8809909951251,豆皮壽司與韓式飯捲雙拼組合,一次享有豆皮壽司與韓式飯捲的輕食組合,FRESH_RICE,韓式,0.95,gemini-3.8-flash,2026-11-02
 familymart_jp:0211475,烤地瓜奶油奶昔,超商現調飲品,DRINK,地瓜|秋季限定,0.95,sample-manual,
 familymart_jp:0231350,烤地瓜,秋冬季節熱食,HOT_SNACK,地瓜|秋季限定,0.95,sample-manual,
 familymart_jp:0240673,Ryuji至高食譜 滑蛋牛肉壽喜燒包,,HOT_SNACK,牛肉|蛋|聯名・IP,0.95,sample-manual,
