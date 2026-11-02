@@ -26,3 +26,7 @@
 200     1322 bytes text/plain; charset=UTF-8 https://www.gsretail.com/robots.txt → www.gsretail.com_robots.txt.html
 200    79704 bytes text/html;charset=UTF-8 https://emart24.co.kr/goods/pl → emart24.co.kr_goods_pl.html
 200    17870 bytes text/html;charset=UTF-8 https://emart24.co.kr/goods/new → emart24.co.kr_goods_new.html
+# 2026-11-02T10:04:04.742932Z
+200    38754 bytes text/html; charset=utf-8 POST:https://cu.bgfretail.com/product/productAjax.do|pageIndex=1&searchMainCategory=10&searchSubCategory=&listType=0&searchCondition=setC&searchUseYn=N&gdIdx=0&codeParent=10&search1=&search2=&searchKeyword= → POST_https_cu.bgfretail.com_product_productAjax.do_pageIndex_1_searchMainCategory_10_searchSubCategory_listType_0_search.html（轉址到 https://cu.bgfretail.com/product/productAjax.do）
+200    37136 bytes text/html; charset=utf-8 https://cu.bgfretail.com/product/pb.do?category=product&depth2=1&sf=N → cu.bgfretail.com_product_pb.do_category_product_depth2_1_sf_N.html
+200    31337 bytes text/html; charset=utf-8 https://cu.bgfretail.com/brand_info/news_list.do?category=brand_info&depth2=5&sf=N → cu.bgfretail.com_brand_info_news_list.do_category_brand_info_depth2_5_sf_N.html

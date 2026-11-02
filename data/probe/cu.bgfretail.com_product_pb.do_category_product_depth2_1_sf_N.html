@@ -1,0 +1,784 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- head -->
+
+
+
+
+
+
+
+
+
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	<title>NICE TO CU</title>	<meta name="description" content="24시간 편의점, 편의점 프랜차이즈, 편의점택배, 택배, 상품안내, 가맹 시스템, 창업 상담 제공." />	<meta name="keywords" content="CVS for You, CU, BGF Retail, BGF 리테일, 비지에프 리테일, 한국형 편의점, 편의점" />	<meta name="title" content="CU" />	<meta name="author" content="BGF Retail, BGF 리테일, 비지에프 리테일j, CVS for You, CU, Wylie" />		<meta property="og:image" content="/images/facebook.jpg" />	<meta property="og:title" content="CU" />		<meta property="og:description" content="24시간 편의점, 편의점 프랜차이즈, 편의점택배, 택배, 상품안내, 가맹 시스템, 창업 상담 제공." />	<meta name="generator" content="EditPlus Text Editor v3.41" />		<meta http-equiv="X-UA-Compatible" content="IE=edge" />	<link rel="shortcut icon" href="/images/ico/cu.ico"/>	<link rel="canonical" href="http://cu.bgfretail.com" />
+
+<!-- 캐시 방지 버전 수정 -->		<link rel="stylesheet" type="text/css" href="/css/swiper.min.css?ver=20260208" /><!-- Swiper css -->	<link rel="stylesheet" type="text/css" href="/css/common_new.css?ver=20260208" media="all" /> <!-- 리뉴얼 css -->	<link rel="stylesheet" type="text/css" href="/css/font.css?ver=20260208" media="all" />						  						
+<!--  loading layer -->
+<style type="text/css">
+.AjaxLoading { display:none; position:fixed; left:0; top:0; width:100%; height:100%; z-index:1000;}
+.AjaxLoading .bg { position:absolute; left:0; top:0; z-index:1001; width:100%; height:100%; background:#000; opacity:0.6; filter:alpha(opacity=30);}
+.AjaxLoading .ico { position:absolute; left:0; top:0; z-index:1002; width:100%; height:100%; background:url("/images/common/loading.gif") no-repeat center center;}
+</style>
+
+
+
+<!-- 캐시 방지 버전 수정 -->
+
+	<link rel="stylesheet" type="text/css" href="/css/ui-lightness/jquery-ui-1.10.4.custom.css?ver=20260206">
+	<script type="text/javascript" src="/js/sns.js?ver=20260206"></script>
+	<script type="text/javascript" src="/js/jquery-1.10.2.min.js?ver=20260206"></script>
+	<script type="text/javascript" src="/js/jquery-ui-1.10.3.custom.min.js?ver=20260206"></script>
+	<script type="text/javascript" src="/js/front.js?ver=20260206"></script>
+	<script type="text/javascript" src="/js/jquery.cookie.js?ver=20260206"></script>
+	<script type="text/javascript" src="/js/font-controller.js?ver=20260206"></script>
+	<script type="text/javascript" src="/js/script.js?ver=20260206"></script>
+	<script type="text/javascript" src="/js/jquery.backgroundpos.js?ver=20260206"></script>
+	<script type="text/javascript" src="/js/jquery.zclip.min.js?ver=20260206"></script>
+	<script type="text/javascript" src="/js/sns-link.js?ver=20260206"></script>
+	<script type="text/javascript" src="/js/lodash.min.js"></script>
+	<script type="text/javascript" src="/js/common.js?ver=20260206"></script>
+	<script type="text/javascript" src="/js/jquery.jplayer.min.js?ver=20260206"></script> <!-- 2019-05-23 -->
+	<!-- <script type="text/javascript" src="/js/swiper-bundle.min.js"></script> --> <!-- 2022-02-18 -->
+	<script type="text/javascript" src="/js/swiper.min.js?ver=20260206"></script> <!-- 2022-02-18 -->
+	
+	<script type="text/javascript" src="/js/ui.common.js?ver=20260206"></script> <!-- 2022-02-18 -->
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.numOnly').numberOnly();
+});
+
+
+</script>
+<!-- // head -->
+<script type="text/javascript">
+function CallLoading() {
+	var Loading = $('.AjaxLoading');
+	Loading.fadeIn(200);
+}
+
+function RemoveLoading() {
+	var Loading = $('.AjaxLoading');
+	Loading.fadeOut(200);
+
+}
+
+</script>
+<!-- 구글통계 -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50424839-2', 'bgfretail.com');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+<script type="text/javaScript" defer="defer">
+//<![CDATA[
+	/**
+	 * 리스트의 다름 페이지를 보여주는 Function
+	 * listType = 0, 1 에 따라서 이전 리스트를 지우고 안지우고의 여부를 판단한다.
+	 * idx 의 증가로 다음 페이지를 구분한다.
+	 */
+	function nextPage(listType) {
+		CallLoading();
+		$('#listType').val(listType);		// 이전리스트를 지우지 않고 계속 보여준다.
+		var idx = $('#pageIndex').val();
+		idx++;
+		viewList(idx);
+	}
+
+	/**
+	 * 검색 버튼을 클릭 했을때 Function
+	 */
+	function searchUse(listType) {
+		// 아무것도 입력하지 않았을 경우
+		if($('#search1').val() == '' && $('#search2').val() == '' && $('#searchKeyword').val() == '') {
+			alert("검색어를 입력해 주시기 바랍니다.");
+			return;
+		}
+		// 검색 버튼을 눌렀을때
+		CallLoading();
+		$('#listType').val(listType);		// 이전리스트를 지우고 새로 리스트를 출력한다.
+		$('#searchUseYn').val('Y');
+		viewList('1','0');
+	}
+
+	/**
+	 * 초기화 버튼을 클릭 했을때 Function
+	 */
+	function resetUse() {
+		$('#search1').val('');
+		$('#search2').val('');
+		$('#searchKeyword').val('');
+		$('#listType').val('0');
+		$('#searchCondition').val('');
+		$('#searchUseYn').val('N');
+		viewList(1,0);
+	}
+
+	/**
+	 * 소팅 기능 SET
+	 */
+	function setCond(val) {
+		$('#searchCondition').val(val);
+		$('#setA').removeClass();
+		$('#setB').removeClass();
+		$('#setC').removeClass();
+		$('#setD').removeClass();
+		$('#setE').removeClass();
+		$('#setF').removeClass();
+
+		$('#' + val).addClass("on");
+		CallLoading();
+		viewList(1,0);
+	}
+
+	function viewList(pageNo, listType){
+
+		$('#pageIndex').val(pageNo);
+		$('#listType').val(listType);
+		$.ajax({
+			type:"post",
+			url: "/product/pbAjax.do",
+			dataType: 'html',
+			data: $('#listForm').serialize(),
+			success: function(data){
+				// listType 이 0 이면 지우고 다시 보여주기
+				// listType 이 1이면 지우지 않고 계속 리스트 출력하기
+				if(listType == 0) {
+					$('.prodListWrap ul').remove();
+				}
+				$('.prodListBtn').remove();
+				$('.prodListWrap').append(data);
+
+				RemoveLoading();
+			},
+			error : function(data){
+				RemoveLoading();
+				//alert('pb 상품을 가져 오던 중 오류가 발생하였습니다.');
+			}
+		});
+	}
+
+
+	function setPrice(val){
+		if (val == "1") {$('#search1').val("0"); $('#search2').val("1500"); return;}			// 1500원 이하 세팅
+		else if (val == "2") {$('#search1').val("1500"); $('#search2').val("3000"); return;}			// 1500원 3000원 이하 세팅
+		else if (val == "3") {$('#search1').val("5000"); $('#search2').val(""); return;}			// 5000원 이하 세팅
+	}
+
+	function view(val) {
+		$('#gdIdx').val(val);
+		$("#listForm").attr({action:"/product/view.do?category=product&gdIdx="+val, method:"post"}).submit();
+	}
+
+	function gogubun(val) {
+		$('.cardInfo li').removeClass('on');
+		if(val == 'PBG') {
+			$('.cardInfo li').eq(0).addClass('on');
+			$('#searchgubun').val(val);
+		} else {
+			$('.cardInfo li').eq(1).addClass('on');
+			$('#searchgubun').val(val);
+		}
+
+		CallLoading();
+		viewList(1, 0);
+
+		setCond('setA');
+	}
+
+	$(document).ready(function(){
+		CallLoading();
+		viewList($('#pageIndex').val(), 0);
+	});
+
+
+//]]>
+</script>
+
+	<!-- skip -->
+	
+
+<div class="skipAccess">
+	<span class="none">CU 내용 바로가기 링크</span>
+	<ul>
+		<li><a href="#contents" tabindex="1">본문 바로가기</a></li>
+		<li><a href="#gnb" tabindex="1">주메뉴 바로가기</a></li>
+		<li><a href="#quick" tabindex="1">퀵메뉴 바로가기</a></li>
+	</ul>
+</div>
+<div class="AjaxLoading"><div class="bg"></div><div class="ico"></div></div>
+	<!-- // skip -->
+	<div id="wrap">
+		
+
+
+
+
+		
+
+
+
+
+
+
+		
+
+
+			
+
+
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	if(getCoo("encStr") != ""){
+		$('#user_id').val(getCoo("encStr"));
+		$('#mall').html('<a href="javascript:mallMove();">CU몰</a>');
+		
+		
+		  
+		  
+		 	$("#benepiaForm").attr("action","https://cumall.benepia.co.kr/login/ssoLogin.do");
+		  
+		
+		
+		$('#mall_m1').html('<a href="javascript:mallMove2();">CU몰</a>');
+
+	}
+	
+});
+
+// function mallMove(){
+// 	document.form.submit();
+// }
+
+function mallMove2(){
+	$('#benepiaForm').attr('target', '_blank');
+	$('#benepiaForm').submit();
+}
+
+function mallMove(){
+	
+	
+		window.open("http://cumall.benepia.co.kr/login/login.do");
+	
+	
+}
+
+function mallMoveTemp(userId, baseId, encId, cusrId, baseCustId, encCustId){
+	
+// 	console.log(userId);
+// 	console.log(baseId);
+// 	console.log(encId);
+// 	console.log(cusrId);
+// 	console.log(baseCustId);
+// 	console.log(encCustId);
+	
+	 var custCoCd = "00CU";
+	
+		$.ajax({
+		    url: "https://auth.benepia.co.kr/api/token/request.json",
+		    dataType: "json",
+		    type:"POST",
+		    data: {encParam: encCustId, custCoCd: custCoCd},
+		    success: function (result) {
+	    		$('#tknKey').val(result.responseData.tknKey);
+	    		$('#user_id').val(baseCustId);
+	    		$('#custCoCd').val(custCoCd);
+	    		
+	    		document.benepiaForm.submit();
+		    }
+		});
+}
+
+function getCoo( name ) 
+{ 
+	var nameOfCookie = name + "=";
+	
+	var x = 0;
+	while ( x <= document.cookie.length ) {
+		var y = (x+nameOfCookie.length);
+		
+		if ( document.cookie.substring( x, y ) == nameOfCookie )  {
+			if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 ) {
+				endOfCookie = document.cookie.length;
+			}
+			return unescape( encodeURI(encodeURIComponent(document.cookie.substring( y, endOfCookie ))) );
+		}
+		x = document.cookie.indexOf( " ", x ) + 1; 
+		
+		if ( x == 0 ) { 
+			break; 
+		}
+	}
+	
+	return ""; 
+}
+
+function login(){
+	document.location.href="/login.do?redirect="+encodeURIComponent(location.href);
+}
+
+function LoginToRedirect(url){
+	document.location.href="/login.do?redirect="+encodeURIComponent(location.href);
+}
+
+</script>
+
+
+
+
+  
+  
+    <form id="benepiaForm" name="benepiaForm" method="post" action="https://cumall.benepia.co.kr/login/ssoLogin.do">
+       <input type="hidden" name="user_id" id="user_id" >
+    </form>
+  
+
+
+<header id="header" class="">
+	<div class="menu_util">
+		<ul>
+			
+				<li><a href="javascript:login();">로그인</a></li>
+			
+			
+
+			<li><a href="http://owner.bgfretail.com">점주광장</a></li>
+			
+
+		</ul>
+	</div>
+
+	<div class="inner_wrap">
+		<h1 class="logo">
+			<a href="/index.do">
+				<!-- issues/8 수정 -->
+				<picture>
+					<source media="(max-width: 767px)" srcset="/m/images/common/new/logo.png">
+					<source media="(min-width: 768px)" srcset="/images/common/new/logo.png">
+					<img src="/images/common/new/logo.png" alt="CU">
+				</picture>
+			</a>
+		</h1>
+	
+
+
+
+
+
+
+
+
+
+
+			<script type="text/javascript">    function goindex(page){        if(page == 'event') {location.href="/event/index.do?category=event&depth1=1&sf=N"; return;}        if(page == 'product') {/*location.href="/product/index.do?category=product&depth1=1&sf=N";*/ return;}        if(page == 'service') {location.href="/service/index.do?category=service&sf=N&depth1"; return;}        if(page == 'brand_info') {location.href="/brand_info/story.do?category=brand_info&sf=N"; return;}        if(page == 'franchise') {location.href="/franchise/index.do?category=franchise&depth1=1&sf=N"; return;}        //if(page == 'membership') {location.href="https://membership.bgfretail.com/pc/mbershipInfo"; return;}        if(page == 'membership') {location.href="/membership/mbership_info.do?category=membership_info&depth2=1"; return;}        if(page == 'membership_info') {location.href="/membership/mbership_info.do?category=membership_info&depth2=1"; return;}    }    $(document).ready(function () {        $.ajax({            type: "post",            url: "/monthMenuViewYn.do",            dataType: 'json',            success: function (data) {                var EventTab = $('.eventTab');                if (data.status == 'Y') {                    var tophtml = '<li id="monthmenutop"><a href="/event/month.do?category=event&depth2=6&sf=N">이달의 행사</a></li>';                    $('#monthmenutop').html(tophtml);                }            },            error: function (data) {                //alert('퀵 내용을 가져 오던 중 오류가 발생하였습니다.');            }        });    });</script><!-- 1depth 메뉴별 클릭시 class="on" 추가 --><!-- gnb --><nav class="gnb" id="gnb_swiper">    <div class="swiper-container depth">        <ul class="swiper-wrapper">            <li class=" swiper-slide">                <a href="/brand_info/story.do?category=brand_info&sf=N">CU소개</a>                <ul class="sub_depth">                    <li><a href="/brand_info/story.do?category=brand_info&sf=N">브랜드 스토리</a></li>                                        <li><a href="//www.bgflive.com/" target="_blank">BGF LIVE</a></li>                    <li><a href="/brand_info/photo_winner.do?category=brand_info&depth2=3&sf=N&year=2024">CU 갤러리</a></li>                                    </ul>            </li>            <li class="on swiper-slide">                <a href="/product/product.do?category=product&depth2=4&sf=N">상품&#183;서비스</a>                <ul class="sub_depth">                    <li><a href="/product/product.do?category=product&depth2=4&sf=N">전체 상품</a></li>                    <li><a href="/product/pb.do?category=product&depth2=1&sf=N">CU 차별화 상품</a></li>                    <li><a href="/event/plus.do?category=event&depth2=3&sf=N">행사 상품</a></li>                    <li><a href="/service/parcel_info.do?category=service&depth3=4&sf=N">생활편의 서비스</a></li>                    <li><a href="/service/credit_info.do?category=service&depth2=2&sf=N">제휴카드</a></li>                </ul>            </li>            <li class=" swiper-slide">                <a href="/store/list.do?category=store">매장안내</a>            </li>            <li class=" swiper-slide">                <a href="/membership/mbership_info.do?category=membership_info&depth2=1">멤버십</a>            </li>            <li class=" swiper-slide">                <a href="https://cuopen.bgfretail.com/" target="_blank" class="menu_depth1">창업정보&#12685;상생혜택</a>            </li>            <!-- issues/2153 추가 -->            <li class=" swiper-slide mobile_none">                <a href="/consult/consult01.do">입점상담</a>                <div class="sub_depth">                    <ul>                        <li><a href="/consult/consult01.do">입점 프로세스</a></li>                        <li><a href="/consult/consult02.do">기준 안내</a></li>                        <li><a href="/consult/consult03.do">입점 상담 신청</a></li>                        <li><a href="https://www.bgf.co.kr/esg/winwin/vision/" target="_blank">동반 성장</a></li> <!-- issues/2153#note_92253 수정 -->                    </ul>                </div>            </li>            <!-- //issues/2153 추가 -->            <li class=" swiper-slide">                <a href="/brand_info/news_list.do?category=brand_info&depth2=5&sf=N">새로운소식</a>            </li>            <!-- 20230829 이거어때 숨김요청으로 인해 CU 소식만 남게 됨  -->                    </ul>    </div></nav><!-- 다국어 메뉴 --><div class="menu_lang">    <a href="#" class="status">KR</a>    <ul>        <li class="on"><a href="/">KR</a></li>        <li><a href="/en/index.do">EN</a></li>        <li><a href="/ch/index.do">CN</a></li>    </ul></div><a href="#" class="toggle_menu"><img src="/images/common/new/btn_menu_ico.png" alt="메뉴"></a><!-- menu button --><!-- toggle menu --><div class="menu_wrap">    <div class="top_btn_wrap">        <div class="member pc_none">                                                                <a href="javascript:login()" class="btn_login"><em class="txt">로그인</em></a>                                    </div>        <a href="#" class="toggle_close">            <picture>                <source media="(max-width: 767px)" srcset="/m/images/common/new/btn_gnb_close.png" width="20">                <source media="(min-width: 768px)" srcset="/images/common/new/btn_gnb_close.png">                <img src="/images/common/new/btn_gnb_close.png alt=" 메뉴 닫기>            </picture>        </a>    </div>    <div class="inner_wrap">        <div class="gnb_wrap">            <!-- gnb menu -->            <nav class="gnb_menu">                <ul class="category">                    <li>                        <a href="#none" class="menu_depth1">CU소개</a>                        <div class="sub_depth">                            <ul>                                <li><a href="/brand_info/story.do?category=brand_info&sf=N">브랜드 스토리</a></li>                                                                <li><a href="//www.bgflive.com/" target="_blank">BGF LIVE</a></li>                                <li><a href="/brand_info/photo_winner.do?category=brand_info&depth2=3&sf=N&year=2024">CU 갤러리</a></li>                                                            </ul>                        </div>                    </li>                    <li>                        <a href="#none" class="menu_depth1">상품&#183;서비스</a>                        <div class="sub_depth">                            <ul>                                <li><a href="/product/product.do?category=product&depth2=4&sf=N">전체 상품</a></li>                                <li><a href="/product/pb.do?category=product&depth2=1&sf=N">CU 차별화 상품</a></li>                                <li><a href="/event/plus.do?category=event&depth2=3&sf=N">행사 상품</a></li>                                                                <li><a href="/service/parcel_info.do?category=service&depth3=4&sf=N">생활편의 서비스</a></li>                                <li><a href="/service/credit_info.do?category=service&depth2=2&sf=N">제휴카드</a></li>                            </ul>                        </div>                    </li>                    <li>                                                <a href="/store/list.do?category=store" class="menu_depth1">매장안내</a>                    </li>                    <li>                        <a href="/membership/mbership_info.do?category=membership_info&depth2=1" class="menu_depth1">멤버십</a>                    </li>                    <li>                        <a href="https://cuopen.bgfretail.com/" target="_blank" class="menu_depth1">창업정보&#12685;<br>상생혜택</a>                    </li>                    <!-- issues/2153 추가 -->                    <li class="mobile_none">                        <a href="#none" class="menu_depth1">입점상담</a>                        <div class="sub_depth">                            <ul>                                <li><a href="/consult/consult01.do">입점 프로세스</a></li>                                <li><a href="/consult/consult02.do">기준 안내</a></li>                                <li><a href="/consult/consult03.do">입점 상담 신청</a></li>                                <li><a href="https://www.bgf.co.kr/esg/winwin/vision/" target="_blank">동반 성장</a></li> <!-- issues/2153#note_92253 수정 -->                            </ul>                        </div>                    </li>                    <!-- //issues/2153 추가 -->                    <li>                        <a href="/brand_info/news_list.do?category=brand_info&depth2=5&sf=N" class="menu_depth1">새로운소식</a>                    </li>                    <!-- 20230829 이거 어때 숨김 처리  -->                                    </ul>            </nav>            <div class="common_menu">                <div class="member">                                            <a href="javascript:login();" class="btn_login"><em class="txt">로그인</em></a>                                                        </div>                <ul class="site_link">                    <li><a href="http://owner.bgfretail.com" class="type1" target="_blank"><em>점주광장</em></a></li>                    <li><a href="/auth/authList.do" class="type2"><em>제휴인증</em></a></li>                </ul>                <div class="link_wrap pc_none">                    <a href="/store/list.do?category=store" class="store_link">                        <div class="info_wrap">                            매장안내                        </div>                    </a>                    <a href="https://cs.bgfretail.com/index.jsp" class="customer_link" target="_blank">                        <div class="info_wrap">                            고객센터                            <p class="txt">                                1577-8007 <br/>                                평일 09시:00 - 21:00                            </p>                        </div>                    </a>                </div>                <a href="https://cs.bgfretail.com/index.jsp" class="customer_link mobile_none" target="_blank">                    <span class="txt">고객센터</span>                    <img src="/images/common/new/img_customer.png" alt="">                </a>            </div>        </div>    </div></div>
+		</div> 
+	</header> 
+
+
+
+
+
+
+
+
+
+
+		<!-- sub visual 상품/서비스 영역 -->
+		<section class="sub_visual">
+			<div class="inner_wrap">
+				<p class="txt">나만의 놀이터 CU<br>즐거운 상품과 서비스를 확인해보세요.</p>
+			</div>
+		</section>
+		
+<script type="text/javascript">
+function urlcopy(trb){
+	var IE=(document.all)?true:false;
+	if (IE) {
+		if(confirm("현재 페이지의 주소를 클립보드에 복사하시겠습니까?"))
+		window.clipboardData.setData("Text", trb);
+	} else {
+		temp = prompt("현재 페이지의 주소입니다. Ctrl+C를 눌러 클립보드로 복사하세요", trb);
+	}
+}
+
+$(document).ready(function () {
+  if((document.location.pathname).indexOf("consult0")>-1){
+    $('#consultDiv').show();
+  }
+});
+
+</script>
+			<!-- sns 영역 --> <!--기존 영역 이동 -->
+			<div class="sns_txt_wrap">
+			  <!-- issues/3109 추가 -->
+    		<div class="btn_wrap" style="display:none;" id="consultDiv">
+    			<a href="#none" class="btn_gray btn_layer" open-layer-class="ad_inquiry">제휴/광고 문의</a>
+    		</div>
+    		<!--// issues/3109 추가 -->
+				<ul class="snsWrap">
+					<li><a href="#"><img src="/images/common/new/ico_facebook.png" alt="Twitter" /></a></li>
+					<li><a href="#"><img src="/images/common/new/ico_twitter2.png" alt="Facebook" /></a></li>
+					<li><a href="#" onclick="urlcopy(this.href); return false;"><img src="/images/common/new/ico_copyurl.png" alt="url copy" /></a></li>
+				</ul>
+				<ul class="txtControll">
+					<div id="holder"></div>
+				</ul>
+			</div>
+
+
+		
+<script type="text/javascript">
+function gomaincategory(val,depth) {
+	$('#search1').val('');
+	$('#search2').val('');
+	$('#searchKeyword').val('');
+	$('#listType').val('0');
+	$('#searchCondition').val('');
+	$('#searchUseYn').val('N');
+	$('#searchMainCategory').val(val);
+	$('#searchSubCategory').val('');
+	$('#codeParent').val(val);
+
+	$("#listForm").attr({action:"/product/product.do?category=product&depth2=4&depth3=" + depth, method:"post"}).submit();
+}
+
+function doHiddenValueSetting(val) {
+	var depthVal = "";
+	if(val == "1") {
+		depthVal = "10";
+	} else if(val == "2") {
+		depthVal = "20";
+	} else if(val == "3") {
+		depthVal = "30";
+	} else if(val == "4") {
+		depthVal = "40";
+	} else if(val == "5") {
+		depthVal = "50";
+	} else if(val == "6") {
+		depthVal = "60";
+	} else if(val == "7") {
+		depthVal = "70";
+	}
+
+	$('#searchMainCategory').val(depthVal);
+	$('#codeParent').val(depthVal);
+}
+
+doHiddenValueSetting('1');
+
+</script>
+
+		<div id="lnb">
+			<div class="lnbBox">
+				<!-- 2depth -->
+				<div class="lnbNew lnbNew3 lnbNew3-1">
+					<ul>
+						<li class=""><a href="/product/product.do?category=product&depth2=4&sf=N"><span>전체 상품</span></a></li>
+						<li class="on"><a href="/product/pb.do?category=product&depth2=1&sf=N"><span>CU 차별화 상품</span></a></li>
+						<li class=""><a href="/event/plus.do?category=event&depth2=3&sf=N"><span>행사 상품</span></a></li>
+						
+						<li><a href="/service/parcel_info.do?category=service&depth3=4&sf=N"><span>생활편의 서비스</span></a></li>
+						<li><a href="/service/credit_info.do?category=service&depth2=2&sf=N"><span>제휴카드</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<form id="listForm" name="listForm" action="/product/pb.do?category=product&amp;depth2=1&amp;sf=N" method="post">
+		<input id="pageIndex" name="pageIndex" type="hidden" value="1"/>	<!--  페이징 카운트 -->
+		<input id="listType" name="listType" type="hidden" value=""/>		<!-- 기존 리스트에 덧붙여 보여줄것인지 새로운 리스트를 출력 할 것인지 여부 -->
+		<input id="searchCondition" name="searchCondition" type="hidden" value=""/>	<!-- 전체, 할인증정상품, 최신등록순, 인기상품순,,,,, -->
+		<input id="searchUseYn" name="searchUseYn" type="hidden" value=""/>	<!-- 검색버튼을 눌렀는지 안눌렀는지 여부  N: 안눌름,Y : 눌름-->
+		<input id="gdIdx" name="gdIdx" type="hidden" value="0"/>	<!-- 상품 코드-->
+		<input id="searchgubun" name="searchgubun" value="PBG" type="hidden" value=""/>	<!-- 상품구분-->
+
+		<div id="contents">
+			
+<head>
+	<script type="text/javascript">
+		$(function() {
+			if ("product" == "benefit") {
+				var targetLnb = location.pathname.replace('/benefit/', '').replace('.do', '');
+				$.each($('ul.benefit_info li'), function() {
+					if ($(this).attr('name') == targetLnb) {
+						$(this).addClass('on');
+					}
+				});
+			}
+		});
+	</script>
+</head>
+
+	
+			<div class="depth3Lnb">
+				<ul class="cardInfo">
+					<li class="cardInfo_01 on"><a href="#" onclick="gogubun('PBG'); return false;">PB 상품</a></li>
+					<li class="cardInfo_02 "><a href="#" onclick="gogubun('CUG'); return false;">CU단독운영상품</a></li>
+				</ul>
+			</div>
+	
+
+
+
+
+			<div class="relCon">
+				<div class="pbTopTit">
+					<p class="tit"><img src="/images/product/txt_pb_product.gif" alt="CU PB Product" /></p>
+					<p class="explain">PB상품은 “Private Brand Products”의 의미로,  CU가 기획한 차별화된 브랜드 상품입니다. CU는 편리하고 쾌적한 공간에서 항상 새롭고 신선한 상품으로, 편의점 이상의 가치를 제공하고자 노력합니다.</p>
+				</div>
+				<div class="pbWrap" style="display: none;">
+					
+				</div>
+
+				<div class="prodSearch">
+					<div class="prodSearch-n">
+						<p class="tit">가격대 검색</p>
+						<ul class="fl">
+							<li><input type="radio" name="prodS" value="1" class="input_radio" id="prodS_01" onclick="setPrice(this.value);"/><label for="prodS_01">1,500원 이하</label></li>
+							<li><input type="radio" name="prodS" value="2" class="input_radio" id="prodS_02" onclick="setPrice(this.value);"/><label for="prodS_02">1,500원~3,000원</label></li>
+							<li><input type="radio" name="prodS" value="3" class="input_radio" id="prodS_03" onclick="setPrice(this.value);"/><label for="prodS_03">5,000원 이상</label></li>
+						</ul>
+						<div class="fr">
+							<input id="search1" name="search1" class="input_text" type="text" value=""/><label for="search1">&nbsp;원~</label>
+							<input id="search2" name="search2" class="input_text" type="text" value=""/><label for="search2">&nbsp;원</label>
+						</div>
+					</div>
+					<div class="prodSearch-s">
+						<p class="tit"><label for="searchKeyword">검색</label></p>
+						<div class="fr"><input id="searchKeyword" name="searchKeyword" style="width:653px;" class="input_text" type="text" value=""/></div>
+					</div>
+					<div class="btnSearch"><span onclick="searchUse('0');" style="cursor:pointer;">검색</span></div>
+					<div class="btnReset"><span onclick="resetUse('0');" style="cursor:pointer;">초기화</span></div>
+				</div>
+
+				<!-- 4depth -->
+				<div class="depth4">
+					<ul>
+						<li id="setA" class="on"><a href="#" onclick="setCond('setA');">전체</a></li>
+						<li id="setB"><a href="#" onclick="setCond('setB');">할인증정상품</a></li>
+						<li id="setC"><a href="#" onclick="setCond('setC');">최신등록순</a></li>
+						
+						<li id="setE"><a href="#" onclick="setCond('setE');">낮은 가격순</a></li>
+						<li id="setF"><a href="#" onclick="setCond('setF');">높은 가격순</a></li>
+					</ul>
+				</div>
+
+				<div id="prodListWrap" class="prodListWrap">
+
+						<!-- 상품 리스트가 들어 갑니다. -->
+				</div>
+			</div>
+		</div>
+		</form>
+		
+		
+
+		<footer id="footer">
+			<section class="footer_wrap">
+				<div class="cu_info_footer">
+					<div class="logo_wrap">
+						<h2 class="logo">
+							<a href="/index.do"><span class="blind">CU</span></a>
+						</h2>
+					</div>
+					<address class="footer_address">
+						<p> BGF리테일 서울시 강남구 테헤란로 405(삼성동)</p>
+						<p class="copy_right">COPYRIGHT &copy; BGFretail ALL RIGHT RESERVED.</p>
+					</address>
+					<p class="footer_tel">TEL: 1577-8007</p>
+					<p class="footer_tel">대표자 민승배</p>
+					<p class="footer_tel">사업자 등록 번호 893-88-00792</p>
+					<div id="sns_buttons">
+						<ul class="footer_sns">
+							<li>
+								<a href="https://www.facebook.com/CU.BGFretail.cvs/" target="_blank">
+									<img id="sns_facebook" src="/images/common/new/footer_facebook.png" alt="Facebook" />
+								</a>
+							</li>
+							<li>
+								<a href="https://twitter.com/BGFretail" target="_blank">
+									<img id="sns_twitter" src="/images/common/new/footer_twitter.png" alt="Twitter" />
+								</a>
+							</li>
+							<li>
+								<a href="https://blog.naver.com/cu_bgfretail" target="_blank">
+									<img src="/images/common/new/footer_blog.png" alt="Blog" />
+								</a>
+							</li>
+							<li><a href="https://www.instagram.com/cu_official" target="_blank">
+								<img src="/images/common/new/footer_instagram.png" alt="Instagram" /></a>
+							</li>
+							<li><a href="https://www.youtube.com/@cu.official" target="_blank">
+								<img src="/images/common/new/footer_youtube.png" alt="Youtube" /></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="quick_menu">
+					<strong class="footer_sub_tit">Quick Menu</strong>
+					<nav class="quick_menu_box">
+							<ul class="footer_ulcnt">
+								<li><a href="/consult/consult01.do" target="_blank">입점상담</a></li> <!-- issues/2153#note_92253 수정 -->
+								<li><a href="#none" class="btn_layer" open-layer-class="ad_inquiry">제휴/광고 문의</a></li> <!-- issues/2776 추가 -->
+								<li><a href="/store/list.do?category=store">매장찾기</a></li>
+								<li><a href="http://mkr.bgfretail.com/" target="_blank">발주 및 배송데이터</a></li>
+								<li><a href="http://etax.bgfretail.com/index.jsp" target="_blank">전자세금계산서</a></li>
+							</ul>
+							<ul class="footer_ulcnt">
+								<li><a href="/auth/authList.do">제휴인증</a></li>
+								
+								<li><a href="/policy/policy/pc/privacyPolicy" class="footer_purple">개인정보처리방침</a></li>
+								
+							</ul>
+					</nav>
+				</div>
+				<div class="family_site">
+					<strong class="footer_sub_tit">Family Site</strong>
+					<nav class="family_site_box">
+						<ul class="footer_ulcnt">
+							<li><a href="http://www.bgf.co.kr" target="_blank">BGF</a></li>
+							<li><a href="https://www.bgfretail.com/" target="_blank">BGF리테일</a></li>
+							<li><a href="http://www.bgfnetworks.com/" target="_blank">BGF네트웍스</a></li>
+						</ul>
+						<ul class="footer_ulcnt">
+							<li><a href="https://www.bgfhumannet.com/" target="_blank">BGF휴먼넷</a></li>
+							<li><a href="http://www.bgflogis.com/" target="_blank">BGF로지스</a></li>
+							<li><a href="http://www.cupost.co.kr" target="_blank">CU포스트</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+			<!-- 리뉴얼 푸터 -->
+		</footer>
+		<!-- [팝업]제휴/광고 문의 -->
+		
+
+<section class="ad_inquiry layer_pop" style="display:none;">
+    <a href="#none" class="closed">
+        <span class="blind">팝업 닫기</span>
+    </a>
+    <!-- 컨텐츠 -->
+    <div class="contents">
+        <section class="inquiry_info">
+            <h2 class="tit">제휴·광고 문의</h2>
+            <div class="txt">
+                일상 가장 가까운 곳에서 <br>
+                언제 어디서나 만날 수 있는 CU와 함께 해보세요!<br><br>
+
+                아래 주소로 이름, 소속(회사명), 연락처, 문의내용을 <br>
+                보내주시면 연락드리겠습니다.
+            </div>
+            <div class="inquiry_box">
+                <ul>
+                    <!-- issues/3831 수정 및 추가 -->
+                    <li>
+                        <p>포켓CU 총괄<span>(서비스, 광고, 멤버십, 상품제안 등)</span></p>
+                        <div class="info_wrap">
+                            <a href="mailto:cu_proposal@bgf.co.kr">cu_proposal@bgf.co.kr</a>
+                        </div>
+                    </li>
+                    <li>
+                        <p>마케팅 총괄</p>
+                        <div class="info_wrap">
+                            <a href="mailto:cu_partners@bgf.co.kr">cu_partners@bgf.co.kr</a>
+                        </div>
+                    </li>
+                    <li>
+                        <p>SNS 콘텐츠 제휴/광고</p>
+                        <div class="info_wrap">
+                            <a href="mailto:cu_branding@bgf.co.kr">cu_branding@bgf.co.kr</a>
+                        </div>
+                    </li>
+                    <li>
+                        <p>브랜드 캠페인 콜라보</p>
+                        <div class="info_wrap">
+                            <a href="mailto:cu_imc@bgf.co.kr">cu_imc@bgf.co.kr</a>
+                        </div>
+                    </li>
+                    <li>
+                        <p>매장서비스 제휴</p>
+                        <div class="info_wrap">
+                            <a href="mailto:cu_service@bgf.co.kr">cu_service@bgf.co.kr</a>
+                        </div>
+                    </li>
+                    <li>
+                        <p>신규 솔루션 협업/실증 제안<span>(Tech, 국책사업 등)</span></p> <!-- issues/26 수정 -->
+                        <div class="info_wrap">
+                            <a href="mailto:cu_tech@bgf.co.kr">cu_tech@bgf.co.kr</a>
+                        </div>
+                    </li>
+                    <li>
+                        <p>콜라보 상품 제안</p>
+                        <div class="info_wrap">
+                            <a href="mailto:sandy301@bgf.co.kr">sandy301@bgf.co.kr</a>
+                            <a href="mailto:hrsig@bgf.co.kr">hrsig@bgf.co.kr</a>
+                        </div>
+                    </li>
+                    <li>
+                        <p>
+                            DS광고 문의
+                        </p>
+                        <div class="info_wrap">
+                            <a href="mailto:cutv@bgf.co.kr">cutv@bgf.co.kr</a> <!-- 20240329 -->
+                        </div>
+                    </li>
+                    <!--// issues/3831 수정 및 추가 -->
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</section>
+
+		<!--// [팝업]제휴/광고 문의 -->
+		<script type="text/javascript">
+			function viewChange(){
+				$.ajax({
+					url: "/brand_info/viewType.do",
+					async:false,
+					success:function(data){
+						location.reload();
+					},
+					error: function(request, status, error) {
+						location.reload();
+					}
+				});
+			}
+		</script>
+	</div>
+
+</body>
+</html>
