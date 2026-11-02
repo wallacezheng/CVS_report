@@ -58,6 +58,8 @@ Variables（可選）：MAX_ENRICH_PER_RUN、MAX_ENRICH_PER_MONTH、MAX_GEMINI_U
 - 2026-11-02 Lawson 新聞稿已上線（19 篇 → 32 個訊號，官方銷量 9 個）。
 - 2026-11-02 7-Eleven 新聞稿已上線（13 篇 → 18 個訊號，官方銷量 3 個）。**日本部分完成**：三家新品＋三家新聞稿熱賣訊號。
 - 2026-11-02 韓國第一步：CU（`cu_kr.py`，POST productAjax.do，只收 NEW）、emart24（`emart24_kr.py`，差異化商品最新順 2 頁）已接上；GS25 robots 禁止 /api/、7-Eleven 韓國 robots 全禁 → 都不爬。已上線：首跑 481 支（CU 441、emart24 40）全部翻譯完成（US$0.51）；W45 為基準週，數字偏高（儀表板已註記）。
-- 討論中（等 Wallace 決定）：品類×口味交叉表、標籤細分（水果、奶油／鮮奶油、季節）、新增口感／型態等維度、標籤溢價與跨超商同步指標。
+- 2026-11-02 Wallace 決定順序：① 品類×口味交叉表 → ② 標籤細分＋口感／型態，既有商品重新貼標 → ③ C 類計算指標（標籤溢價、跨超商同步、熱賣關聯、新組合、日韓對照；存活期、口碑對照待資料累積）。
+  - ① 完成：`docs/index.html` 的 `renderXtab`／`renderXdet`（瀏覽器端計算，新品總覽頁「品類 × 口味」）。
+  - **進行中**：②。
 - 下一步：韓國熱賣訊號（評估見 Project 文件「來源評估與決策紀錄」：emart24 可直接做；CU／GS25 需 probe；Naver 新聞 API 需 Wallace 申請金鑰）。
 - 待 Wallace：GCP 預算快訊與 Vertex AI 配額；もぐナビbiz 授權洽詢。

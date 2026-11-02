@@ -204,6 +204,20 @@ label.chk{font-size:.86rem;display:flex;gap:4px;align-items:center}
 @media (max-width:760px){.flow{grid-template-columns:1fr}.flow .st{border-radius:0!important;border-left:1px solid var(--line)!important}.flow .st + .st{border-top:0}
   .flow .st:first-child{border-radius:6px 6px 0 0!important}.flow .st:last-child{border-radius:0 0 6px 6px!important}
   .flow .st:not(:last-child)::after{right:auto;left:28px;top:auto;bottom:-9px;transform:rotate(135deg)}}
+/* 品類 × 口味 */
+.xt-ctrl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.xmat{border-collapse:separate;border-spacing:2px;font-size:.8rem}
+.xmat th{font-weight:500;color:var(--muted);font-size:.74rem;white-space:nowrap;padding:4px 4px;text-align:center;vertical-align:bottom}
+.xmat th.rowh{text-align:left;color:var(--ink);font-size:.82rem;font-weight:500;cursor:pointer;padding-right:10px}
+.xmat th.rowh small{color:var(--muted);font-family:var(--f-mono);margin-left:4px}
+.xmat tr.sel th.rowh{color:var(--accent);font-weight:700}
+.xmat td{text-align:center;font-family:var(--f-mono);min-width:46px;height:30px;border-radius:3px;cursor:pointer;padding:0 4px;border:0}
+.xmat td:hover{outline:2px solid var(--accent)}
+.xmat td.on{outline:2px solid var(--ink)}
+.xdet{display:grid;gap:8px}
+.xdet table td,.xdet table th{white-space:nowrap}
+.badge-new{display:inline-block;font-size:.7rem;background:var(--jp);color:var(--surface);border-radius:3px;padding:0 5px;margin-left:6px;font-family:var(--f-body)}
+.linkbtn{font:inherit;font-size:.8rem;border:0;background:transparent;color:var(--accent);cursor:pointer;padding:0;text-decoration:underline}
 footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
 @media (max-width:760px){
   .stage{grid-template-columns:1fr;gap:12px}
@@ -285,6 +299,7 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
         <tr><td>上方四個數字</td><td>這週有多少新東西？</td><td>本週新品、下週預告、地區限定、待人工確認的支數。地區限定多，代表超商在做區域試賣。</td></tr>
         <tr><td>各分類新品數</td><td>超商把力氣放在哪類？</td><td>某個顏色連續變厚＝該品類加碼。季節轉換時最明顯（例：入秋後熱食、甜點增加）。</td></tr>
         <tr><td>口味／素材熱度</td><td>什麼口味在流行？</td><td>顏色越深越多；最右欄 + 號是本週升溫的口味，可以當選題起點。</td></tr>
+        <tr><td>品類 × 口味</td><td>某個品類最近流行什麼口味？</td><td>點一列看該品類的口味明細；「新組合」＝本週第一次出現在這個品類的口味，是最早的創新訊號。資料累積數週後再看占比變化。</td></tr>
         <tr><td>價格帶</td><td>賣多少錢？有沒有往上走？</td><td>同品類價格連續上升＝在推高價版本。拿來對照我們客戶的定價。</td></tr>
         <tr><td>新品清單</td><td>具體是哪些商品？</td><td>用篩選回頭找上面看到的趨勢；點卡片可看說明、販售地區與官網連結。</td></tr>
         <tr class="grp"><td colspan="3">熱賣訊號</td></tr>
@@ -365,6 +380,17 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
         <p class="hint">各品類新品的平均售價。<b>同一品類連續幾週往上</b>，代表超商在推高價版本（加料、名店監修、大份量）。</p>
         <div class="scroll"><table id="tbl-price"></table></div>
       </div>
+    </section>
+    <section class="panel" id="xtab">
+      <header><h2>品類 × 口味</h2><span class="muted" style="font-size:.78rem">各品類新品中，含某口味／素材的比例</span></header>
+      <p class="hint">每一列是一個品類，每一格是「這個品類的新品裡，有幾成含這個口味」，越深比例越高。<b>點一列看該品類的口味明細</b>：各週支數、週增減，以及本週才第一次出現在這個品類的口味（新組合）。</p>
+      <div class="xt-ctrl">
+        <select id="x-period"><option value="4">近 4 週</option><option value="all">全部週次</option><option value="1">只看本週</option></select>
+        <select id="x-chain"><option value="">全部超商</option></select>
+        <span class="muted" id="x-note" style="font-size:.78rem"></span>
+      </div>
+      <div class="scroll"><table class="xmat" id="x-mat"></table></div>
+      <div class="xdet" id="x-det"></div>
     </section>
     <section style="display:grid;gap:12px">
       <p class="hint" style="margin:0"><b>新品清單</b>：用上面的發現回來找商品。卡片上紅色標籤是熱賣訊號、黃色是地區限定、橘色「待確認」表示 AI 翻譯或分類信心不足。</p>
@@ -762,7 +788,57 @@ function renderGuide(){
   $("g-n2").textContent=f.filter(p=>p.hit_signals).length;
   $("g-n3").textContent=S.mog&&S.country==="JP"?(S.mog.products||[]).length:"🔒";
 }
-function renderAll(){renderGuide();renderSummary();renderCatChart();renderTags();renderPrice();fillFilters();renderGrid();renderHits();renderMognavi()}
+/* ---------- 品類 × 口味 ---------- */
+const tagsOf=p=>(p.tags||"").split("|").filter(Boolean);
+function xWeeks(){
+  const all=[...new Set(food().map(p=>p.release_week).filter(Boolean))].sort();
+  const cur=S.meta.this_week||all[all.length-1];
+  const past=all.filter(w=>w<=cur);
+  const v=$("x-period").value;
+  return v==="all"?all:past.slice(-(+v));
+}
+function xBase(){
+  const ch=$("x-chain").value,ws=new Set(xWeeks());
+  return food().filter(p=>ws.has(p.release_week)&&(!ch||p.chain===ch));
+}
+function renderXtab(){
+  const sel=$("x-chain");const keep=sel.value;
+  sel.innerHTML='<option value="">全部超商</option>'+[...new Set(food().map(p=>p.chain))].map(c=>`<option value="${c}">${esc(CHAIN_ZH[c]||c)}</option>`).join("");
+  sel.value=[...sel.options].some(o=>o.value===keep)?keep:"";
+  const base=xBase(),ws=xWeeks();
+  $("x-note").textContent=ws.length?`${ws.length===1?wkHead(ws[0]):wkHead(ws[0])+" ～ "+wkHead(ws[ws.length-1])}｜${base.length} 支`:"";
+  if(!base.length){$("x-mat").innerHTML=`<tr><td class="muted" style="cursor:default">這個期間沒有資料</td></tr>`;$("x-det").innerHTML="";return}
+  const byCat={};base.forEach(p=>(byCat[p.category_code]=byCat[p.category_code]||[]).push(p));
+  const cats=Object.keys(byCat).filter(c=>byCat[c].length>=3).sort((a,b)=>byCat[b].length-byCat[a].length);
+  const tc={};base.forEach(p=>tagsOf(p).forEach(t=>tc[t]=(tc[t]||0)+1));
+  const tags=Object.keys(tc).sort((a,b)=>tc[b]-tc[a]).slice(0,14);
+  if(!S.xCat||!cats.includes(S.xCat))S.xCat=cats[0];
+  let h=`<tr><th></th>${tags.map(t=>`<th>${esc(t)}</th>`).join("")}</tr>`;
+  cats.forEach(c=>{const ps=byCat[c];
+    h+=`<tr class="${c===S.xCat?"sel":""}"><th class="rowh" data-xcat="${c}">${esc(catName(c))}<small>${ps.length}</small></th>`+tags.map(t=>{
+      const n=ps.filter(p=>tagsOf(p).includes(t)).length,r=n/ps.length,l=n?Math.min(4,Math.ceil(r/0.125)):0;
+      return`<td data-xcat="${c}" data-xtag="${esc(t)}" class="${c===S.xCat&&t===S.xTag?"on":""}" style="background:var(--heat${l});color:${l>=3?"var(--surface)":"var(--ink)"}" title="${esc(catName(c))}：${n} 支含「${esc(t)}」（${Math.round(r*100)}%）">${n?Math.round(r*100)+"%":""}</td>`}).join("")+"</tr>"});
+  $("x-mat").innerHTML=h;
+  renderXdet(byCat[S.xCat]||[],ws);
+}
+function renderXdet(ps,ws){
+  const c=S.xCat,cur=S.meta.this_week,showW=ws.slice(-6);
+  const tc={};ps.forEach(p=>tagsOf(p).forEach(t=>tc[t]=(tc[t]||0)+1));
+  const rows=Object.keys(tc).sort((a,b)=>tc[b]-tc[a]);
+  // 新組合：本週有、但在本品類「本週之前」的所有資料都沒出現過
+  const before=new Set(food().filter(p=>p.category_code===c&&p.release_week&&p.release_week<cur&&(!$("x-chain").value||p.chain===$("x-chain").value)).flatMap(tagsOf));
+  const cnt=(t,w)=>ps.filter(p=>p.release_week===w&&tagsOf(p).includes(t)).length;
+  const ci=showW.indexOf(cur);
+  let h=`<tr><th>口味／素材</th><th class="num">支數</th><th class="num">占比</th>${showW.map(w=>`<th class="num">${wkHead(w)}</th>`).join("")}<th class="num">週增減</th><th></th></tr>`;
+  rows.forEach(t=>{const vals=showW.map(w=>cnt(t,w));const d=ci>0?vals[ci]-vals[ci-1]:null;
+    const isNew=ci>=0&&vals[ci]>0&&!before.has(t);
+    h+=`<tr><td>${esc(t)}${isNew?'<span class="badge-new">新組合</span>':""}</td><td class="num">${tc[t]}</td><td class="num">${Math.round(tc[t]/ps.length*100)}%</td>${vals.map(v=>`<td class="num">${v||"·"}</td>`).join("")}<td class="num ${d>0?"delta-up":d<0?"delta-down":""}">${d===null?"—":(d>0?"+":"")+d}</td><td><button class="linkbtn" data-xgo="${esc(t)}">看商品</button></td></tr>`});
+  const untagged=ps.filter(p=>!tagsOf(p).length).length;
+  $("x-det").innerHTML=`<h3 style="font-size:1rem;margin:6px 0 0">${esc(catName(c))}的口味明細 <span class="muted mono" style="font-size:.8rem;font-weight:400">${ps.length} 支${untagged?`，其中 ${untagged} 支沒有口味標籤`:""}</span></h3>
+    <div class="scroll"><table>${rows.length?h:'<tr><td class="muted">沒有口味標籤</td></tr>'}</table></div>`;
+}
+
+function renderAll(){renderGuide();renderSummary();renderCatChart();renderTags();renderPrice();renderXtab();fillFilters();renderGrid();renderHits();renderMognavi()}
 
 function bind(){
   ["q","f-chain","f-week","f-cat","f-tag","f-status","f-reg","f-rev","f-hit"].forEach(id=>$(id).addEventListener("input",()=>{S.shown=60;renderGrid()}));
@@ -780,6 +856,11 @@ function bind(){
   $("welcome").hidden=lsGet("cvs_radar_welcomed")==="1";
   $("welcome-x").addEventListener("click",()=>{$("welcome").hidden=true;lsSet("cvs_radar_welcomed","1")});
   $("t-guide").addEventListener("click",()=>{$("welcome").hidden=true;lsSet("cvs_radar_welcomed","1")});
+  ["x-period","x-chain"].forEach(id=>$(id).addEventListener("input",renderXtab));
+  $("x-mat").addEventListener("click",e=>{const el=e.target.closest("[data-xcat]");if(!el)return;S.xCat=el.dataset.xcat;S.xTag=el.dataset.xtag||"";renderXtab()});
+  $("x-det").addEventListener("click",e=>{const b=e.target.closest("[data-xgo]");if(!b)return;
+    $("f-cat").value=S.xCat;$("f-tag").value=b.dataset.xgo;$("f-chain").value=$("x-chain").value;$("f-week").value="";S.shown=60;renderGrid();
+    document.querySelector("#p-new .filters").scrollIntoView({behavior:"smooth",block:"start"})});
   window.addEventListener("hashchange",()=>showTab(location.hash.slice(1),false));
   $("guide").addEventListener("toggle",function(){if(!this.open)return;const gc=$("guide-card");if(!gc.innerHTML)gc.innerHTML=mogCard(GUIDE_EXAMPLE);requestAnimationFrame(drawGuide)});
   let rt;window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(drawGuide,120)});
