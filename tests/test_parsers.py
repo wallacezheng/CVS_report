@@ -208,3 +208,24 @@ class SejPressTest(unittest.TestCase):
         self.assertEqual(rows[0]["release_id"], "sej_2026_202610291100")
         self.assertEqual(rows[0]["date"], "2026-10-29")
         self.assertTrue(all(r["chain"] == "seven_jp" for r in rows))
+
+
+class KoreaParsersTest(unittest.TestCase):
+    def _fx(self, name):
+        from pathlib import Path
+        return (Path(__file__).parent / "fixtures" / name).read_text(encoding="utf-8")
+
+    def test_cu(self):
+        from scraper.sources import cu_kr
+        rows = cu_kr.parse_list(self._fx("cu_ajax_cat10_newest.html"), "간편식사")
+        self.assertEqual(len(rows), 40)
+        self.assertEqual(rows[0]["item_id"], "28707")
+        self.assertEqual(rows[0]["price_tax_incl"], 5500.0)
+        self.assertTrue(rows[0]["is_new"])
+
+    def test_emart24(self):
+        from scraper.sources import emart24_kr
+        rows = emart24_kr.parse_list(self._fx("emart24_pl.html"))
+        self.assertEqual(len(rows), 20)
+        self.assertEqual(rows[0]["item_id"], "8801550005598")
+        self.assertEqual(rows[0]["price_tax_incl"], 1800.0)
