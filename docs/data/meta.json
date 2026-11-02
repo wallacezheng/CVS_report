@@ -1,10 +1,10 @@
 {
- "updated_at": "2026-10-29",
- "this_week": "2026-W44",
- "product_count": 790,
- "review_count": 163,
+ "updated_at": "2026-11-02",
+ "this_week": "2026-W45",
+ "product_count": 842,
+ "review_count": 12,
  "errors": [
-  "翻譯額度：本次上限 200 支（本月已用 200/2000），161 支留待下次"
+  "翻譯額度：本次上限 200 支（本月已用 0/2000），10 支留待下次"
  ],
  "sources": {
   "seven_jp": 1,
