@@ -193,3 +193,30 @@ class TestMognaviSafety(unittest.TestCase):
         self.assertEqual(len(self.sheet.tabs["もぐナビ排行"].get_all_records()), 1)  # 舊排行保留
         for n in ("もぐナビ排行", "もぐナビ口碑", "mognavi_cache"):
             self.assertIn(f"備份_{n}", self.sheet.tabs)
+
+
+class TagTest(unittest.TestCase):
+    TAGS = [{"tag_zh": "水果", "tag_type": "素材", "parent": ""},
+            {"tag_zh": "草莓", "tag_type": "素材", "parent": "水果"},
+            {"tag_zh": "酥脆", "tag_type": "口感", "parent": ""}]
+
+    def test_expand_parent_and_filter(self):
+        from scraper.enrich import expand_tags
+        self.assertEqual(expand_tags(["草莓", "酥脆", "不存在"], self.TAGS), "草莓|水果|酥脆")
+        self.assertEqual(expand_tags(["水果", "草莓"], self.TAGS), "水果|草莓")
+
+    def test_retag_only_changes_tags(self):
+        from scraper import enrich as E
+        cache = {"a:1": {"product_key": "a:1", "name_zh": "草莓蛋糕", "category_code": "DESSERT",
+                         "tags": "水果", "model": "m", "tag_version": "old"},
+                 "a:2": {"product_key": "a:2", "category_code": "NON_FOOD", "model": "rule", "tags": ""}}
+        items = [{"product_key": "a:1", "name_original": "いちごケーキ"}, {"product_key": "a:2"}]
+        with mock.patch.object(E, "call_gemini", return_value=[{"product_key": "a:1", "tags": ["草莓"]}]), \
+                mock.patch.object(E, "resolve_model", return_value="m"), \
+                mock.patch.object(E, "gemini_mode", return_value="vertex"), \
+                mock.patch.object(E, "log_usage"):
+            E.retag(items, self.TAGS, cache, "2026-11-02")
+        self.assertEqual(cache["a:1"]["tags"], "草莓|水果")
+        self.assertEqual(cache["a:1"]["name_zh"], "草莓蛋糕")
+        self.assertEqual(cache["a:1"]["tag_version"], E.tag_version(self.TAGS))
+        self.assertEqual(cache["a:2"]["tags"], "")

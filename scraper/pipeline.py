@@ -17,7 +17,7 @@ from pathlib import Path
 
 from .common import fetch, is_regional_jp, new_areas, today_tw
 from .config_store import ConfigStore
-from .enrich import enrich, load_cache, reclassify_alcohol, save_cache
+from .enrich import enrich, load_cache, reclassify_alcohol, save_cache, retag
 from .signals import apply_hit_signals, update_press
 from .sources import RAW_FIELDS, cu_kr, emart24_kr, familymart_jp, lawson_jp, naver_datalab, seven_jp
 
@@ -321,6 +321,7 @@ def run(args) -> int:
         print(f"[enrich] 改歸酒類 {n_alc} 支")
     errors += enrich(list(master.values()), cfg.categories(), cfg.tags(), cfg.glossary(), cache,
                      today=today.isoformat())
+    errors += retag(list(master.values()), cfg.tags(), cache, today=today.isoformat())
     save_cache(cache)
     review = apply_enrichment(master, cache, cfg.overrides())
     try:
@@ -373,6 +374,9 @@ def run(args) -> int:
         "\n".join([",".join(["category_code", "group_zh", "name_zh", "sort"])] +
                   [",".join([c["category_code"], c["group_zh"], c["name_zh"], str(c["sort"])])
                    for c in cfg.categories()]).encode("utf-8"))
+    write_csv(DOCS_DATA / "tags.csv", [{"tag_zh": t["tag_zh"], "tag_type": t.get("tag_type", ""),
+                                        "parent": t.get("parent", "")} for t in cfg.tags()],
+              ["tag_zh", "tag_type", "parent"])
     errors = list(dict.fromkeys(errors))
     meta = {
         "updated_at": today.isoformat(), "this_week": this_week,

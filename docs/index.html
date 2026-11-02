@@ -383,8 +383,9 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
     </section>
     <section class="panel" id="xtab">
       <header><h2>品類 × 口味</h2><span class="muted" style="font-size:.78rem">各品類新品中，含某口味／素材的比例</span></header>
-      <p class="hint">每一列是一個品類，每一格是「這個品類的新品裡，有幾成含這個口味」，越深比例越高。<b>點一列看該品類的口味明細</b>：各週支數、週增減，以及本週才第一次出現在這個品類的口味（新組合）。</p>
+      <p class="hint">先選維度（口味・素材、口感、型態…）。每一列是一個品類，每一格是「這個品類的新品裡，有幾成含這個標籤」，越深比例越高。<b>點一列看該品類的口味明細</b>：各週支數、週增減，以及本週才第一次出現在這個品類的口味（新組合）。</p>
       <div class="xt-ctrl">
+        <select id="x-type"><option value="flavor">口味・素材</option><option value="口感">口感</option><option value="型態">型態</option><option value="風格">風格</option><option value="機能">機能</option><option value="企劃">企劃</option><option value="價格訴求">價格訴求</option><option value="季節">季節</option><option value="">全部維度</option></select>
         <select id="x-period"><option value="4">近 4 週</option><option value="all">全部週次</option><option value="1">只看本週</option></select>
         <select id="x-chain"><option value="">全部超商</option></select>
         <span class="muted" id="x-note" style="font-size:.78rem"></span>
@@ -549,10 +550,10 @@ async function decryptBundle(b,pw){
 async function loadPublic(){
   if(window.EMBED){const E=window.EMBED;
     return{products:parseCSV(E.products),cats:parseCSV(E.categories),weeklyCat:parseCSV(E.weekly_category),weeklyTags:parseCSV(E.weekly_tags),
-      press:parseCSV(E.press_signals),regions:parseCSV(E.region_history),meta:E.meta||{}}}
+      press:parseCSV(E.press_signals),regions:parseCSV(E.region_history),tagDict:parseCSV(E.tags||""),meta:E.meta||{}}}
   const get=n=>fetch("data/"+n,{cache:"no-store"}).then(r=>r.ok?r.text():"").catch(()=>"");
-  const [p,c,w,t,m,ps,rh]=await Promise.all(["products.csv","categories.csv","weekly_category.csv","weekly_tags.csv","meta.json","press_signals.csv","region_history.csv"].map(get));
-  return{products:parseCSV(p),cats:parseCSV(c),weeklyCat:parseCSV(w),weeklyTags:parseCSV(t),press:parseCSV(ps),regions:parseCSV(rh),meta:m?JSON.parse(m):{}};
+  const [p,c,w,t,m,ps,rh,td]=await Promise.all(["products.csv","categories.csv","weekly_category.csv","weekly_tags.csv","meta.json","press_signals.csv","region_history.csv","tags.csv"].map(get));
+  return{products:parseCSV(p),cats:parseCSV(c),weeklyCat:parseCSV(w),weeklyTags:parseCSV(t),press:parseCSV(ps),regions:parseCSV(rh),tagDict:parseCSV(td),meta:m?JSON.parse(m):{}};
 }
 async function loadEncrypted(){
   if(window.MOG_ENC!==undefined)return window.MOG_ENC;
@@ -599,7 +600,7 @@ function renderCatChart(){
 }
 
 function renderTags(){
-  const src=S.weeklyTags.filter(r=>(r.country||"JP")===S.country);
+  const src=S.weeklyTags.filter(r=>(r.country||"JP")===S.country&&inDim(r.tag,"flavor"));
   const weeks=[...new Set(src.map(r=>r.week))].sort();
   const totals={};src.forEach(r=>totals[r.tag]=(totals[r.tag]||0)+ +r.count);
   const tags=Object.keys(totals).sort((a,b)=>totals[b]-totals[a]).slice(0,14);
@@ -790,6 +791,9 @@ function renderGuide(){
 }
 /* ---------- 品類 × 口味 ---------- */
 const tagsOf=p=>(p.tags||"").split("|").filter(Boolean);
+const tagType=t=>{const d=(S.tagDict||[]).find(x=>x.tag_zh===t);return d?d.tag_type:""};
+// 維度篩選：沒有字典（舊資料）時一律通過；「口味・素材」= 口味＋素材
+function inDim(t,dim){if(!dim||!(S.tagDict||[]).length)return true;const ty=tagType(t);return dim==="flavor"?(ty==="口味"||ty==="素材"||!ty):ty===dim}
 function xWeeks(){
   const all=[...new Set(food().map(p=>p.release_week).filter(Boolean))].sort();
   const cur=S.meta.this_week||all[all.length-1];
@@ -810,7 +814,8 @@ function renderXtab(){
   if(!base.length){$("x-mat").innerHTML=`<tr><td class="muted" style="cursor:default">這個期間沒有資料</td></tr>`;$("x-det").innerHTML="";return}
   const byCat={};base.forEach(p=>(byCat[p.category_code]=byCat[p.category_code]||[]).push(p));
   const cats=Object.keys(byCat).filter(c=>byCat[c].length>=3).sort((a,b)=>byCat[b].length-byCat[a].length);
-  const tc={};base.forEach(p=>tagsOf(p).forEach(t=>tc[t]=(tc[t]||0)+1));
+  const dim=$("x-type").value;
+  const tc={};base.forEach(p=>tagsOf(p).filter(t=>inDim(t,dim)).forEach(t=>tc[t]=(tc[t]||0)+1));
   const tags=Object.keys(tc).sort((a,b)=>tc[b]-tc[a]).slice(0,14);
   if(!S.xCat||!cats.includes(S.xCat))S.xCat=cats[0];
   let h=`<tr><th></th>${tags.map(t=>`<th>${esc(t)}</th>`).join("")}</tr>`;
@@ -822,8 +827,8 @@ function renderXtab(){
   renderXdet(byCat[S.xCat]||[],ws);
 }
 function renderXdet(ps,ws){
-  const c=S.xCat,cur=S.meta.this_week,showW=ws.slice(-6);
-  const tc={};ps.forEach(p=>tagsOf(p).forEach(t=>tc[t]=(tc[t]||0)+1));
+  const c=S.xCat,cur=S.meta.this_week,showW=ws.slice(-6),dim=$("x-type").value;
+  const tc={};ps.forEach(p=>tagsOf(p).filter(t=>inDim(t,dim)).forEach(t=>tc[t]=(tc[t]||0)+1));
   const rows=Object.keys(tc).sort((a,b)=>tc[b]-tc[a]);
   // 新組合：本週有、但在本品類「本週之前」的所有資料都沒出現過
   const before=new Set(food().filter(p=>p.category_code===c&&p.release_week&&p.release_week<cur&&(!$("x-chain").value||p.chain===$("x-chain").value)).flatMap(tagsOf));
@@ -833,8 +838,8 @@ function renderXdet(ps,ws){
   rows.forEach(t=>{const vals=showW.map(w=>cnt(t,w));const d=ci>0?vals[ci]-vals[ci-1]:null;
     const isNew=ci>=0&&vals[ci]>0&&!before.has(t);
     h+=`<tr><td>${esc(t)}${isNew?'<span class="badge-new">新組合</span>':""}</td><td class="num">${tc[t]}</td><td class="num">${Math.round(tc[t]/ps.length*100)}%</td>${vals.map(v=>`<td class="num">${v||"·"}</td>`).join("")}<td class="num ${d>0?"delta-up":d<0?"delta-down":""}">${d===null?"—":(d>0?"+":"")+d}</td><td><button class="linkbtn" data-xgo="${esc(t)}">看商品</button></td></tr>`});
-  const untagged=ps.filter(p=>!tagsOf(p).length).length;
-  $("x-det").innerHTML=`<h3 style="font-size:1rem;margin:6px 0 0">${esc(catName(c))}的口味明細 <span class="muted mono" style="font-size:.8rem;font-weight:400">${ps.length} 支${untagged?`，其中 ${untagged} 支沒有口味標籤`:""}</span></h3>
+  const untagged=ps.filter(p=>!tagsOf(p).some(t=>inDim(t,dim))).length;
+  $("x-det").innerHTML=`<h3 style="font-size:1rem;margin:6px 0 0">${esc(catName(c))}的${esc($("x-type").selectedOptions[0].textContent)}明細 <span class="muted mono" style="font-size:.8rem;font-weight:400">${ps.length} 支${untagged?`，其中 ${untagged} 支沒有這個維度的標籤`:""}</span></h3>
     <div class="scroll"><table>${rows.length?h:'<tr><td class="muted">沒有口味標籤</td></tr>'}</table></div>`;
 }
 
@@ -856,7 +861,7 @@ function bind(){
   $("welcome").hidden=lsGet("cvs_radar_welcomed")==="1";
   $("welcome-x").addEventListener("click",()=>{$("welcome").hidden=true;lsSet("cvs_radar_welcomed","1")});
   $("t-guide").addEventListener("click",()=>{$("welcome").hidden=true;lsSet("cvs_radar_welcomed","1")});
-  ["x-period","x-chain"].forEach(id=>$(id).addEventListener("input",renderXtab));
+  ["x-type","x-period","x-chain"].forEach(id=>$(id).addEventListener("input",renderXtab));
   $("x-mat").addEventListener("click",e=>{const el=e.target.closest("[data-xcat]");if(!el)return;S.xCat=el.dataset.xcat;S.xTag=el.dataset.xtag||"";renderXtab()});
   $("x-det").addEventListener("click",e=>{const b=e.target.closest("[data-xgo]");if(!b)return;
     $("f-cat").value=S.xCat;$("f-tag").value=b.dataset.xgo;$("f-chain").value=$("x-chain").value;$("f-week").value="";S.shown=60;renderGrid();

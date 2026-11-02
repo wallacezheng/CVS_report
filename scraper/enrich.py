@@ -30,7 +30,9 @@ import requests
 ROOT = Path(__file__).resolve().parent.parent
 CACHE = ROOT / "data" / "enrich_cache.csv"
 CACHE_FIELDS = ["product_key", "name_zh", "desc_zh", "category_code", "tags", "confidence", "model",
-                "enriched_at"]
+                "enriched_at", "tag_version"]
+MAX_RETAG_PER_RUN = int(os.environ.get("MAX_RETAG_PER_RUN") or 1500)
+RETAG_BATCH = 50
 USAGE = ROOT / "data" / "gemini_usage.csv"
 USAGE_FIELDS = ["date", "source", "calls", "items", "prompt_tokens", "output_tokens", "thought_tokens",
                 "est_usd", "model"]
@@ -134,7 +136,10 @@ def save_cache(cache: dict[str, dict], path: Path = CACHE) -> None:
 def build_prompt(items: list[dict], categories, tags, glossary) -> str:
     cat_lines = "\n".join(f"- {c['category_code']}：{c['name_zh']}（{c['description_zh']}）"
                           for c in categories)
-    tag_list = "、".join(t["tag_zh"] for t in tags)
+    groups: dict[str, list[str]] = {}
+    for t in tags:
+        groups.setdefault(t.get("tag_type") or "其他", []).append(t["tag_zh"])
+    tag_list = "\n".join(f"   - {k}：{'、'.join(v)}" for k, v in groups.items())
     gloss = "\n".join(f"- {g['source_term']} → {g['zh_term']}" for g in glossary)
     payload = [{"product_key": i["product_key"], "name": i["name_original"],
                 "chain": i["chain"], "source_category": i.get("source_category", ""),
@@ -147,7 +152,9 @@ def build_prompt(items: list[dict], categories, tags, glossary) -> str:
 2. desc_zh：一句 30 字內的補充說明，只寫品名看不出來的資訊（系列名、在地食材、特殊做法、地區限定）；沒有就空字串。
 3. category_code：只能從下列代碼擇一：
 {cat_lines}
-4. tags：從下列標籤選 0～5 個，只能用清單內的字：{tag_list}
+4. tags：從下列標籤選 0～8 個，只能用清單內的字。口味／素材盡量選到最細的項目（例：草莓、哈密瓜，而不是只寫水果）；
+   口感、型態、風格、機能、企劃、價格訴求、季節只在品名或說明明確看得出來時才選，不要猜：
+{tag_list}
 5. confidence：0～1，你對分類與翻譯的把握。看不懂品名、無法判斷是否為食品時請給 0.6 以下。
 
 翻譯術語表（必須遵守）：
@@ -156,6 +163,97 @@ def build_prompt(items: list[dict], categories, tags, glossary) -> str:
 商品清單（JSON）：
 {json.dumps(payload, ensure_ascii=False)}
 """
+
+
+def tag_version(tags) -> str:
+    """標籤字典的指紋：字典改了（增刪標籤），已貼過標籤的商品就會在下次執行時重新貼標。"""
+    import hashlib
+    names = sorted(t["tag_zh"] for t in tags)
+    return hashlib.sha1("|".join(names).encode("utf-8")).hexdigest()[:8]
+
+
+def expand_tags(chosen, tags) -> str:
+    """只保留字典內的標籤，並自動補上父標籤（草莓 → 水果），維持大類趨勢可比。"""
+    parent = {t["tag_zh"]: (t.get("parent") or "").strip() for t in tags}
+    out = []
+    for t in chosen:
+        if t in parent and t not in out:
+            out.append(t)
+            p = parent[t]
+            if p and p in parent and p not in out:
+                out.append(p)
+    return "|".join(out)
+
+
+RETAG_SCHEMA = {
+    "type": "ARRAY",
+    "items": {"type": "OBJECT", "properties": {
+        "product_key": {"type": "STRING"},
+        "tags": {"type": "ARRAY", "items": {"type": "STRING"}},
+    }, "required": ["product_key", "tags"]},
+}
+
+
+def _retag_prompt(items: list[dict], tags) -> str:
+    groups: dict[str, list[str]] = {}
+    for t in tags:
+        groups.setdefault(t.get("tag_type") or "其他", []).append(t["tag_zh"])
+    tag_list = "\n".join(f"- {k}：{'、'.join(v)}" for k, v in groups.items())
+    payload = [{"product_key": i["product_key"], "name": i.get("name_original", ""),
+                "name_zh": i.get("name_zh", ""), "desc_zh": i.get("desc_zh", "")} for i in items]
+    return f"""你是台灣超商商品開發顧問。為下列日本、韓國便利商店商品重新貼標籤，每支 0～8 個，只能用清單內的字。
+口味／素材盡量選到最細的項目（例：草莓、哈密瓜，而不是只寫水果）；口感、型態、風格、機能、企劃、價格訴求、季節
+只在品名或說明明確看得出來時才選，不要猜。
+
+標籤清單（依維度）：
+{tag_list}
+
+商品（JSON）：
+{json.dumps(payload, ensure_ascii=False)}
+"""
+
+
+def retag(items: list[dict], tags, cache: dict[str, dict], today: str) -> list[str]:
+    """標籤字典改版後，只重新貼標籤（不重翻品名、不動分類），依 tag_version 判斷要不要重貼。"""
+    ver = tag_version(tags)
+    by_key = {i["product_key"]: i for i in items}
+    todo = [{**by_key[k], **c} for k, c in cache.items()
+            if k in by_key and c.get("model") != "rule" and c.get("category_code") not in ("", "NON_FOOD")
+            and c.get("tag_version") != ver]
+    if not todo:
+        return []
+    if os.environ.get("ENRICH_ENABLED", "1").strip() == "0" or not gemini_mode():
+        return [f"標籤字典已更新，{len(todo)} 支商品待重新貼標（手動執行時勾選翻譯即可）"]
+    errors = []
+    if len(todo) > MAX_RETAG_PER_RUN:
+        todo.sort(key=lambda i: i.get("release_date") or "", reverse=True)
+        errors.append(f"重新貼標：本次上限 {MAX_RETAG_PER_RUN} 支，{len(todo) - MAX_RETAG_PER_RUN} 支留待下次")
+        todo = todo[:MAX_RETAG_PER_RUN]
+    try:
+        resolve_model()
+    except Exception as e:
+        return errors + [str(e)]
+    done = 0
+    for i in range(0, len(todo), RETAG_BATCH):
+        batch = todo[i:i + RETAG_BATCH]
+        try:
+            results = call_gemini(_retag_prompt(batch, tags), RETAG_SCHEMA)
+        except BudgetExceeded as e:
+            errors.append(str(e))
+            break
+        except Exception as e:
+            errors.append(f"重新貼標失敗：{e}")
+            continue
+        for r in results:
+            c = cache.get(r.get("product_key", ""))
+            if c is None:
+                continue
+            c["tags"] = expand_tags(r.get("tags", []), tags)
+            c["tag_version"] = ver
+            done += 1
+    log_usage(today, "retag", done)
+    print(f"[retag] 重新貼標 {done}/{len(todo)} 支（字典版本 {ver}）")
+    return errors
 
 
 def _vertex_target(model: str) -> tuple[str, dict]:
@@ -362,10 +460,11 @@ def enrich(items: list[dict], categories, tags, glossary, cache: dict[str, dict]
                 "name_zh": (r.get("name_zh") or "").strip(),
                 "desc_zh": (r.get("desc_zh") or "").strip(),
                 "category_code": cat,
-                "tags": "|".join(t for t in r.get("tags", []) if t in valid_tags),
+                "tags": expand_tags(r.get("tags", []), tags),
                 "confidence": f"{conf:.2f}",
                 "model": MODEL,
                 "enriched_at": today,
+                "tag_version": tag_version(tags),
             }
             done += 1
     log_usage(today, "translate", done)
