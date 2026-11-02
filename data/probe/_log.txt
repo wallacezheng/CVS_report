@@ -13,3 +13,5 @@
 404    79811 bytes text/html; charset=UTF-8 https://www.sej.co.jp/company/news_release/ → www.sej.co.jp_company_news_release.html
 200     2750 bytes text/html; charset=UTF-8 https://www.sej.co.jp/company/news_release/news/ → www.sej.co.jp_company_news_release_news.html
 404    79812 bytes text/html; charset=UTF-8 https://www.sej.co.jp/company/news_release/2026.html → www.sej.co.jp_company_news_release_2026.html.html
+# 2026-11-02T09:53:30.910298Z
+200   157525 bytes text/html; charset=UTF-8 https://www.sej.co.jp/company/news_release/news/2026.html → www.sej.co.jp_company_news_release_news_2026.html.html
