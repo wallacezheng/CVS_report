@@ -213,6 +213,21 @@ def export_encrypted(sh) -> bool:
     return True
 
 
+def restore_rankings(sh) -> int:
+    """把「備份_もぐナビ排行」還原到「もぐナビ排行」（不先備份，避免蓋掉備份本身）。"""
+    try:
+        rows = read_tab(sh, "備份_もぐナビ排行")
+    except Exception as e:
+        print(f"::error::讀取備份失敗，不做任何變更：{e}")
+        return 1
+    if not rows:
+        print("::error::備份_もぐナビ排行 是空的，不還原")
+        return 1
+    write_tab(sh, "もぐナビ排行", RANK_HEADER, [[r.get(h, "") for h in RANK_HEADER] for r in rows])
+    print(f"::notice::已從備份還原もぐナビ排行：{len(rows)} 列")
+    return 0
+
+
 def cleanup(sh) -> int:
     """不連もぐナビ，只整理 Sheet 上已寫入的排行：移除側欄雜訊列、品類改成簡短名稱。"""
     try:
@@ -228,6 +243,8 @@ def cleanup(sh) -> int:
         sec = str(r.get("品類", ""))
         if re.match(r"^第\s*\d+\s*位", sec):   # 10/28 舊版解析的錯誤品類：保留這列，品類清空
             r["品類"] = ""
+        elif "ランキング" not in sec:           # 空白或已整理成簡短品類名：保留不動（可重複執行）
+            pass
         else:
             name = mognavi.section_name(sec)
             if name is None:
@@ -289,6 +306,10 @@ def main() -> int:
     mode = os.environ.get("MOGNAVI_MODE", "update")
     if mode == "export":
         return 0 if export_encrypted(sh) else 1
+    if mode == "restore":
+        rc = restore_rankings(sh)
+        export_encrypted(sh)
+        return rc
     if mode == "cleanup":
         rc = cleanup(sh)
         export_encrypted(sh)

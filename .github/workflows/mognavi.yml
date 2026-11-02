@@ -8,7 +8,7 @@ on:
       mode:
         description: "probe＝只試探 1 個請求；update＝更新資料（自動備份、抓不到不覆蓋）；cleanup＝不連網整理排行；export＝不連網，只重新產生儀表板加密檔"
         type: choice
-        options: [probe, update, cleanup, export]
+        options: [probe, update, cleanup, export, restore]
         default: probe
       translate:
         description: "用 Gemini 比對官網商品並產生中文口碑摘要"
