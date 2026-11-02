@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "probe＝只試探 1 個請求、不寫入；update＝更新資料（寫入前自動備份，抓不到不覆蓋）"
+        description: "probe＝只試探 1 個請求、不寫入；update＝更新資料（寫入前自動備份，抓不到不覆蓋）；cleanup＝不連網，只整理 Sheet 上的排行"
         type: choice
-        options: [probe, update]
+        options: [probe, update, cleanup]
         default: probe
       translate:
         description: "用 Gemini 比對官網商品並產生中文口碑摘要"

@@ -120,7 +120,7 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
     <div class="stage" id="stage">
       <div class="co-col co-left">
         <div class="co" data-n="1"><span class="n">1</span><b>超商</b><span class="tip">這個商品是哪一家超商賣的。</span></div>
-        <div class="co" data-n="2"><span class="n">2</span><b>排行標籤</b><span class="tip">もぐナビ該超商的週排行名次。「おすすめ」＝吃過的人推薦；「食べたい」＝還沒吃、想吃的人多。</span></div>
+        <div class="co" data-n="2"><span class="n">2</span><b>排行標籤</b><span class="tip">もぐナビ該超商的週排行名次與品類。「おすすめ」＝吃過的人推薦；「食べたい」＝還沒吃、想吃的人多。</span></div>
         <div class="co" data-n="4"><span class="n">4</span><b>品名</b><span class="tip">上面是 AI 中文意譯，下面是日文原名。</span></div>
         <div class="co" data-n="5"><span class="n">5</span><b>平均分數</b><span class="tip">吃過的人打分的平均，<b style="font-size:inherit">滿分 7 分</b>。5.2／7 約等於 74 分，屬於好評。</span></div>
         <div class="co" data-n="6"><span class="n">6</span><b>想吃</b><span class="tip">按了「食べたい」的人數，代表<b style="font-size:inherit">購買前的期待</b>，跟有沒有吃過無關。</span></div>
@@ -207,7 +207,7 @@ function render(){
 
 /* 商品卡；data-a 是說明區用來對應紅框的編號 */
 function cardHtml(p){
-  var ranks=p.ranks.map(function(r){return '<span class="chip rank" data-a="2">'+esc(r.type)+(r.rank?" 第"+r.rank+"名":"")+'</span>'}).join("");
+  var ranks=p.ranks.map(function(r){return '<span class="chip rank" data-a="2" title="'+esc(r.section||"")+'">'+esc(r.type)+(r.rank?" 第"+r.rank+"名":"")+(r.section?"｜"+esc(r.section):"")+'</span>'}).join("");
   var rv=p.reviews.length?'<details data-a="10"><summary>口碑原文（'+p.reviews.length+' 則摘錄）</summary>'+p.reviews.map(function(r){
     return '<div class="rv" lang="ja"><div class="d">'+esc(r.date)+'</div>'+esc(r.text)+'</div>'}).join("")+'</details>':'';
   return '<article class="card">'+
@@ -227,7 +227,7 @@ function cardHtml(p){
 var GUIDE_EXAMPLE={chain:"seven_jp",name_ja:"セブン-イレブン セブンカフェ 宇治抹茶クッキー",name_zh:"7-ELEVEN SEVEN CAFE 宇治抹茶餅乾",
   score:5.2,tabetai:201,review_count:29,sentiment:0.6,matched_key:"example",release_date:"",
   summary:"好評：尺寸大且酥鬆柔軟，抹茶香氣足帶有微苦與甜味，很有滿足感；負評：實物看不到包裝圖上的白巧克力碎。",
-  ranks:[{type:"食べたい",rank:2}],url:"#",
+  ranks:[{type:"食べたい",rank:2,section:"クッキー・パイ・ビスケット"}],url:"#",
   reviews:[{date:"",text:"（說明用範例：實際頁面會顯示日文口碑原文）"},{date:"",text:"…"},{date:"",text:"…"}]};
 
 function drawGuide(){

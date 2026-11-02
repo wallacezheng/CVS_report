@@ -69,20 +69,35 @@ PARSER_VERSION = "2"  # 解析規則改版時遞增，快取中舊版的商品�
 RANK_HEAD_RE = re.compile(r"^第\s*\d+\s*位")
 
 
-def _heading_before(el: Tag) -> str:
-    """找所屬的品類標題（例：「コンビニおにぎり・コンビニ手巻寿司部門」）。
+_SECTION_RE = re.compile(r"「[^」]+」の「([^」]+)」の(?:週間|月間)?(?:おすすめ|食べたい)?人気?ランキング")
+
+
+def section_name(t: str) -> str | None:
+    """排行標題 → 品類名；不是排行標題（例：側欄的「今週新発売の…まとめ」）回傳 None。
+
+    「セブン-イレブン」の「チョコレート」の食べたい人気ランキング → チョコレート
+    コンビニおにぎり・コンビニ手巻寿司部門 週間おすすめランキング → コンビニおにぎり・コンビニ手巻寿司部門
+    """
+    t = normalize_space(t)
+    m = _SECTION_RE.search(t)
+    if m:
+        return m.group(1)
+    if "部門" in t:
+        return re.sub(r"\s*(週間|月間)?(おすすめ|食べたい)?ランキング.*$", "", t)
+    return None
+
+
+def _heading_before(el: Tag) -> str | None:
+    """找所屬的品類標題；最近的標題不是排行標題（側欄新聞等）就回傳 None，該商品不收。
 
     排行頁的每個商品名稱本身也是標題（「第4位 セブン-イレブン …」），要跳過。
     """
-    fallback = ""
     for h in el.find_all_previous(["h2", "h3", "h4"]):
         t = normalize_space(h.get_text())
         if not t or RANK_HEAD_RE.match(t) or "の商品情報" in t or PRODUCT_RE.search(str(h)):
             continue
-        if "部門" in t:
-            return re.sub(r"\s*(週間|月間)?(おすすめ|食べたい)?ランキング.*$", "", t)
-        fallback = fallback or t
-    return fallback
+        return section_name(t)
+    return None
 
 
 _NOISE_RE = re.compile(r"^(画像提供者|メーカー|製造者)")
@@ -120,7 +135,9 @@ def parse_ranking(html: str, chain: str, ranking_type: str) -> list[dict]:
         if not name or len(name) < 4:  # 圖片連結或「詳細」之類
             continue
         box = _container(a, PRODUCT_RE)
-        section = _heading_before(box) or "總合"
+        section = _heading_before(box)
+        if not section:  # 不在排行區塊內（側欄新聞、推薦商品等）
+            continue
         if (section, pid) in seen:
             continue
         seen.add((section, pid))

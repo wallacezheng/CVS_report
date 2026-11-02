@@ -109,6 +109,22 @@ MOG_PRODUCT_HTML = """
 """
 
 
+class TestMognaviSections(unittest.TestCase):
+    def test_section_name(self):
+        f = mognavi.section_name
+        self.assertEqual(f("「セブン-イレブン」の「チョコレート」の食べたい人気ランキング"), "チョコレート")
+        self.assertEqual(f("「ローソン（LAWSON）」の「コンビニスープ・コンビニ味噌汁」のおすすめ人気ランキング"),
+                         "コンビニスープ・コンビニ味噌汁")
+        self.assertEqual(f("コンビニ弁当部門 週間おすすめランキング"), "コンビニ弁当部門")
+        self.assertIsNone(f("今週新発売の惣菜パンまとめ！『モスチーズバーガー風』など♪"))
+
+    def test_sidebar_items_dropped(self):
+        html = MOG_RANK_HTML + """<h3>今週新発売の惣菜パンまとめ！</h3>
+<ul><li><a href="/product/777">ローソン モスチーズバーガー風パン</a></li></ul>"""
+        ids = [r["mognavi_id"] for r in mognavi.parse_ranking(html, "seven_jp", "1")]
+        self.assertNotIn("777", ids)
+
+
 class TestMognavi(unittest.TestCase):
     def test_ranking(self):
         rows = mognavi.parse_ranking(MOG_RANK_HTML, "seven_jp", "1")

@@ -129,6 +129,34 @@ def write_tab(sh, name: str, header: list[str], rows: list[list], mode: str = "r
     return ws
 
 
+def cleanup(sh) -> int:
+    """不連もぐナビ，只整理 Sheet 上已寫入的排行：移除側欄雜訊列、品類改成簡短名稱。"""
+    try:
+        rows = read_tab(sh, "もぐナビ排行")
+    except Exception as e:
+        print(f"::error::讀取 Sheet 失敗，不做任何變更：{e}")
+        return 1
+    if not rows:
+        print("::notice::もぐナビ排行是空的，不需整理")
+        return 0
+    kept, dropped = [], 0
+    for r in rows:
+        sec = str(r.get("品類", ""))
+        if re.match(r"^第\s*\d+\s*位", sec):   # 10/28 舊版解析的錯誤品類：保留這列，品類清空
+            r["品類"] = ""
+        else:
+            name = mognavi.section_name(sec)
+            if name is None:
+                dropped += 1
+                continue
+            r["品類"] = name
+        kept.append([r.get(h, "") for h in RANK_HEADER])
+    backup_tabs(sh)
+    write_tab(sh, "もぐナビ排行", RANK_HEADER, kept)
+    print(f"::notice::整理完成（未連線もぐナビ）：保留 {len(kept)} 列、移除非排行雜訊 {dropped} 列")
+    return 0
+
+
 def main() -> int:
     cfg = ConfigStore()
     sh = cfg.sheet
@@ -139,6 +167,8 @@ def main() -> int:
     if not forced and not cfg.source_enabled("mognavi", default=False):
         print("sources 分頁中 mognavi 已停用，略過（手動執行時可選擇強制執行一次）")
         return 0
+    if os.environ.get("MOGNAVI_MODE", "update") == "cleanup":
+        return cleanup(sh)
     if os.environ.get("MOGNAVI_MODE", "update") == "probe":
         code, msg = mognavi.probe()
         print(f"::notice::試探結果（未寫入任何資料）：{msg}")
