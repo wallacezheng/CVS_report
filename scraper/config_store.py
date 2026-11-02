@@ -86,15 +86,15 @@ class ConfigStore:
                 if s.get("type") == type_ and str(s.get("enabled", "1")) == "1" and s.get("url")}
 
     def write_review_queue(self, rows: list[dict]) -> None:
-        """把待確認項目附加到 review_queue 分頁（已存在的 product_key 不重複寫）。"""
-        if self.sheet is None or not rows:
+        """以目前仍待確認的項目覆寫 review_queue 分頁。
+        已翻譯、已在 overrides 校正、信心度回升的商品會自動移出；仍在清單上的保留最早的 added 日期。"""
+        if self.sheet is None:
             return
         ws = self.sheet.worksheet("review_queue")
-        existing = {r.get("product_key") for r in ws.get_all_records()}
+        added = {str(r.get("product_key")): r.get("added", "") for r in ws.get_all_records()}
         header = ["product_key", "name_original", "name_zh", "category_code", "tags",
                   "confidence", "reason", "source_url", "added"]
-        new = [[r.get(h, "") for h in header] for r in rows if r["product_key"] not in existing]
-        if new:
-            if not ws.row_values(1):
-                ws.append_row(header)
-            ws.append_rows(new, value_input_option="RAW")
+        values = [header] + [[(added.get(r["product_key"]) or r.get("added", "")) if h == "added" else r.get(h, "")
+                              for h in header] for r in rows]
+        ws.clear()
+        ws.update(values=values, range_name="A1", value_input_option="RAW")

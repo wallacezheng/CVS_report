@@ -235,9 +235,44 @@ def cleanup(sh) -> int:
                 continue
             r["品類"] = name
         kept.append([r.get(h, "") for h in RANK_HEADER])
+
+    # 10/28 舊版解析留下的格式：品名包著「…」の商品情報、口碑開頭帶投稿者名稱與分數
+    try:
+        reviews = read_tab(sh, "もぐナビ口碑")
+        cache_rows = read_tab(sh, "mognavi_cache")
+    except Exception as e:
+        print(f"::error::讀取 Sheet 失敗，不做任何變更：{e}")
+        return 1
+    rv_rows, rv_fixed = [], 0
+    for r in reviews:
+        name = mognavi.clean_product_name(str(r.get("商品名", "")))
+        text = mognavi.clean_review(str(r.get("內容（原文摘錄）", "")))
+        if name != r.get("商品名") or text != r.get("內容（原文摘錄）"):
+            rv_fixed += 1
+        r["商品名"], r["內容（原文摘錄）"] = name, text
+        rv_rows.append([r.get(h, "") for h in REVIEW_HEADER])
+    c_rows, c_fixed = [], 0
+    for c in cache_rows:
+        name = mognavi.clean_product_name(str(c.get("name_ja", "")))
+        try:
+            revs = json.loads(c.get("reviews_json") or "[]")
+            new_revs = [dict(x, text=mognavi.clean_review(str(x.get("text", "")))) for x in revs]
+            new_json = json.dumps(new_revs, ensure_ascii=False)
+        except (ValueError, TypeError, AttributeError):
+            revs, new_revs, new_json = None, None, c.get("reviews_json", "")
+        if name != c.get("name_ja") or new_revs != revs:
+            c_fixed += 1
+        c["name_ja"], c["reviews_json"] = name, new_json
+        c_rows.append([c.get(f, "") for f in CACHE_FIELDS])
+
     backup_tabs(sh)
     write_tab(sh, "もぐナビ排行", RANK_HEADER, kept)
-    print(f"::notice::整理完成（未連線もぐナビ）：保留 {len(kept)} 列、移除非排行雜訊 {dropped} 列")
+    if reviews:
+        write_tab(sh, "もぐナビ口碑", REVIEW_HEADER, rv_rows)
+    if cache_rows:
+        write_tab(sh, "mognavi_cache", CACHE_FIELDS, c_rows)
+    print(f"::notice::整理完成（未連線もぐナビ）：排行保留 {len(kept)} 列、移除雜訊 {dropped} 列；"
+          f"口碑修正 {rv_fixed} 則；快取修正 {c_fixed} 筆")
     return 0
 
 
