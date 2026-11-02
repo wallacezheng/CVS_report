@@ -102,7 +102,8 @@ table{border-collapse:collapse;width:100%;font-size:.84rem}
 th,td{padding:5px 6px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
 th{font-weight:500;color:var(--muted);font-size:.75rem}
 td.num,th.num{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
-.heat td.cell{text-align:center;font-family:var(--f-mono);min-width:44px}
+.heat td.cell{text-align:center;font-family:var(--f-mono);min-width:34px}
+.heat th,.heat td{padding:5px 4px}
 .delta-up{color:var(--jp)} .delta-down{color:var(--kr)}
 
 /* 篩選與商品卡 */
@@ -165,6 +166,44 @@ label.chk{font-size:.86rem;display:flex;gap:4px;align-items:center}
 .combo th,.combo td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;white-space:normal}
 .combo td:first-child{white-space:nowrap;font-weight:500}
 
+/* 導覽 */
+.hint{margin:-4px 0 0;font-size:.8rem;color:var(--muted);line-height:1.5}
+.hint b{color:var(--ink);font-weight:500}
+.welcome{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--accent-soft);border-radius:6px;padding:10px 14px;font-size:.88rem}
+.welcome button{font:inherit;font-size:.84rem;border:0;border-radius:999px;padding:5px 14px;cursor:pointer}
+.welcome .go{background:var(--accent);color:var(--surface);font-weight:700}
+.welcome .x{background:transparent;color:var(--muted)}
+.tour{display:grid;gap:34px;max-width:980px}
+.tour h2{font-size:1.3rem}
+.tour .lead{font-size:1.02rem;max-width:46em;margin:6px 0 0}
+.tour-k{font-size:.74rem;letter-spacing:.12em;color:var(--accent);font-family:var(--f-mono);margin-bottom:4px}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:14px}
+.flow .st{position:relative;padding:16px 26px 16px 18px;background:var(--surface);border:1px solid var(--line);display:grid;gap:4px;align-content:start;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.flow .st:first-child{border-radius:6px 0 0 6px}.flow .st:last-child{border-radius:0 6px 6px 0}
+.flow .st + .st{border-left:0}
+.flow .st:hover{background:var(--accent-soft)}
+.flow .st .q{font-family:var(--f-display);font-weight:700;font-size:1.02rem}
+.flow .st .n{font-family:var(--f-mono);font-size:2rem;line-height:1.1;color:var(--accent)}
+.flow .st .u{font-size:.78rem;color:var(--muted)}
+.flow .st .t{font-size:.82rem;color:var(--muted)}
+.flow .st .go{font-size:.8rem;color:var(--accent);margin-top:4px}
+.flow .st:not(:last-child)::after{content:"";position:absolute;right:-9px;top:50%;width:16px;height:16px;background:inherit;border-top:1px solid var(--line);border-right:1px solid var(--line);transform:translateY(-50%) rotate(45deg);z-index:1}
+.pipe{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:.84rem;margin-top:12px}
+.pipe span{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:4px 10px}
+.pipe i{font-style:normal;color:var(--muted)}
+.rtable{width:100%;border-collapse:collapse;font-size:.86rem;margin-top:10px}
+.rtable th,.rtable td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;white-space:normal}
+.rtable td:first-child{font-weight:700;white-space:nowrap;font-family:var(--f-display)}
+.rtable tr.grp td{background:var(--bg);font-size:.76rem;letter-spacing:.08em;color:var(--accent);font-weight:500;padding:6px 10px}
+.story{border-left:3px solid var(--jp);padding:4px 0 4px 16px;display:grid;gap:10px;margin-top:10px}
+.story ol{margin:0;padding-left:20px;display:grid;gap:6px}
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:4px 28px;margin-top:10px}
+.gloss div{padding:8px 0;border-bottom:1px solid var(--line);font-size:.86rem}
+.gloss b{display:block;font-family:var(--f-display)}
+.limits{margin:10px 0 0;padding-left:20px;display:grid;gap:6px;font-size:.88rem}
+@media (max-width:760px){.flow{grid-template-columns:1fr}.flow .st{border-radius:0!important;border-left:1px solid var(--line)!important}.flow .st + .st{border-top:0}
+  .flow .st:first-child{border-radius:6px 6px 0 0!important}.flow .st:last-child{border-radius:0 0 6px 6px!important}
+  .flow .st:not(:last-child)::after{right:auto;left:28px;top:auto;bottom:-9px;transform:rotate(135deg)}}
 footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
 @media (max-width:760px){
   .stage{grid-template-columns:1fr;gap:12px}
@@ -211,13 +250,99 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
   </header>
 
   <nav class="tabs" role="tablist" aria-label="頁面">
+    <button type="button" role="tab" id="t-guide" aria-controls="p-guide" data-tab="guide">使用導覽</button>
     <button type="button" role="tab" id="t-new" aria-controls="p-new" data-tab="new">新品總覽</button>
     <button type="button" role="tab" id="t-hits" aria-controls="p-hits" data-tab="hits">熱賣訊號</button>
     <button type="button" role="tab" id="t-mognavi" aria-controls="p-mognavi" data-tab="mognavi">もぐナビ口碑<span class="lk">🔒</span></button>
   </nav>
 
+  <!-- 使用導覽 -->
+  <section class="tabpanel" role="tabpanel" id="p-guide" aria-labelledby="t-guide" hidden>
+   <div class="tour">
+    <div>
+      <div class="tour-k">01｜這個網站在做什麼</div>
+      <h2>每週替產品開發團隊回答三個問題：日本超商推了什麼、哪些在變熱、消費者買不買單</h2>
+      <p class="lead muted">日本超商一週推出兩三百支新品，靠人工逛官網追不完。這裡每週自動抓下 7-Eleven、全家的新品，用 AI 翻成中文並分類，再疊上熱賣與口碑訊號，讓我們很快找到值得參考的商品與趨勢。</p>
+      <div class="pipe" aria-label="資料流程"><span>超商官網新品頁・新聞稿</span><i>→</i><span>もぐナビ口碑（內部）</span><i>→</i><span>AI 翻譯、分類、加口味標籤</span><i>→</i><span>本網站</span><i>｜每週三更新</i></div>
+    </div>
+
+    <div>
+      <div class="tour-k">02｜建議閱讀順序</div>
+      <h2>從「量」看到「熱」再到「口碑」，一層層縮小到值得研究的商品</h2>
+      <div class="flow">
+        <button type="button" class="st" data-goto="new"><span class="q">① 推了什麼</span><span class="n" id="g-n1">—</span><span class="u">本週新品（支）</span><span class="t">品類、口味、價格往哪裡集中</span><span class="go">新品總覽 →</span></button>
+        <button type="button" class="st" data-goto="hits"><span class="q">② 哪些在變熱</span><span class="n" id="g-n2">—</span><span class="u">有熱賣訊號（支，全部週次）</span><span class="t">官方銷量、再販、擴大販售、聯名</span><span class="go">熱賣訊號 →</span></button>
+        <button type="button" class="st" data-goto="mognavi"><span class="q">③ 消費者買不買單</span><span class="n" id="g-n3">—</span><span class="u">有口碑資料（支）</span><span class="t">想吃人數、評分、好評負評重點</span><span class="go">もぐナビ口碑 →</span></button>
+      </div>
+    </div>
+
+    <div>
+      <div class="tour-k">03｜每一區怎麼讀</div>
+      <h2>每個區塊只回答一個問題，看到數字先問「它跟上週比是多還是少」</h2>
+      <div class="scroll"><table class="rtable">
+        <tr><th>區塊</th><th>回答的問題</th><th>怎麼判讀</th></tr>
+        <tr class="grp"><td colspan="3">新品總覽</td></tr>
+        <tr><td>上方四個數字</td><td>這週有多少新東西？</td><td>本週新品、下週預告、地區限定、待人工確認的支數。地區限定多，代表超商在做區域試賣。</td></tr>
+        <tr><td>各分類新品數</td><td>超商把力氣放在哪類？</td><td>某個顏色連續變厚＝該品類加碼。季節轉換時最明顯（例：入秋後熱食、甜點增加）。</td></tr>
+        <tr><td>口味／素材熱度</td><td>什麼口味在流行？</td><td>顏色越深越多；最右欄 + 號是本週升溫的口味，可以當選題起點。</td></tr>
+        <tr><td>價格帶</td><td>賣多少錢？有沒有往上走？</td><td>同品類價格連續上升＝在推高價版本。拿來對照我們客戶的定價。</td></tr>
+        <tr><td>新品清單</td><td>具體是哪些商品？</td><td>用篩選回頭找上面看到的趨勢；點卡片可看說明、販售地區與官網連結。</td></tr>
+        <tr class="grp"><td colspan="3">熱賣訊號</td></tr>
+        <tr><td>訊號按鈕</td><td>有幾支商品出現熱賣跡象？</td><td>依證據強弱排序：官方公布銷量 ＞ 熱賣販售休止 ＞ 再販 ＞ 擴大販售 ＞ 系列擴充 ＞ 聯名監修。</td></tr>
+        <tr><td>官方新聞稿</td><td>超商自己說什麼賣得好？</td><td>最可信的熱賣證據，附原文數字與新聞稿連結。</td></tr>
+        <tr><td>熱賣擴張</td><td>哪些商品試賣後擴大販售？</td><td>首發 14 天後才擴區才算，排除原本就排好的分批上市。</td></tr>
+        <tr class="grp"><td colspan="3">もぐナビ口碑（內部）</td></tr>
+        <tr><td>口碑卡片</td><td>消費者的期待與實際評價？</td><td>「想吃」是買前期待，「分數」是吃過的評價（滿分 7）。想吃高、分數低＝期待落空；分數高、口碑多＝已被驗證。頁內「怎麼看這張卡」有逐欄說明。</td></tr>
+      </table></div>
+    </div>
+
+    <div>
+      <div class="tour-k">04｜實際走一次</div>
+      <h2>例：從一則官方新聞稿，追到一個熱賣系列的打法</h2>
+      <div class="story">
+        <ol>
+          <li><b>熱賣訊號</b>頁的官方新聞稿裡，全家公布「本気のチョコがけパン（認真巧克力淋面麵包）」系列開賣 1 週累計 300 萬個。</li>
+          <li>這則新聞稿的「對應新品」是 3 支：巧克力丹麥菠蘿麵包、巧克力可頌、巧克力奶油麵包（10/20 同時上市）。一次推出同主題的整個系列、用總銷量做話題，是值得記下的打法；之後追加口味會出現在「系列擴充」訊號。</li>
+          <li>回到<b>新品總覽</b>，在口味熱度表點「巧克力」，看同期其他超商有沒有跟進同類商品、價格落在哪裡。</li>
+          <li>最後到<b>もぐナビ口碑</b>搜尋商品名，看消費者具體喜歡什麼、抱怨什麼，整理成給客戶的開發建議。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div>
+      <div class="tour-k">05｜名詞解釋</div>
+      <h2>幾個常出現、容易誤解的詞</h2>
+      <div class="gloss">
+        <div><b>預告</b>週次後面標「預告」＝下週才發售、官網已先公布的商品。</div>
+        <div><b>地區限定</b>只在部分地區販售。日本超商常先在一區試賣，賣得好再擴大。</div>
+        <div><b>熱賣擴張 vs 分批上市</b>首發 14 天後才擴區＝熱賣擴張；14 天內＝原本規劃的分批上市。</div>
+        <div><b>系列擴充</b>同系列在短期內追加新品，常出現在熱賣之後。</div>
+        <div><b>待確認</b>AI 翻譯或分類信心不足，等人工在 Google Sheet 校正。</div>
+        <div><b>想吃（食べたい）</b>還沒吃、按了「想吃」的人數，代表期待度，不代表好吃。</div>
+        <div><b>分數（7 分制）</b>吃過的人評分平均。5 分以上屬於好評。</div>
+        <div><b>酒類</b>保留資料，但不計入食品趨勢；可在分類篩選裡單獨查看。</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="tour-k">06｜使用前要知道的限制</div>
+      <h2>這是每週快照與 AI 整理，拿去對外使用前請再核對原始來源</h2>
+      <ul class="limits">
+        <li>目前涵蓋 7-Eleven、全家；Lawson 與韓國超商尚未接上（上方「韓國」準備中）。</li>
+        <li>中文品名、分類、口味標籤與口碑摘要由 AI 產生，可能有誤；每張卡片都附原文與官網連結。</li>
+        <li>價格是官網標示的含稅價，單位日圓。</li>
+        <li>官網只保留前後一週的新品，系統每週三抓取一次，資料從 2026 年 10 月下旬開始累積，趨勢需要幾週才會穩定。</li>
+        <li>もぐナビ口碑僅供 DSR 內部討論，不可截圖外流或放進給客戶的資料。</li>
+      </ul>
+    </div>
+   </div>
+  </section>
+
   <!-- 新品總覽 -->
   <section class="tabpanel" role="tabpanel" id="p-new" aria-labelledby="t-new">
+    <div class="welcome" id="welcome" hidden><span>第一次看？先花 3 分鐘看「使用導覽」，知道每一區在回答什麼問題。</span>
+      <span><button type="button" class="go" data-goto="guide">看導覽</button><button type="button" class="x" id="welcome-x">不用了</button></span></div>
+    <p class="hint"><b>這一頁看「量」</b>：這週日本超商推了多少新品、集中在哪些品類與口味、賣多少錢。</p>
     <div class="summary" id="summary"></div>
     <div class="accs" id="status-accs" hidden>
       <details class="acc acc-warn"><summary><span class="acc-t">資料狀態</span><span class="acc-s" id="status-sub"></span></summary>
@@ -226,19 +351,23 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
     <section class="panels">
       <div class="panel">
         <header><h2>各分類新品數</h2><span class="muted" style="font-size:.78rem">依發售週</span></header>
+        <p class="hint">每根柱子是一週的新品數，顏色是品類。<b>看哪個顏色變厚</b>＝超商這週把力氣放在哪類商品。標「預告」的是下週已公布的新品。</p>
         <div class="scroll" id="chart-cat"></div>
         <div class="legend" id="legend-cat"></div>
       </div>
       <div class="panel">
         <header><h2>口味／素材熱度</h2><span class="muted" style="font-size:.78rem">每週出現支數，前 14 名</span></header>
+        <p class="hint">每格是該週含這個口味／素材的新品數，越深越多。<b>看最右欄「週增減」的 +</b>＝正在升溫的口味。點標籤可列出商品。</p>
         <div class="scroll"><table class="heat" id="tbl-tags"></table></div>
       </div>
       <div class="panel">
         <header><h2>價格帶</h2><span class="muted" style="font-size:.78rem" id="price-unit">含稅平均售價</span></header>
+        <p class="hint">各品類新品的平均售價。<b>同一品類連續幾週往上</b>，代表超商在推高價版本（加料、名店監修、大份量）。</p>
         <div class="scroll"><table id="tbl-price"></table></div>
       </div>
     </section>
     <section style="display:grid;gap:12px">
+      <p class="hint" style="margin:0"><b>新品清單</b>：用上面的發現回來找商品。卡片上紅色標籤是熱賣訊號、黃色是地區限定、橘色「待確認」表示 AI 翻譯或分類信心不足。</p>
       <div class="sec-head"><h2 style="font-size:1.25rem">新品清單</h2><span class="muted mono" id="count" style="font-size:.85rem"></span></div>
       <div class="filters">
         <input type="search" id="q" placeholder="搜尋中文或原文品名">
@@ -259,16 +388,18 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
   <!-- 熱賣訊號 -->
   <section class="tabpanel" role="tabpanel" id="p-hits" aria-labelledby="t-hits" hidden>
     <div class="sec-head">
-      <div><h2 style="font-size:1.25rem">熱賣訊號</h2><div class="muted" style="font-size:.84rem">官方新聞稿公布的銷量、再販、熱賣休止，加上地區擴張與聯名監修。點下方訊號可篩選商品。</div></div>
+      <div><h2 style="font-size:1.25rem">熱賣訊號</h2><div class="muted" style="font-size:.84rem"><b style="color:var(--ink);font-weight:500">這一頁看「哪些賣得好」</b>：超商自己公布的銷量與再販、首發後又擴大販售地區的商品，以及聯名監修。點下方訊號可篩選商品。</div></div>
     </div>
     <div class="hit-summary" id="hit-summary"></div>
     <div class="panels">
       <div class="panel" style="grid-column:1/-1">
         <header><h2>官方新聞稿</h2><span class="muted" style="font-size:.78rem">由 AI 從超商新聞稿擷取</span></header>
+        <p class="hint">最強的熱賣證據：超商官方說的數字（例：「1 週 300 萬個」）。<b>「對應新品」</b>是這篇新聞稿對到幾支我們抓到的商品。</p>
         <div class="scroll"><table id="tbl-press"></table></div>
       </div>
       <div class="panel" style="grid-column:1/-1">
         <header><h2>熱賣擴張</h2><span class="muted" style="font-size:.78rem">首發 14 天後又擴大販售地區</span></header>
+        <p class="hint">先在部分地區試賣、兩週後才擴到更多地區，通常代表試賣成績好。14 天內的擴大是原本排好的分批上市，不算。</p>
         <div class="scroll" id="expansion"></div>
       </div>
     </div>
@@ -448,7 +579,7 @@ function renderTags(){
   const max=Math.max(1,...src.map(r=>+r.count));
   const lvl=v=>v?Math.min(4,Math.ceil(v/max*4)):0;
   const get=(t,w)=>src.filter(r=>r.tag===t&&r.week===w).reduce((s,r)=>s+ +r.count,0);
-  let h=`<tr><th>標籤</th>${weeks.map(w=>`<th class="num">${wkHead(w)}</th>`).join("")}<th class="num">本週較上週</th></tr>`;
+  let h=`<tr><th>標籤</th>${weeks.map(w=>`<th class="num">${wkHead(w)}</th>`).join("")}<th class="num">週增減</th></tr>`;
   tags.forEach(t=>{const vals=weeks.map(w=>get(t,w));
     const ci=weeks.indexOf(S.meta.this_week),last=ci>=0?vals[ci]:0,prev=ci>0?vals[ci-1]:0,d=last-prev;
     h+=`<tr><td><button class="tag" data-tag="${esc(t)}">${esc(t)}</button></td>${vals.map(v=>{const l=lvl(v);return`<td class="cell" style="background:var(--heat${l});color:${l>=3?"var(--surface)":"var(--ink)"}">${v||""}</td>`}).join("")}<td class="num ${d>0?"delta-up":d<0?"delta-down":""}">${ci>0?(d>0?"+":"")+d:"—"}</td></tr>`});
@@ -612,7 +743,7 @@ function drawGuide(){
 }
 
 /* ---------- 頁籤與國家 ---------- */
-const TABS=["new","hits","mognavi"];
+const TABS=["guide","new","hits","mognavi"];
 function showTab(tab,push){
   if(!TABS.includes(tab))tab="new";S.tab=tab;
   TABS.forEach(t=>{$("t-"+t).setAttribute("aria-selected",String(t===tab));$("t-"+t).tabIndex=t===tab?0:-1;$("p-"+t).hidden=t!==tab});
@@ -624,7 +755,13 @@ function setCountry(c){
   document.querySelectorAll(".seg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.country===c)));
   renderAll();
 }
-function renderAll(){renderSummary();renderCatChart();renderTags();renderPrice();fillFilters();renderGrid();renderHits();renderMognavi()}
+function renderGuide(){
+  const f=food(),wk=S.meta.this_week;
+  $("g-n1").textContent=f.filter(p=>p.release_week===wk).length;
+  $("g-n2").textContent=f.filter(p=>p.hit_signals).length;
+  $("g-n3").textContent=S.mog&&S.country==="JP"?(S.mog.products||[]).length:"🔒";
+}
+function renderAll(){renderGuide();renderSummary();renderCatChart();renderTags();renderPrice();fillFilters();renderGrid();renderHits();renderMognavi()}
 
 function bind(){
   ["q","f-chain","f-week","f-cat","f-tag","f-status","f-reg","f-rev","f-hit"].forEach(id=>$(id).addEventListener("input",()=>{S.shown=60;renderGrid()}));
@@ -637,6 +774,11 @@ function bind(){
   document.querySelector("nav.tabs").addEventListener("keydown",e=>{if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;
     const i=TABS.indexOf(S.tab),n=TABS[(i+(e.key==="ArrowRight"?1:TABS.length-1))%TABS.length];showTab(n,true);$("t-"+n).focus()});
   document.querySelectorAll(".seg button").forEach(b=>b.addEventListener("click",()=>{if(!b.disabled)setCountry(b.dataset.country)}));
+  document.addEventListener("click",e=>{const g=e.target.closest("[data-goto]");if(!g)return;showTab(g.dataset.goto,true);window.scrollTo({top:0,behavior:"smooth"})});
+  const lsGet=k=>{try{return localStorage.getItem(k)}catch(e){return null}},lsSet=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+  $("welcome").hidden=lsGet("cvs_radar_welcomed")==="1";
+  $("welcome-x").addEventListener("click",()=>{$("welcome").hidden=true;lsSet("cvs_radar_welcomed","1")});
+  $("t-guide").addEventListener("click",()=>{$("welcome").hidden=true;lsSet("cvs_radar_welcomed","1")});
   window.addEventListener("hashchange",()=>showTab(location.hash.slice(1),false));
   $("guide").addEventListener("toggle",function(){if(!this.open)return;const gc=$("guide-card");if(!gc.innerHTML)gc.innerHTML=mogCard(GUIDE_EXAMPLE);requestAnimationFrame(drawGuide)});
   let rt;window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(drawGuide,120)});
