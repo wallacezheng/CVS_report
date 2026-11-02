@@ -11,6 +11,7 @@
   --bg:#f6f6f2; --surface:#fff; --ink:#1d2228; --muted:#69707a; --line:#dfe0da;
   --accent:#2b4c7e; --accent-soft:#e3e9f3; --jp:#b0413e; --good:#2f6f5e; --good-soft:#e2f0eb;
   --bad:#b0413e; --bad-soft:#f6e3e2; --warn:#a15c00; --warn-soft:#fbefdc;
+  --anno:#d23c3c;
   --f-display:"Zen Kaku Gothic New","Noto Sans TC",system-ui,sans-serif;
   --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
@@ -18,7 +19,7 @@
 @media (prefers-color-scheme: dark){:root{
   --bg:#15181c; --surface:#1d2127; --ink:#e7e8e4; --muted:#9aa1ab; --line:#2f343b;
   --accent:#8fb0e3; --accent-soft:#25324a; --jp:#e08480; --good:#7cc3ad; --good-soft:#1d3530;
-  --bad:#e08480; --bad-soft:#3a2224; --warn:#e7a54a; --warn-soft:#3a2c17; color-scheme:dark}}
+  --bad:#e08480; --bad-soft:#3a2224; --warn:#e7a54a; --warn-soft:#3a2c17; --anno:#ff6b6b; color-scheme:dark}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;
   padding:20px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px))}
@@ -64,6 +65,39 @@ details summary{cursor:pointer;color:var(--accent)}
 .rv .d{font-size:.72rem;color:var(--muted);font-family:var(--f-mono)}
 a{color:var(--accent)}
 .empty{padding:28px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:6px;grid-column:1/-1}
+.gbtn{font:inherit;font-size:.84rem;padding:6px 14px;border-radius:999px;border:1px solid var(--anno);background:var(--surface);color:var(--anno);cursor:pointer}
+.gbtn:hover{background:var(--bad-soft)}
+.guide{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:grid;gap:18px}
+.guide h2{font-size:1.1rem}
+.stage{position:relative;display:grid;grid-template-columns:1fr minmax(300px,360px) 1fr;gap:20px 64px;align-items:stretch}
+.stage .card{box-shadow:0 1px 0 var(--line);align-self:start;margin-top:8px}
+.stage .card a{pointer-events:none}
+.co-col{display:flex;flex-direction:column;justify-content:space-around;gap:10px;position:relative;z-index:2}
+.co{border:1px solid var(--anno);border-radius:5px;padding:7px 10px;font-size:.8rem;line-height:1.45;background:var(--surface)}
+.co b{color:var(--anno);font-size:.86rem}
+.co .n{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--anno);color:#fff;font:700 .68rem var(--f-mono);margin-right:6px;vertical-align:1px}
+.co .tip{display:block;color:var(--muted);margin-top:2px}
+#guide-lines{position:absolute;inset:0;pointer-events:none;z-index:3;overflow:visible}
+.combo{width:100%;border-collapse:collapse;font-size:.84rem}
+.combo th,.combo td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.combo th{font-weight:500;color:var(--muted);font-size:.76rem}
+.combo td:first-child{white-space:nowrap;font-weight:500}
+@media (max-width:760px){
+  .stage{grid-template-columns:1fr;gap:12px}
+  #guide-card{order:-1;padding:10px 0 0 10px}
+  .stage .card{margin-top:0}
+  .co-col{display:contents}
+  .co[data-n="1"]{order:1}
+  .co[data-n="2"]{order:2}
+  .co[data-n="3"]{order:3}
+  .co[data-n="4"]{order:4}
+  .co[data-n="5"]{order:5}
+  .co[data-n="6"]{order:6}
+  .co[data-n="7"]{order:7}
+  .co[data-n="8"]{order:8}
+  .co[data-n="9"]{order:9}
+  .co[data-n="10"]{order:10}
+}
 footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
 </style>
 </head>
@@ -75,8 +109,43 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
       <h1>もぐナビ口碑排行</h1>
       <div class="muted" id="sub" style="font-size:.85rem">讀取中…</div>
     </div>
-    <div class="summary" id="summary"></div>
+    <div style="display:grid;gap:10px;justify-items:end">
+      <div class="summary" id="summary"></div>
+      <button class="gbtn" id="guide-btn" aria-expanded="false" aria-controls="guide" onclick="toggleGuide()">📖 怎麼看這張卡</button>
+    </div>
   </header>
+
+  <section class="guide" id="guide" hidden>
+    <div><h2>怎麼看這張卡</h2><div class="muted" style="font-size:.82rem">以 7-Eleven 宇治抹茶餅乾為例。紅框編號對應旁邊的說明。</div></div>
+    <div class="stage" id="stage">
+      <div class="co-col co-left">
+        <div class="co" data-n="1"><span class="n">1</span><b>超商</b><span class="tip">這個商品是哪一家超商賣的。</span></div>
+        <div class="co" data-n="2"><span class="n">2</span><b>排行標籤</b><span class="tip">もぐナビ該超商的週排行名次。「おすすめ」＝吃過的人推薦；「食べたい」＝還沒吃、想吃的人多。</span></div>
+        <div class="co" data-n="4"><span class="n">4</span><b>品名</b><span class="tip">上面是 AI 中文意譯，下面是日文原名。</span></div>
+        <div class="co" data-n="5"><span class="n">5</span><b>平均分數</b><span class="tip">吃過的人打分的平均，<b style="font-size:inherit">滿分 7 分</b>。5.2／7 約等於 74 分，屬於好評。</span></div>
+        <div class="co" data-n="6"><span class="n">6</span><b>想吃</b><span class="tip">按了「食べたい」的人數，代表<b style="font-size:inherit">購買前的期待</b>，跟有沒有吃過無關。</span></div>
+      </div>
+      <div id="guide-card"></div>
+      <div class="co-col co-right">
+        <div class="co" data-n="3"><span class="n">3</span><b>本系統新品</b><span class="tip">AI 判斷它就是我們從超商官網抓到的近期新品；沒有這個標籤多半是長銷品。</span></div>
+        <div class="co" data-n="7"><span class="n">7</span><b>口碑數</b><span class="tip">實際寫了評價的人數，也是平均分數的樣本數。越多，分數越可信。</span></div>
+        <div class="co" data-n="8"><span class="n">8</span><b>好評／負評摘要</b><span class="tip">AI 讀口碑原文後整理的重點。只根據頁面上最多 5 則摘錄，看成「代表性意見」。</span></div>
+        <div class="co" data-n="9"><span class="n">9</span><b>評價傾向</b><span class="tip">AI 判斷這幾則口碑偏好評或負評，−1～+1。綠色往右＝偏好評，紅色往左＝偏負評。</span></div>
+        <div class="co" data-n="10"><span class="n">10</span><b>口碑原文</b><span class="tip">點開看日文原文摘錄（已去掉投稿者名稱），可對照 AI 摘要有沒有說錯。</span></div>
+      </div>
+      <svg id="guide-lines" aria-hidden="true"></svg>
+    </div>
+    <div>
+      <h2 style="font-size:1rem;margin-bottom:6px">數字搭配著看</h2>
+      <div style="overflow-x:auto"><table class="combo">
+        <tr><th>組合</th><th>代表什麼</th><th>產品開發上的意義</th></tr>
+        <tr><td>想吃高、口碑少</td><td>剛上市、話題熱，還沒被驗證</td><td>觀察中的潛力品，下週看分數是否撐得住（例：宇治抹茶餅乾 201 人想吃、29 人評價）</td></tr>
+        <tr><td>分數高、口碑多</td><td>已被市場驗證</td><td>可當產品開發的參考標竿</td></tr>
+        <tr><td>想吃高、分數低</td><td>期待被拉高，實際沒達標</td><td>多半是宣傳、包裝和實物有落差，值得避開</td></tr>
+        <tr><td>負評內容</td><td>消費者具體不滿的點</td><td>最直接的開發提醒（例：「看不到包裝圖上的白巧克力碎」＝包裝與實物落差會拉低評價）</td></tr>
+      </table></div>
+    </div>
+  </section>
 
   <div class="notice"><b>僅供內部討論</b>：資料來自日本食品口碑網站もぐナビ（mognavi.jp），利用規約限制私的利用以外的使用，請勿截圖外流、轉寄或放進對客戶的資料。中文摘要由 AI 依口碑原文產生。</div>
   <div class="notice" id="state" hidden></div>
@@ -112,7 +181,7 @@ function summaryHtml(s){
 function sentiBar(v){
   if(v===null||isNaN(v))return "";
   var w=Math.min(50,Math.abs(v)*50),left=v>=0?50:50-w,col=v>=0?"var(--good)":"var(--bad)";
-  return '<div class="senti"><span>負評</span><div class="bar"><i style="left:'+left+'%;width:'+w+'%;background:'+col+'"></i></div><span>好評</span><span class="mono">'+(v>0?"+":"")+v.toFixed(2)+'</span></div>';
+  return '<div class="senti" data-a="9"><span>負評</span><div class="bar"><i style="left:'+left+'%;width:'+w+'%;background:'+col+'"></i></div><span>好評</span><span class="mono">'+(v>0?"+":"")+v.toFixed(2)+'</span></div>';
 }
 
 function render(){
@@ -133,23 +202,70 @@ function render(){
   document.getElementById("count").textContent=list.length+" 支";
   var g=document.getElementById("grid");
   if(!list.length){g.innerHTML='<div class="empty">沒有符合條件的商品。</div>';return}
-  g.innerHTML=list.map(function(p){
-    var ranks=p.ranks.map(function(r){return '<span class="chip rank">'+esc(r.type)+(r.rank?" 第"+r.rank+"名":"")+'</span>'}).join("");
-    var rv=p.reviews.length?'<details><summary>口碑原文（'+p.reviews.length+' 則摘錄）</summary>'+p.reviews.map(function(r){
-      return '<div class="rv" lang="ja"><div class="d">'+esc(r.date)+'</div>'+esc(r.text)+'</div>'}).join("")+'</details>':'';
-    return '<article class="card">'+
-      '<div class="meta"><span class="chip chain">'+esc(CHAIN_ZH[p.chain]||p.chain||"超商")+'</span>'+ranks+
-      (p.matched_key?'<span class="chip match">本系統新品</span>':'')+
-      (p.release_date?'<span class="chip">'+esc(p.release_date)+' 發售</span>':'')+'</div>'+
-      '<h3>'+esc(p.name_zh||p.name_ja)+'</h3>'+
-      '<div class="orig" lang="ja">'+esc(p.name_ja)+'</div>'+
-      '<div class="stats"><div><b>'+(p.score?p.score.toFixed(1):"—")+'</b><span>平均分數 /7</span></div>'+
-      '<div><b>'+p.tabetai+'</b><span>想吃</span></div><div><b>'+p.review_count+'</b><span>口碑數</span></div></div>'+
-      '<div class="summ">'+summaryHtml(p.summary)+'</div>'+sentiBar(p.sentiment)+rv+
-      '<a href="'+esc(p.url)+'" target="_blank" rel="noopener" style="font-size:.8rem">もぐナビ商品頁 ↗</a>'+
-    '</article>';
-  }).join("");
+  g.innerHTML=list.map(cardHtml).join("");
 }
+
+/* 商品卡；data-a 是說明區用來對應紅框的編號 */
+function cardHtml(p){
+  var ranks=p.ranks.map(function(r){return '<span class="chip rank" data-a="2">'+esc(r.type)+(r.rank?" 第"+r.rank+"名":"")+'</span>'}).join("");
+  var rv=p.reviews.length?'<details data-a="10"><summary>口碑原文（'+p.reviews.length+' 則摘錄）</summary>'+p.reviews.map(function(r){
+    return '<div class="rv" lang="ja"><div class="d">'+esc(r.date)+'</div>'+esc(r.text)+'</div>'}).join("")+'</details>':'';
+  return '<article class="card">'+
+    '<div class="meta"><span class="chip chain" data-a="1">'+esc(CHAIN_ZH[p.chain]||p.chain||"超商")+'</span>'+ranks+
+    (p.matched_key?'<span class="chip match" data-a="3">本系統新品</span>':'')+
+    (p.release_date?'<span class="chip">'+esc(p.release_date)+' 發售</span>':'')+'</div>'+
+    '<div class="ttl" data-a="4"><h3>'+esc(p.name_zh||p.name_ja)+'</h3>'+
+    '<div class="orig" lang="ja">'+esc(p.name_ja)+'</div></div>'+
+    '<div class="stats"><div data-a="5"><b>'+(p.score?p.score.toFixed(1):"—")+'</b><span>平均分數 /7</span></div>'+
+    '<div data-a="6"><b>'+p.tabetai+'</b><span>想吃</span></div><div data-a="7"><b>'+p.review_count+'</b><span>口碑數</span></div></div>'+
+    '<div class="summ" data-a="8">'+summaryHtml(p.summary)+'</div>'+sentiBar(p.sentiment)+rv+
+    '<a href="'+esc(p.url)+'" target="_blank" rel="noopener" style="font-size:.8rem">もぐナビ商品頁 ↗</a>'+
+  '</article>';
+}
+
+/* ---------- 說明區：範例卡＋紅框＋引線 ---------- */
+var GUIDE_EXAMPLE={chain:"seven_jp",name_ja:"セブン-イレブン セブンカフェ 宇治抹茶クッキー",name_zh:"7-ELEVEN SEVEN CAFE 宇治抹茶餅乾",
+  score:5.2,tabetai:201,review_count:29,sentiment:0.6,matched_key:"example",release_date:"",
+  summary:"好評：尺寸大且酥鬆柔軟，抹茶香氣足帶有微苦與甜味，很有滿足感；負評：實物看不到包裝圖上的白巧克力碎。",
+  ranks:[{type:"食べたい",rank:2}],url:"#",
+  reviews:[{date:"",text:"（說明用範例：實際頁面會顯示日文口碑原文）"},{date:"",text:"…"},{date:"",text:"…"}]};
+
+function drawGuide(){
+  var stage=document.getElementById("stage");
+  if(!stage||stage.offsetParent===null)return;
+  var svg=document.getElementById("guide-lines"),card=stage.querySelector(".card");
+  if(!svg||!card)return;
+  var base=stage.getBoundingClientRect(),wide=stage.clientWidth>=760;
+  svg.setAttribute("width",stage.clientWidth);svg.setAttribute("height",stage.clientHeight);
+  var out="";
+  stage.querySelectorAll(".co").forEach(function(co){
+    var n=co.getAttribute("data-n"),t=card.querySelector('[data-a="'+n+'"]');
+    if(!t)return;
+    var r=t.getBoundingClientRect(),pad=3;
+    var x=r.left-base.left-pad,y=r.top-base.top-pad,w=r.width+pad*2,h=r.height+pad*2;
+    out+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="4" fill="none" stroke="var(--anno)" stroke-width="2"/>';
+    if(wide){
+      var lr=co.getBoundingClientRect(),left=co.parentNode.classList.contains("co-left");
+      var ly=lr.top-base.top+lr.height/2,ty=y+h/2;
+      var lx=left?lr.right-base.left:lr.left-base.left, tx=left?x:x+w;
+      var mx=left?Math.min(tx-12,lx+(tx-lx)*0.5):Math.max(tx+12,lx-(lx-tx)*0.5);
+      out+='<path d="M'+lx+' '+ly+' H'+mx+' L'+tx+' '+ty+'" fill="none" stroke="var(--anno)" stroke-width="1.5"/>'+
+           '<circle cx="'+tx+'" cy="'+ty+'" r="3" fill="var(--anno)"/>';
+    }
+    var bx=x,by=y;  // 編號徽章放在紅框左上角
+    out+='<circle cx="'+bx+'" cy="'+by+'" r="9" fill="var(--anno)"/>'+
+         '<text x="'+bx+'" y="'+(by+3.5)+'" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="IBM Plex Mono,monospace">'+n+'</text>';
+  });
+  svg.innerHTML=out;
+}
+function toggleGuide(){
+  var g=document.getElementById("guide"),btn=document.getElementById("guide-btn");
+  g.hidden=!g.hidden;btn.setAttribute("aria-expanded",String(!g.hidden));
+  btn.textContent=g.hidden?"📖 怎麼看這張卡":"✕ 收起說明";
+  if(!g.hidden){document.getElementById("guide-card").innerHTML=cardHtml(GUIDE_EXAMPLE);requestAnimationFrame(drawGuide)}
+}
+var _rt;window.addEventListener("resize",function(){clearTimeout(_rt);_rt=setTimeout(drawGuide,120)});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(drawGuide);
 
 function init(data){
   D=data;
