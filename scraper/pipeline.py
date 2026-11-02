@@ -275,6 +275,19 @@ def export_for_mail(products: list[dict], cats: dict, week: str, path: Path) -> 
             w.writerow([r.get(k, "") for k, _ in EXPORT_HEADERS])
 
 
+def internal_links(cfg) -> list[dict]:
+    """Sheet 的 sources 分頁優先；Sheet 沒填網址時，用 repo 的 config/sources.csv。"""
+    from .config_store import _read_local
+    out = {}
+    for src in (_read_local("sources"), cfg.data["sources"]):
+        for s in src:
+            url = str(s.get("url", ""))
+            if s.get("type") == "internal_link" and str(s.get("enabled", "1")) == "1" \
+                    and url.startswith("https://script.google.com/"):
+                out[s["source_id"]] = {"id": s["source_id"], "url": url, "label": s.get("note", "")}
+    return list(out.values())
+
+
 def run(args) -> int:
     today = date.fromisoformat(args.today) if args.today else today_tw()
     errors: list[str] = []
@@ -367,10 +380,7 @@ def run(args) -> int:
         "review_count": len(review), "errors": errors,
         "sources": {s["source_id"]: s.get("enabled") for s in cfg.data["sources"]},
         # 內部頁面連結（只放網址；頁面本身需公司帳號登入、且被共用 Sheet 才看得到資料）
-        "internal_links": [{"id": s["source_id"], "url": s["url"], "label": s.get("note", "")}
-                           for s in cfg.data["sources"]
-                           if s.get("type") == "internal_link" and str(s.get("enabled", "1")) == "1"
-                           and str(s.get("url", "")).startswith("https://script.google.com/")],
+        "internal_links": internal_links(cfg),
     }
     (DOCS_DATA / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1),
                                          encoding="utf-8")

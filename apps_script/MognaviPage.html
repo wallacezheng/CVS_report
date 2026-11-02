@@ -65,9 +65,21 @@ details summary{cursor:pointer;color:var(--accent)}
 .rv .d{font-size:.72rem;color:var(--muted);font-family:var(--f-mono)}
 a{color:var(--accent)}
 .empty{padding:28px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:6px;grid-column:1/-1}
-.gbtn{font:inherit;font-size:.84rem;padding:6px 14px;border-radius:999px;border:1px solid var(--anno);background:var(--surface);color:var(--anno);cursor:pointer}
-.gbtn:hover{background:var(--bad-soft)}
-.guide{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:grid;gap:18px}
+/* 風琴夾：多個收合區塊上下相連 */
+.accs{display:grid;border:1px solid var(--line);border-radius:6px;background:var(--surface);overflow:hidden}
+.acc + .acc{border-top:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:12px 16px 12px 40px;position:relative;user-select:none}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::before{content:"";position:absolute;left:18px;top:50%;width:7px;height:7px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:translateY(-70%) rotate(-45deg);transition:transform .15s}
+.acc[open] summary::before{transform:translateY(-50%) rotate(45deg)}
+.acc summary:hover{background:var(--bg)}
+.acc-t{font-family:var(--f-display);font-weight:700;font-size:.95rem}
+.acc-s{font-size:.8rem;color:var(--muted)}
+.acc-warn .acc-t{color:var(--warn)}
+.acc-warn[open]{background:var(--warn-soft)}
+.acc-body{padding:4px 18px 18px;font-size:.86rem;display:grid;gap:12px}
+.guide{gap:18px}
+@media (prefers-reduced-motion:reduce){.acc summary::before{transition:none}}
 .guide h2{font-size:1.1rem}
 .stage{position:relative;display:grid;grid-template-columns:1fr minmax(300px,360px) 1fr;gap:20px 64px;align-items:stretch}
 .stage .card{box-shadow:0 1px 0 var(--line);align-self:start;margin-top:8px}
@@ -109,14 +121,22 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
       <h1>もぐナビ口碑排行</h1>
       <div class="muted" id="sub" style="font-size:.85rem">讀取中…</div>
     </div>
-    <div style="display:grid;gap:10px;justify-items:end">
-      <div class="summary" id="summary"></div>
-      <button class="gbtn" id="guide-btn" aria-expanded="false" aria-controls="guide" onclick="toggleGuide()">📖 怎麼看這張卡</button>
-    </div>
+    <div class="summary" id="summary"></div>
   </header>
 
-  <section class="guide" id="guide" hidden>
-    <div><h2>怎麼看這張卡</h2><div class="muted" style="font-size:.82rem">以 7-Eleven 宇治抹茶餅乾為例。紅框編號對應旁邊的說明。</div></div>
+  <div class="accs">
+  <details class="acc acc-warn" id="info">
+    <summary><span class="acc-t">⚠ 僅供內部討論・資料來源與狀態</span><span class="acc-s" id="info-sub"></span></summary>
+    <div class="acc-body">
+      <p style="margin:0">資料來自日本食品口碑網站もぐナビ（mognavi.jp），利用規約限制私的利用以外的使用，請勿截圖外流、轉寄或放進對客戶的資料。中文摘要由 AI 依口碑原文產生。</p>
+      <ul id="state" style="margin:0;padding-left:20px"></ul>
+    </div>
+  </details>
+
+  <details class="acc" id="guide">
+    <summary><span class="acc-t">📖 怎麼看這張卡</span><span class="acc-s">欄位說明與判讀方式</span></summary>
+    <div class="acc-body guide">
+    <div class="muted" style="font-size:.82rem">以 7-Eleven 宇治抹茶餅乾為例。紅框編號對應旁邊的說明。</div>
     <div class="stage" id="stage">
       <div class="co-col co-left">
         <div class="co" data-n="1"><span class="n">1</span><b>超商</b><span class="tip">這個商品是哪一家超商賣的。</span></div>
@@ -145,10 +165,10 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
         <tr><td>負評內容</td><td>消費者具體不滿的點</td><td>最直接的開發提醒（例：「看不到包裝圖上的白巧克力碎」＝包裝與實物落差會拉低評價）</td></tr>
       </table></div>
     </div>
-  </section>
+    </div>
+  </details>
+  </div>
 
-  <div class="notice"><b>僅供內部討論</b>：資料來自日本食品口碑網站もぐナビ（mognavi.jp），利用規約限制私的利用以外的使用，請勿截圖外流、轉寄或放進對客戶的資料。中文摘要由 AI 依口碑原文產生。</div>
-  <div class="notice" id="state" hidden></div>
 
   <div class="filters">
     <input type="search" id="q" placeholder="搜尋商品名（中、日文）或口碑內容">
@@ -258,12 +278,12 @@ function drawGuide(){
   });
   svg.innerHTML=out;
 }
-function toggleGuide(){
-  var g=document.getElementById("guide"),btn=document.getElementById("guide-btn");
-  g.hidden=!g.hidden;btn.setAttribute("aria-expanded",String(!g.hidden));
-  btn.textContent=g.hidden?"📖 怎麼看這張卡":"✕ 收起說明";
-  if(!g.hidden){document.getElementById("guide-card").innerHTML=cardHtml(GUIDE_EXAMPLE);requestAnimationFrame(drawGuide)}
-}
+document.getElementById("guide").addEventListener("toggle",function(){
+  if(!this.open)return;
+  var gc=document.getElementById("guide-card");
+  if(!gc.innerHTML)gc.innerHTML=cardHtml(GUIDE_EXAMPLE);
+  requestAnimationFrame(drawGuide);
+});
 var _rt;window.addEventListener("resize",function(){clearTimeout(_rt);_rt=setTimeout(drawGuide,120)});
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(drawGuide);
 
@@ -276,10 +296,12 @@ function init(data){
   var revs=ps.reduce(function(s,p){return s+p.reviews.length},0);
   document.getElementById("summary").innerHTML=[[ps.length,"收錄商品"],[revs,"口碑摘錄"],[withSum,"有中文摘要"],[matched,"對應到新品"]]
     .map(function(x){return '<div><b>'+x[0]+'</b><span>'+x[1]+'</span></div>'}).join("");
-  var st=document.getElementById("state"),msgs=[];
-  if(!D.rankWeek)msgs.push("排行名次目前沒有資料（10/29 程式錯誤清空），以下為 10/28 週排行前 5 名收錄的商品，依「想吃」數排序。");
-  msgs.push("もぐナビ自 10/29 起封鎖自動存取，資料停留在 "+(D.fetchedTo||"10/28")+"；長期資料需改走もぐナビbiz 正式授權。");
-  st.hidden=false;st.innerHTML=msgs.map(esc).join("<br>");
+  var msgs=[];
+  msgs.push("資料最後更新："+(D.fetchedTo||"—")+(D.rankWeek?"；排行週次 "+D.rankWeek:"")+"。もぐナビ為手動更新，每週最多一次（短時間內重複存取曾被網站暫時封鎖）。");
+  if(!D.rankWeek)msgs.push("排行名次目前沒有資料，商品依「想吃」數排序。");
+  msgs.push("長期、可對外使用的資料需改走もぐナビbiz 正式授權。");
+  document.getElementById("state").innerHTML=msgs.map(function(m){return "<li>"+esc(m)+"</li>"}).join("");
+  document.getElementById("info-sub").textContent="資料更新 "+(D.fetchedTo||"—");
   var chains=[];ps.forEach(function(p){if(p.chain&&chains.indexOf(p.chain)<0)chains.push(p.chain)});
   var sel=document.getElementById("f-chain");
   chains.forEach(function(c){var o=document.createElement("option");o.value=c;o.textContent=CHAIN_ZH[c]||c;sel.appendChild(o)});
