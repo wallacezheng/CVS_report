@@ -1,15 +1,19 @@
 {
  "updated_at": "2026-11-02",
  "this_week": "2026-W45",
- "product_count": 1004,
- "review_count": 2,
- "errors": [],
+ "product_count": 1485,
+ "review_count": 483,
+ "errors": [
+  "本次未開啟翻譯，481 支商品待翻譯（手動執行時勾選翻譯即可補上）"
+ ],
  "sources": {
   "seven_jp": 1,
   "familymart_jp": 1,
   "lawson_jp": 1,
-  "cu_kr": 0,
+  "cu_kr": 1,
   "gs25_kr": 0,
+  "emart24_kr": 1,
+  "seven_kr": 0,
   "naver_datalab": 1,
   "mognavi": 0,
   "familymart_press": 1
