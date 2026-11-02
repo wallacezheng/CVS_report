@@ -8,3 +8,8 @@
 # 2026-11-02T09:51:34.499327Z
 200    69043 bytes text/html https://www.lawson.co.jp/company/news/detail/1533820_2504.html → www.lawson.co.jp_company_news_detail_1533820_2504.html.html
 200    49427 bytes text/html https://www.lawson.co.jp/company/news/detail/1530807_2504.html → www.lawson.co.jp_company_news_detail_1530807_2504.html.html
+# 2026-11-02T09:52:27.013426Z
+404      447 bytes text/html; charset=iso-8859-1 https://www.sej.co.jp/robots.txt → www.sej.co.jp_robots.txt.html
+404    79811 bytes text/html; charset=UTF-8 https://www.sej.co.jp/company/news_release/ → www.sej.co.jp_company_news_release.html
+200     2750 bytes text/html; charset=UTF-8 https://www.sej.co.jp/company/news_release/news/ → www.sej.co.jp_company_news_release_news.html
+404    79812 bytes text/html; charset=UTF-8 https://www.sej.co.jp/company/news_release/2026.html → www.sej.co.jp_company_news_release_2026.html.html
