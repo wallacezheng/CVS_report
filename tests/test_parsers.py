@@ -157,3 +157,29 @@ class TestMognavi(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class LawsonTest(unittest.TestCase):
+    def setUp(self):
+        from pathlib import Path
+        from scraper.sources import lawson_jp
+        self.L = lawson_jp
+        self.html = (Path(__file__).parent / "fixtures" / "lawson_list_20261103.html").read_text(encoding="utf-8")
+
+    def test_parse(self):
+        rows = self.L.parse_list(self.html, "x")
+        self.assertEqual(len(rows), 36)
+        r = rows[0]
+        self.assertEqual(r["item_id"], "1533852")
+        self.assertEqual(r["price_tax_incl"], 298.0)
+        self.assertEqual(r["release_date"], "2026-11-03")
+        self.assertEqual(r["regions"], "全国")
+        self.assertEqual(len(self.L.list_links(self.html)), 6)
+
+    def test_regions(self):
+        from scraper.common import is_regional_jp
+        f = self.L.regions_from_notes
+        self.assertEqual(f(["※沖縄地域では商品仕様と価格が異なります。"]), "全国")
+        self.assertFalse(is_regional_jp(f(["※沖縄地域のローソンではお取り扱いしておりません。"])))
+        self.assertEqual(f(["※中部地域のローソンのみのお取り扱いとなります。"]), "甲信越、北陸、東海")
+        self.assertTrue(is_regional_jp(f(["※中部地域のローソンのみのお取り扱いとなります。"])))

@@ -19,7 +19,7 @@ from .common import fetch, is_regional_jp, new_areas, today_tw
 from .config_store import ConfigStore
 from .enrich import enrich, load_cache, reclassify_alcohol, save_cache
 from .signals import apply_hit_signals, update_press
-from .sources import RAW_FIELDS, cu_kr, familymart_jp, naver_datalab, seven_jp
+from .sources import RAW_FIELDS, cu_kr, familymart_jp, lawson_jp, naver_datalab, seven_jp
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -72,7 +72,7 @@ def iso_week(d: str) -> str:
 def crawl_all(cfg: ConfigStore, errors: list[str]) -> list[dict]:
     rows = []
     jobs = [("seven_jp", seven_jp.crawl), ("familymart_jp", familymart_jp.crawl),
-            ("cu_kr", cu_kr.crawl)]
+            ("lawson_jp", lawson_jp.crawl), ("cu_kr", cu_kr.crawl)]
     for sid, fn in jobs:
         if not cfg.source_enabled(sid, default=(sid != "cu_kr")):
             continue
