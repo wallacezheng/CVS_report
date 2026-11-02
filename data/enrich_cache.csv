@@ -175,6 +175,164 @@ familymart_jp:7916212,,,NON_FOOD,,1.00,rule,2026-11-02
 familymart_jp:7916588,一番賞 文具小夥伴,,NON_FOOD,,0.99,sample-manual,
 familymart_jp:7921551,,,NON_FOOD,,1.00,rule,2026-10-28
 familymart_jp:7929687,,,NON_FOOD,,1.00,rule,2026-10-28
+lawson_jp:1533074,滿餡 4種精華配料糯麥飯糰,使用日本國產糯麥，內餡料多實在,FRESH_RICE,糯麥・雜穀,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533075,6種配菜風味幕之內便當,一次品嚐6種豐富經典和風配菜,FRESH_BENTO,,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533076,奶油香巧克力可頌 4入,,BAKERY,巧克力|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533077,Q彈帕尼尼 火腿起司,口感Q彈的義式帕尼尼麵包,BAKERY,起司|豬肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533078,Q彈帕尼尼 照燒雞肉,口感Q彈的義式帕尼尼麵包,BAKERY,雞肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533079,顆粒感！核桃麵包,添加大顆粒核桃增添口感,BAKERY,,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533080,顆粒感！蘋果優格麵包,加入大塊蘋果丁與優格風味餡,BAKERY,水果,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533081,鬆軟酥脆菠蘿麵包,,BAKERY,,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533082,Uchi Café×森半 濃抹茶濕潤夾心餅乾,京都宇治老字號森半監修抹茶甜點,DESSERT,抹茶|名店監修|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533083,Uchi Café×Milk 融心牛奶起司蛋糕,生奶油專門店Milk聯名甜點,DESSERT,起司|奶油・鮮奶油|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533084,Uchi Café×Milk 融心鮮奶油起司塔,生奶油專門店Milk聯名甜點,DESSERT,起司|奶油・鮮奶油|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533088,博多豚骨拉麵 大碗,大份量杯麵，濃郁博多豚骨風味,INSTANT,豚骨・拉麵風味|豬肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533089,札幌味噌拉麵 大碗,大份量杯麵，經典札幌味噌風味,INSTANT,味噌|豚骨・拉麵風味,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533090,背脂醬油拉麵 大碗,大份量杯麵，濃郁背脂醬油風味,INSTANT,豚骨・拉麵風味|豬肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533091,使用碘卵光 濕潤年輪蛋糕,使用日本知名品牌蛋「碘卵・光」製作。,DESSERT,蛋,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533092,帶皮鮭魚乾,北海道傳統帶皮風乾鮭魚肉下酒零食。,SNACK_SAVORY,海鮮|鮭魚,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533093,甘王草莓大福,使用福岡縣產甘王草莓的和菓子點心。,DESSERT,水果,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533094,鹽焦糖牛奶杏仁果,,SNACK_SWEET,焦糖,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533095,麥麩餅乾 宇治抹茶夾心,使用宇治抹茶奶油夾心的低醣健康系麥麩餅乾。,SNACK_SWEET,抹茶,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533096,燉煮漢堡排,,FRESH_DELI,牛肉|豬肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533097,一日所需蔬菜 什錦中華丼,一份即可攝取一日所需蔬菜量的大份量什錦丼飯。,FRESH_BENTO,中華・町中華,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533098,一日所需蔬菜 柚子鹽義大利麵沙拉湯,一份即可攝取一日所需蔬菜量，清爽柚子鹽風味。,FRESH_DELI,,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533099,大塊蔬菜法式蔬菜燉湯,,FRESH_DELI,,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533100,大塊蔬菜法式蔬菜燉湯,,FRESH_DELI,,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533111,牛肉咖哩包,櫃檯保溫箱熱食中華包子。,HOT_SNACK,牛肉|咖哩,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533112,冰奶茶,Machi Café 現調冷飲系列。,DRINK,紅茶,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533113,名古屋台灣拉麵,源自名古屋的經典辛香絞肉辣拉麵。,FRESH_NOODLE,豬肉|辣味|蒜味|中華・町中華,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533114,圓圓雞肉球 麻辣風味,櫃檯熱食小點，帶有花椒麻香與辣勁。,HOT_SNACK,雞肉|麻辣・花椒|辣味,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533115,豬肉蕎麥麵,,FRESH_NOODLE,豬肉|和風高湯,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533116,蔬菜天婦羅蕎麥麵,,FRESH_NOODLE,和風高湯,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533117,火腿起司墨西哥捲餅,,FRESH_SANDWICH,起司|豬肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533118,瑪格麗特披薩捲,,FRESH_SANDWICH,起司|番茄,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533119,高纖雞肉根菜沙拉三明治,可攝取豐富膳食纖維的健康系三明治。,FRESH_SANDWICH,雞肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533267,高蛋白棒 巧克力風味,補充蛋白質的機能點心棒，經典香濃巧克力風味,SNACK_SWEET,高蛋白|巧克力,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533268,高蛋白棒 焦糖風味,補充蛋白質的機能點心棒，濃郁甜香焦糖口味,SNACK_SWEET,高蛋白|焦糖,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533269,麵大盛 海鮮風味乾拌油蕎麥麵,大份量泡麵規格，散發濃郁魚介海鮮香氣的乾拌麵,INSTANT,海鮮,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533270,塔塔醬炸蝦棒,方便單手享用的酥炸蝦肉棒，搭配微酸解膩塔塔醬,HOT_SNACK,海鮮,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533271,Aerial 四層脆片 冬蔭功泰式酸辣湯味,獨特四層酥脆口感，重現酸辣開胃的泰式冬蔭功風味,SNACK_SAVORY,海鮮|辣味,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533272,Kimagure Cook監修 小蝦飯美乃滋蝦仁飯糰,以小蝦調味炊飯包裹濃郁蝦仁美乃滋,FRESH_RICE,海鮮|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533273,Kimagure Cook監修 塊狀鮪魚蔥花鮪魚手卷壽司,同時吃得到切塊鮪魚與細緻蔥花鮪魚泥的雙重口感,FRESH_RICE,鮪魚|海鮮|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533274,起司醬德式香腸拼盤,多汁香腸切片淋上香濃起司醬的下酒小菜,FRESH_DELI,起司|豬肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533275,男爵可樂餅與漢堡排便當（起司醬）,搭配濃郁起司醬的男爵可樂餅與漢堡排雙主菜便當,FRESH_BENTO,起司|牛肉|豬肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533276,Goo-Cholo男爵馬鈴薯可樂餅堡（起司醬）,厚實男爵馬鈴薯可樂餅淋上濃郁起司醬,FRESH_SANDWICH,起司,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533277,Kimagure Cook監修 炸蝦滑蛋丼飯,知名海鮮料理系YouTuber「Kimagure Cook」監修。,FRESH_BENTO,海鮮|蛋|名店監修|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533278,Kimagure Cook監修 濃郁蟹膏香芡汁炒飯,淋上散發濃郁蟹膏香氣的海鮮芡汁燴炒飯,FRESH_BENTO,海鮮|中華・町中華|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533279,Aubergine監修 烤雞肉咖哩飯,外景便當名店Aubergine監修，歐風濃郁焗烤咖哩風味,FRESH_BENTO,咖哩|雞肉|名店監修,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533280,Kimagure Cook監修 鮮美魚介法式馬賽魚湯,凝聚多種海鮮精華的濃縮鮮美法式湯品,FRESH_DELI,海鮮|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533282,Kimagure Cook監修 韓式生拌鮪魚風味沙拉,以韓式生拌辣醬調味的鮪魚冷盤沙拉,FRESH_DELI,鮪魚|海鮮|韓式|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533284,酥脆炸雞君 薯條先生明太子起司文字燒風味,聯名Jagarico薯條，融合明太子起司與文字燒風味,HOT_SNACK,雞肉|起司|明太子・鱈魚子|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533285,一餐份蔬菜勾芡拉麵,加入一餐所需份量蔬菜的熱騰騰勾芡拉麵,FRESH_NOODLE,中華・町中華,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533286,Q彈粗麵油蕎麥麵 濃厚醬油醬汁,彈牙粗麵條拌入濃厚醬油醬汁的乾拌油蕎麥麵,FRESH_NOODLE,豚骨・拉麵風味,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533287,麵量激增！大盛 鹽味羅勒起司義大利麵,份量感十足的大盛規格，以鹹香羅勒搭配起司,FRESH_NOODLE,起司,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533288,Kimagure Cook監修 生義大利麵 濃厚蟹肉奶油,Q彈生義大利麵拌入濃郁蟹肉白醬,FRESH_NOODLE,海鮮|奶油・鮮奶油|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533289,Kimagure Cook監修 藍色鮮奶油水果三明治,人氣海鮮系YouTuber聯名，吸睛藍色鮮奶油搭配綜合水果,FRESH_SANDWICH,聯名・IP|水果|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533290,披薩捲 雙根粗絞肉德式香腸,包覆2根粗絞肉香腸與披薩起司醬的熱捲餅。,FRESH_SANDWICH,起司|豬肉|番茄,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533291,雙倍起司火腿墨西哥捲餅,起司增量2倍的爆漿火腿起司捲餅。,FRESH_SANDWICH,起司|豬肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533292,美式鬆餅 黑蜜＆黑糖鮮奶油 4個入,鬆軟小鬆餅夾入香甜黑蜜與黑糖鮮奶油。,BAKERY,奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533293,飽滿玉米美乃滋麵包,鋪滿粒粒飽滿甜玉米與美乃滋烘烤。,BAKERY,,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533294,濃厚起司火腿丹麥麵包,層次酥脆丹麥麵包搭配濃厚起司與火腿。,BAKERY,起司|豬肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533295,Q彈甜甜圈 糖霜,口感軟Q如麻糬的經典糖霜甜甜圈。,BAKERY,,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533296,Q彈甜甜圈 黃豆粉,口感軟Q如麻糬的黃豆粉甜甜圈。,BAKERY,,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533298,Uchi Café×GODIVA 巧克力法式凍派可麗餅,以軟式可麗餅包裹濃郁厚實的巧克力凍派。,DESSERT,巧克力|奶油・鮮奶油|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533299,Uchi Café×GODIVA 巧克力聖代,層次豐富的多重巧克力風味聖代甜點。,DESSERT,巧克力|奶油・鮮奶油|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533300,Uchi Café×GODIVA 雙重巧克力薄皮銅鑼燒,招牌軟Q銅鑼燒夾入濃郁雙重巧克力餡。,DESSERT,巧克力|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533301,Uchi Café×GODIVA Q彈蛋糕捲 雙重巧克力 4個入,人氣Q彈外皮蛋糕捲搭配雙重濃郁巧克力。,DESSERT,巧克力|奶油・鮮奶油|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533302,Uchi Café×GODIVA 巧克力蛋糕捲,GODIVA聯名款濃郁巧克力蛋糕捲。,DESSERT,巧克力|奶油・鮮奶油|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533303,Uchi Café×GODIVA 巧克力餅乾泡芙,GODIVA聯名系列酥脆餅乾外皮巧克力泡芙。,DESSERT,巧克力|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533621,高麗菜捲,關東煮單品配料,HOT_SNACK,豬肉,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533622,玉米濃湯,,FRESH_DELI,奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533623,法式龍蝦風味濃湯,濃郁法式甲殼海鮮Bisque風味濃湯。,FRESH_DELI,海鮮|奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533624,蛤蜊濃湯,,FRESH_DELI,海鮮|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533625,,,ALCOHOL,,1.00,rule,2026-11-02
+lawson_jp:1533626,,,ALCOHOL,,1.00,rule,2026-11-02
+lawson_jp:1533627,,,ALCOHOL,,1.00,rule,2026-11-02
+lawson_jp:1533628,,,ALCOHOL,,1.00,rule,2026-11-02
+lawson_jp:1533629,哈根達斯 迷你杯 瘋狂奶油冰淇淋,濃郁奶油風味的哈根達斯迷你杯冰淇淋。,ICE,奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533630,高湯橙醋風味 秋葵海帶芽黏滑蓋飯 糯麥飯,搭配高湯橙醋與黏滑食材的清爽健康系糯麥便當。,FRESH_BENTO,糯麥・雜穀|和風高湯,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533631,超大盛組合 多蜜醬炸豬排咖哩香料飯＆拿坡里義大利麵,結合多蜜炸豬排咖哩抓飯與拿坡里麵的雙主食大份量便當。,FRESH_BENTO,豬肉|咖哩|番茄,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533632,醬油唐揚炸雞 3個入,經典醬油風味櫃檯熱食唐揚炸雞。,HOT_SNACK,雞肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533638,Maison de FLEUR 白桃氣泡飲,人氣雜貨品牌聯名推出的清爽白桃氣泡飲,DRINK,水果|聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533639,甜鹹旨味！燉煮豬五花角煮,軟嫩入味的日式甘辛醬汁燉五花肉,FRESH_DELI,豬肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533640,奶油玉米,經典居酒屋風味奶油炒甜玉米配菜,FRESH_DELI,奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533641,5種起司焗烤薯餅,香煎馬鈴薯餅佐濃醇五種起司焗烤,FRESH_DELI,起司,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533642,一餐蔬菜量 雞肉湯咖哩,含有一餐所需蔬菜量的北海道風味湯咖哩,FRESH_DELI,咖哩|雞肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533643,冷熱皆宜 明太子釜玉風烏龍麵,可依喜好選擇冷吃或加熱享用的乾拌烏龍麵,FRESH_NOODLE,明太子・鱈魚子|蛋,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533644,魁力屋監修 京都背脂醬油拉麵,京都人氣名店魁力屋招牌背脂醬油風味,FRESH_NOODLE,名店監修|豬肉|豚骨・拉麵風味,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533645,生薑風味蛋花勾芡烏龍麵,溫熱生薑提味，暖胃的蛋花勾芡高湯烏龍麵,FRESH_NOODLE,蛋|和風高湯,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533646,完熟番茄肉醬義大利麵,以完熟番茄熬煮的香濃經典肉醬麵,FRESH_NOODLE,番茄|豬肉|牛肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533647,生義大利麵 濃厚鮮蝦白醬,Q彈生義大利麵搭配濃醇鮮蝦奶油醬汁,FRESH_NOODLE,海鮮|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533648,3種起司奶油夾心麵包 4入,使用三種起司調製香濃夾心內餡,BAKERY,起司,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533649,超值麵包 樸實醬油美乃滋起司吐司,鹹香醬油美乃滋搭配起司烘烤的吐司,BAKERY,起司,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533650,超值麵包 鮪魚美乃滋麵包,平價實惠的鮪魚美乃滋鹹麵包,BAKERY,鮪魚,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533651,超值麵包 驚奇砂糖顆粒夾心麵包,夾入帶顆粒感細砂糖奶油霜的經典宮崎風味麵包,BAKERY,奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533652,超值麵包 驚奇法式吐司,份量感十足的大尺寸法式吐司,BAKERY,蛋,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533655,熱飲和風高湯,罐裝可直接熱飲的美味和風柴魚昆布高湯,DRINK,和風高湯,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533656,猿田彥珈琲 無糖拿鐵咖啡,不加砂糖的香醇拿鐵,DRINK,聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533657,猿田彥珈琲 拿鐵咖啡,知名精品咖啡品牌猿田彥珈琲共同開發,DRINK,聯名・IP,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533658,甘樂 無糖超級薄荷潤喉糖,,SNACK_SWEET,,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533659,Calbee 洋芋片 醬油螃蟹風味,還原韓國代表美食醬蟹風味的洋芋片,SNACK_SAVORY,韓式|海鮮,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533660,Calbee 洋芋片 辣醬蟹美乃滋風味,韓式洋釀醬蟹調味洋芋片,SNACK_SAVORY,海鮮|辣味|韓式,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533661,日清食品 きまぐれクック監修 鯛魚高湯醬油拉麵,YouTuberきまぐれクック聯名杯麵,INSTANT,名店監修|聯名・IP|海鮮|和風高湯,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533662,焦糖蘋果伯爵茶,,DRINK,紅茶|焦糖|水果,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533663,蜂蜜檸檬阿薩姆紅茶,,DRINK,紅茶|水果,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533664,きまぐれクック監修 大阪燒佐醬蟹風味醬,YouTuberきまぐれクック聯名款冷凍大阪燒,FROZEN,名店監修|聯名・IP|海鮮|韓式,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533665,栗子大福,,DESSERT,栗子|秋季限定,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533666,精選綜合一口米果,,SNACK_SAVORY,,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533667,一日鐵分燕麥巧克力脆片,機能性零食，補充一日所需鐵質,SNACK_SWEET,巧克力,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533668,高蛋白高纖香脆蠶豆,機能性零食，富含蛋白質與膳食纖維,SNACK_SAVORY,高蛋白,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533669,奶油糖風味漢堡,甜點系漢堡麵包,DESSERT,焦糖|奶油・鮮奶油,0.85,gemini-3.8-flash,2026-11-02
+lawson_jp:1533698,飯糰配菜組合（鮭魚・鹽味飯糰）,含鮭魚與鹽味飯糰及經典配菜,FRESH_RICE,鮭魚,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533699,美乃滋唐揚炸雞,,FRESH_DELI,雞肉,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533700,鑊氣炒飯佐唐揚炸雞,,FRESH_BENTO,雞肉|中華・町中華,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533701,大盛白飯！唐揚炸雞便當,,FRESH_BENTO,雞肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533702,唐揚炸雞便當,,FRESH_BENTO,雞肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533824,超爆量起司披薩包,主打極致爆量起司的中華包子,HOT_SNACK,起司|番茄,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533825,濃郁爆漿玉米起司泡菜韓式飯捲,,FRESH_RICE,起司|韓式|辣味,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533826,手卷壽司 蔥花鮪魚泥,,FRESH_RICE,鮪魚|海鮮,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533827,炭火香烤豬五花,,FRESH_DELI,豬肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533828,奶油玉米馬鈴薯,,FRESH_DELI,奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533829,白醬海鮮蛋包飯,,FRESH_BENTO,海鮮|蛋|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533830,濃郁4種起司牛丼,,FRESH_BENTO,牛肉|起司,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533831,蒜香風味醬唐揚炸雞便當,配菜份量滿載的主菜便當系列,FRESH_BENTO,雞肉|蒜味,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533832,多汁奶油黑胡椒焗烤飯,,FRESH_DELI,起司|奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533833,拌著吃海鮮炸彈 鮪魚,包含鮪魚與黏稠食材拌食冷藏配菜,FRESH_DELI,鮪魚|海鮮,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533834,拌著吃海鮮炸彈 鮪魚,包含鮪魚與黏稠食材拌食冷藏配菜,FRESH_DELI,鮪魚|海鮮,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533835,蛋黃培根濃厚培根蛋生義大利麵,,FRESH_NOODLE,蛋|豬肉|起司|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533851,奶油馬鈴薯可樂餅,,HOT_SNACK,奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533852,Karage-kun 卡啦雞塊 紐奧良肯瓊風味,人氣櫃檯炸雞紐奧良肯瓊香料風味,HOT_SNACK,雞肉|辣味,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533853,飽足濃厚豚骨拉麵,大份量二郎系風格濃厚豚骨拉麵,FRESH_NOODLE,豚骨・拉麵風味|豬肉|蒜味,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533854,奶油醬油香醇炒烏龍麵,,FRESH_NOODLE,奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533855,濃郁牽絲起司濃厚豚骨拉麵,二郎系大份量濃厚豬骨高湯拉麵,FRESH_NOODLE,起司|豬肉|豚骨・拉麵風味|蒜味,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533856,紅豆奶油捲餅,墨西哥薄餅包裹紅豆泥與奶油,FRESH_SANDWICH,奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533857,通心粉起司漢堡,美式經典起司通心粉漢堡,FRESH_SANDWICH,起司|牛肉|豬肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533858,起司熱狗堡,,FRESH_SANDWICH,起司|豬肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533859,NL 補充蛋白質小麥麩皮吐司 4片入,Natural Lawson高蛋白低醣系列,BAKERY,高蛋白,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533860,NL 麩皮火腿起司麵包 2入,Natural Lawson低醣麩皮系列,BAKERY,起司|豬肉,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533861,NL 麩皮高可可巧克力蔓越莓麵包 2入,Natural Lawson低醣麩皮系列,BAKERY,巧克力|水果,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533862,菠蘿丹麥棒 4入,,BAKERY,,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533863,熔岩起司白麵包,,BAKERY,起司,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533864,紅豆奶油法國麵包,,BAKERY,奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533865,奶油鮮奶油菠蘿麵包,,BAKERY,奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533870,德島產業 京風黃豆粉秋季蕨餅,,DESSERT,秋季限定,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533871,豐盛海鮮什錦炸餅便當,,FRESH_BENTO,海鮮,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533872,大杯麝香葡萄紅茶,,DRINK,紅茶|水果,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533873,大杯蘋果紅茶,,DRINK,紅茶|水果,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533874,大杯蜜桃紅茶,,DRINK,紅茶|水果,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533875,蜜桃紅茶,,DRINK,紅茶|水果,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533876,生巧克力蛋糕 2入,,DESSERT,巧克力,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533877,奶油香Q彈奶油餅 蜂蜜奶油風味,,DESSERT,奶油・鮮奶油,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533878,濃郁化口生巧克力可麗餅,,DESSERT,巧克力|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533879,杜拜巧克力風味三明治,,FRESH_SANDWICH,巧克力,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533880,Baschee 巴斯克風味起司蛋糕,超人氣經典巴斯克乳酪蛋糕,DESSERT,起司|焦糖,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533881,頂級生乳捲 焦糖風味,,DESSERT,焦糖|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533882,雙餡夾心銅鑼燒 生焦糖,招牌薄皮Q彈銅鑼燒夾入生焦糖內餡,DESSERT,焦糖|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533883,三洋食品 札幌一番 Ramen翡翠監修 土雞高湯鹽味拉麵,,INSTANT,名店監修|雞肉|和風高湯,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533884,海鮮辣豆腐湯風味拉麵,,INSTANT,海鮮|辣味|韓式,0.90,gemini-3.8-flash,2026-11-02
+lawson_jp:1533885,大飯糰 紅鮭奶油醬油飯 明太子奶油醬,,FRESH_RICE,鮭魚|明太子・鱈魚子|奶油・鮮奶油,0.95,gemini-3.8-flash,2026-11-02
+lawson_jp:1533886,令人上癮 濃郁麻油韓國海苔飯糰,,FRESH_RICE,韓式,0.95,gemini-3.8-flash,2026-11-02
 seven_jp:010146,,,ALCOHOL,,1.00,rule,2026-10-28
 seven_jp:010486,,,ALCOHOL,,1.00,rule,2026-10-28
 seven_jp:010925,,,ALCOHOL,,1.00,rule,2026-10-28
