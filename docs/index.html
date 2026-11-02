@@ -546,6 +546,7 @@ function renderSummary(){
   const pending=S.products.filter(p=>inCountry(p)&&!p.category_code).length;
   if(pending&&!notes.some(n=>n.includes("待翻譯")))notes.push(`${pending} 支商品尚未翻譯，暫不顯示；下次執行翻譯後會出現。`);
   if(m.sample)notes.push(m.sample);
+  if(S.country==="KR")notes.unshift("韓國資料自 2026-11-02（W45）起收錄。官網沒有發售日，以第一次抓到的日期當上架日，所以 W45 包含先前已上架、仍標示 NEW 的商品，數字偏高；W46 起才是當週真正新增的商品。GS25、7-Eleven 韓國依網站 robots 規定不抓取。");
   $("status-accs").hidden=!notes.length;
   $("status-sub").textContent=notes.length?`${notes.length} 則`:"";
   $("status-list").innerHTML=notes.map(x=>`<li>${esc(x)}</li>`).join("");
