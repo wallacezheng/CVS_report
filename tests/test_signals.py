@@ -220,3 +220,11 @@ class TagTest(unittest.TestCase):
         self.assertEqual(cache["a:1"]["name_zh"], "草莓蛋糕")
         self.assertEqual(cache["a:1"]["tag_version"], E.tag_version(self.TAGS))
         self.assertEqual(cache["a:2"]["tags"], "")
+
+
+class SameCountryStyleTest(unittest.TestCase):
+    def test_drop_own_country_style(self):
+        from scraper.enrich import expand_tags
+        tags = [{"tag_zh": "日式", "parent": ""}, {"tag_zh": "韓式", "parent": ""}]
+        self.assertEqual(expand_tags(["日式", "韓式"], tags, "JP"), "韓式")
+        self.assertEqual(expand_tags(["日式", "韓式"], tags, "KR"), "日式")

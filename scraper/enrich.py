@@ -32,7 +32,7 @@ CACHE = ROOT / "data" / "enrich_cache.csv"
 CACHE_FIELDS = ["product_key", "name_zh", "desc_zh", "category_code", "tags", "confidence", "model",
                 "enriched_at", "tag_version"]
 MAX_RETAG_PER_RUN = int(os.environ.get("MAX_RETAG_PER_RUN") or 1500)
-RETAG_BATCH = 50
+RETAG_BATCH = 30  # 50 支一批曾逾時（120 秒）
 USAGE = ROOT / "data" / "gemini_usage.csv"
 USAGE_FIELDS = ["date", "source", "calls", "items", "prompt_tokens", "output_tokens", "thought_tokens",
                 "est_usd", "model"]
@@ -172,11 +172,18 @@ def tag_version(tags) -> str:
     return hashlib.sha1("|".join(names).encode("utf-8")).hexdigest()[:8]
 
 
-def expand_tags(chosen, tags) -> str:
+# 本國風格標籤對本國商品沒有意義（日本商品標「日式」只是雜訊）
+SAME_COUNTRY_STYLE = {"JP": "日式", "KR": "韓式"}
+
+
+def expand_tags(chosen, tags, country: str = "") -> str:
     """只保留字典內的標籤，並自動補上父標籤（草莓 → 水果），維持大類趨勢可比。"""
     parent = {t["tag_zh"]: (t.get("parent") or "").strip() for t in tags}
+    drop = SAME_COUNTRY_STYLE.get(country, "")
     out = []
     for t in chosen:
+        if t == drop:
+            continue
         if t in parent and t not in out:
             out.append(t)
             p = parent[t]
@@ -248,7 +255,7 @@ def retag(items: list[dict], tags, cache: dict[str, dict], today: str) -> list[s
             c = cache.get(r.get("product_key", ""))
             if c is None:
                 continue
-            c["tags"] = expand_tags(r.get("tags", []), tags)
+            c["tags"] = expand_tags(r.get("tags", []), tags, by_key.get(r.get("product_key", ""), {}).get("country", ""))
             c["tag_version"] = ver
             done += 1
     log_usage(today, "retag", done)
@@ -460,7 +467,7 @@ def enrich(items: list[dict], categories, tags, glossary, cache: dict[str, dict]
                 "name_zh": (r.get("name_zh") or "").strip(),
                 "desc_zh": (r.get("desc_zh") or "").strip(),
                 "category_code": cat,
-                "tags": expand_tags(r.get("tags", []), tags),
+                "tags": expand_tags(r.get("tags", []), tags, key.split(":")[0][-2:].upper()),
                 "confidence": f"{conf:.2f}",
                 "model": MODEL,
                 "enriched_at": today,

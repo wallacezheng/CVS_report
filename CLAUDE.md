@@ -52,6 +52,7 @@ Variables（可選）：MAX_ENRICH_PER_RUN、MAX_ENRICH_PER_MONTH、MAX_GEMINI_U
 - 地區欄位統一用 7-Eleven 大區名稱（北海道、東北、関東、甲信越、北陸、東海、近畿、中国、四国、九州、沖縄）或「全国」。
 - Sheet 整理類功能必須可重複執行（2026-11-02 曾因 cleanup 重跑刪光排行，靠備份還原）。
 - 儀表板改版後用 playwright 截圖檢查桌機、手機、深色模式；もぐナビ頁籤需用測試密碼產生假加密檔。
+- **功能或資料來源有變動時，一併更新**：儀表板「使用導覽」頁籤（`#p-guide`：網站在做什麼、每一區怎麼讀、名詞解釋、限制）、`config/manual.csv`（再用 init-sheet tabs=使用手冊 同步）、Project 文件「來源評估與決策紀錄」。（Wallace 2026-11-02 要求）
 
 ## 目前進度（每步更新）
 - 2026-11-02 已完成：三家新品（7-Eleven、全家、Lawson）、三家新聞稿熱賣訊號、地區擴張、もぐナビ（加密頁籤）、密碼鎖、使用導覽頁籤、Gemini 用量紀錄與每月上限、probe 工具。
@@ -60,7 +61,7 @@ Variables（可選）：MAX_ENRICH_PER_RUN、MAX_ENRICH_PER_MONTH、MAX_GEMINI_U
 - 2026-11-02 韓國第一步：CU（`cu_kr.py`，POST productAjax.do，只收 NEW）、emart24（`emart24_kr.py`，差異化商品最新順 2 頁）已接上；GS25 robots 禁止 /api/、7-Eleven 韓國 robots 全禁 → 都不爬。已上線：首跑 481 支（CU 441、emart24 40）全部翻譯完成（US$0.51）；W45 為基準週，數字偏高（儀表板已註記）。
 - 2026-11-02 Wallace 決定順序：① 品類×口味交叉表 → ② 標籤細分＋口感／型態，既有商品重新貼標 → ③ C 類計算指標（標籤溢價、跨超商同步、熱賣關聯、新組合、日韓對照；存活期、口碑對照待資料累積）。
   - ① 完成：`docs/index.html` 的 `renderXtab`／`renderXdet`（瀏覽器端計算，新品總覽頁「品類 × 口味」）。
-  - ② 程式完成：`config/tags.csv` 加 parent 欄與口感／型態／風格／機能／價格訴求維度（約 80 個）；`enrich.retag` 依字典指紋 tag_version 自動重貼（只改標籤）；`expand_tags` 自動補父標籤；儀表板交叉表加維度選單、讀 `docs/data/tags.csv`。已同步 Sheet tags 分頁並觸發重貼，**待驗證** `data/enrich_cache.csv` 的 tag_version 與新標籤分布。
+  - ② 程式完成：`config/tags.csv` 加 parent 欄與口感／型態／風格／機能／價格訴求維度（約 80 個）；`enrich.retag` 依字典指紋 tag_version 自動重貼（只改標籤）；`expand_tags` 自動補父標籤；儀表板交叉表加維度選單、讀 `docs/data/tags.csv`。已重貼 1,357/1,408 支（US$1.11，思考 token 偏多；一批逾時後批量改 30）；本國風格標籤（日本商品的「日式」、韓國商品的「韓式」）由 `expand_tags` 自動剔除，既有資料已清 301 筆。
   - ③ 完成（`renderXdet`）：明細表加超商數、價格溢價（標籤商品價格中位數／品類中位數）、熱賣支數與倍數（排除聯名監修訊號）、另一國同品類占比、新組合與跨超商升溫標記，上方自動摘要。存活期、もぐナビ口碑對照待資料累積。
 - 下一步：韓國熱賣訊號（評估見 Project 文件「來源評估與決策紀錄」：emart24 可直接做；CU／GS25 需 probe；Naver 新聞 API 需 Wallace 申請金鑰）。
 - 待 Wallace：GCP 預算快訊與 Vertex AI 配額；もぐナビbiz 授權洽詢。
