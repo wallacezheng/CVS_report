@@ -1,0 +1,1991 @@
+{
+ "week": "2026-W43",
+ "generated_at": "2026-11-03",
+ "definition_version": "insights-v1",
+ "kind": "backfill",
+ "note": "回溯計算：以 2026-11-03 的商品資料與標籤，只取發售週 ≤ 2026-W43 的商品重算",
+ "tag_version": "d86b856c",
+ "counts": {
+  "JP": 114,
+  "KR": 0
+ },
+ "highlights": {
+  "new_combo": [
+   {
+    "country": "JP",
+    "category": "DESSERT",
+    "tag": "巧克力",
+    "n": 5,
+    "share": 0.3333,
+    "delta": 5,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": 0.3468,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "DESSERT",
+    "tag": "紅豆・和風甜",
+    "n": 2,
+    "share": 0.1333,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "DESSERT",
+    "tag": "杯裝・甜點杯",
+    "n": 2,
+    "share": 0.1333,
+    "delta": 2,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "DESSERT",
+    "tag": "奶油",
+    "n": 2,
+    "share": 0.1333,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": 7.5
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_NOODLE",
+    "tag": "Q彈・Q軟",
+    "n": 2,
+    "share": 0.1538,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_NOODLE",
+    "tag": "醬油・照燒",
+    "n": 3,
+    "share": 0.2308,
+    "delta": 3,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": 0.0,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_NOODLE",
+    "tag": "濃厚",
+    "n": 3,
+    "share": 0.2308,
+    "delta": 3,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": -0.0329,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "HOT_SNACK",
+    "tag": "海鮮",
+    "n": 2,
+    "share": 0.2222,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "HOT_SNACK",
+    "tag": "大份量・增量",
+    "n": 4,
+    "share": 0.4444,
+    "delta": 4,
+    "cross_chain_rising": [],
+    "price_premium": -0.12,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "HOT_SNACK",
+    "tag": "鹽味",
+    "n": 2,
+    "share": 0.2222,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "HOT_SNACK",
+    "tag": "醬油・照燒",
+    "n": 2,
+    "share": 0.2222,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "HOT_SNACK",
+    "tag": "酥脆",
+    "n": 2,
+    "share": 0.2222,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_BENTO",
+    "tag": "麻糬・米製品",
+    "n": 2,
+    "share": 0.25,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_BENTO",
+    "tag": "海鮮",
+    "n": 2,
+    "share": 0.25,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_BENTO",
+    "tag": "蛋",
+    "n": 2,
+    "share": 0.25,
+    "delta": 2,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_BENTO",
+    "tag": "濃厚",
+    "n": 4,
+    "share": 0.5,
+    "delta": 4,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": 0.0388,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_BENTO",
+    "tag": "聯名・IP",
+    "n": 3,
+    "share": 0.375,
+    "delta": 3,
+    "cross_chain_rising": [],
+    "price_premium": 0.0458,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_DELI",
+    "tag": "高蛋白",
+    "n": 2,
+    "share": 0.1538,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_DELI",
+    "tag": "雞肉",
+    "n": 3,
+    "share": 0.2308,
+    "delta": 3,
+    "cross_chain_rising": [],
+    "price_premium": -0.3392,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_DELI",
+    "tag": "聯名・IP",
+    "n": 2,
+    "share": 0.1538,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_DELI",
+    "tag": "海鮮",
+    "n": 2,
+    "share": 0.1538,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_DELI",
+    "tag": "濃厚",
+    "n": 2,
+    "share": 0.1538,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_RICE",
+    "tag": "海鮮",
+    "n": 5,
+    "share": 0.5,
+    "delta": 5,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": -0.007,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_RICE",
+    "tag": "鮪魚",
+    "n": 2,
+    "share": 0.2,
+    "delta": 2,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_RICE",
+    "tag": "多入・分享包",
+    "n": 2,
+    "share": 0.2,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_RICE",
+    "tag": "聯名・IP",
+    "n": 2,
+    "share": 0.2,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "SNACK_SWEET",
+    "tag": "高蛋白",
+    "n": 2,
+    "share": 0.2857,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "SNACK_SWEET",
+    "tag": "巧克力",
+    "n": 3,
+    "share": 0.4286,
+    "delta": 3,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": 0.2521,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "SNACK_SWEET",
+    "tag": "濃厚",
+    "n": 2,
+    "share": 0.2857,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "DRINK",
+    "tag": "名店監修",
+    "n": 5,
+    "share": 0.8333,
+    "delta": 5,
+    "cross_chain_rising": [],
+    "price_premium": -0.1351,
+    "hit_lift": null
+   }
+  ],
+  "cross_chain_rising": [
+   {
+    "country": "JP",
+    "category": "DESSERT",
+    "tag": "巧克力",
+    "n": 5,
+    "share": 0.3333,
+    "delta": 5,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": 0.3468,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "DESSERT",
+    "tag": "杯裝・甜點杯",
+    "n": 2,
+    "share": 0.1333,
+    "delta": 2,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_SANDWICH",
+    "tag": "起司",
+    "n": 5,
+    "share": 0.5556,
+    "delta": 3,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": 0.0,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_NOODLE",
+    "tag": "醬油・照燒",
+    "n": 3,
+    "share": 0.2308,
+    "delta": 3,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": 0.0,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_NOODLE",
+    "tag": "濃厚",
+    "n": 3,
+    "share": 0.2308,
+    "delta": 3,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": -0.0329,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_BENTO",
+    "tag": "蛋",
+    "n": 2,
+    "share": 0.25,
+    "delta": 2,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_BENTO",
+    "tag": "濃厚",
+    "n": 4,
+    "share": 0.5,
+    "delta": 4,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": 0.0388,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_RICE",
+    "tag": "海鮮",
+    "n": 5,
+    "share": 0.5,
+    "delta": 5,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": -0.007,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "FRESH_RICE",
+    "tag": "鮪魚",
+    "n": 2,
+    "share": 0.2,
+    "delta": 2,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": null,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "SNACK_SWEET",
+    "tag": "巧克力",
+    "n": 3,
+    "share": 0.4286,
+    "delta": 3,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": 0.2521,
+    "hit_lift": null
+   }
+  ],
+  "price_premium": [
+   {
+    "country": "JP",
+    "category": "DESSERT",
+    "tag": "巧克力",
+    "n": 5,
+    "share": 0.3333,
+    "delta": 5,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": 0.3468,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "DESSERT",
+    "tag": "濃厚",
+    "n": 3,
+    "share": 0.2,
+    "delta": 1,
+    "cross_chain_rising": [],
+    "price_premium": 0.3468,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "SNACK_SWEET",
+    "tag": "巧克力",
+    "n": 3,
+    "share": 0.4286,
+    "delta": 3,
+    "cross_chain_rising": [
+     "familymart_jp",
+     "lawson_jp"
+    ],
+    "price_premium": 0.2521,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "DESSERT",
+    "tag": "名店監修",
+    "n": 6,
+    "share": 0.4,
+    "delta": 0,
+    "cross_chain_rising": [],
+    "price_premium": 0.1734,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "DESSERT",
+    "tag": "聯名・IP",
+    "n": 10,
+    "share": 0.6667,
+    "delta": 4,
+    "cross_chain_rising": [],
+    "price_premium": 0.17,
+    "hit_lift": null
+   },
+   {
+    "country": "JP",
+    "category": "DRINK",
+    "tag": "紅茶",
+    "n": 5,
+    "share": 0.8333,
+    "delta": 3,
+    "cross_chain_rising": [],
+    "price_premium": 0.1351,
+    "hit_lift": null
+   }
+  ],
+  "hit_lift": [
+   {
+    "country": "JP",
+    "category": "DESSERT",
+    "tag": "奶油",
+    "n": 2,
+    "share": 0.1333,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": null,
+    "hit_lift": 7.5
+   },
+   {
+    "country": "JP",
+    "category": "BAKERY",
+    "tag": "巧克力",
+    "n": 4,
+    "share": 0.2857,
+    "delta": 2,
+    "cross_chain_rising": [],
+    "price_premium": 0.0,
+    "hit_lift": 3.5
+   }
+  ],
+  "common_both_rising": []
+ },
+ "category_tags": [
+  {
+   "country": "JP",
+   "category": "DESSERT",
+   "tag": "巧克力",
+   "tag_type": "口味",
+   "n": 5,
+   "share": 0.3333,
+   "category_n": 15,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 5
+   },
+   "delta": 5,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "price_premium": 0.3468,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "DESSERT",
+   "tag": "紅豆・和風甜",
+   "tag_type": "口味",
+   "n": 2,
+   "share": 0.1333,
+   "category_n": 15,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "familymart_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "DESSERT",
+   "tag": "濃厚",
+   "tag_type": "口感",
+   "n": 3,
+   "share": 0.2,
+   "category_n": 15,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 2
+   },
+   "delta": 1,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": 0.3468,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "DESSERT",
+   "tag": "杯裝・甜點杯",
+   "tag_type": "型態",
+   "n": 2,
+   "share": 0.1333,
+   "category_n": 15,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "price_premium": null,
+   "hits": 1,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "DESSERT",
+   "tag": "在地食材・產地",
+   "tag_type": "企劃",
+   "n": 2,
+   "share": 0.1333,
+   "category_n": 15,
+   "weekly": {
+    "2026-W42": 2,
+    "2026-W43": 0
+   },
+   "delta": -2,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "DESSERT",
+   "tag": "名店監修",
+   "tag_type": "企劃",
+   "n": 6,
+   "share": 0.4,
+   "category_n": 15,
+   "weekly": {
+    "2026-W42": 3,
+    "2026-W43": 3
+   },
+   "delta": 0,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": 0.1734,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "DESSERT",
+   "tag": "爆漿・流心",
+   "tag_type": "口感",
+   "n": 2,
+   "share": 0.1333,
+   "category_n": 15,
+   "weekly": {
+    "2026-W42": 2,
+    "2026-W43": 0
+   },
+   "delta": -2,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "DESSERT",
+   "tag": "聯名・IP",
+   "tag_type": "企劃",
+   "n": 10,
+   "share": 0.6667,
+   "category_n": 15,
+   "weekly": {
+    "2026-W42": 3,
+    "2026-W43": 7
+   },
+   "delta": 4,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": 0.17,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "DESSERT",
+   "tag": "奶油",
+   "tag_type": "口味",
+   "n": 2,
+   "share": 0.1333,
+   "category_n": 15,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "familymart_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 2,
+   "hit_lift": 7.5,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "DESSERT",
+   "tag": "起司",
+   "tag_type": "口味",
+   "n": 2,
+   "share": 0.1333,
+   "category_n": 15,
+   "weekly": {
+    "2026-W42": 2,
+    "2026-W43": 0
+   },
+   "delta": -2,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "BAKERY",
+   "tag": "綿密・鬆軟",
+   "tag_type": "口感",
+   "n": 2,
+   "share": 0.1429,
+   "category_n": 14,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 1
+   },
+   "delta": 0,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "BAKERY",
+   "tag": "巧克力",
+   "tag_type": "口味",
+   "n": 4,
+   "share": 0.2857,
+   "category_n": 14,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 3
+   },
+   "delta": 2,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": 0.0,
+   "hits": 3,
+   "hit_lift": 3.5,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "BAKERY",
+   "tag": "Q彈・Q軟",
+   "tag_type": "口感",
+   "n": 4,
+   "share": 0.2857,
+   "category_n": 14,
+   "weekly": {
+    "2026-W42": 2,
+    "2026-W43": 2
+   },
+   "delta": 0,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": -0.0556,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "BAKERY",
+   "tag": "多入・分享包",
+   "tag_type": "型態",
+   "n": 2,
+   "share": 0.1429,
+   "category_n": 14,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 1
+   },
+   "delta": 0,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "BAKERY",
+   "tag": "奶油",
+   "tag_type": "口味",
+   "n": 2,
+   "share": 0.1429,
+   "category_n": 14,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 1
+   },
+   "delta": 0,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 1,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "BAKERY",
+   "tag": "酥脆",
+   "tag_type": "口感",
+   "n": 3,
+   "share": 0.2143,
+   "category_n": 14,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 2
+   },
+   "delta": 1,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": -0.0303,
+   "hits": 1,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "BAKERY",
+   "tag": "豬肉",
+   "tag_type": "素材",
+   "n": 2,
+   "share": 0.1429,
+   "category_n": 14,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 1
+   },
+   "delta": 0,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "BAKERY",
+   "tag": "起司",
+   "tag_type": "口味",
+   "n": 2,
+   "share": 0.1429,
+   "category_n": 14,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 1
+   },
+   "delta": 0,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_SANDWICH",
+   "tag": "捲・可麗餅",
+   "tag_type": "型態",
+   "n": 5,
+   "share": 0.5556,
+   "category_n": 9,
+   "weekly": {
+    "2026-W42": 2,
+    "2026-W43": 3
+   },
+   "delta": 1,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": -0.1612,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_SANDWICH",
+   "tag": "夾心・三明治式",
+   "tag_type": "型態",
+   "n": 3,
+   "share": 0.3333,
+   "category_n": 9,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 2
+   },
+   "delta": 1,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": 0.0831,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_SANDWICH",
+   "tag": "豬肉",
+   "tag_type": "素材",
+   "n": 3,
+   "share": 0.3333,
+   "category_n": 9,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 2
+   },
+   "delta": 1,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": -0.1612,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_SANDWICH",
+   "tag": "起司",
+   "tag_type": "口味",
+   "n": 5,
+   "share": 0.5556,
+   "category_n": 9,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 4
+   },
+   "delta": 3,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "price_premium": 0.0,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_NOODLE",
+   "tag": "辣味",
+   "tag_type": "口味",
+   "n": 2,
+   "share": 0.1538,
+   "category_n": 13,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 1
+   },
+   "delta": 0,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_NOODLE",
+   "tag": "豬肉",
+   "tag_type": "素材",
+   "n": 2,
+   "share": 0.1538,
+   "category_n": 13,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 1
+   },
+   "delta": 0,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_NOODLE",
+   "tag": "Q彈・Q軟",
+   "tag_type": "口感",
+   "n": 2,
+   "share": 0.1538,
+   "category_n": 13,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_NOODLE",
+   "tag": "醬油・照燒",
+   "tag_type": "口味",
+   "n": 3,
+   "share": 0.2308,
+   "category_n": 13,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 3
+   },
+   "delta": 3,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "price_premium": 0.0,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_NOODLE",
+   "tag": "濃厚",
+   "tag_type": "口感",
+   "n": 3,
+   "share": 0.2308,
+   "category_n": 13,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 3
+   },
+   "delta": 3,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "price_premium": -0.0329,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_NOODLE",
+   "tag": "豚骨・拉麵風味",
+   "tag_type": "口味",
+   "n": 4,
+   "share": 0.3077,
+   "category_n": 13,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 3
+   },
+   "delta": 2,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": 0.0182,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "HOT_SNACK",
+   "tag": "雞肉",
+   "tag_type": "素材",
+   "n": 6,
+   "share": 0.6667,
+   "category_n": 9,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 5
+   },
+   "delta": 4,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": -0.12,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "HOT_SNACK",
+   "tag": "海鮮",
+   "tag_type": "素材",
+   "n": 2,
+   "share": 0.2222,
+   "category_n": 9,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "HOT_SNACK",
+   "tag": "大份量・增量",
+   "tag_type": "型態",
+   "n": 4,
+   "share": 0.4444,
+   "category_n": 9,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 4
+   },
+   "delta": 4,
+   "chains": [
+    "familymart_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": -0.12,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "HOT_SNACK",
+   "tag": "鹽味",
+   "tag_type": "口味",
+   "n": 2,
+   "share": 0.2222,
+   "category_n": 9,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "familymart_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "HOT_SNACK",
+   "tag": "醬油・照燒",
+   "tag_type": "口味",
+   "n": 2,
+   "share": 0.2222,
+   "category_n": 9,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "familymart_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "HOT_SNACK",
+   "tag": "酥脆",
+   "tag_type": "口感",
+   "n": 2,
+   "share": 0.2222,
+   "category_n": 9,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_BENTO",
+   "tag": "麻糬・米製品",
+   "tag_type": "素材",
+   "n": 2,
+   "share": 0.25,
+   "category_n": 8,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "familymart_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_BENTO",
+   "tag": "海鮮",
+   "tag_type": "素材",
+   "n": 2,
+   "share": 0.25,
+   "category_n": 8,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_BENTO",
+   "tag": "蛋",
+   "tag_type": "素材",
+   "n": 2,
+   "share": 0.25,
+   "category_n": 8,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_BENTO",
+   "tag": "中華・町中華",
+   "tag_type": "風格",
+   "n": 2,
+   "share": 0.25,
+   "category_n": 8,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 1
+   },
+   "delta": 0,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_BENTO",
+   "tag": "濃厚",
+   "tag_type": "口感",
+   "n": 4,
+   "share": 0.5,
+   "category_n": 8,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 4
+   },
+   "delta": 4,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "price_premium": 0.0388,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_BENTO",
+   "tag": "聯名・IP",
+   "tag_type": "企劃",
+   "n": 3,
+   "share": 0.375,
+   "category_n": 8,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 3
+   },
+   "delta": 3,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": 0.0458,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_DELI",
+   "tag": "高蛋白",
+   "tag_type": "機能",
+   "n": 2,
+   "share": 0.1538,
+   "category_n": 13,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "familymart_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_DELI",
+   "tag": "雞肉",
+   "tag_type": "素材",
+   "n": 3,
+   "share": 0.2308,
+   "category_n": 13,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 3
+   },
+   "delta": 3,
+   "chains": [
+    "familymart_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": -0.3392,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_DELI",
+   "tag": "聯名・IP",
+   "tag_type": "企劃",
+   "n": 2,
+   "share": 0.1538,
+   "category_n": 13,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_DELI",
+   "tag": "海鮮",
+   "tag_type": "素材",
+   "n": 2,
+   "share": 0.1538,
+   "category_n": 13,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_DELI",
+   "tag": "鹽味",
+   "tag_type": "口味",
+   "n": 2,
+   "share": 0.1538,
+   "category_n": 13,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 1
+   },
+   "delta": 0,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_DELI",
+   "tag": "濃厚",
+   "tag_type": "口感",
+   "n": 2,
+   "share": 0.1538,
+   "category_n": 13,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_RICE",
+   "tag": "海鮮",
+   "tag_type": "素材",
+   "n": 5,
+   "share": 0.5,
+   "category_n": 10,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 5
+   },
+   "delta": 5,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "price_premium": -0.007,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_RICE",
+   "tag": "鮪魚",
+   "tag_type": "素材",
+   "n": 2,
+   "share": 0.2,
+   "category_n": 10,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_RICE",
+   "tag": "糯麥・雜穀",
+   "tag_type": "素材",
+   "n": 3,
+   "share": 0.3,
+   "category_n": 10,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 2
+   },
+   "delta": 1,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": -0.3101,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_RICE",
+   "tag": "多入・分享包",
+   "tag_type": "型態",
+   "n": 2,
+   "share": 0.2,
+   "category_n": 10,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "familymart_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "FRESH_RICE",
+   "tag": "聯名・IP",
+   "tag_type": "企劃",
+   "n": 2,
+   "share": 0.2,
+   "category_n": 10,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "INSTANT",
+   "tag": "大份量・增量",
+   "tag_type": "型態",
+   "n": 4,
+   "share": 0.8,
+   "category_n": 5,
+   "weekly": {
+    "2026-W42": 3,
+    "2026-W43": 1
+   },
+   "delta": -2,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": 0.0,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "INSTANT",
+   "tag": "濃厚",
+   "tag_type": "口感",
+   "n": 3,
+   "share": 0.6,
+   "category_n": 5,
+   "weekly": {
+    "2026-W42": 2,
+    "2026-W43": 1
+   },
+   "delta": -1,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": 0.0,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "INSTANT",
+   "tag": "豚骨・拉麵風味",
+   "tag_type": "口味",
+   "n": 4,
+   "share": 0.8,
+   "category_n": 5,
+   "weekly": {
+    "2026-W42": 3,
+    "2026-W43": 1
+   },
+   "delta": -2,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": 0.0,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "SNACK_SWEET",
+   "tag": "高蛋白",
+   "tag_type": "機能",
+   "n": 2,
+   "share": 0.2857,
+   "category_n": 7,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "SNACK_SWEET",
+   "tag": "巧克力",
+   "tag_type": "口味",
+   "n": 3,
+   "share": 0.4286,
+   "category_n": 7,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 3
+   },
+   "delta": 3,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "price_premium": 0.2521,
+   "hits": 1,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "SNACK_SWEET",
+   "tag": "焦糖",
+   "tag_type": "口味",
+   "n": 2,
+   "share": 0.2857,
+   "category_n": 7,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 1
+   },
+   "delta": 0,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  },
+  {
+   "country": "JP",
+   "category": "SNACK_SWEET",
+   "tag": "濃厚",
+   "tag_type": "口感",
+   "n": 2,
+   "share": 0.2857,
+   "category_n": 7,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 2
+   },
+   "delta": 2,
+   "chains": [
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": null,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "DRINK",
+   "tag": "名店監修",
+   "tag_type": "企劃",
+   "n": 5,
+   "share": 0.8333,
+   "category_n": 6,
+   "weekly": {
+    "2026-W42": 0,
+    "2026-W43": 5
+   },
+   "delta": 5,
+   "chains": [
+    "familymart_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": -0.1351,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": true
+  },
+  {
+   "country": "JP",
+   "category": "DRINK",
+   "tag": "紅茶",
+   "tag_type": "口味",
+   "n": 5,
+   "share": 0.8333,
+   "category_n": 6,
+   "weekly": {
+    "2026-W42": 1,
+    "2026-W43": 4
+   },
+   "delta": 3,
+   "chains": [
+    "familymart_jp",
+    "lawson_jp"
+   ],
+   "cross_chain_rising": [],
+   "price_premium": 0.1351,
+   "hits": 0,
+   "hit_lift": null,
+   "new_combo": false
+  }
+ ],
+ "common_trends": []
+}

@@ -18,7 +18,7 @@ DSR（典通 智慧數據整合研究部）內部工具：每週自動抓日本�
 | 每週洞察快照（規則計算，與網站算法一致） | `scraper/insights.py` → `data/insights/` |
 | もぐナビ（手動、只寫 Sheet、加密輸出到儀表板） | `scraper/mognavi_job.py`、`scraper/secure_export.py` |
 | Sheet 讀寫（分類、標籤、術語、校正、來源開關） | `scraper/config_store.py` |
-| 儀表板（單頁、頁籤：使用導覽／新品總覽／熱賣訊號／日韓共同趨勢／もぐナビ口碑） | `docs/index.html`，資料在 `docs/data/` |
+| 儀表板（單頁、頁籤：使用導覽／新品總覽／熱賣訊號／日韓共同趨勢／歷週洞察／もぐナビ口碑） | `docs/index.html`，資料在 `docs/data/` |
 | 設定的預設值（Sheet 初始化來源） | `config/*.csv`；`config/manual.csv` = Sheet「使用手冊」分頁 |
 | 工具 | `tools/init_sheet.py`（寫入 Sheet 分頁）、`tools/probe.py`（試探新來源） |
 
@@ -72,5 +72,7 @@ Variables（可選）：MAX_ENRICH_PER_RUN、MAX_ENRICH_PER_MONTH、MAX_GEMINI_U
   - AI 指令版本：`enrich.prompt_version(fn)`＝指令函式原始碼指紋；寫入 enrich_cache（prompt_version、tag_prompt_version）、press_releases（model、prompt_version、analyzed_at）、mognavi_cache（summary_model、summary_prompt_version）、gemini_usage（prompt_version）。既有資料依 git 歷史回補（翻譯 3de9c58e、貼標 e6746ca2、新聞稿 b106d7bb）。
   - 標籤異動：`data/tag_history.csv`（retag 時 `append_tag_history`）；11-02 三批已從 git 回補 1,526 筆。
   - 每週洞察快照：`scraper/insights.py` → `data/insights/{週}.json`（並複製到 `docs/data/insights/`＋index.json）。**算法須與 `docs/index.html` 的 renderXdet／renderCommon 一致，改一邊要同步改另一邊**（定義版本 insights-v1）。
+- 2026-11-03 歷週洞察頁 `#p-history`（`initHistory`／`renderHistory`）：選快照週次與對照週次，逐筆判定後續並算「後續持續」比例。快照加 kind（weekly／backfill）與 note；`tools/backfill_insights.py` 回溯產生 W43、W44（不覆蓋正式快照）；index.json 改為 [{week, kind, generated_at}]。首次對照 W44→W45：跨超商升溫 25/83、新組合 72/93、價格溢價 12/20（W43 樣本少使 W44 訊號偏多；熱賣倍數因同一份資料而必然 100%，不具意義）。
+- 2026-11-03 翻譯 301 支新品（US$0.34，指令版本 aae788f0），全部商品 1,802 支皆已翻譯。
 - 下一步：韓國熱賣訊號（評估見 Project 文件「來源評估與決策紀錄」：emart24 可直接做；CU／GS25 需 probe；Naver 新聞 API 需 Wallace 申請金鑰）。
 - 待 Wallace：GCP 預算快訊與 Vertex AI 配額；もぐナビbiz 授權洽詢。

@@ -144,7 +144,7 @@ def common_trends(products, this_week, min_share=0.1) -> list[dict]:
     return sorted(out, key=lambda r: -r["score"])
 
 
-def build_snapshot(products, this_week, tag_dict, generated_at, tag_version="") -> dict:
+def build_snapshot(products, this_week, tag_dict, generated_at, tag_version="", kind="weekly", note="") -> dict:
     tag_type = {t["tag_zh"]: t.get("tag_type", "") for t in tag_dict}
     rows = []
     for cc in ("JP", "KR"):
@@ -162,6 +162,7 @@ def build_snapshot(products, this_week, tag_dict, generated_at, tag_version="") 
                                          "price_premium", "hit_lift") if k in r}
     return {
         "week": this_week, "generated_at": generated_at, "definition_version": DEFINITION_VERSION,
+        "kind": kind, "note": note,
         "tag_version": tag_version,
         "counts": {cc: len(_food(products, cc)) for cc in ("JP", "KR")},
         "highlights": {k: [short(r) for r in v][:30] if k != "common_both_rising" else v[:30] for k, v in hl.items()},
@@ -177,6 +178,18 @@ def save_snapshot(snap: dict) -> Path:
     for d in (OUT, DOCS_OUT):
         d.mkdir(parents=True, exist_ok=True)
         (d / name).write_text(text, encoding="utf-8")
-    weeks = sorted(p.stem for p in OUT.glob("*.json"))
-    (DOCS_OUT / "index.json").write_text(json.dumps({"weeks": weeks}, ensure_ascii=False), encoding="utf-8")
+    write_index()
     return OUT / name
+
+
+def write_index() -> None:
+    items = []
+    for p in sorted(OUT.glob("*.json")):
+        try:
+            d = json.loads(p.read_text(encoding="utf-8"))
+        except ValueError:
+            continue
+        items.append({"week": d.get("week", p.stem), "kind": d.get("kind", "weekly"),
+                      "generated_at": d.get("generated_at", "")})
+    DOCS_OUT.mkdir(parents=True, exist_ok=True)
+    (DOCS_OUT / "index.json").write_text(json.dumps({"weeks": items}, ensure_ascii=False), encoding="utf-8")

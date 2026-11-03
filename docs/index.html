@@ -303,6 +303,7 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
     <button type="button" role="tab" id="t-new" aria-controls="p-new" data-tab="new">新品總覽</button>
     <button type="button" role="tab" id="t-hits" aria-controls="p-hits" data-tab="hits">熱賣訊號</button>
     <button type="button" role="tab" id="t-common" aria-controls="p-common" data-tab="common">日韓共同趨勢</button>
+    <button type="button" role="tab" id="t-history" aria-controls="p-history" data-tab="history">歷週洞察</button>
     <button type="button" role="tab" id="t-mognavi" aria-controls="p-mognavi" data-tab="mognavi">もぐナビ口碑<span class="lk">🔒</span></button>
   </nav>
 
@@ -344,6 +345,8 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
         <tr><td>熱賣擴張</td><td>哪些商品試賣後擴大販售？</td><td>首發 14 天後才擴區才算，排除原本就排好的分批上市。</td></tr>
         <tr class="grp"><td colspan="3">日韓共同趨勢</td></tr>
         <tr><td>品類按鈕與卡片</td><td>日韓兩國都在推什麼？台灣可以借鏡什麼？</td><td>總覽每張卡片是一個品類，列出兩國占比都超過門檻的標籤與共通度。點卡片或上方品類按鈕，會用並排長條對照日本、韓國的占比與趨勢，點「看實例」展開兩國最新商品。兩國同時升溫（標「兩國同步升溫」）的最值得優先關注。可切換維度與門檻；這頁不受右上角國家切換影響。</td></tr>
+        <tr class="grp"><td colspan="3">歷週洞察</td></tr>
+        <tr><td>快照對照</td><td>過去說的訊號，後來有沒有成真？</td><td>選一個過去的週次和一個之後的週次，逐筆看跨超商升溫、新組合、價格溢價、熱賣倍數、日韓共同趨勢的後續（持續／減弱／未再出現），每區上方有「後續持續」的比例，累積下來就是這套指標的準確度。標「回溯計算」的週次是開始存快照前重算的，僅供參考。</td></tr>
         <tr class="grp"><td colspan="3">もぐナビ口碑（內部）</td></tr>
         <tr><td>口碑卡片</td><td>消費者的期待與實際評價？</td><td>「想吃」是買前期待，「分數」是吃過的評價（滿分 7）。想吃高、分數低＝期待落空；分數高、口碑多＝已被驗證。頁內「怎麼看這張卡」有逐欄說明。</td></tr>
       </table></div>
@@ -498,6 +501,21 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
     <ul class="xpts" id="c-pts" hidden></ul>
     <div id="c-body"></div>
     <p class="hint">先點上方的品類，看兩國占比對照；按鈕上的數字是該品類有幾個共通標籤。共通度＝兩國占比中較低的那個，越高代表兩邊都推得越多。趨勢＝期間後半段的占比相對前半段（只用新品數 20 支以上的週；資料少於兩週顯示「累積中」，該品類樣本少於 20 支顯示「樣本不足」）。新品數反映的是超商在推什麼（供給面），不等於銷量；借鏡到台灣前，仍要對照台灣的口味偏好與價格帶。</p>
+  </section>
+
+  <!-- 歷週洞察 -->
+  <section class="tabpanel" role="tabpanel" id="p-history" aria-labelledby="t-history" hidden>
+    <div class="sec-head">
+      <div><h2 style="font-size:1.25rem">歷週洞察</h2>
+      <div class="muted" style="font-size:.84rem">每週把網站上的訊號（跨超商升溫、新組合、價格溢價、熱賣倍數、日韓共同趨勢）存一份快照。選一個過去的週次，對照之後的週次，看當時的訊號後來有沒有持續，累積起來就是這套指標的準確度。國家依右上角切換。</div></div>
+    </div>
+    <div class="xt-ctrl">
+      <label class="chk">快照週次 <select id="h-week"></select></label>
+      <label class="chk">對照到 <select id="h-cmp"></select></label>
+    </div>
+    <div id="h-meta" class="muted" style="font-size:.8rem"></div>
+    <div id="h-body" style="display:grid;gap:18px"></div>
+    <p class="hint">判定方式：跨超商升溫、新組合看對照週該品類同標籤的新品支數（≥ 當週＝持續，較少＝減弱，0＝未再出現）；價格溢價看對照週是否仍 ≥ 10%；熱賣倍數看是否仍 ≥ 1.5 倍。「回溯計算」的週次是開始存快照前，用 11-03 的資料與標籤重算的，僅供參考。這些指標是規則計算，不是 AI 生成。</p>
   </section>
 
   <!-- もぐナビ口碑 -->
@@ -835,12 +853,13 @@ function drawGuide(){
 }
 
 /* ---------- 頁籤與國家 ---------- */
-const TABS=["guide","new","hits","common","mognavi"];
+const TABS=["guide","new","hits","common","history","mognavi"];
 function showTab(tab,push){
   if(!TABS.includes(tab))tab="new";S.tab=tab;
   TABS.forEach(t=>{$("t-"+t).setAttribute("aria-selected",String(t===tab));$("t-"+t).tabIndex=t===tab?0:-1;$("p-"+t).hidden=t!==tab});
   if(push&&location.hash!=="#"+tab){try{history.replaceState(null,"","#"+tab)}catch(e){location.hash=tab}}
   if(tab==="mognavi")requestAnimationFrame(drawGuide);
+  if(tab==="history")initHistory();
 }
 function setCountry(c){
   S.country=c;S.hitFilter="";S.shown=60;
@@ -1019,7 +1038,65 @@ function renderCommon(){
     </div>`).join("")}</div>`;
 }
 
-function renderAll(){renderGuide();renderSummary();renderCatChart();renderTags();renderPrice();renderXtab();fillFilters();renderGrid();renderHits();renderCommon();renderMognavi()}
+/* ---------- 歷週洞察 ---------- */
+S.snaps={};
+async function getSnap(w){
+  if(S.snaps[w])return S.snaps[w];
+  if(window.EMBED&&window.EMBED.insights)return S.snaps[w]=window.EMBED.insights[w];
+  try{const r=await fetch(`data/insights/${w}.json`,{cache:"no-store"});return S.snaps[w]=r.ok?await r.json():null}catch(e){return null}
+}
+async function initHistory(){
+  if(S.hIndex===undefined){
+    try{const r=window.EMBED&&window.EMBED.insightsIndex?{ok:true,json:async()=>window.EMBED.insightsIndex}:await fetch("data/insights/index.json",{cache:"no-store"});S.hIndex=r.ok?(await r.json()).weeks||[]:[]}catch(e){S.hIndex=[]}
+  }
+  const W=S.hIndex;
+  if(!W.length){$("h-body").innerHTML='<div class="empty">還沒有快照，第一次每週執行後就會出現。</div>';return}
+  const lab=x=>`${wkHead(x.week)}${x.kind==="backfill"?"（回溯計算）":""}`;
+  const fill=(id,list,val)=>{$(id).innerHTML=list.map(x=>`<option value="${x.week}">${esc(lab(x))}</option>`).join("");$(id).value=val};
+  const last=W[W.length-1].week;
+  if(!S.hWeek)S.hWeek=W.length>1?W[W.length-2].week:last;
+  fill("h-week",W,S.hWeek);
+  const later=W.filter(x=>x.week>=S.hWeek);
+  if(!S.hCmp||S.hCmp<S.hWeek)S.hCmp=last;
+  fill("h-cmp",later,S.hCmp);
+  renderHistory();
+}
+async function renderHistory(){
+  const A=await getSnap(S.hWeek),B=await getSnap(S.hCmp);
+  if(!A){$("h-body").innerHTML='<div class="empty">讀不到這一週的快照。</div>';return}
+  const cc=S.country,same=S.hWeek===S.hCmp;
+  $("h-meta").innerHTML=`快照 ${esc(wkHead(A.week))}：產生於 ${esc(A.generated_at)}｜指標定義 ${esc(A.definition_version)}｜標籤字典 ${esc(A.tag_version||"—")}｜日本 ${A.counts?.JP??"—"} 支、韓國 ${A.counts?.KR??"—"} 支`+
+    (A.kind==="backfill"?`<div class="acc-warn" style="background:var(--warn-soft);color:var(--warn);border-radius:4px;padding:6px 10px;margin-top:6px">${esc(A.note||"回溯計算")}</div>`:"");
+  const key=r=>`${r.country}|${r.category}|${r.tag}`;
+  const bmap={};(B?.category_tags||[]).forEach(r=>bmap[key(r)]=r);
+  const rowsA=(A.category_tags||[]).filter(r=>r.country===cc);
+  const cntAt=(r,w)=>r&&r.weekly&&w in r.weekly?r.weekly[w]:null;
+  const pct=x=>x===null||x===undefined?"—":(x>0?"+":"")+Math.round(x*100)+"%";
+  const verdictCount=(r)=>{if(same)return{t:"待下週",c:"muted"};const b=bmap[key(r)];const a=cntAt(r,A.week),v=cntAt(b,B.week);
+    if(v===null)return{t:"超出對照範圍",c:"muted"};if(v===0)return{t:"未再出現",c:"delta-down"};return v>=a?{t:`持續（${a}→${v} 支）`,c:"delta-up"}:{t:`減弱（${a}→${v} 支）`,c:""}};
+  const sections=[];
+  const mk=(title,desc,list,cols,verdict)=>{
+    const vs=list.map(r=>verdict(r));const ok=vs.filter(v=>v.c==="delta-up").length,judged=vs.filter(v=>v.c!=="muted").length;
+    sections.push(`<div class="panel"><header><h2>${title}</h2><span class="muted" style="font-size:.78rem">${list.length} 筆${judged?`｜後續持續 ${ok}/${judged}（${Math.round(ok/judged*100)}%）`:""}</span></header>
+      <p class="hint">${desc}</p>${list.length?`<div class="scroll"><table><tr><th>品類</th><th>標籤</th>${cols.map(c=>`<th class="num">${c[0]}</th>`).join("")}<th>對照 ${esc(wkHead(S.hCmp))} 的後續</th></tr>${list.map((r,i)=>`<tr><td>${esc(catName(r.category))}</td><td><b>${esc(r.tag)}</b></td>${cols.map(c=>`<td class="num">${c[1](r)}</td>`).join("")}<td class="${vs[i].c}">${esc(vs[i].t)}</td></tr>`).join("")}</table></div>`:'<div class="muted" style="font-size:.84rem">這一週沒有這類訊號。</div>'}</div>`)};
+  mk("跨超商升溫","當週有兩家以上超商同時比上週多推出含此標籤的新品。",rowsA.filter(r=>r.cross_chain_rising&&r.cross_chain_rising.length),
+    [["當週支數",r=>cntAt(r,A.week)??"—"],["超商",r=>esc(r.cross_chain_rising.map(c=>CHAIN_SHORT[c]||CHAIN_ZH[c]||c).join("、"))]],verdictCount);
+  mk("新組合","當週第一次出現在該品類的標籤。",rowsA.filter(r=>r.new_combo),[["當週支數",r=>cntAt(r,A.week)??"—"]],
+    r=>{if(same)return{t:"待下週",c:"muted"};const v=cntAt(bmap[key(r)],B.week);return v===null?{t:"超出對照範圍",c:"muted"}:v>0?{t:`後續仍有新品（${v} 支）`,c:"delta-up"}:{t:"未再出現",c:"delta-down"}});
+  mk("價格溢價","含此標籤的商品價格中位數比品類高 10% 以上（≥3 支才計算）。",rowsA.filter(r=>r.price_premium!==null&&r.price_premium>=0.1).sort((a,b)=>b.price_premium-a.price_premium).slice(0,20),
+    [["當週溢價",r=>pct(r.price_premium)],["支數",r=>r.n]],
+    r=>{if(same)return{t:"待下週",c:"muted"};const b=bmap[key(r)];if(!b||b.price_premium===null)return{t:"樣本不足",c:"muted"};return b.price_premium>=0.1?{t:`維持（${pct(b.price_premium)}）`,c:"delta-up"}:{t:`縮小（${pct(b.price_premium)}）`,c:"delta-down"}});
+  mk("熱賣倍數","含此標籤的商品出現熱賣訊號的比例，是品類平均的 1.5 倍以上。",rowsA.filter(r=>r.hit_lift&&r.hit_lift>=1.5).sort((a,b)=>b.hit_lift-a.hit_lift),
+    [["當週倍數",r=>"×"+r.hit_lift],["熱賣支數",r=>r.hits]],
+    r=>{if(same)return{t:"待下週",c:"muted"};const b=bmap[key(r)];if(!b||!b.hit_lift)return{t:"樣本不足",c:"muted"};return b.hit_lift>=1.5?{t:`維持（×${b.hit_lift}）`,c:"delta-up"}:{t:`減弱（×${b.hit_lift}）`,c:"delta-down"}});
+  const cm=(A.common_trends||[]).slice(0,15),cb={};(B?.common_trends||[]).forEach(r=>cb[r.category+"|"+r.tag]=r);
+  sections.push(`<div class="panel"><header><h2>日韓共同趨勢（共通度前 15）</h2><span class="muted" style="font-size:.78rem">兩國同時看，不受國家切換影響</span></header>${cm.length?`<div class="scroll"><table><tr><th>品類</th><th>標籤</th><th class="num">共通度</th><th class="num">日本</th><th class="num">韓國</th><th>對照 ${esc(wkHead(S.hCmp))} 的後續</th></tr>${cm.map(r=>{const b=cb[r.category+"|"+r.tag];
+      const v=same?{t:"待下週",c:"muted"}:!b?{t:"已不共通",c:"delta-down"}:b.score>=r.score?{t:`持續（${Math.round(b.score*100)}%）`,c:"delta-up"}:{t:`減弱（${Math.round(b.score*100)}%）`,c:""};
+      return`<tr><td>${esc(catName(r.category))}</td><td><b>${esc(r.tag)}</b></td><td class="num">${Math.round(r.score*100)}%</td><td class="num">${Math.round(r.jp_share*100)}%</td><td class="num">${Math.round(r.kr_share*100)}%</td><td class="${v.c}">${esc(v.t)}</td></tr>`}).join("")}</table></div>`:'<div class="muted" style="font-size:.84rem">這一週還沒有兩國資料（韓國自 W45 起收錄）。</div>'}</div>`);
+  $("h-body").innerHTML=(same?'<div class="empty" style="padding:14px">目前選的是最新一週，訊號的「後續」要等下週快照產生後才能對照。可以把「快照週次」改成更早的週。</div>':"")+sections.join("");
+}
+
+function renderAll(){renderGuide();renderSummary();renderCatChart();renderTags();renderPrice();renderXtab();fillFilters();renderGrid();renderHits();renderCommon();if(S.tab==="history"||S.hIndex!==undefined)initHistory();renderMognavi()}
 
 function bind(){
   ["q","f-chain","f-week","f-cat","f-tag","f-status","f-reg","f-rev","f-hit"].forEach(id=>$(id).addEventListener("input",()=>{S.shown=60;renderGrid()}));
@@ -1038,6 +1115,8 @@ function bind(){
   $("welcome-x").addEventListener("click",()=>{$("welcome").hidden=true;lsSet("cvs_radar_welcomed","1")});
   $("t-guide").addEventListener("click",()=>{$("welcome").hidden=true;lsSet("cvs_radar_welcomed","1")});
   ["c-type","c-min"].forEach(id=>$(id).addEventListener("input",renderCommon));
+  $("h-week").addEventListener("input",()=>{S.hWeek=$("h-week").value;S.hCmp="";initHistory()});
+  $("h-cmp").addEventListener("input",()=>{S.hCmp=$("h-cmp").value;renderHistory()});
   $("p-common").addEventListener("click",e=>{const b=e.target.closest("[data-ccat]");if(!b||b.disabled)return;S.cCat=b.dataset.ccat;renderCommon();
     $("c-cats").scrollIntoView({behavior:"smooth",block:"nearest"})});
   ["x-type","x-period","x-chain"].forEach(id=>$(id).addEventListener("input",renderXtab));
