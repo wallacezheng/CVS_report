@@ -5,7 +5,7 @@ lawson_jp,product,https://www.lawson.co.jp/recommend/new/,1,新品頁會轉址�
 cu_kr,product,https://cu.bgfretail.com/product/product.do?category=product&depth2=4,1,POST productAjax.do，最新順，只收官網標 NEW 的商品；無發售日，以第一次抓到日為上架日
 gs25_kr,product,https://gs25.gsretail.com/,0,新官網商品資料走 /api/，robots.txt 禁止 /api/ → 不爬，改由 Naver 新聞覆蓋
 emart24_kr,product,https://emart24.co.kr/goods/pl?align=RECENT,1,差異化商品最新順前 2 頁；無發售日與可靠 NEW 標記，以第一次抓到日為上架日
-seven_kr,product,https://www.7-eleven.co.kr/,0,robots.txt 禁止抓取 → 不爬，改由 Naver 新聞覆蓋
+seven_kr,product,https://www.7-eleven.co.kr/,0,從 GitHub 主機連線逾時（疑似封鎖海外或雲端流量，2026-11-03 確認），不繞過；改由 Naver 新聞覆蓋
 naver_datalab,signal,https://openapi.naver.com/v1/datalab/search,1,需 NAVER_CLIENT_ID／SECRET
 mognavi,mognavi_ranking,https://mognavi.jp/brand/2113/ranking,0,手動執行（Actions → mognavi），每週最多一次；排程不會自動跑
 familymart_press,press,https://www.family.co.jp/company/news_releases.html,1,官方新聞稿：擷取累計銷量、再販、熱賣休止等熱賣訊號

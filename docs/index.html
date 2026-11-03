@@ -392,7 +392,7 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
       <div class="tour-k">06｜使用前要知道的限制</div>
       <h2>這是每週快照與 AI 整理，拿去對外使用前請再核對原始來源</h2>
       <ul class="limits">
-        <li>日本涵蓋 7-Eleven、全家、Lawson（Lawson 自 2026-11-02 起）；韓國涵蓋 CU（官網標示 NEW 的商品）與 emart24（自有及合作商品），自 2026-11-02 起。GS25、7-Eleven 韓國的網站規定禁止程式抓取，所以不收錄，之後改用新聞補充。</li>
+        <li>日本涵蓋 7-Eleven、全家、Lawson（Lawson 自 2026-11-02 起）；韓國涵蓋 CU（官網標示 NEW 的商品）與 emart24（自有及合作商品），自 2026-11-02 起。GS25 的網站規定禁止程式抓取商品資料；7-Eleven 韓國的網站無法從我們的伺服器連線。兩家都不收錄，之後改用新聞補充。</li>
         <li>中文品名、分類、標籤與口碑摘要由 AI 產生，可能有誤；每張卡片都附原文與官網連結。標籤字典於 2026-11-02 擴充（加入口感、型態等），既有商品已依新字典重新貼標；之後字典再調整，系統會在下次執行時自動重貼。</li>
         <li>價格是官網標示的含稅價，日本單位日圓、韓國單位韓元；價格溢價只在同一國、同一品類內比較。</li>
         <li>官網只保留前後一週的新品，系統每週三抓取一次，資料從 2026 年 10 月下旬開始累積，趨勢需要幾週才會穩定。</li>
@@ -655,7 +655,7 @@ function renderSummary(){
   const pending=S.products.filter(p=>inCountry(p)&&!p.category_code).length;
   if(pending&&!notes.some(n=>n.includes("待翻譯")))notes.push(`${pending} 支商品尚未翻譯，暫不顯示；下次執行翻譯後會出現。`);
   if(m.sample)notes.push(m.sample);
-  if(S.country==="KR")notes.unshift("韓國資料自 2026-11-02（W45）起收錄。官網沒有發售日，以第一次抓到的日期當上架日，所以 W45 包含先前已上架、仍標示 NEW 的商品，數字偏高；W46 起才是當週真正新增的商品。GS25、7-Eleven 韓國依網站 robots 規定不抓取。");
+  if(S.country==="KR")notes.unshift("韓國資料自 2026-11-02（W45）起收錄。官網沒有發售日，以第一次抓到的日期當上架日，所以 W45 包含先前已上架、仍標示 NEW 的商品，數字偏高；W46 起才是當週真正新增的商品。GS25 依網站規定不抓取；7-Eleven 韓國無法從我們的伺服器連線，也不收錄。");
   $("status-accs").hidden=!notes.length;
   $("status-sub").textContent=notes.length?`${notes.length} 則`:"";
   $("status-list").innerHTML=notes.map(x=>`<li>${esc(x)}</li>`).join("");

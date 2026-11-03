@@ -42,7 +42,7 @@ Variables（可選）：MAX_ENRICH_PER_RUN、MAX_ENRICH_PER_MONTH、MAX_GEMINI_U
 ## 不可違反的規則
 - **もぐナビ**：被擋（403）時不得以換 IP、偽裝瀏覽器等方式繞過；手動、每週最多一次、間隔 ≥10 秒。資料只放 Sheet 與加密檔，不寄信、不放公開檔案。
 - **金鑰**：服務帳號 JSON、密碼只放 GitHub Secrets，不進 repo、聊天或信件。
-- 遵守各站 robots.txt（7-Eleven 韓國全站禁止 → 不爬）。
+- 遵守各站 robots.txt（GS25 禁止 /api/ → 不爬）。網站封鎖我們（403、連線逾時、地區限制）時，不換 IP、不走代理或其他網路繞過；改用合規來源（新聞 API、官方授權）。7-Eleven 韓國從 GitHub 主機連線逾時（2026-11-03 確認），同樣不繞過。
 - 寫 Sheet 前要能還原：もぐナビ寫入前會備份到「備份_*」分頁；讀取失敗時不寫入。
 - 公開 repo：除了加密檔外的資料都是公開的，不要放內部敏感內容。
 
@@ -60,7 +60,7 @@ Variables（可選）：MAX_ENRICH_PER_RUN、MAX_ENRICH_PER_MONTH、MAX_GEMINI_U
 - 2026-11-02 已完成：三家新品（7-Eleven、全家、Lawson）、三家新聞稿熱賣訊號、地區擴張、もぐナビ（加密頁籤）、密碼鎖、使用導覽頁籤、Gemini 用量紀錄與每月上限、probe 工具。
 - 2026-11-02 Lawson 新聞稿已上線（19 篇 → 32 個訊號，官方銷量 9 個）。
 - 2026-11-02 7-Eleven 新聞稿已上線（13 篇 → 18 個訊號，官方銷量 3 個）。**日本部分完成**：三家新品＋三家新聞稿熱賣訊號。
-- 2026-11-02 韓國第一步：CU（`cu_kr.py`，POST productAjax.do，只收 NEW）、emart24（`emart24_kr.py`，差異化商品最新順 2 頁）已接上；GS25 robots 禁止 /api/、7-Eleven 韓國 robots 全禁 → 都不爬。已上線：首跑 481 支（CU 441、emart24 40）全部翻譯完成（US$0.51）；W45 為基準週，數字偏高（儀表板已註記）。
+- 2026-11-02 韓國第一步：CU（`cu_kr.py`，POST productAjax.do，只收 NEW）、emart24（`emart24_kr.py`，差異化商品最新順 2 頁）已接上；GS25 robots 禁止 /api/ → 不爬；7-Eleven 韓國從 GitHub 主機連線逾時（11-03 更正：先前寫「robots 全禁」是誤判，實際上 robots 內容無法讀取）→ 不爬。已上線：首跑 481 支（CU 441、emart24 40）全部翻譯完成（US$0.51）；W45 為基準週，數字偏高（儀表板已註記）。
 - 2026-11-02 Wallace 決定順序：① 品類×口味交叉表 → ② 標籤細分＋口感／型態，既有商品重新貼標 → ③ C 類計算指標（標籤溢價、跨超商同步、熱賣關聯、新組合、日韓對照；存活期、口碑對照待資料累積）。
   - ① 完成：`docs/index.html` 的 `renderXtab`／`renderXdet`（瀏覽器端計算，新品總覽頁「品類 × 口味」）。
   - ② 程式完成：`config/tags.csv` 加 parent 欄與口感／型態／風格／機能／價格訴求維度（約 80 個）；`enrich.retag` 依字典指紋 tag_version 自動重貼（只改標籤）；`expand_tags` 自動補父標籤；儀表板交叉表加維度選單、讀 `docs/data/tags.csv`。已重貼 1,357/1,408 支（US$1.11，思考 token 偏多；一批逾時後批量改 30）；本國風格標籤（日本商品的「日式」、韓國商品的「韓式」）由 `expand_tags` 自動剔除，既有資料已清 301 筆。
