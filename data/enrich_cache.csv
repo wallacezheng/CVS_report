@@ -622,6 +622,8 @@ familymart_jp:4231004,茶流彩彩 玉米茶 600ml,,DRINK,,0.95,gemini-3.8-flash
 familymart_jp:4726692,春日井 顆粒軟糖Thunder,,SNACK_SWEET,,0.85,sample-manual,,d86b856c,3de9c58e,e6746ca2
 familymart_jp:4727880,七星軟糖 baby's,,SNACK_SWEET,,0.85,sample-manual,,d86b856c,3de9c58e,e6746ca2
 familymart_jp:4755791,,,NON_FOOD,,1.00,rule,2026-11-02,,,
+familymart_jp:4790679,,,NON_FOOD,,1.00,rule,2026-11-03,,,
+familymart_jp:4790693,,,NON_FOOD,,1.00,rule,2026-11-03,,,
 familymart_jp:4793366,,,NON_FOOD,,1.00,rule,2026-10-28,,,
 familymart_jp:4795131,史努比 吊飾＆巧克力蛋酥,食玩,SNACK_SWEET,巧克力|蛋|聯名・IP,0.6,sample-manual,,d86b856c,3de9c58e,e6746ca2
 familymart_jp:4795322,Fate/Grand Order 威化餅15（附卡）,食玩,SNACK_SWEET,聯名・IP,0.6,sample-manual,,d86b856c,3de9c58e,e6746ca2
@@ -656,6 +658,10 @@ familymart_jp:7916212,,,NON_FOOD,,1.00,rule,2026-11-02,,,
 familymart_jp:7916588,一番賞 文具小夥伴,,NON_FOOD,,0.99,sample-manual,,,3de9c58e,
 familymart_jp:7921551,,,NON_FOOD,,1.00,rule,2026-10-28,,,
 familymart_jp:7929687,,,NON_FOOD,,1.00,rule,2026-10-28,,,
+familymart_jp:7931970,,,NON_FOOD,,1.00,rule,2026-11-03,,,
+familymart_jp:7932342,,,NON_FOOD,,1.00,rule,2026-11-03,,,
+familymart_jp:7933271,,,NON_FOOD,,1.00,rule,2026-11-03,,,
+familymart_jp:7935770,,,NON_FOOD,,1.00,rule,2026-11-03,,,
 lawson_jp:1533074,滿餡 4種精華配料糯麥飯糰,使用日本國產糯麥，內餡料多實在,FRESH_RICE,糯麥・雜穀|在地食材・產地,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
 lawson_jp:1533075,6種配菜風味幕之內便當,一次品嚐6種豐富經典和風配菜,FRESH_BENTO,,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
 lawson_jp:1533076,奶油香巧克力可頌 4入,,BAKERY,奶油|巧克力|多入・分享包,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
@@ -815,7 +821,9 @@ lawson_jp:1533884,海鮮辣豆腐湯風味拉麵,,INSTANT,辣味|海鮮|韓式,0
 lawson_jp:1533885,大飯糰 紅鮭奶油醬油飯 明太子奶油醬,,FRESH_RICE,奶油|醬油・照燒|鮭魚|海鮮|明太子・鱈魚子|大份量・增量,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
 lawson_jp:1533886,令人上癮 濃郁麻油韓國海苔飯糰,,FRESH_RICE,芝麻・堅果|濃厚|韓式,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
 seven_jp:010146,,,ALCOHOL,,1.00,rule,2026-10-28,,,
+seven_jp:010389,,,ALCOHOL,,1.00,rule,2026-11-03,,,
 seven_jp:010486,,,ALCOHOL,,1.00,rule,2026-10-28,,,
+seven_jp:010768,,,ALCOHOL,,1.00,rule,2026-11-03,,,
 seven_jp:010925,,,ALCOHOL,,1.00,rule,2026-10-28,,,
 seven_jp:011481,,,ALCOHOL,,1.00,rule,2026-10-28,,,
 seven_jp:011636,Clear Asahi 生啤酒 罐裝 500ml,,ALCOHOL,清爽,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
@@ -848,14 +856,20 @@ seven_jp:030124,-196無糖調酒 梨子蘋果與葡萄 500ml,,ALCOHOL,水果|蘋
 seven_jp:030143,,,ALCOHOL,,1.00,rule,2026-10-28,,,
 seven_jp:030268,,,ALCOHOL,,1.00,rule,2026-10-28,,,
 seven_jp:030327,Shuri High 沖繩泡盛調酒 350ml,沖繩首里泡盛基底的罐裝沙瓦調酒,ALCOHOL,在地食材・產地,0.90,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2
+seven_jp:030340,,,ALCOHOL,,1.00,rule,2026-11-03,,,
 seven_jp:030353,講究酒場檸檬沙瓦 柚子檸檬 350ml,結合柚子香氣與清爽檸檬的風味沙瓦,ALCOHOL,柑橘|水果|清爽,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2
+seven_jp:030414,,,ALCOHOL,,1.00,rule,2026-11-03,,,
+seven_jp:030618,,,ALCOHOL,,1.00,rule,2026-11-03,,,
 seven_jp:030697,,,ALCOHOL,,1.00,rule,2026-10-28,,,
+seven_jp:030704,,,ALCOHOL,,1.00,rule,2026-11-03,,,
 seven_jp:030828,,,ALCOHOL,,1.00,rule,2026-10-28,,,
 seven_jp:030988,,,ALCOHOL,,1.00,rule,2026-10-28,,,
 seven_jp:030999,,,ALCOHOL,,1.00,rule,2026-10-28,,,
 seven_jp:031017,講究酒場檸檬沙瓦 柚子檸檬 500ml,結合柚子香氣與清爽檸檬的風味沙瓦,ALCOHOL,柑橘|水果|清爽,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2
+seven_jp:031064,,,ALCOHOL,,1.00,rule,2026-11-03,,,
 seven_jp:031069,煙燻蘇格蘭威士忌Highball 350ml,帶有泥煤煙燻風味的蘇格蘭調和威士忌調酒,ALCOHOL,,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2
 seven_jp:031070,煙燻蘇格蘭威士忌Highball 500ml,帶有泥煤煙燻風味的蘇格蘭調和威士忌調酒,ALCOHOL,,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2
+seven_jp:031367,,,ALCOHOL,,1.00,rule,2026-11-03,,,
 seven_jp:031648,,,ALCOHOL,,1.00,rule,2026-10-28,,,
 seven_jp:032540,,,ALCOHOL,,1.00,rule,2026-10-28,,,
 seven_jp:032542,,,ALCOHOL,,1.00,rule,2026-10-28,,,
@@ -1426,6 +1440,7 @@ seven_jp:370469,九鬼產業 奢華黑芝麻拿鐵單包裝,加入香濃牛奶�
 seven_jp:380071,JOKKI 義大利臘腸起司夾心切片,下酒佐料必備的義式臘腸夾起司片,SNACK_SAVORY,起司|豬肉|夾心・三明治式|東南亞・異國,0.90,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2
 seven_jp:380106,HOTEI 水煮海瓜子罐頭,適合料理調味或直接食用的水煮海瓜子貝肉罐頭,INSTANT,海鮮,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2
 seven_jp:380120,7 The Price 軟烤魷魚絲,口感柔軟有嚼勁的超值平價魷魚絲下酒零食,SNACK_SAVORY,海鮮|平價・CP值,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2
+seven_jp:380234,,,ALCOHOL,,1.00,rule,2026-11-03,,,
 seven_jp:380280,Natori 酥脆炸魷魚 洋蔥法式清湯風味,,SNACK_SAVORY,海鮮|酥脆,0.90,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2
 seven_jp:380308,炸魷魚餅 CoCo壹番屋監修 豬肉咖哩風味,酥脆炸魷魚脆片結合人氣咖哩店招牌豬肉咖哩調味,SNACK_SAVORY,咖哩|海鮮|豬肉|酥脆|名店監修|聯名・IP,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2
 seven_jp:380368,7-Premium 蜜柑果凍 180g,滿滿蜜柑果肉的多汁清爽杯裝果凍,DESSERT,柑橘|水果|清爽|杯裝・甜點杯,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2
@@ -1478,6 +1493,7 @@ seven_jp:720049,大創 桶用垃圾袋 45公升 12入,日用品垃圾袋,NON_FOO
 seven_jp:720162,大創 多用途加厚野餐墊 藍色,,NON_FOOD,,0.95,gemini-3.8-flash,2026-10-29,,3de9c58e,
 seven_jp:730182,LUCIDO Q10保濕化妝水 80ml,添加Q10成分的男性保養化妝水,NON_FOOD,,0.95,gemini-3.8-flash,2026-10-29,,3de9c58e,
 seven_jp:730200,LUCIDO 藥用抗老修護乳霜EX 30g,男性專用藥用保養乳霜,NON_FOOD,,0.95,gemini-3.8-flash,2026-10-29,,3de9c58e,
+seven_jp:730219,,,ALCOHOL,,1.00,rule,2026-11-03,,,
 seven_jp:744132,吉伊卡哇巧克磚 甘王草莓口味,吉伊卡哇造型板狀敲敲樂巧克力，使用甘王草莓,SNACK_SWEET,巧克力|草莓|水果|聯名・IP|在地食材・產地,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2
 seven_jp:744781,萬代 恐龍發掘巧克力 附發掘挖掘棒版,附專用發掘棒的益智敲骨恐龍造型巧克力,SNACK_SWEET,巧克力,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2
 seven_jp:744792,東鳩 蠟筆小新巧克比餅乾 草莓口味,蠟筆小新愛吃的巧克比餅乾草莓風味,SNACK_SWEET,草莓|水果|聯名・IP,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2
