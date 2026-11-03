@@ -75,3 +75,8 @@
 檔案說明,data/weekly_tags.csv,週 × 標籤的出現支數。
 檔案說明,data/exports/new_this_week.csv,本週新品中文版（寄信附件）。
 檔案說明,data/raw/,每次爬取的原始資料，供回溯與除錯。
+紀錄與追蹤,AI 產出的來源,data/enrich_cache.csv 每支商品記錄 model（模型）、enriched_at（日期）、confidence（信心度）、prompt_version（翻譯指令版本）、tag_version（標籤字典版本）、tag_prompt_version（貼標指令版本）。新聞稿分析在 data/press_releases.csv（model、prompt_version、analyzed_at）。もぐナビ摘要在 mognavi_cache 分頁（summary_model、summary_prompt_version、summarized_at）。
+紀錄與追蹤,指令版本怎麼來,程式自動取指令模板的指紋（8 碼），改了指令文字就會變；不需要手動編號。2026-11-03 以前的資料已依 git 歷史回補：翻譯 3de9c58e、貼標 e6746ca2、新聞稿 b106d7bb。
+紀錄與追蹤,標籤異動紀錄,data/tag_history.csv：每次商品標籤被改寫（重新貼標或規則清理）記一筆：日期、商品、舊標籤、新標籤、字典版本、原因、模型、指令版本。只增不改。人工校正另見 overrides 分頁（editor、note）。
+紀錄與追蹤,每週洞察快照,data/insights/{週次}.json：每次執行把網站上的品類×標籤指標、跨超商升溫、新組合、價格溢價、熱賣倍數、日韓共同趨勢存一份（同一週重跑覆蓋，不同週永久保留）。用途：日後驗證「當時說升溫的，後來有沒有繼續升」。
+紀錄與追蹤,AI 費用紀錄,data/gemini_usage.csv：每次呼叫的用途、次數、token、估算美元、模型與指令版本。送出的指令全文與 AI 原始回覆不保存。

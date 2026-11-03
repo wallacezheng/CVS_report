@@ -12,11 +12,13 @@ import re
 from datetime import date, timedelta
 from pathlib import Path
 
-from .enrich import call_gemini, gemini_mode, log_usage, resolve_model
+from . import enrich as _enrich
+from .enrich import call_gemini, gemini_mode, log_usage, prompt_version, resolve_model
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
-PRESS_FIELDS = ["release_id", "chain", "date", "title", "url", "is_food", "summary_zh"]
+PRESS_FIELDS = ["release_id", "chain", "date", "title", "url", "is_food", "summary_zh",
+                "analyzed_at", "model", "prompt_version"]
 SIGNAL_FIELDS = ["release_id", "chain", "date", "signal_type", "signal_zh", "target_ja", "detail_zh",
                  "number_text", "matched_keys", "url"]
 SIGNAL_ZH = {
@@ -124,7 +126,9 @@ def update_press(products: list[dict], today: date, errors: list[str]) -> None:
                     b = by_id.get(r.get("release_id"))
                     if not b:
                         continue
-                    press.append({**b, "is_food": "1" if r.get("is_food") else "0",
+                    press.append({**b, "analyzed_at": today.isoformat(), "model": _enrich.MODEL,
+                                  "prompt_version": prompt_version(_press_prompt),
+                                  "is_food": "1" if r.get("is_food") else "0",
                                   "summary_zh": r.get("summary_zh", "")})
                     for s in r.get("signals", []):
                         sigs.append({"release_id": b["release_id"], "chain": b["chain"], "date": b["date"],
@@ -134,7 +138,7 @@ def update_press(products: list[dict], today: date, errors: list[str]) -> None:
                                      "number_text": s.get("number_text", ""), "url": b["url"]})
         except Exception as e:
             errors.append(f"新聞稿分析失敗：{e}")
-        log_usage(today.isoformat(), "press", len(new))
+        log_usage(today.isoformat(), "press", len(new), prompt_version(_press_prompt))
     elif new:
         errors.append(f"官方新聞稿有 {len(new)} 篇待分析（需開啟翻譯）")
     # 每次都重新比對（商品主檔會增加）

@@ -15,6 +15,7 @@ DSR（典通 智慧數據整合研究部）內部工具：每週自動抓日本�
 | 各來源爬蟲（`crawl() -> list[dict]`，欄位見 `sources/__init__.py` RAW_FIELDS） | `scraper/sources/`：seven_jp、familymart_jp、lawson_jp、press_fm、press_lawson、press_sej、mognavi、cu_kr、emart24_kr |
 | Gemini（Vertex AI 服務帳號）、用量紀錄、每月花費上限 | `scraper/enrich.py` |
 | 熱賣訊號（新聞稿擷取、比對商品） | `scraper/signals.py` |
+| 每週洞察快照（規則計算，與網站算法一致） | `scraper/insights.py` → `data/insights/` |
 | もぐナビ（手動、只寫 Sheet、加密輸出到儀表板） | `scraper/mognavi_job.py`、`scraper/secure_export.py` |
 | Sheet 讀寫（分類、標籤、術語、校正、來源開關） | `scraper/config_store.py` |
 | 儀表板（單頁、頁籤：使用導覽／新品總覽／熱賣訊號／日韓共同趨勢／もぐナビ口碑） | `docs/index.html`，資料在 `docs/data/` |
@@ -66,5 +67,9 @@ Variables（可選）：MAX_ENRICH_PER_RUN、MAX_ENRICH_PER_MONTH、MAX_GEMINI_U
 - 2026-11-02 ①②③ 全部完成並驗證：1,408 支全部依新字典（版本 d86b856c）重貼；使用導覽、使用手冊已同步更新。
 - 2026-11-03 Wallace 提議「日韓共同趨勢」（供台灣借鏡）：新頁籤 `#p-common`（`renderCommon`）。同品類兩國占比都 ≥ 門檻（預設 10%、各 ≥3 支、品類各 ≥10 支）依共通度＝min(日, 韓) 排序；趨勢＝後半段占比－前半段，只用 ≥20 支的週、每段 ≥20 支，否則顯示累積中／樣本不足；兩國都升溫標「兩國同步升溫」。導覽、手冊、決策紀錄已同步。
 - 2026-11-03 依 Wallace 回饋改版日韓共同趨勢版面：品類按鈕列（數字＝共通標籤數）→ 總覽卡片 → 單一品類用日韓並排長條對照、趨勢、實例收合（`commonRows`／`renderCommon`，選取狀態 `S.cCat`）。
+- 2026-11-03 可追蹤性（Wallace 要求，三件都做）：
+  - AI 指令版本：`enrich.prompt_version(fn)`＝指令函式原始碼指紋；寫入 enrich_cache（prompt_version、tag_prompt_version）、press_releases（model、prompt_version、analyzed_at）、mognavi_cache（summary_model、summary_prompt_version）、gemini_usage（prompt_version）。既有資料依 git 歷史回補（翻譯 3de9c58e、貼標 e6746ca2、新聞稿 b106d7bb）。
+  - 標籤異動：`data/tag_history.csv`（retag 時 `append_tag_history`）；11-02 三批已從 git 回補 1,526 筆。
+  - 每週洞察快照：`scraper/insights.py` → `data/insights/{週}.json`（並複製到 `docs/data/insights/`＋index.json）。**算法須與 `docs/index.html` 的 renderXdet／renderCommon 一致，改一邊要同步改另一邊**（定義版本 insights-v1）。
 - 下一步：韓國熱賣訊號（評估見 Project 文件「來源評估與決策紀錄」：emart24 可直接做；CU／GS25 需 probe；Naver 新聞 API 需 Wallace 申請金鑰）。
 - 待 Wallace：GCP 預算快訊與 Vertex AI 配額；もぐナビbiz 授權洽詢。

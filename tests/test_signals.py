@@ -228,3 +228,46 @@ class SameCountryStyleTest(unittest.TestCase):
         tags = [{"tag_zh": "日式", "parent": ""}, {"tag_zh": "韓式", "parent": ""}]
         self.assertEqual(expand_tags(["日式", "韓式"], tags, "JP"), "韓式")
         self.assertEqual(expand_tags(["日式", "韓式"], tags, "KR"), "日式")
+
+
+class ProvenanceTest(unittest.TestCase):
+    def test_prompt_version_stable_and_distinct(self):
+        from scraper import enrich as E
+        self.assertEqual(E.prompt_version(E.build_prompt), E.prompt_version(E.build_prompt))
+        self.assertNotEqual(E.prompt_version(E.build_prompt), E.prompt_version(E._retag_prompt))
+
+    def test_retag_writes_history(self):
+        import tempfile
+        from pathlib import Path
+        from scraper import enrich as E
+        tags = [{"tag_zh": "草莓", "parent": "水果"}, {"tag_zh": "水果", "parent": ""}]
+        cache = {"a:1": {"product_key": "a:1", "category_code": "DESSERT", "tags": "水果", "model": "m",
+                         "tag_version": "old"}}
+        with tempfile.TemporaryDirectory() as d, \
+                mock.patch.object(E, "TAG_HISTORY", Path(d) / "h.csv"), \
+                mock.patch.object(E, "call_gemini", return_value=[{"product_key": "a:1", "tags": ["草莓"]}]), \
+                mock.patch.object(E, "resolve_model", return_value="m"), \
+                mock.patch.object(E, "gemini_mode", return_value="vertex"), \
+                mock.patch.object(E, "log_usage"):
+            E.retag([{"product_key": "a:1"}], tags, cache, "2026-11-03")
+            text = (Path(d) / "h.csv").read_text(encoding="utf-8")
+        self.assertIn("a:1,水果,草莓|水果,old", text)
+        self.assertEqual(cache["a:1"]["tag_prompt_version"], E.prompt_version(E._retag_prompt))
+
+
+class InsightsTest(unittest.TestCase):
+    def _p(self, key, chain, cat, week, tags, price=100, cc="JP"):
+        return {"product_key": key, "chain": chain, "country": cc, "category_code": cat, "release_week": week,
+                "tags": tags, "price_tax_incl": str(price), "hit_signals": ""}
+
+    def test_cross_chain_and_new_combo(self):
+        from scraper.insights import category_tags
+        ps = [self._p("a", "seven_jp", "DESSERT", "2026-W44", "巧克力"),
+              self._p("b", "seven_jp", "DESSERT", "2026-W45", "Q彈・Q軟"),
+              self._p("c", "lawson_jp", "DESSERT", "2026-W45", "Q彈・Q軟"),
+              self._p("d", "lawson_jp", "DESSERT", "2026-W45", "巧克力")]
+        rows = {r["tag"]: r for r in category_tags(ps, "JP", "2026-W45", {})}
+        self.assertEqual(rows["Q彈・Q軟"]["cross_chain_rising"], ["lawson_jp", "seven_jp"])
+        self.assertTrue(rows["Q彈・Q軟"]["new_combo"])
+        self.assertFalse(rows["巧克力"]["new_combo"])
+        self.assertEqual(rows["巧克力"]["delta"], 0)

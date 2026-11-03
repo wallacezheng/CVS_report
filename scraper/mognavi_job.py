@@ -19,7 +19,8 @@ from pathlib import Path
 
 from .common import today_tw
 from .config_store import ConfigStore
-from .enrich import call_gemini, gemini_mode, log_usage, resolve_model
+from . import enrich as _enrich
+from .enrich import call_gemini, gemini_mode, log_usage, prompt_version, resolve_model
 from .sources import mognavi
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -27,7 +28,8 @@ NOTE = "內部研究・不寄信"
 CHAIN_PREFIX = {"seven_jp": "セブン-イレブン", "familymart_jp": "ファミリーマート", "lawson_jp": "ローソン"}
 CACHE_FIELDS = ["mognavi_id", "chain", "name_ja", "release_date", "tabetai", "avg_score", "review_count",
                 "fetched_at", "reviews_json", "matched_key", "match_confidence", "name_zh", "summary_zh",
-                "sentiment", "summarized_review_count", "summarized_at", "parser_version", "summarized_version"]
+                "sentiment", "summarized_review_count", "summarized_at", "parser_version", "summarized_version",
+                "summary_model", "summary_prompt_version"]
 RANK_HEADER = ["週次", "抓取日", "超商", "排行類型", "品類", "名次", "もぐナビ商品名", "中譯", "對應商品key",
                "對應信心", "分數(7分制)", "口碑數", "食べたい數", "發售日", "口碑摘要", "評價傾向", "網址", "備註"]
 REVIEW_HEADER = ["review_id", "mognavi_id", "商品名", "日期", "內容（原文摘錄）", "抓取日"]
@@ -393,9 +395,11 @@ def main() -> int:
                     c["summarized_review_count"] = c.get("review_count", "")
                     c["summarized_at"] = today.isoformat()
                     c["summarized_version"] = mognavi.PARSER_VERSION
+                    c["summary_model"] = _enrich.MODEL
+                    c["summary_prompt_version"] = prompt_version(build_prompt)
         except Exception as e:
             errors.append(f"Gemini：{e}")
-        log_usage(today.isoformat(), "mognavi", len(todo))
+        log_usage(today.isoformat(), "mognavi", len(todo), prompt_version(build_prompt))
     print(f"[mognavi] Gemini 比對／摘要 {len(todo)} 筆待處理；錯誤：{errors or '無'}")
 
     # 寫入 Sheet

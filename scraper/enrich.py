@@ -30,12 +30,15 @@ import requests
 ROOT = Path(__file__).resolve().parent.parent
 CACHE = ROOT / "data" / "enrich_cache.csv"
 CACHE_FIELDS = ["product_key", "name_zh", "desc_zh", "category_code", "tags", "confidence", "model",
-                "enriched_at", "tag_version"]
+                "enriched_at", "tag_version", "prompt_version", "tag_prompt_version"]
 MAX_RETAG_PER_RUN = int(os.environ.get("MAX_RETAG_PER_RUN") or 1500)
 RETAG_BATCH = 30  # 50 支一批曾逾時（120 秒）
 USAGE = ROOT / "data" / "gemini_usage.csv"
+TAG_HISTORY = ROOT / "data" / "tag_history.csv"
+TAG_HISTORY_FIELDS = ["date", "product_key", "old_tags", "new_tags", "old_tag_version", "new_tag_version",
+                      "reason", "model", "prompt_version"]
 USAGE_FIELDS = ["date", "source", "calls", "items", "prompt_tokens", "output_tokens", "thought_tokens",
-                "est_usd", "model"]
+                "est_usd", "model", "prompt_version"]
 # 每月 Gemini 花費上限（美元，估算值）。超過就不再呼叫，下個月自動恢復。
 MAX_USD_PER_MONTH = float(os.environ.get("MAX_GEMINI_USD_PER_MONTH") or 10)
 # 每百萬 token 單價（美元）。刻意用偏高的定價估算：3.x Flash 2027 年起的正式價，寧可高估。
@@ -165,6 +168,26 @@ def build_prompt(items: list[dict], categories, tags, glossary) -> str:
 """
 
 
+def prompt_version(fn) -> str:
+    """AI 指令版本：取指令模板（函式原始碼）的指紋。改了指令文字就會得到新版本，不必手動編號。"""
+    import hashlib
+    import inspect
+    return hashlib.sha1(inspect.getsource(fn).encode("utf-8")).hexdigest()[:8]
+
+
+def append_tag_history(rows: list[dict]) -> None:
+    """標籤異動紀錄（只增不改）：每次商品標籤被改寫時記一筆舊值與新值。"""
+    if not rows:
+        return
+    new_file = not TAG_HISTORY.exists()
+    TAG_HISTORY.parent.mkdir(parents=True, exist_ok=True)
+    with TAG_HISTORY.open("a", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=TAG_HISTORY_FIELDS, extrasaction="ignore")
+        if new_file:
+            w.writeheader()
+        w.writerows(rows)
+
+
 def tag_version(tags) -> str:
     """標籤字典的指紋：字典改了（增刪標籤），已貼過標籤的商品就會在下次執行時重新貼標。"""
     import hashlib
@@ -241,6 +264,8 @@ def retag(items: list[dict], tags, cache: dict[str, dict], today: str) -> list[s
     except Exception as e:
         return errors + [str(e)]
     done = 0
+    pv = prompt_version(_retag_prompt)
+    history = []
     for i in range(0, len(todo), RETAG_BATCH):
         batch = todo[i:i + RETAG_BATCH]
         try:
@@ -255,10 +280,18 @@ def retag(items: list[dict], tags, cache: dict[str, dict], today: str) -> list[s
             c = cache.get(r.get("product_key", ""))
             if c is None:
                 continue
-            c["tags"] = expand_tags(r.get("tags", []), tags, by_key.get(r.get("product_key", ""), {}).get("country", ""))
+            new_tags = expand_tags(r.get("tags", []), tags, by_key.get(r.get("product_key", ""), {}).get("country", ""))
+            if new_tags != c.get("tags", ""):
+                history.append({"date": today, "product_key": c["product_key"], "old_tags": c.get("tags", ""),
+                                "new_tags": new_tags, "old_tag_version": c.get("tag_version", ""),
+                                "new_tag_version": ver, "reason": "標籤字典更新，重新貼標",
+                                "model": MODEL, "prompt_version": pv})
+            c["tags"] = new_tags
             c["tag_version"] = ver
+            c["tag_prompt_version"] = pv
             done += 1
-    log_usage(today, "retag", done)
+    append_tag_history(history)
+    log_usage(today, "retag", done, pv)
     print(f"[retag] 重新貼標 {done}/{len(todo)} 支（字典版本 {ver}）")
     return errors
 
@@ -376,7 +409,7 @@ def _month_count(cache: dict[str, dict], month: str) -> int:
                if (r.get("enriched_at") or "").startswith(month) and r.get("model") != "rule")
 
 
-def log_usage(today: str, source: str, items: int) -> None:
+def log_usage(today: str, source: str, items: int, prompt_ver: str = "") -> None:
     """把這段期間的 Gemini 用量寫一列到 data/gemini_usage.csv，然後歸零計數。沒呼叫就不寫。"""
     if not _LAST_USAGE["calls"]:
         return
@@ -387,7 +420,7 @@ def log_usage(today: str, source: str, items: int) -> None:
     rows.append({"date": today, "source": source, "calls": _LAST_USAGE["calls"], "items": items,
                  "prompt_tokens": _LAST_USAGE["prompt"], "output_tokens": _LAST_USAGE["output"],
                  "thought_tokens": _LAST_USAGE["thoughts"], "est_usd": f"{_LAST_USAGE['usd']:.4f}",
-                 "model": MODEL})
+                 "model": MODEL, "prompt_version": prompt_ver})
     for k in _LAST_USAGE:
         _LAST_USAGE[k] = 0.0 if k == "usd" else 0
     USAGE.parent.mkdir(parents=True, exist_ok=True)
@@ -472,7 +505,9 @@ def enrich(items: list[dict], categories, tags, glossary, cache: dict[str, dict]
                 "model": MODEL,
                 "enriched_at": today,
                 "tag_version": tag_version(tags),
+                "prompt_version": prompt_version(build_prompt),
+                "tag_prompt_version": prompt_version(build_prompt),
             }
             done += 1
-    log_usage(today, "translate", done)
+    log_usage(today, "translate", done, prompt_version(build_prompt))
     return errors

@@ -363,6 +363,16 @@ def run(args) -> int:
     this_week = iso_week(today.isoformat())
     export_for_mail(products, cats, this_week, DATA / "exports" / f"new_{this_week}.csv")
     export_for_mail(products, cats, this_week, DATA / "exports" / "new_this_week.csv")
+    # 每週洞察快照（規則計算的指標，供日後回顧與驗證）
+    try:
+        from .enrich import tag_version as _tv
+        from .insights import build_snapshot, save_snapshot
+        snap = build_snapshot(products, this_week, cfg.tags(), today.isoformat(), _tv(cfg.tags()))
+        path = save_snapshot(snap)
+        print(f"[insights] 已存 {path.name}：{len(snap['category_tags'])} 筆品類×標籤、"
+              f"{len(snap['common_trends'])} 筆日韓共通")
+    except Exception as e:
+        errors.append(f"洞察快照失敗：{e}")
     DOCS_DATA.mkdir(parents=True, exist_ok=True)
     for name in ("press_signals.csv", "region_history.csv"):
         if not (DATA / name).exists():
