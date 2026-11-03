@@ -211,7 +211,12 @@ class TagTest(unittest.TestCase):
                          "tags": "水果", "model": "m", "tag_version": "old"},
                  "a:2": {"product_key": "a:2", "category_code": "NON_FOOD", "model": "rule", "tags": ""}}
         items = [{"product_key": "a:1", "name_original": "いちごケーキ"}, {"product_key": "a:2"}]
-        with mock.patch.object(E, "call_gemini", return_value=[{"product_key": "a:1", "tags": ["草莓"]}]), \
+        import tempfile
+        from pathlib import Path
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        with mock.patch.object(E, "TAG_HISTORY", Path(tmp.name) / "h.csv"), \
+                mock.patch.object(E, "call_gemini", return_value=[{"product_key": "a:1", "tags": ["草莓"]}]), \
                 mock.patch.object(E, "resolve_model", return_value="m"), \
                 mock.patch.object(E, "gemini_mode", return_value="vertex"), \
                 mock.patch.object(E, "log_usage"):

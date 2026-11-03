@@ -48,6 +48,7 @@ Variables（可選）：MAX_ENRICH_PER_RUN、MAX_ENRICH_PER_MONTH、MAX_GEMINI_U
 
 ## 開發慣例與已知陷阱
 - 測試：`python -m unittest tests.test_parsers tests.test_signals tests.test_secure_export tests.test_mognavi_cleanup`（本機需 `pip install -r requirements.txt`）。新來源要存真實頁面到 `tests/fixtures/` 做回歸測試。
+- **測試不可寫入 `data/`**：CI 在正式執行前跑測試，測試若寫到真實檔案會污染資料（2026-11-03 曾有測試寫入 2 筆假標籤紀錄）。用到 TAG_HISTORY、USAGE、CACHE 等路徑的測試一律 mock 到暫存資料夾。
 - 新來源流程：probe 抓頁面 → 研究結構 → 寫 parser＋fixture 測試 → `config/sources.csv` 開啟並用 init-sheet 同步 sources 分頁 → crawl（translate=true）實跑 → 檢查 `data/products.csv`。
 - 伺服器沒宣告編碼的網站（Lawson）：`common.fetch` 已自動讀頁面 meta；若看到「ã」「æ」這類字就是亂碼。
 - 地區欄位統一用 7-Eleven 大區名稱（北海道、東北、関東、甲信越、北陸、東海、近畿、中国、四国、九州、沖縄）或「全国」。
