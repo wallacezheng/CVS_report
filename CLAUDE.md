@@ -17,7 +17,7 @@ DSR（典通 智慧數據整合研究部）內部工具：每週自動抓日本�
 | 熱賣訊號（新聞稿擷取、比對商品） | `scraper/signals.py` |
 | もぐナビ（手動、只寫 Sheet、加密輸出到儀表板） | `scraper/mognavi_job.py`、`scraper/secure_export.py` |
 | Sheet 讀寫（分類、標籤、術語、校正、來源開關） | `scraper/config_store.py` |
-| 儀表板（單頁、頁籤：使用導覽／新品總覽／熱賣訊號／もぐナビ口碑） | `docs/index.html`，資料在 `docs/data/` |
+| 儀表板（單頁、頁籤：使用導覽／新品總覽／熱賣訊號／日韓共同趨勢／もぐナビ口碑） | `docs/index.html`，資料在 `docs/data/` |
 | 設定的預設值（Sheet 初始化來源） | `config/*.csv`；`config/manual.csv` = Sheet「使用手冊」分頁 |
 | 工具 | `tools/init_sheet.py`（寫入 Sheet 分頁）、`tools/probe.py`（試探新來源） |
 
@@ -64,5 +64,6 @@ Variables（可選）：MAX_ENRICH_PER_RUN、MAX_ENRICH_PER_MONTH、MAX_GEMINI_U
   - ② 程式完成：`config/tags.csv` 加 parent 欄與口感／型態／風格／機能／價格訴求維度（約 80 個）；`enrich.retag` 依字典指紋 tag_version 自動重貼（只改標籤）；`expand_tags` 自動補父標籤；儀表板交叉表加維度選單、讀 `docs/data/tags.csv`。已重貼 1,357/1,408 支（US$1.11，思考 token 偏多；一批逾時後批量改 30）；本國風格標籤（日本商品的「日式」、韓國商品的「韓式」）由 `expand_tags` 自動剔除，既有資料已清 301 筆。
   - ③ 完成（`renderXdet`）：明細表加超商數、價格溢價（標籤商品價格中位數／品類中位數）、熱賣支數與倍數（排除聯名監修訊號）、另一國同品類占比、新組合與跨超商升溫標記，上方自動摘要。存活期、もぐナビ口碑對照待資料累積。
 - 2026-11-02 ①②③ 全部完成並驗證：1,408 支全部依新字典（版本 d86b856c）重貼；使用導覽、使用手冊已同步更新。
+- 2026-11-03 Wallace 提議「日韓共同趨勢」（供台灣借鏡）：新頁籤 `#p-common`（`renderCommon`）。同品類兩國占比都 ≥ 門檻（預設 10%、各 ≥3 支、品類各 ≥10 支）依共通度＝min(日, 韓) 排序；趨勢＝後半段占比－前半段，只用 ≥20 支的週、每段 ≥20 支，否則顯示累積中／樣本不足；兩國都升溫標「兩國同步升溫」。導覽、手冊、決策紀錄已同步。
 - 下一步：韓國熱賣訊號（評估見 Project 文件「來源評估與決策紀錄」：emart24 可直接做；CU／GS25 需 probe；Naver 新聞 API 需 Wallace 申請金鑰）。
 - 待 Wallace：GCP 預算快訊與 Vertex AI 配額；もぐナビbiz 授權洽詢。

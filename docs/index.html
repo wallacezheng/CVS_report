@@ -268,6 +268,7 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
     <button type="button" role="tab" id="t-guide" aria-controls="p-guide" data-tab="guide">使用導覽</button>
     <button type="button" role="tab" id="t-new" aria-controls="p-new" data-tab="new">新品總覽</button>
     <button type="button" role="tab" id="t-hits" aria-controls="p-hits" data-tab="hits">熱賣訊號</button>
+    <button type="button" role="tab" id="t-common" aria-controls="p-common" data-tab="common">日韓共同趨勢</button>
     <button type="button" role="tab" id="t-mognavi" aria-controls="p-mognavi" data-tab="mognavi">もぐナビ口碑<span class="lk">🔒</span></button>
   </nav>
 
@@ -286,7 +287,7 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
       <h2>從「量」看到「熱」再到「口碑」，一層層縮小到值得研究的商品</h2>
       <div class="flow">
         <button type="button" class="st" data-goto="new"><span class="q">① 推了什麼</span><span class="n" id="g-n1">—</span><span class="u">本週新品（支）</span><span class="t">品類、口味、口感、型態、價格往哪裡集中</span><span class="go">新品總覽 →</span></button>
-        <button type="button" class="st" data-goto="hits"><span class="q">② 哪些在變熱</span><span class="n" id="g-n2">—</span><span class="u">有熱賣訊號（支，全部週次）</span><span class="t">官方銷量、再販、擴大販售、聯名</span><span class="go">熱賣訊號 →</span></button>
+        <button type="button" class="st" data-goto="hits"><span class="q">② 哪些在變熱</span><span class="n" id="g-n2">—</span><span class="u">有熱賣訊號（支，全部週次）</span><span class="t">官方銷量、再販、擴大販售、聯名；再到「日韓共同趨勢」看兩國都在推的組合</span><span class="go">熱賣訊號 →</span></button>
         <button type="button" class="st" data-goto="mognavi"><span class="q">③ 消費者買不買單</span><span class="n" id="g-n3">—</span><span class="u">有口碑資料（支）</span><span class="t">想吃人數、評分、好評負評重點</span><span class="go">もぐナビ口碑 →</span></button>
       </div>
     </div>
@@ -307,6 +308,8 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
         <tr><td>訊號按鈕</td><td>有幾支商品出現熱賣跡象？</td><td>依證據強弱排序：官方公布銷量 ＞ 熱賣販售休止 ＞ 再販 ＞ 擴大販售 ＞ 系列擴充 ＞ 聯名監修。</td></tr>
         <tr><td>官方新聞稿</td><td>超商自己說什麼賣得好？</td><td>最可信的熱賣證據，來自全家、Lawson、7-Eleven 三家官方新聞稿（只取商品類），附原文數字與連結。新聞稿常談到我們開始收錄前就上市的長銷品，所以不一定對得到網站上的商品。韓國的熱賣訊號尚在建置。</td></tr>
         <tr><td>熱賣擴張</td><td>哪些商品試賣後擴大販售？</td><td>首發 14 天後才擴區才算，排除原本就排好的分批上市。</td></tr>
+        <tr class="grp"><td colspan="3">日韓共同趨勢</td></tr>
+        <tr><td>共通標籤表</td><td>日韓兩國都在推什麼？台灣可以借鏡什麼？</td><td>同一品類裡兩國占比都超過門檻的標籤，依「共通度」排序，附兩國實例。兩國同時升溫（標「兩國同步升溫」）的最值得優先關注。可切換維度與門檻；這頁不受右上角國家切換影響。</td></tr>
         <tr class="grp"><td colspan="3">もぐナビ口碑（內部）</td></tr>
         <tr><td>口碑卡片</td><td>消費者的期待與實際評價？</td><td>「想吃」是買前期待，「分數」是吃過的評價（滿分 7）。想吃高、分數低＝期待落空；分數高、口碑多＝已被驗證。頁內「怎麼看這張卡」有逐欄說明。</td></tr>
       </table></div>
@@ -342,6 +345,8 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
         <div><b>跨超商升溫</b>同一品類的同一標籤，本週有兩家以上超商都比上週多。比單一超商的檔期企劃更像產業趨勢。</div>
         <div><b>價格溢價</b>含這個標籤的商品，價格中位數比同品類中位數高或低多少。例：+30% 表示掛這個元素通常賣得比較貴。</div>
         <div><b>熱賣倍數</b>含這個標籤的商品出現熱賣訊號的比例，是同品類平均的幾倍（不含聯名監修本身）。樣本少時僅供參考。</div>
+        <div><b>共通度</b>同一品類裡，日本與韓國占比中較低的那個。例：飯糰的海鮮在日本 44%、韓國 43%，共通度就是 43%，代表兩邊都推得很多。</div>
+        <div><b>兩國同步升溫</b>日本、韓國的占比都在上升（期間後半段比前半段高）。需各自累積兩週以上、每段至少 20 支才計算。</div>
         <div><b>韓國的上架日</b>韓國官網沒有發售日，以系統第一次抓到的日期為準；第一週（W45）含先前已上架的商品，數字偏高。</div>
       </div>
     </div>
@@ -441,6 +446,22 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
       <div class="sec-head"><h2 style="font-size:1.1rem">有訊號的商品</h2><span class="muted mono" id="hit-count" style="font-size:.85rem"></span></div>
       <div class="grid" id="hit-grid"></div>
     </section>
+  </section>
+
+  <!-- 日韓共同趨勢 -->
+  <section class="tabpanel" role="tabpanel" id="p-common" aria-labelledby="t-common" hidden>
+    <div class="sec-head">
+      <div><h2 style="font-size:1.25rem">日韓共同趨勢</h2>
+      <div class="muted" style="font-size:.84rem">同一品類裡，日本和韓國的新品都大量使用的口味、口感、型態。兩個市場都在推的組合，比單一國家的流行更值得台灣參考。這一頁同時看兩國，不受右上角國家切換影響。</div></div>
+    </div>
+    <div class="xt-ctrl">
+      <select id="c-type"><option value="flavor">口味・素材</option><option value="口感">口感</option><option value="型態">型態</option><option value="風格">風格</option><option value="機能">機能</option><option value="企劃">企劃</option><option value="價格訴求">價格訴求</option><option value="季節">季節</option><option value="">全部維度</option></select>
+      <select id="c-min"><option value="0.1">兩國占比都 ≥ 10%</option><option value="0.05">兩國占比都 ≥ 5%</option><option value="0.2">兩國占比都 ≥ 20%</option></select>
+      <span class="muted" id="c-note" style="font-size:.78rem"></span>
+    </div>
+    <ul class="xpts" id="c-pts" hidden></ul>
+    <div class="scroll"><table id="c-tbl"></table></div>
+    <p class="hint">共通度＝兩國占比中較低的那個，越高代表兩邊都推得越多。趨勢＝期間後半段的占比相對前半段（只用新品數 20 支以上的週；資料少於兩週顯示「累積中」，該品類樣本少於 20 支顯示「樣本不足」）。新品數反映的是超商在推什麼（供給面），不等於銷量；借鏡到台灣前，仍要對照台灣的口味偏好與價格帶。</p>
   </section>
 
   <!-- もぐナビ口碑 -->
@@ -778,7 +799,7 @@ function drawGuide(){
 }
 
 /* ---------- 頁籤與國家 ---------- */
-const TABS=["guide","new","hits","mognavi"];
+const TABS=["guide","new","hits","common","mognavi"];
 function showTab(tab,push){
   if(!TABS.includes(tab))tab="new";S.tab=tab;
   TABS.forEach(t=>{$("t-"+t).setAttribute("aria-selected",String(t===tab));$("t-"+t).tabIndex=t===tab?0:-1;$("p-"+t).hidden=t!==tab});
@@ -888,7 +909,52 @@ function renderXdet(ps,ws){
     <p class="hint">價格溢價、熱賣倍數至少 3 支／2 支才計算；標籤由 AI 判斷、樣本少，請當成觀察方向，引用前點「看商品」確認。</p>`;
 }
 
-function renderAll(){renderGuide();renderSummary();renderCatChart();renderTags();renderPrice();renderXtab();fillFilters();renderGrid();renderHits();renderMognavi()}
+/* ---------- 日韓共同趨勢 ---------- */
+const foodOf=cc=>S.products.filter(p=>(p.country||"JP")===cc&&p.category_code&&!EXCL.has(p.category_code));
+// 只用新品數 ≥ 20 支的週（剛開始收錄的週樣本太小，占比會大幅跳動）
+function weeksOf(ps,n){const c={};ps.forEach(p=>{if(p.release_week)c[p.release_week]=(c[p.release_week]||0)+1});const all=Object.keys(c).filter(w=>c[w]>=20).sort();const cur=S.meta.this_week||all[all.length-1];return all.filter(w=>w<=cur).slice(-n)}
+function trendOf(its,all,ws){ // 後半段占比 − 前半段占比
+  if(ws.length<2)return null;const h=Math.floor(ws.length/2),A=new Set(ws.slice(0,h)),B=new Set(ws.slice(h));
+  const sh=set=>{const base=all.filter(p=>set.has(p.release_week));return base.length>=20?its.filter(p=>set.has(p.release_week)).length/base.length:null};
+  const a=sh(A),b=sh(B);return a===null||b===null?null:b-a}
+function renderCommon(){
+  const dim=$("c-type").value,minS=+$("c-min").value;
+  const D={};
+  ["JP","KR"].forEach(cc=>{const all=foodOf(cc),ws=weeksOf(all,4),set=new Set(ws);D[cc]={ws,ps:all.filter(p=>set.has(p.release_week))}});
+  if(!D.KR.ps.length||!D.JP.ps.length){$("c-tbl").innerHTML='<tr><td class="muted">兩國都有資料後才能比較。</td></tr>';$("c-pts").hidden=true;return}
+  $("c-note").textContent=`日本 ${wkHead(D.JP.ws[0])}～${wkHead(D.JP.ws[D.JP.ws.length-1])}（${D.JP.ps.length} 支）｜韓國 ${D.KR.ws.length>1?wkHead(D.KR.ws[0])+"～":""}${wkHead(D.KR.ws[D.KR.ws.length-1])}（${D.KR.ps.length} 支）`;
+  const cats=[...new Set(D.JP.ps.map(p=>p.category_code))].filter(c=>D.JP.ps.filter(p=>p.category_code===c).length>=10&&D.KR.ps.filter(p=>p.category_code===c).length>=10);
+  const R=[];
+  cats.forEach(c=>{
+    const J=D.JP.ps.filter(p=>p.category_code===c),K=D.KR.ps.filter(p=>p.category_code===c);
+    const tags=new Set([...J,...K].flatMap(tagsOf).filter(t=>inDim(t,dim)&&t!=="日式"&&t!=="韓式"));
+    tags.forEach(t=>{
+      const jt=J.filter(p=>tagsOf(p).includes(t)),kt=K.filter(p=>tagsOf(p).includes(t));
+      const js=jt.length/J.length,ks=kt.length/K.length;
+      if(jt.length<3||kt.length<3||js<minS||ks<minS)return;
+      R.push({c,t,js,ks,jn:jt.length,kn:kt.length,jN:J.length,kN:K.length,score:Math.min(js,ks),
+        jtr:trendOf(jt,J,D.JP.ws),ktr:trendOf(kt,K,D.KR.ws),jex:jt.slice().sort((a,b)=>(b.release_date||b.first_seen)>(a.release_date||a.first_seen)?1:-1).slice(0,2),kex:kt.slice(0,2)});
+    });
+  });
+  R.sort((a,b)=>b.score-a.score);
+  const pct=x=>Math.round(x*100)+"%";
+  const tr=(x,ws)=>x===null?`<span class="muted">${ws.length<2?"累積中":"樣本不足"}</span>`:`<span class="${x>0.02?"delta-up":x<-0.02?"delta-down":"muted"}">${x>0.02?"↑":x<-0.02?"↓":"→"} ${(x>0?"+":"")+Math.round(x*100)}pt</span>`;
+  const ex=(ps,cc)=>ps.map(p=>`<a href="${esc(p.source_url)}" target="_blank" rel="noopener" title="${esc(p.name_original)}">${esc(p.name_zh||p.name_original)}</a><span class="muted">（${esc(CHAIN_SHORT[p.chain]||CHAIN_ZH[p.chain]||p.chain)}）</span>`).join("、");
+  let h=`<tr><th>品類</th><th>標籤</th><th class="num">共通度</th><th class="num">日本占比</th><th class="num">日本趨勢</th><th class="num">韓國占比</th><th class="num">韓國趨勢</th><th>日本實例</th><th>韓國實例</th></tr>`;
+  R.slice(0,60).forEach(r=>{h+=`<tr><td>${esc(catName(r.c))}</td><td><b>${esc(r.t)}</b>${r.jtr>0.02&&r.ktr>0.02?'<span class="badge-new">兩國同步升溫</span>':""}</td>
+    <td class="num"><b>${pct(r.score)}</b></td><td class="num">${pct(r.js)} <span class="muted">${r.jn}/${r.jN}</span></td><td class="num">${tr(r.jtr,D.JP.ws)}</td>
+    <td class="num">${pct(r.ks)} <span class="muted">${r.kn}/${r.kN}</span></td><td class="num">${tr(r.ktr,D.KR.ws)}</td>
+    <td style="white-space:normal;min-width:14em;font-size:.8rem">${ex(r.jex)}</td><td style="white-space:normal;min-width:14em;font-size:.8rem">${ex(r.kex)}</td></tr>`});
+  $("c-tbl").innerHTML=R.length?h:'<tr><td class="muted">這個條件下沒有兩國共通的標籤，試著降低門檻或換維度。</td></tr>';
+  const pts=[];
+  if(R.length)pts.push(`<b>共通度最高</b>：${esc(R.slice(0,4).map(r=>`${catName(r.c)}×${r.t}（日 ${pct(r.js)}／韓 ${pct(r.ks)}）`).join("、"))}。`);
+  const up=R.filter(r=>r.jtr>0.02&&r.ktr>0.02);
+  if(up.length)pts.push(`<b>兩國同步升溫</b>：${esc(up.slice(0,4).map(r=>`${catName(r.c)}×${r.t}`).join("、"))}，最值得台灣優先關注。`);
+  else if(D.KR.ws.length<2)pts.push(`<b>同步升溫</b>：韓國資料自 2026-11-02 起收錄，累積兩週以上才能判斷兩國是否同時在升溫；目前先看共通度。`);
+  $("c-pts").innerHTML=pts.map(x=>`<li>${x}</li>`).join("");$("c-pts").hidden=!pts.length;
+}
+
+function renderAll(){renderGuide();renderSummary();renderCatChart();renderTags();renderPrice();renderXtab();fillFilters();renderGrid();renderHits();renderCommon();renderMognavi()}
 
 function bind(){
   ["q","f-chain","f-week","f-cat","f-tag","f-status","f-reg","f-rev","f-hit"].forEach(id=>$(id).addEventListener("input",()=>{S.shown=60;renderGrid()}));
@@ -906,6 +972,7 @@ function bind(){
   $("welcome").hidden=lsGet("cvs_radar_welcomed")==="1";
   $("welcome-x").addEventListener("click",()=>{$("welcome").hidden=true;lsSet("cvs_radar_welcomed","1")});
   $("t-guide").addEventListener("click",()=>{$("welcome").hidden=true;lsSet("cvs_radar_welcomed","1")});
+  ["c-type","c-min"].forEach(id=>$(id).addEventListener("input",renderCommon));
   ["x-type","x-period","x-chain"].forEach(id=>$(id).addEventListener("input",renderXtab));
   $("x-mat").addEventListener("click",e=>{const el=e.target.closest("[data-xcat]");if(!el)return;S.xCat=el.dataset.xcat;S.xTag=el.dataset.xtag||"";renderXtab()});
   $("x-det").addEventListener("click",e=>{const b=e.target.closest("[data-xgo]");if(!b)return;
