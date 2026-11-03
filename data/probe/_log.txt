@@ -30,3 +30,8 @@
 200    38754 bytes text/html; charset=utf-8 POST:https://cu.bgfretail.com/product/productAjax.do|pageIndex=1&searchMainCategory=10&searchSubCategory=&listType=0&searchCondition=setC&searchUseYn=N&gdIdx=0&codeParent=10&search1=&search2=&searchKeyword= → POST_https_cu.bgfretail.com_product_productAjax.do_pageIndex_1_searchMainCategory_10_searchSubCategory_listType_0_search.html（轉址到 https://cu.bgfretail.com/product/productAjax.do）
 200    37136 bytes text/html; charset=utf-8 https://cu.bgfretail.com/product/pb.do?category=product&depth2=1&sf=N → cu.bgfretail.com_product_pb.do_category_product_depth2_1_sf_N.html
 200    31337 bytes text/html; charset=utf-8 https://cu.bgfretail.com/brand_info/news_list.do?category=brand_info&depth2=5&sf=N → cu.bgfretail.com_brand_info_news_list.do_category_brand_info_depth2_5_sf_N.html
+# 2026-11-03T09:44:00.499977Z
+ERR https://www.7-eleven.co.kr/robots.txt：HTTPSConnectionPool(host='www.7-eleven.co.kr', port=443): Max retries exceeded with url: /robots.txt (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.7-eleven.co.kr', port=443) at 0x702f37d54fe0>, 'Connection to www.7-eleven.co.kr timed out. (connect timeout=30)'))
+ERR https://www.7-eleven.co.kr/：HTTPSConnectionPool(host='www.7-eleven.co.kr', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.7-eleven.co.kr', port=443) at 0x702f364ded80>, 'Connection to www.7-eleven.co.kr timed out. (connect timeout=30)'))
+200     1322 bytes text/plain; charset=UTF-8 https://www.gsretail.com/robots.txt → www.gsretail.com_robots.txt.html
+200      906 bytes text/html; charset=UTF-8 https://gs25.gsretail.com/robots.txt → gs25.gsretail.com_robots.txt.html（轉址到 https://www.gsretail.com/brand/gs25）
