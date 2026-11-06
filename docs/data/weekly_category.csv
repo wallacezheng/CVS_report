@@ -110,9 +110,9 @@ week,country,chain,category_code,category_zh,category_group,new_count,avg_price,
 2026-W45,JP,seven_jp,HOT_SNACK,熱食・炸物・包子,熱食,1,198.7,198.7
 2026-W45,JP,seven_jp,ICE,冰淇淋・冰品,冰品,9,266.3,237.6
 2026-W45,JP,seven_jp,INSTANT,泡麵・加工食品,加工食品,17,310.8,280.8
-2026-W45,JP,seven_jp,SNACK_SAVORY,鹹零食,零食,12,208.5,176.0
+2026-W45,JP,seven_jp,SNACK_SAVORY,鹹零食,零食,14,204.7,181.4
 2026-W45,JP,seven_jp,SNACK_SWEET,甜零食・糖果,零食,30,209.3,190.6
-2026-W45,KR,cu_kr,BAKERY,麵包,麵包,53,2907.5,2500.0
+2026-W45,KR,cu_kr,BAKERY,麵包,麵包,54,2900.0,2500.0
 2026-W45,KR,cu_kr,DESSERT,冷藏甜點,甜點,37,3721.6,3800.0
 2026-W45,KR,cu_kr,DRINK,飲料,飲料,41,2875.6,2600.0
 2026-W45,KR,cu_kr,FRESH_BENTO,便當・丼飯・炒飯,鮮食,19,5889.5,5900.0
@@ -125,7 +125,7 @@ week,country,chain,category_code,category_zh,category_group,new_count,avg_price,
 2026-W45,KR,cu_kr,ICE,冰淇淋・冰品,冰品,24,7875.0,4900.0
 2026-W45,KR,cu_kr,INSTANT,泡麵・加工食品,加工食品,26,4664.6,4300.0
 2026-W45,KR,cu_kr,SNACK_SAVORY,鹹零食,零食,19,2494.7,2000.0
-2026-W45,KR,cu_kr,SNACK_SWEET,甜零食・糖果,零食,75,3265.3,3000.0
+2026-W45,KR,cu_kr,SNACK_SWEET,甜零食・糖果,零食,77,3237.7,2800.0
 2026-W45,KR,emart24_kr,BAKERY,麵包,麵包,2,3650.0,3650.0
 2026-W45,KR,emart24_kr,DESSERT,冷藏甜點,甜點,2,3200.0,3200.0
 2026-W45,KR,emart24_kr,DRINK,飲料,飲料,8,1950.0,1650.0
@@ -135,6 +135,16 @@ week,country,chain,category_code,category_zh,category_group,new_count,avg_price,
 2026-W45,KR,emart24_kr,FRESH_SANDWICH,三明治・漢堡・捲餅,鮮食,6,3816.7,3800.0
 2026-W45,KR,emart24_kr,ICE,冰淇淋・冰品,冰品,1,2500.0,2500.0
 2026-W45,KR,emart24_kr,SNACK_SWEET,甜零食・糖果,零食,1,2900.0,2900.0
+2026-W46,JP,lawson_jp,BAKERY,麵包,麵包,7,216.9,192.0
+2026-W46,JP,lawson_jp,DESSERT,冷藏甜點,甜點,4,277.5,277.0
+2026-W46,JP,lawson_jp,DRINK,飲料,飲料,2,349.0,349.0
+2026-W46,JP,lawson_jp,FRESH_BENTO,便當・丼飯・炒飯,鮮食,1,559.0,559.0
+2026-W46,JP,lawson_jp,FRESH_DELI,配菜・沙拉・湯品,鮮食,3,272.3,210.0
+2026-W46,JP,lawson_jp,FRESH_NOODLE,麵類・義大利麵,鮮食,3,451.0,451.0
+2026-W46,JP,lawson_jp,FRESH_SANDWICH,三明治・漢堡・捲餅,鮮食,2,444.0,444.0
+2026-W46,JP,lawson_jp,HOT_SNACK,熱食・炸物・包子,熱食,1,198.0,198.0
+2026-W46,JP,lawson_jp,SNACK_SAVORY,鹹零食,零食,3,288.0,318.0
+2026-W46,JP,lawson_jp,SNACK_SWEET,甜零食・糖果,零食,4,193.0,188.0
 2026-W46,JP,seven_jp,BAKERY,麵包,麵包,28,195.7,181.4
 2026-W46,JP,seven_jp,DESSERT,冷藏甜點,甜點,17,296.2,302.4
 2026-W46,JP,seven_jp,DRINK,飲料,飲料,15,206.1,203.0

@@ -440,6 +440,9 @@ cu_kr:28714,Mogu Mogu芒果風味椰果飲料 500ml,含Q彈椰果顆粒,DRINK,�
 cu_kr:28715,樂天 Ghana鹽味牛奶夾心巧克力,,SNACK_SWEET,鹽味|巧克力|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
 cu_kr:28717,Whittaker's 杏仁牛奶巧克力,紐西蘭Whittaker's進口,SNACK_SWEET,芝麻・堅果|巧克力,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
 cu_kr:28718,Whittaker's 經典香濃牛奶巧克力,紐西蘭Whittaker's進口,SNACK_SWEET,巧克力|濃厚,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
+cu_kr:28721,Cadbury吉百利牛奶巧克力,,SNACK_SWEET,巧克力,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+cu_kr:28722,Cadbury吉百利榛果牛奶巧克力,,SNACK_SWEET,巧克力|芝麻・堅果,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+cu_kr:28723,BAKE 405 美波的哈密瓜麵包,CU自有烘焙品牌405系列,BAKERY,哈密瓜|水果,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
 emart24_kr:8800268814010,Yellow 蛋白奶昔綜合穀物風味,便於攜帶沖泡的高蛋白粉飲,DRINK,糯麥・雜穀|高蛋白,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
 emart24_kr:8800268814027,Yellow 蛋白奶昔巧克力風味,便於攜帶沖泡的高蛋白粉飲,DRINK,巧克力|高蛋白,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
 emart24_kr:8800268814034,Yellow 蛋白奶昔玉米脆片風味,便於攜帶沖泡的高蛋白粉飲,DRINK,高蛋白,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
@@ -638,6 +641,7 @@ familymart_jp:4790693,,,NON_FOOD,,1.00,rule,2026-11-03,,,
 familymart_jp:4793366,,,NON_FOOD,,1.00,rule,2026-10-28,,,
 familymart_jp:4795131,史努比 吊飾＆巧克力蛋酥,食玩,SNACK_SWEET,巧克力|蛋|聯名・IP,0.6,sample-manual,,d86b856c,3de9c58e,e6746ca2
 familymart_jp:4795322,Fate/Grand Order 威化餅15（附卡）,食玩,SNACK_SWEET,聯名・IP,0.6,sample-manual,,d86b856c,3de9c58e,e6746ca2
+familymart_jp:4795391,,,NON_FOOD,,1.00,rule,2026-11-06,,,
 familymart_jp:4796121,,,NON_FOOD,,1.00,rule,2026-10-28,,,
 familymart_jp:4797425,Dozle社×はぴだんぶい 薯條餅乾,YouTuber團體聯名零食,SNACK_SAVORY,聯名・IP,0.7,sample-manual,,d86b856c,3de9c58e,e6746ca2
 familymart_jp:4798675,,,NON_FOOD,,1.00,rule,2026-10-28,,,
@@ -662,6 +666,10 @@ familymart_jp:6391386,,,NON_FOOD,,1.00,rule,2026-10-28,,,
 familymart_jp:6391393,,,NON_FOOD,,1.00,rule,2026-11-02,,,
 familymart_jp:6391409,,,NON_FOOD,,1.00,rule,2026-11-02,,,
 familymart_jp:6391416,,,NON_FOOD,,1.00,rule,2026-10-29,,,
+familymart_jp:7333408,,,NON_FOOD,,1.00,rule,2026-11-06,,,
+familymart_jp:7333415,,,NON_FOOD,,1.00,rule,2026-11-06,,,
+familymart_jp:7443862,,,NON_FOOD,,1.00,rule,2026-11-06,,,
+familymart_jp:7443879,,,NON_FOOD,,1.00,rule,2026-11-06,,,
 familymart_jp:7915130,,,NON_FOOD,,1.00,rule,2026-10-28,,,
 familymart_jp:7916007,,,NON_FOOD,,1.00,rule,2026-11-02,,,
 familymart_jp:7916090,一番賞 角落小夥伴,,NON_FOOD,,0.99,sample-manual,,,3de9c58e,
@@ -673,6 +681,10 @@ familymart_jp:7931970,,,NON_FOOD,,1.00,rule,2026-11-03,,,
 familymart_jp:7932342,,,NON_FOOD,,1.00,rule,2026-11-03,,,
 familymart_jp:7933271,,,NON_FOOD,,1.00,rule,2026-11-03,,,
 familymart_jp:7935770,,,NON_FOOD,,1.00,rule,2026-11-03,,,
+familymart_jp:7937408,,,NON_FOOD,,1.00,rule,2026-11-06,,,
+familymart_jp:7937729,,,NON_FOOD,,1.00,rule,2026-11-06,,,
+familymart_jp:79708490,氣志團×FamilyMart 新年4649福袋,全家線上商城限定抽籤販售福袋,NON_FOOD,聯名・IP,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1390202,可麗餅蛋糕 巧克力,,BAKERY,巧克力|捲・可麗餅,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
 lawson_jp:1533074,滿餡 4種精華配料糯麥飯糰,使用日本國產糯麥，內餡料多實在,FRESH_RICE,糯麥・雜穀|在地食材・產地,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
 lawson_jp:1533075,6種配菜風味幕之內便當,一次品嚐6種豐富經典和風配菜,FRESH_BENTO,,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
 lawson_jp:1533076,奶油香巧克力可頌 4入,,BAKERY,奶油|巧克力|多入・分享包,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
@@ -833,6 +845,38 @@ lawson_jp:1533885,大飯糰 紅鮭奶油醬油飯 明太子奶油醬,,FRESH_RICE
 lawson_jp:1533886,令人上癮 濃郁麻油韓國海苔飯糰,,FRESH_RICE,芝麻・堅果|濃厚|韓式,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
 lawson_jp:1534006,みっちゃん總本店監修 廣島流御好燒 豬肉炒麵蛋,廣島老店監修，經典層疊炒麵、豬肉與蛋的廣島燒,FRESH_DELI,豬肉|蛋|名店監修,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0
 lawson_jp:1534007,大盛特調醬汁炒麵,大份量經典日式濃郁炒麵,FRESH_NOODLE,大份量・增量,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0
+lawson_jp:1534079,濃厚宇治抹茶拿鐵,,DRINK,抹茶|濃厚,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534080,宇治抹茶拿鐵,,DRINK,抹茶,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534081,,,ALCOHOL,,1.00,rule,2026-11-06,,,
+lawson_jp:1534082,噶瑪蘭三重雪莉桶單一麥芽威士忌 200ml,,ALCOHOL,,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534083,酸甜去籽切脆梅,,SNACK_SWEET,水果,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534084,可可奶油威化甜筒餅乾,,SNACK_SWEET,巧克力|奶油|酥脆,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534085,酥脆可可脆球,,SNACK_SWEET,巧克力|酥脆,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534086,巧克力棉花糖,,SNACK_SWEET,巧克力,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534087,BIG酥脆洋芋片 鮮味法式清湯,,SNACK_SAVORY,酥脆|大份量・增量,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534088,BIG酥脆洋芋片 講究鹽味,,SNACK_SAVORY,鹽味|酥脆|大份量・增量,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534089,繽紛5種綜合水果乾與堅果,,SNACK_SAVORY,芝麻・堅果|水果,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534094,Q彈水餃中華湯,,FRESH_DELI,Q彈・Q軟|中華・町中華|豬肉,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534095,湯匙享用 野菇微辣番茄義大利麵,短麵設計，方便以湯匙食用,FRESH_NOODLE,菇類|番茄|辣味,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534096,焦糖聖代,,DESSERT,焦糖|杯裝・甜點杯,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534097,Doramocchi 銅鑼燒 紅豆＆鮮奶油,經典Q彈餅皮系列,DESSERT,紅豆・和風甜|鮮奶油|Q彈・Q軟,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534098,鬆軟圓頂蛋糕 生焦糖,,DESSERT,焦糖|綿密・鬆軟,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534099,獎勵棒狀蛋糕 融化生棉花糖,,DESSERT,爆漿・流心|綿密・鬆軟,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534101,蒜味番茄雞肉三明治,,FRESH_SANDWICH,蒜味|番茄|雞肉|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534102,鮮蝦根菜天婦羅炸餅天丼,,FRESH_BENTO,海鮮|醬油・照燒,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534103,NL 麥麩麵包 2入,Natural Lawson低醣健康系列,BAKERY,低醣・減糖|膳食纖維・健康|多入・分享包,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534104,NL 營養平衡麵包 巧克力＆香蕉 2入,Natural Lawson健康取向系列,BAKERY,巧克力|香蕉|水果|膳食纖維・健康|多入・分享包,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534105,爆餡明太子法國麵包,滿滿明太子醬的法國麵包,BAKERY,明太子・鱈魚子|海鮮,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534106,美味洋蔥麵包,,BAKERY,,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534107,巧克力可頌,,BAKERY,巧克力|酥脆,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534108,地瓜蘋果派,,BAKERY,地瓜|蘋果|水果|酥脆,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534113,森半監修 抹茶巧克力紅豆包,京都宇治老舖茶館森半監修,HOT_SNACK,名店監修|抹茶|巧克力|紅豆・和風甜,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534114,Artemis 炸雞君口罩 一般尺寸,,NON_FOOD,聯名・IP,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534115,ロメスパバルボア監修 明太子義大利麵,東京炒義大利麵專門店監修,FRESH_NOODLE,名店監修|明太子・鱈魚子|海鮮,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534116,ロメスパバルボア監修 拿坡里義大利麵,東京炒義大利麵專門店監修,FRESH_NOODLE,名店監修|番茄,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534117,韓式雜菜腐皮捲,包入韓式炒冬粉的腐皮捲小菜,FRESH_DELI,韓式,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534118,麻辣燙風味腐皮捲,,FRESH_DELI,麻辣・花椒|辣味|中華・町中華,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+lawson_jp:1534119,火腿蛋三明治,,FRESH_SANDWICH,豬肉|蛋|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
 seven_jp:010146,,,ALCOHOL,,1.00,rule,2026-10-28,,,
 seven_jp:010389,,,ALCOHOL,,1.00,rule,2026-11-03,,,
 seven_jp:010486,,,ALCOHOL,,1.00,rule,2026-10-28,,,
@@ -1610,6 +1654,8 @@ seven_jp:330314,模範生 可沖泡熱水兩吃點心麵 雞汁味,可直接乾�
 seven_jp:330327,Calbee 洋芋片 一風堂赤丸新味風味,重現一風堂招牌赤丸新味特製香油與辣味噌層次,SNACK_SAVORY,豚骨・拉麵風味|蒜味|酥脆|名店監修|聯名・IP,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0
 seven_jp:330421,森永 Potelong長薯條 柚子胡椒風味,,SNACK_SAVORY,柑橘|水果,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
 seven_jp:330437,Calbee 堅脆洋芋片 炙燒牛肉岩鹽風味,,SNACK_SAVORY,牛肉|鹽味|酥脆,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2
+seven_jp:330471,VIVANT洋芋片 辛辣麻辣雞風味,日劇VIVANT聯名商品,SNACK_SAVORY,聯名・IP|麻辣・花椒|辣味|雞肉,0.85,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
+seven_jp:330482,VIVANT洋芋片 別班饅頭風味,日劇VIVANT聯名商品，還原劇中別班饅頭風味,SNACK_SAVORY,聯名・IP,0.85,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0
 seven_jp:330487,品客 義式千層麵風味洋芋片 S罐,融合肉醬起司香氣的義大利千層麵風味,SNACK_SAVORY,起司|一口・小份量,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2
 seven_jp:330499,7-Premium 厚切洋芋片 石垣島鹽味,使用沖繩石垣島海鹽調味的厚切洋芋片,SNACK_SAVORY,鹽味|在地食材・產地,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2
 seven_jp:330505,7-Premium 厚切洋芋片 奢華海苔鹽味,波浪厚切口感搭配香濃海苔鹽,SNACK_SAVORY,鹽味|濃厚|高級・頂級,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2
