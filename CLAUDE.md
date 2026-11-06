@@ -80,5 +80,7 @@ Variables（可選）：MAX_ENRICH_PER_RUN、MAX_ENRICH_PER_MONTH、MAX_GEMINI_U
 - 2026-11-03 歷週洞察頁 `#p-history`（`initHistory`／`renderHistory`）：選快照週次與對照週次，逐筆判定後續並算「後續持續」比例。快照加 kind（weekly／backfill）與 note；`tools/backfill_insights.py` 回溯產生 W43、W44（不覆蓋正式快照）；index.json 改為 [{week, kind, generated_at}]。首次對照 W44→W45：跨超商升溫 25/83、新組合 72/93、價格溢價 12/20（W43 樣本少使 W44 訊號偏多；熱賣倍數因同一份資料而必然 100%，不具意義）。
 - 2026-11-03 翻譯 301 支新品（US$0.34，指令版本 aae788f0），全部商品 1,802 支皆已翻譯。
 - 2026-11-06 n8n 第一個流程「[CVS_report] 每週健檢」：每週三 14:00（台灣；GitHub 排程常延遲數小時，11-04 實際 11:02 才跑，故由 09:00 延後）檢查排程爬取成功與否、資料新鮮度、各來源近 7 天新品數（0 支＝異常、低於前 4 週中位數 30%＝提醒，排除開始收錄的第一週）、本月 Gemini 花費（≥80% 提醒）、待翻譯支數，寄 HTML 信。只讀公開資料，不需 GitHub 權杖。GitHub 已確認連得到公司 n8n。11-06 已部署並啟用（Published），試寄成功。注意：n8n API 金鑰無權列出 Credentials（403），所以寄信帳號是在 n8n 畫面上綁定一次（帳號 CVS Gmail，SMTP smtp.gmail.com:465），deploy_n8n 會沿用流程上已綁定的同名帳號。健檢以「最近一個應已執行的週三排程」為基準（週間手動執行不誤報）。使用手冊已加「監控與通知」章節。
+- 2026-11-06 分類新增「吐司」BAKERY_TOAST（split_from BAKERY）、「霜淇淋」ICE_SOFT（split_from ICE|DESSERT）。機制：`enrich.reclassify` 依 `category_version`（分類代碼＋說明的指紋）判斷，只把 split_from 原分類的商品送 Gemini、在「原分類／新分類」間擇一，其餘只蓋版本；異動記 `data/category_history.csv`。首跑 377 支送判、6 支改為吐司、霜淇淋 0 支（日本三家與韓國兩家新品頁沒有店內霜淇淋），US$0.32。快照定義升 insights-v2（歷週洞察頁比較不同定義版本會提示）。`tools/init_sheet.py` 覆蓋設定分頁前會備份到「備份_分頁名」並在 log 列出被覆蓋的差異列。導覽、手冊已更新。
+- 2026-11-06 Ministop probe：robots.txt 只擋營養成分 PDF；霜淇淋 /syohin/sweets/softcream/、聖代 /syohin/sweets/parfait/ 有個別商品頁。**待 Wallace 決定是否收錄**（尚未查利用規約）。
 - 下一步：韓國熱賣訊號（評估見 Project 文件「來源評估與決策紀錄」：emart24 可直接做；CU／GS25 需 probe；Naver 新聞 API 需 Wallace 申請金鑰）。
 - 待 Wallace：GCP 預算快訊與 Vertex AI 配額；もぐナビbiz 授權洽詢。

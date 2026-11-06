@@ -25,7 +25,8 @@
 人工校正,可改的欄位,name_zh（中譯品名）、desc_zh（說明）、category_code（分類代碼）、tags（標籤，多個用 | 分隔）
 人工校正,範例,familymart_jp:4795322 | category_code | NON_FOOD | 食玩以卡片為主 | Wallace
 人工校正,效力,校正後的值永遠優先於 AI，之後重新翻譯也不會蓋掉。
-分類與標籤,categories 分頁,分類表。新增分類：加一列並給唯一代碼（英文大寫）。停用：active 改 0。
+分類與標籤,categories 分頁,分類表。新增分類：加一列並給唯一代碼（英文大寫）。停用：active 改 0。從既有分類拆出新分類時，在新分類的 split_from 填原分類代碼（多個用 | 分隔），例：吐司 BAKERY_TOAST 的 split_from＝BAKERY。
+分類與標籤,拆分分類後會自動重新分類,下次執行（需勾選翻譯）時，只把原分類（split_from 指定的）的商品送 AI，在「原分類／新分類」之間重新判定，其他商品不動；每筆異動記在 data/category_history.csv。例：2026-11-06 新增「吐司」（自麵包拆出）、「霜淇淋」（自冰品、冷藏甜點拆出）。用 init-sheet 同步 categories 分頁前，會先備份到「備份_categories」。
 分類與標籤,特殊分類,NON_FOOD（非食品，不顯示）、ALCOHOL（酒類，不計入食品趨勢，儀表板可用分類篩選查看）。
 分類與標籤,已翻譯商品要重新分類,在 overrides 逐筆改；或刪除 repo 中 data/enrich_cache.csv 的對應列，下次翻譯時會重跑。
 分類與標籤,tags 分頁,標籤字典（2026-11-02 起約 80 個）。欄位：tag_zh 標籤、tag_type 維度（口味、素材、口感、型態、風格、機能、企劃、價格訴求、季節）、synonyms_ja／synonyms_ko 日韓同義詞（| 分隔）、active 1／0、parent 父標籤（例：草莓的 parent＝水果，貼草莓會自動補上水果，讓大類趨勢可比）。AI 只會從這份清單選標籤。
