@@ -922,6 +922,20 @@ lawson_jp:1534116,ロメスパバルボア監修 拿坡里義大利麵,東京炒
 lawson_jp:1534117,韓式雜菜腐皮捲,包入韓式炒冬粉的腐皮捲小菜,FRESH_DELI,韓式,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,
 lawson_jp:1534118,麻辣燙風味腐皮捲,,FRESH_DELI,麻辣・花椒|辣味|中華・町中華,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,
 lawson_jp:1534119,火腿蛋三明治,,FRESH_SANDWICH,豬肉|蛋|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,
+ministop_jp:halohalo:b1d747a3,果實冰煉乳草莓Halo-halo刨冰,刨片冷凍草莓淋上甜美煉乳，頂端覆上招牌香草霜淇淋。,ICE_SOFT,草莓|水果|杯裝・甜點杯,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+ministop_jp:halohalo:f33231ac,跳跳糖彈珠汽水Halo-halo刨冰,清爽彈珠汽水刨冰撒上跳跳糖顆粒，再疊上招牌霜淇淋。,ICE_SOFT,杯裝・甜點杯,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+ministop_jp:parfait:144e0be4,香氣西洋梨聖代,鋪滿芳醇多汁的西洋梨果肉與果醬的清爽風味聖代。,ICE_SOFT,水果|杯裝・甜點杯,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+ministop_jp:parfait:47b58217,融心熔岩巧克力聖代,溫熱濃郁的流心熔岩巧克力蛋糕搭配冰涼香草霜淇淋。,ICE_SOFT,巧克力|爆漿・流心|杯裝・甜點杯,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+ministop_jp:parfait:76242371,滑順布丁聖代,人氣經典款，以入口即化滑順布丁搭配苦甜焦糖與霜淇淋。,ICE_SOFT,焦糖|杯裝・甜點杯|綿密・鬆軟,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+ministop_jp:parfait:a7afff14,完熟愛文芒果聖代,堆疊香甜完熟芒果果肉與濃郁芒果醬的經典人氣聖代。,ICE_SOFT,熱帶水果|水果|杯裝・甜點杯,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+ministop_jp:parfait:d0c043df,完熟白桃聖代,鋪滿香甜多汁的完熟白桃切片果肉與香濃霜淇淋。,ICE_SOFT,桃子|水果|杯裝・甜點杯,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+ministop_jp:parfait:d54894c1,白色聖代 北海道牛奶布丁,搭配北海道牛奶布丁與招牌香草霜淇淋的純白系聖代。,ICE_SOFT,杯裝・甜點杯|在地食材・產地,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+ministop_jp:parfait:df246bd0,雙重蜜地瓜聖代,搭配香甜烤蜜地瓜與地瓜蜜醬的冷熱交融霜淇淋聖代。,ICE_SOFT,地瓜|杯裝・甜點杯,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+ministop_jp:softcream:277576cb,犒賞霜淇淋 至福蒙布朗,擠上香濃蒙布朗栗子泥的奢華獎勵系店內霜淇淋。,ICE_SOFT,栗子|高級・頂級,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+ministop_jp:softcream:2bfbdce1,黑糖黃豆粉麻糬霜淇淋,搭配濃郁黑糖蜜、香氣黃豆粉與軟糯麻糬的店內霜淇淋。,ICE_SOFT,麻糬・米製品|Q彈・Q軟,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+ministop_jp:softcream:2d93a572,甘王草莓霜淇淋,使用福岡縣產甘王草莓製成的店內現做霜淇淋。,ICE_SOFT,草莓|水果|在地食材・產地,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+ministop_jp:softcream:a8d267be,北海道牛奶霜淇淋,使用北海道產優質生乳製作的經典招牌濃厚霜淇淋。,ICE_SOFT,濃厚|在地食材・產地,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+ministop_jp:softcream:fbd5d575,和栗霜淇淋,使用日本產和栗製作，散發溫潤栗香的店內霜淇淋。,ICE_SOFT,栗子,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:010146,,,ALCOHOL,,1.00,rule,2026-10-28,,,,d0172a54,
 seven_jp:010389,,,ALCOHOL,,1.00,rule,2026-11-03,,,,d0172a54,
 seven_jp:010486,,,ALCOHOL,,1.00,rule,2026-10-28,,,,d0172a54,

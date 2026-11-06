@@ -1,4 +1,11 @@
 week,country,chain,category_code,category_zh,category_group,new_count,avg_price,median_price
+2026-W09,JP,ministop_jp,ICE_SOFT,霜淇淋,冰品,1,540.0,540.0
+2026-W31,JP,ministop_jp,ICE_SOFT,霜淇淋,冰品,1,540.0,540.0
+2026-W34,JP,ministop_jp,ICE_SOFT,霜淇淋,冰品,1,540.0,540.0
+2026-W36,JP,ministop_jp,ICE_SOFT,霜淇淋,冰品,2,502.2,502.2
+2026-W39,JP,ministop_jp,ICE_SOFT,霜淇淋,冰品,1,486.0,486.0
+2026-W40,JP,ministop_jp,ICE_SOFT,霜淇淋,冰品,1,540.0,540.0
+2026-W41,JP,ministop_jp,ICE_SOFT,霜淇淋,冰品,1,540.0,540.0
 2026-W42,JP,lawson_jp,BAKERY,麵包,麵包,6,206.5,203.0
 2026-W42,JP,lawson_jp,DESSERT,冷藏甜點,甜點,5,286.8,297.0
 2026-W42,JP,lawson_jp,DRINK,飲料,飲料,1,260.0,260.0
@@ -34,6 +41,7 @@ week,country,chain,category_code,category_zh,category_group,new_count,avg_price,
 2026-W43,JP,lawson_jp,INSTANT,泡麵・加工食品,加工食品,1,198.0,198.0
 2026-W43,JP,lawson_jp,SNACK_SAVORY,鹹零食,零食,1,178.0,178.0
 2026-W43,JP,lawson_jp,SNACK_SWEET,甜零食・糖果,零食,2,150.0,150.0
+2026-W43,JP,ministop_jp,ICE_SOFT,霜淇淋,冰品,1,594.0,594.0
 2026-W44,JP,familymart_jp,BAKERY,麵包,麵包,6,202.7,199.0
 2026-W44,JP,familymart_jp,DESSERT,冷藏甜點,甜點,7,266.0,248.0
 2026-W44,JP,familymart_jp,DRINK,飲料,飲料,4,274.5,263.0
@@ -62,6 +70,7 @@ week,country,chain,category_code,category_zh,category_group,new_count,avg_price,
 2026-W44,JP,lawson_jp,INSTANT,泡麵・加工食品,加工食品,1,288.0,288.0
 2026-W44,JP,lawson_jp,SNACK_SAVORY,鹹零食,零食,4,198.0,203.0
 2026-W44,JP,lawson_jp,SNACK_SWEET,甜零食・糖果,零食,2,181.0,181.0
+2026-W44,JP,ministop_jp,ICE_SOFT,霜淇淋,冰品,2,486.0,486.0
 2026-W44,JP,seven_jp,BAKERY,麵包,麵包,29,188.7,181.4
 2026-W44,JP,seven_jp,BAKERY_TOAST,吐司,麵包,1,213.8,213.8
 2026-W44,JP,seven_jp,DESSERT,冷藏甜點,甜點,25,309.7,300.2
@@ -101,6 +110,7 @@ week,country,chain,category_code,category_zh,category_group,new_count,avg_price,
 2026-W45,JP,lawson_jp,FRESH_SANDWICH,三明治・漢堡・捲餅,鮮食,4,351.5,343.5
 2026-W45,JP,lawson_jp,HOT_SNACK,熱食・炸物・包子,熱食,3,241.7,259.0
 2026-W45,JP,lawson_jp,INSTANT,泡麵・加工食品,加工食品,2,233.5,233.5
+2026-W45,JP,ministop_jp,ICE_SOFT,霜淇淋,冰品,3,475.2,540.0
 2026-W45,JP,seven_jp,BAKERY,麵包,麵包,18,219.5,203.0
 2026-W45,JP,seven_jp,DESSERT,冷藏甜點,甜點,22,314.5,295.9
 2026-W45,JP,seven_jp,DRINK,飲料,飲料,20,207.4,203.0
