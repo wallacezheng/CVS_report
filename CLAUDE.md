@@ -21,6 +21,7 @@ DSR（典通 智慧數據整合研究部）內部工具：每週自動抓日本�
 | 儀表板（單頁、頁籤：使用導覽／新品總覽／熱賣訊號／日韓共同趨勢／歷週洞察／もぐナビ口碑） | `docs/index.html`，資料在 `docs/data/` |
 | 設定的預設值（Sheet 初始化來源） | `config/*.csv`；`config/manual.csv` = Sheet「使用手冊」分頁 |
 | 工具 | `tools/init_sheet.py`（寫入 Sheet 分頁）、`tools/probe.py`（試探新來源） |
+| 公司 n8n 流程（定義檔＋API 部署） | `n8n/*.json`（Code 節點程式另存 `n8n/*.code.js`，`@file:` 引用）、`tools/deploy_n8n.py`、本機測試 `node tools/test_health.js` |
 
 ## GitHub Actions
 | 工作流程 | 用途 |
@@ -29,13 +30,16 @@ DSR（典通 智慧數據整合研究部）內部工具：每週自動抓日本�
 | mognavi | 手動。mode：probe／update／cleanup／export／restore。**每週最多 update 一次** |
 | init-sheet | confirm=YES、tabs=分頁名（逗號分隔）。改 `config/manual.csv` 後用 tabs=使用手冊 同步 |
 | probe | urls=要試探的網址（空白分隔，最多 10）。回應存到 `data/probe/` |
+| deploy-n8n | 改 `n8n/` 或部署程式 push 到 main 自動執行，也可手動。依流程名稱更新或新增；寄信帳號（n8n 上名稱「CVS Gmail」）找不到時只部署、不啟用 |
 
 從工作階段觸發（GraphQL 被擋，用 REST）：
 `gh api -X POST repos/wallacezheng/CVS_report/actions/workflows/<檔名>.yml/dispatches -f ref=main -f 'inputs[mode]=export'`
 查狀態：`gh api 'repos/wallacezheng/CVS_report/actions/workflows/<檔名>.yml/runs?per_page=1'`。
 注意：check-runs annotations 會混入舊訊息，**驗證一律看 commit 回來的資料檔**。
 
-Secrets：GOOGLE_SERVICE_ACCOUNT_JSON、SHEET_ID、DASHBOARD_PASSWORD。
+Secrets：GOOGLE_SERVICE_ACCOUNT_JSON、SHEET_ID、DASHBOARD_PASSWORD、N8N_API_KEY。
+n8n 用 Variables：N8N_URL、N8N_ALERT_TO（必填）、N8N_ALERT_FROM、N8N_SMTP_CREDENTIAL_ID（可選）。**n8n 網址與收件信箱不可寫進 repo**（公開），只放 Variables。
+工作階段的代理禁止讀寫 Actions Secrets／Variables，需請 Wallace 在 GitHub 網頁設定。
 Variables（可選）：MAX_ENRICH_PER_RUN、MAX_ENRICH_PER_MONTH、MAX_GEMINI_USD_PER_MONTH、AUTO_TRANSLATE、GEMINI_MODEL、MOGNAVI_TOP_N、MOGNAVI_MAX_PRODUCTS。
 空的 Variables 會以 "" 傳入，程式一律寫 `os.environ.get(X) or 預設值`。
 
@@ -44,7 +48,8 @@ Variables（可選）：MAX_ENRICH_PER_RUN、MAX_ENRICH_PER_MONTH、MAX_GEMINI_U
 - **金鑰**：服務帳號 JSON、密碼只放 GitHub Secrets，不進 repo、聊天或信件。
 - 遵守各站 robots.txt（GS25 禁止 /api/ → 不爬）。網站封鎖我們（403、連線逾時、地區限制）時，不換 IP、不走代理或其他網路繞過；改用合規來源（新聞 API、官方授權）。7-Eleven 韓國從 GitHub 主機連線逾時（2026-11-03 確認），同樣不繞過。
 - 寫 Sheet 前要能還原：もぐナビ寫入前會備份到「備份_*」分頁；讀取失敗時不寫入。
-- 公開 repo：除了加密檔外的資料都是公開的，不要放內部敏感內容。
+- 公開 repo：除了加密檔外的資料都是公開的，不要放內部敏感內容（含公司 n8n 網址、內部信箱；probe 公司內部網址後要刪掉回存的檔案）。
+- **n8n 分工**（Wallace 2026-11-06 決定）：n8n 只做排程串接、監控通知、日後的地端模型橋接；爬蟲、もぐナビ、快照計算、加密輸出留在 GitHub，不搬到 n8n，也不從公司網路爬站（等同換 IP）。流程一律改 `n8n/*.json` 後由 deploy-n8n 部署，不在 n8n 畫面上直接改。地端模型翻譯：最後再做，方案為 n8n 取待翻譯檔→地端模型→送回 repo，翻譯後端可切換 gemini／onprem。
 
 ## 開發慣例與已知陷阱
 - 測試：`python -m unittest tests.test_parsers tests.test_signals tests.test_secure_export tests.test_mognavi_cleanup`（本機需 `pip install -r requirements.txt`）。新來源要存真實頁面到 `tests/fixtures/` 做回歸測試。
@@ -74,5 +79,6 @@ Variables（可選）：MAX_ENRICH_PER_RUN、MAX_ENRICH_PER_MONTH、MAX_GEMINI_U
   - 每週洞察快照：`scraper/insights.py` → `data/insights/{週}.json`（並複製到 `docs/data/insights/`＋index.json）。**算法須與 `docs/index.html` 的 renderXdet／renderCommon 一致，改一邊要同步改另一邊**（定義版本 insights-v1）。
 - 2026-11-03 歷週洞察頁 `#p-history`（`initHistory`／`renderHistory`）：選快照週次與對照週次，逐筆判定後續並算「後續持續」比例。快照加 kind（weekly／backfill）與 note；`tools/backfill_insights.py` 回溯產生 W43、W44（不覆蓋正式快照）；index.json 改為 [{week, kind, generated_at}]。首次對照 W44→W45：跨超商升溫 25/83、新組合 72/93、價格溢價 12/20（W43 樣本少使 W44 訊號偏多；熱賣倍數因同一份資料而必然 100%，不具意義）。
 - 2026-11-03 翻譯 301 支新品（US$0.34，指令版本 aae788f0），全部商品 1,802 支皆已翻譯。
+- 2026-11-06 n8n 第一個流程「[CVS_report] 每週健檢」：每週三 09:00（台灣）檢查排程爬取成功與否、資料新鮮度、各來源近 7 天新品數（0 支＝異常、低於前 4 週中位數 30%＝提醒，排除開始收錄的第一週）、本月 Gemini 花費（≥80% 提醒）、待翻譯支數，寄 HTML 信。只讀公開資料，不需 GitHub 權杖。GitHub 已確認連得到公司 n8n。**待 Wallace**：設 Variables N8N_URL、N8N_ALERT_TO；在 n8n 建 SMTP 帳號「CVS Gmail」（smtp.gmail.com:465、應用程式密碼）；之後手動執行 deploy-n8n 並試寄。
 - 下一步：韓國熱賣訊號（評估見 Project 文件「來源評估與決策紀錄」：emart24 可直接做；CU／GS25 需 probe；Naver 新聞 API 需 Wallace 申請金鑰）。
 - 待 Wallace：GCP 預算快訊與 Vertex AI 配額；もぐナビbiz 授權洽詢。

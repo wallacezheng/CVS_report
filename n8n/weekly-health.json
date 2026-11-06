@@ -1,0 +1,93 @@
+{
+  "name": "[CVS_report] 每週健檢",
+  "_comment": "由 tools/deploy_n8n.py 部署。jsCode 的 @file: 會換成同資料夾的檔案內容；__X__ 佔位字串由 GitHub Variables 帶入。寄信帳號依名稱「CVS Gmail」對應。請改這個檔案再部署，不要直接在 n8n 畫面上改（下次部署會被覆蓋）。",
+  "nodes": [
+    {
+      "id": "b1a7c2d0-0001-4c00-8000-000000000001",
+      "name": "每週三 09:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 0],
+      "parameters": {
+        "rule": {
+          "interval": [
+            { "field": "weeks", "weeksInterval": 1, "triggerAtDay": [3], "triggerAtHour": 9, "triggerAtMinute": 0 }
+          ]
+        }
+      }
+    },
+    {
+      "id": "b1a7c2d0-0002-4c00-8000-000000000002",
+      "name": "取得爬取紀錄",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [240, 0],
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/wallacezheng/CVS_report/actions/workflows/crawl.yml/runs?per_page=10",
+        "sendHeaders": true,
+        "headerParameters": { "parameters": [
+          { "name": "Accept", "value": "application/vnd.github+json" },
+          { "name": "User-Agent", "value": "CVS-report-health-check" }
+        ] },
+        "options": {}
+      }
+    },
+    {
+      "id": "b1a7c2d0-0003-4c00-8000-000000000003",
+      "name": "讀取商品資料",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 0],
+      "parameters": {
+        "method": "GET",
+        "url": "https://raw.githubusercontent.com/wallacezheng/CVS_report/main/data/products.csv",
+        "options": { "response": { "response": { "responseFormat": "text", "outputPropertyName": "data" } } }
+      }
+    },
+    {
+      "id": "b1a7c2d0-0004-4c00-8000-000000000004",
+      "name": "讀取 Gemini 用量",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [720, 0],
+      "parameters": {
+        "method": "GET",
+        "url": "https://raw.githubusercontent.com/wallacezheng/CVS_report/main/data/gemini_usage.csv",
+        "options": { "response": { "response": { "responseFormat": "text", "outputPropertyName": "data" } } }
+      }
+    },
+    {
+      "id": "b1a7c2d0-0005-4c00-8000-000000000005",
+      "name": "健檢計算",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [960, 0],
+      "parameters": { "mode": "runOnceForAllItems", "jsCode": "@file:weekly-health.code.js" }
+    },
+    {
+      "id": "b1a7c2d0-0006-4c00-8000-000000000006",
+      "name": "寄出健檢信",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [1200, 0],
+      "parameters": {
+        "fromEmail": "__ALERT_FROM__",
+        "toEmail": "__ALERT_TO__",
+        "subject": "={{ $json.subject }}",
+        "emailFormat": "html",
+        "html": "={{ $json.html }}",
+        "options": { "appendAttribution": false }
+      },
+      "credentials": { "smtp": { "name": "CVS Gmail" } }
+    }
+  ],
+  "connections": {
+    "每週三 09:00": { "main": [[{ "node": "取得爬取紀錄", "type": "main", "index": 0 }]] },
+    "取得爬取紀錄": { "main": [[{ "node": "讀取商品資料", "type": "main", "index": 0 }]] },
+    "讀取商品資料": { "main": [[{ "node": "讀取 Gemini 用量", "type": "main", "index": 0 }]] },
+    "讀取 Gemini 用量": { "main": [[{ "node": "健檢計算", "type": "main", "index": 0 }]] },
+    "健檢計算": { "main": [[{ "node": "寄出健檢信", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "timezone": "Asia/Taipei", "executionOrder": "v1" }
+}

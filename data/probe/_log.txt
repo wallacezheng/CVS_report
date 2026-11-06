@@ -35,5 +35,3 @@ ERR https://www.7-eleven.co.kr/robots.txt：HTTPSConnectionPool(host='www.7-elev
 ERR https://www.7-eleven.co.kr/：HTTPSConnectionPool(host='www.7-eleven.co.kr', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.7-eleven.co.kr', port=443) at 0x702f364ded80>, 'Connection to www.7-eleven.co.kr timed out. (connect timeout=30)'))
 200     1322 bytes text/plain; charset=UTF-8 https://www.gsretail.com/robots.txt → www.gsretail.com_robots.txt.html
 200      906 bytes text/html; charset=UTF-8 https://gs25.gsretail.com/robots.txt → gs25.gsretail.com_robots.txt.html（轉址到 https://www.gsretail.com/brand/gs25）
-# 2026-11-06T04:48:39.989921Z
-200       15 bytes application/json; charset=utf-8 https://n8n.dataa.com.tw/healthz → n8n.dataa.com.tw_healthz.json

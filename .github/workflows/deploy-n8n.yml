@@ -1,0 +1,42 @@
+name: deploy-n8n
+
+# 把 n8n/ 的流程定義部署到公司 n8n。改了 n8n/ 或部署程式就自動執行，也可手動執行。
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "n8n/**"
+      - "tools/deploy_n8n.py"
+      - ".github/workflows/deploy-n8n.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-n8n
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: 測試健檢邏輯
+        run: node tools/test_health.js
+      - run: pip install requests
+      - name: 部署
+        env:
+          N8N_URL: ${{ vars.N8N_URL }}
+          N8N_API_KEY: ${{ secrets.N8N_API_KEY }}
+          N8N_ALERT_TO: ${{ vars.N8N_ALERT_TO }}
+          N8N_ALERT_FROM: ${{ vars.N8N_ALERT_FROM }}
+          N8N_SMTP_CREDENTIAL_ID: ${{ vars.N8N_SMTP_CREDENTIAL_ID }}
+          MAX_GEMINI_USD_PER_MONTH: ${{ vars.MAX_GEMINI_USD_PER_MONTH }}
+        run: python tools/deploy_n8n.py
