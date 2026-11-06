@@ -37,6 +37,14 @@ function isoWeek(dateStr) {
   const w = 1 + Math.floor((d - Date.UTC(y, 0, 1)) / DAY / 7);
   return `${y}-W${String(w).padStart(2, '0')}`;
 }
+// 最近一次「應該已經跑過」的週三排程（台灣 07:17 排程，留緩衝以 08:00 為準）；回傳 UTC 時刻
+function expectedCrawl(now) {
+  const t = tpe(now);                                   // 以 UTC 欄位表示台灣時間
+  const back = (t.getUTCDay() - 3 + 7) % 7;             // 距離最近週三的天數
+  let d = Date.UTC(t.getUTCFullYear(), t.getUTCMonth(), t.getUTCDate() - back, 8, 0);
+  if (d > t.getTime()) d -= 7 * DAY;                     // 週三 08:00 之前 → 上週三
+  return new Date(d - 8 * 3600e3);
+}
 const median = a => { const s = [...a].sort((x, y) => x - y); const m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
@@ -51,15 +59,16 @@ function healthCheck({ runs, productsCsv, usageCsv, now = new Date(), maxUsd = 1
   const list = (runs && runs.workflow_runs) || [];
   const sched = list.filter(r => r.event === 'schedule');
   const last = sched[0];
+  const expected = expectedCrawl(now);
+  const expectedDay = ymd(expected);
   if (!last) {
     issues.push('找不到排程爬取的執行紀錄');
     lines.push(['排程爬取', '找不到紀錄', 'bad']);
   } else {
-    const ageDays = (now - new Date(last.created_at)) / DAY;
     const when = ymd(new Date(last.created_at));
     const okRun = last.status === 'completed' && last.conclusion === 'success';
-    if (ageDays > 2) {
-      issues.push(`最近一次排程爬取是 ${when}，本週沒有執行`);
+    if (new Date(last.created_at) < new Date(expected.getTime() - 2 * 3600e3)) {
+      issues.push(`最近一次排程爬取是 ${when}，應在 ${expectedDay} 執行卻沒有紀錄`);
       lines.push(['排程爬取', `最近一次 ${when}（本週未執行）`, 'bad']);
     } else if (last.status !== 'completed') {
       warns.push('本週排程爬取仍在執行中');
@@ -75,7 +84,7 @@ function healthCheck({ runs, productsCsv, usageCsv, now = new Date(), maxUsd = 1
   // 2. 資料新鮮度與各來源新品數
   const products = parseCsv(productsCsv || '');
   const lastSeen = products.reduce((m, p) => (p.last_seen > m ? p.last_seen : m), '');
-  if (!lastSeen || (new Date(today) - new Date(lastSeen)) / DAY > 2) {
+  if (!lastSeen || lastSeen < expectedDay) {
     issues.push(`商品資料最後更新是 ${lastSeen || '（無）'}，資料沒有更新`);
     lines.push(['資料更新', `最後更新 ${lastSeen || '無'}`, 'bad']);
   } else {
