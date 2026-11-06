@@ -30,13 +30,17 @@ import requests
 ROOT = Path(__file__).resolve().parent.parent
 CACHE = ROOT / "data" / "enrich_cache.csv"
 CACHE_FIELDS = ["product_key", "name_zh", "desc_zh", "category_code", "tags", "confidence", "model",
-                "enriched_at", "tag_version", "prompt_version", "tag_prompt_version"]
+                "enriched_at", "tag_version", "prompt_version", "tag_prompt_version",
+                "category_version", "category_prompt_version"]
 MAX_RETAG_PER_RUN = int(os.environ.get("MAX_RETAG_PER_RUN") or 1500)
 RETAG_BATCH = 30  # 50 支一批曾逾時（120 秒）
 USAGE = ROOT / "data" / "gemini_usage.csv"
 TAG_HISTORY = ROOT / "data" / "tag_history.csv"
 TAG_HISTORY_FIELDS = ["date", "product_key", "old_tags", "new_tags", "old_tag_version", "new_tag_version",
                       "reason", "model", "prompt_version"]
+CATEGORY_HISTORY = ROOT / "data" / "category_history.csv"
+CATEGORY_HISTORY_FIELDS = ["date", "product_key", "old_category", "new_category", "old_category_version",
+                           "new_category_version", "reason", "model", "prompt_version"]
 USAGE_FIELDS = ["date", "source", "calls", "items", "prompt_tokens", "output_tokens", "thought_tokens",
                 "est_usd", "model", "prompt_version"]
 # 每月 Gemini 花費上限（美元，估算值）。超過就不再呼叫，下個月自動恢復。
@@ -296,6 +300,124 @@ def retag(items: list[dict], tags, cache: dict[str, dict], today: str) -> list[s
     return errors
 
 
+def category_version(categories) -> str:
+    """分類表的指紋（代碼＋說明）：分類拆分或改定義時會變。"""
+    import hashlib
+    sig = sorted(f"{c['category_code']}={c.get('description_zh', '')}" for c in categories)
+    return hashlib.sha1("|".join(sig).encode("utf-8")).hexdigest()[:8]
+
+
+def split_map(categories) -> dict[str, list[str]]:
+    """原分類 → 從它拆出去的新分類（categories 的 split_from 欄，多個用 | 分隔）。"""
+    out: dict[str, list[str]] = {}
+    for c in categories:
+        for src in (c.get("split_from") or "").split("|"):
+            src = src.strip()
+            if src:
+                out.setdefault(src, []).append(c["category_code"])
+    return out
+
+
+def append_category_history(rows: list[dict]) -> None:
+    """分類異動紀錄（只增不改）。"""
+    if not rows:
+        return
+    new_file = not CATEGORY_HISTORY.exists()
+    CATEGORY_HISTORY.parent.mkdir(parents=True, exist_ok=True)
+    with CATEGORY_HISTORY.open("a", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=CATEGORY_HISTORY_FIELDS, extrasaction="ignore")
+        if new_file:
+            w.writeheader()
+        w.writerows(rows)
+
+
+RECLASS_SCHEMA = {
+    "type": "ARRAY",
+    "items": {"type": "OBJECT", "properties": {
+        "product_key": {"type": "STRING"},
+        "category_code": {"type": "STRING"},
+    }, "required": ["product_key", "category_code"]},
+}
+
+
+def _reclass_prompt(items: list[dict], categories) -> str:
+    by = {c["category_code"]: c for c in categories}
+    payload = [{"product_key": i["product_key"], "name": i.get("name_original", ""), "name_zh": i.get("name_zh", ""),
+                "desc_zh": i.get("desc_zh", ""), "choices": i["_choices"]} for i in items]
+    defs = "\n".join(f"- {k}：{by[k]['name_zh']}（{by[k].get('description_zh', '')}）"
+                      for k in sorted({k for i in items for k in i["_choices"]}) if k in by)
+    return f"""你是台灣超商商品分類人員。分類表新增了更細的分類，請為下列日本、韓國便利商店商品重新判定分類。
+每支商品只能從它自己的 choices 裡擇一；不確定時保留原分類（choices 的第一個）。
+
+分類定義：
+{defs}
+
+商品（JSON）：
+{json.dumps(payload, ensure_ascii=False)}
+"""
+
+
+def reclassify(items: list[dict], categories, cache: dict[str, dict], today: str) -> list[str]:
+    """分類拆分後，只重新判定受影響分類的商品（例：麵包 → 麵包／吐司），其餘商品只蓋上新版本。
+    依 category_version 判斷；分類異動記到 data/category_history.csv。"""
+    ver = category_version(categories)
+    smap = split_map(categories)
+    by_key = {i["product_key"]: i for i in items}
+    todo, stamp = [], []
+    for k, c in cache.items():
+        if c.get("category_version") == ver or k not in by_key:
+            continue
+        old = c.get("category_code", "")
+        if c.get("model") != "rule" and old in smap:
+            todo.append({**by_key[k], **c, "_choices": [old] + smap[old]})
+        else:
+            stamp.append(c)
+    if todo and (os.environ.get("ENRICH_ENABLED", "1").strip() == "0" or not gemini_mode()):
+        return [f"分類表已更新，{len(todo)} 支商品待重新分類（手動執行時勾選翻譯即可）"]
+    for c in stamp:
+        c["category_version"] = ver
+    if not todo:
+        return []
+    try:
+        resolve_model()
+    except Exception as e:
+        return [str(e)]
+    errors, history, done = [], [], 0
+    pv = prompt_version(_reclass_prompt)
+    for i in range(0, len(todo), RETAG_BATCH):
+        batch = todo[i:i + RETAG_BATCH]
+        choices = {b["product_key"]: b["_choices"] for b in batch}
+        try:
+            results = call_gemini(_reclass_prompt(batch, categories), RECLASS_SCHEMA)
+        except BudgetExceeded as e:
+            errors.append(str(e))
+            break
+        except Exception as e:
+            errors.append(f"重新分類失敗：{e}")
+            continue
+        for r in results:
+            key = r.get("product_key", "")
+            c = cache.get(key)
+            if c is None or key not in choices:
+                continue
+            new = r.get("category_code", "")
+            if new not in choices[key]:
+                new = choices[key][0]
+            if new != c.get("category_code"):
+                history.append({"date": today, "product_key": key, "old_category": c.get("category_code", ""),
+                                "new_category": new, "old_category_version": c.get("category_version", ""),
+                                "new_category_version": ver, "reason": "分類拆分，重新分類",
+                                "model": MODEL, "prompt_version": pv})
+                c["category_code"] = new
+            c["category_version"] = ver
+            c["category_prompt_version"] = pv
+            done += 1
+    append_category_history(history)
+    log_usage(today, "reclassify", done, pv)
+    print(f"[reclassify] 重新分類 {done}/{len(todo)} 支，改變 {len(history)} 支（分類表版本 {ver}）")
+    return errors
+
+
 def _vertex_target(model: str) -> tuple[str, dict]:
     """用服務帳號呼叫 Vertex AI 上的 Gemini（公司禁用 API 金鑰時的做法）。"""
     from google.oauth2 import service_account
@@ -507,6 +629,8 @@ def enrich(items: list[dict], categories, tags, glossary, cache: dict[str, dict]
                 "tag_version": tag_version(tags),
                 "prompt_version": prompt_version(build_prompt),
                 "tag_prompt_version": prompt_version(build_prompt),
+                "category_version": category_version(categories),
+                "category_prompt_version": prompt_version(build_prompt),
             }
             done += 1
     log_usage(today, "translate", done, prompt_version(build_prompt))

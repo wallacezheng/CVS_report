@@ -18,7 +18,7 @@ from statistics import median
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "insights"
 DOCS_OUT = ROOT / "docs" / "data" / "insights"
-DEFINITION_VERSION = "insights-v1"
+DEFINITION_VERSION = "insights-v2"  # v2（11-06）：分類新增吐司（自麵包拆出）、霜淇淋（自冰品／甜點拆出）；算法不變
 EXCL = {"NON_FOOD", "ALCOHOL"}
 HIT_EXCL = {"聯名／監修"}
 SAME_COUNTRY_STYLE = {"日式", "韓式"}

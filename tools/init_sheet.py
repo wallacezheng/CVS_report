@@ -71,6 +71,19 @@ for tab, header in selected.items():
     else:
         values = [header]
     ws = sh.worksheet(tab) if tab in existing else sh.add_worksheet(tab, rows=500, cols=12)
+    # 覆蓋設定分頁前先備份（可還原）：寫到「備份_分頁名」，並列出與 repo 預設值不同的列
+    if tab in existing and header is None:
+        old = ws.get_all_values()
+        if old:
+            bname = f"備份_{tab}"
+            bws = sh.worksheet(bname) if bname in existing else sh.add_worksheet(bname, rows=max(len(old), 10) + 5, cols=12)
+            bws.clear()
+            bws.update(old, "A1")
+            new_set = {tuple(r) for r in values}
+            diff = [r for r in old[1:] if tuple(r) not in new_set and tuple(r + [""]) not in new_set]
+            print(f"{tab}: 已備份 {len(old) - 1} 列到「{bname}」；Sheet 上與 repo 不同、將被覆蓋的列 {len(diff)} 筆")
+            for r in diff[:30]:
+                print("   ", r)
     ws.clear()
     ws.update(values, "A1")
     ws.freeze(rows=1)

@@ -17,7 +17,7 @@ from pathlib import Path
 
 from .common import fetch, is_regional_jp, new_areas, today_tw
 from .config_store import ConfigStore
-from .enrich import enrich, load_cache, reclassify_alcohol, save_cache, retag
+from .enrich import enrich, load_cache, reclassify, reclassify_alcohol, save_cache, retag
 from .signals import apply_hit_signals, update_press
 from .sources import RAW_FIELDS, cu_kr, emart24_kr, familymart_jp, lawson_jp, naver_datalab, seven_jp
 
@@ -321,6 +321,7 @@ def run(args) -> int:
         print(f"[enrich] 改歸酒類 {n_alc} 支")
     errors += enrich(list(master.values()), cfg.categories(), cfg.tags(), cfg.glossary(), cache,
                      today=today.isoformat())
+    errors += reclassify(list(master.values()), cfg.categories(), cache, today=today.isoformat())
     errors += retag(list(master.values()), cfg.tags(), cache, today=today.isoformat())
     save_cache(cache)
     review = apply_enrichment(master, cache, cfg.overrides())

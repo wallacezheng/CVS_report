@@ -1066,7 +1066,8 @@ async function renderHistory(){
   if(!A){$("h-body").innerHTML='<div class="empty">讀不到這一週的快照。</div>';return}
   const cc=S.country,same=S.hWeek===S.hCmp;
   $("h-meta").innerHTML=`快照 ${esc(wkHead(A.week))}：產生於 ${esc(A.generated_at)}｜指標定義 ${esc(A.definition_version)}｜標籤字典 ${esc(A.tag_version||"—")}｜日本 ${A.counts?.JP??"—"} 支、韓國 ${A.counts?.KR??"—"} 支`+
-    (A.kind==="backfill"?`<div class="acc-warn" style="background:var(--warn-soft);color:var(--warn);border-radius:4px;padding:6px 10px;margin-top:6px">${esc(A.note||"回溯計算")}</div>`:"");
+    (A.kind==="backfill"?`<div class="acc-warn" style="background:var(--warn-soft);color:var(--warn);border-radius:4px;padding:6px 10px;margin-top:6px">${esc(A.note||"回溯計算")}</div>`:"")+
+    (B&&!same&&B.definition_version!==A.definition_version?`<div class="acc-warn" style="background:var(--warn-soft);color:var(--warn);border-radius:4px;padding:6px 10px;margin-top:6px">兩週的指標定義不同（${esc(A.definition_version)} → ${esc(B.definition_version)}）：2026-11-06 起麵包拆出「吐司」、冰品拆出「霜淇淋」，這幾個品類的前後變化含分類改版的影響，不可直接比較。</div>`:"");
   const key=r=>`${r.country}|${r.category}|${r.tag}`;
   const bmap={};(B?.category_tags||[]).forEach(r=>bmap[key(r)]=r);
   const rowsA=(A.category_tags||[]).filter(r=>r.country===cc);

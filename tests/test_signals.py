@@ -260,6 +260,57 @@ class ProvenanceTest(unittest.TestCase):
         self.assertEqual(cache["a:1"]["tag_prompt_version"], E.prompt_version(E._retag_prompt))
 
 
+class ReclassifyTest(unittest.TestCase):
+    CATS = [{"category_code": "BAKERY", "name_zh": "麵包", "description_zh": "麵包", "split_from": ""},
+            {"category_code": "BAKERY_TOAST", "name_zh": "吐司", "description_zh": "吐司", "split_from": "BAKERY"},
+            {"category_code": "ICE", "name_zh": "冰", "description_zh": "冰", "split_from": ""},
+            {"category_code": "ICE_SOFT", "name_zh": "霜淇淋", "description_zh": "霜", "split_from": "ICE|DESSERT"},
+            {"category_code": "DESSERT", "name_zh": "甜點", "description_zh": "甜", "split_from": ""},
+            {"category_code": "DRINK", "name_zh": "飲料", "description_zh": "飲", "split_from": ""}]
+
+    def test_only_split_sources_are_sent_and_choices_enforced(self):
+        import tempfile
+        from pathlib import Path
+        from scraper import enrich as E
+        cache = {"a:1": {"product_key": "a:1", "category_code": "BAKERY", "model": "m"},
+                 "a:2": {"product_key": "a:2", "category_code": "DRINK", "model": "m"},
+                 "a:3": {"product_key": "a:3", "category_code": "DESSERT", "model": "m"},
+                 "a:4": {"product_key": "a:4", "category_code": "BAKERY", "model": "m"}}
+        items = [{"product_key": k} for k in cache]
+        sent = {}
+
+        def fake(prompt, schema):
+            sent["prompt"] = prompt
+            # a:3 試圖選不在 choices 內的分類 → 應保留原分類
+            return [{"product_key": "a:1", "category_code": "BAKERY_TOAST"},
+                    {"product_key": "a:3", "category_code": "BAKERY_TOAST"},
+                    {"product_key": "a:4", "category_code": "BAKERY"}]
+        with tempfile.TemporaryDirectory() as d, \
+                mock.patch.object(E, "CATEGORY_HISTORY", Path(d) / "c.csv"), \
+                mock.patch.object(E, "call_gemini", side_effect=fake), \
+                mock.patch.object(E, "resolve_model", return_value="m"), \
+                mock.patch.object(E, "gemini_mode", return_value="vertex"), \
+                mock.patch.object(E, "log_usage"):
+            E.reclassify(items, self.CATS, cache, "2026-11-06")
+            text = (Path(d) / "c.csv").read_text(encoding="utf-8")
+        self.assertNotIn('"a:2"', sent["prompt"])
+        self.assertEqual(cache["a:1"]["category_code"], "BAKERY_TOAST")
+        self.assertEqual(cache["a:3"]["category_code"], "DESSERT")
+        self.assertEqual(cache["a:2"]["category_code"], "DRINK")
+        ver = E.category_version(self.CATS)
+        self.assertTrue(all(c["category_version"] == ver for c in cache.values()))
+        self.assertIn("a:1,BAKERY,BAKERY_TOAST", text)
+        self.assertNotIn("a:4", text)
+
+    def test_second_run_is_noop(self):
+        from scraper import enrich as E
+        ver = E.category_version(self.CATS)
+        cache = {"a:1": {"product_key": "a:1", "category_code": "BAKERY", "model": "m", "category_version": ver}}
+        with mock.patch.object(E, "call_gemini") as cg:
+            self.assertEqual(E.reclassify([{"product_key": "a:1"}], self.CATS, cache, "2026-11-06"), [])
+        cg.assert_not_called()
+
+
 class InsightsTest(unittest.TestCase):
     def _p(self, key, chain, cat, week, tags, price=100, cc="JP"):
         return {"product_key": key, "chain": chain, "country": cc, "category_code": cat, "release_week": week,
