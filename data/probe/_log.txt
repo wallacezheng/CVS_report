@@ -42,3 +42,9 @@ ERR https://www.7-eleven.co.kr/：HTTPSConnectionPool(host='www.7-eleven.co.kr',
 200    61480 bytes text/html; charset=UTF-8 https://www.ministop.co.jp/syohin/sweets/ → www.ministop.co.jp_syohin_sweets.html
 404    46350 bytes text/html; charset=UTF-8 https://www.ministop.co.jp/syohin/softcream/ → www.ministop.co.jp_syohin_softcream.html
 200   105354 bytes text/html; charset=UTF-8 https://www.ministop.co.jp/corporate/release/ → www.ministop.co.jp_corporate_release.html
+# 2026-11-06T07:28:15.762137Z
+200    55853 bytes text/html; charset=UTF-8 https://www.ministop.co.jp/syohin/sweets/softcream/ → www.ministop.co.jp_syohin_sweets_softcream.html
+200    50370 bytes text/html; charset=UTF-8 https://www.ministop.co.jp/syohin/sweets/parfait/ → www.ministop.co.jp_syohin_sweets_parfait.html
+200    58189 bytes text/html; charset=UTF-8 https://www.ministop.co.jp/syohin/sweets/halohalo/ → www.ministop.co.jp_syohin_sweets_halohalo.html
+200    58102 bytes text/html; charset=UTF-8 https://www.ministop.co.jp/syohin/sweets/softcream/kinakomochisoft/ → www.ministop.co.jp_syohin_sweets_softcream_kinakomochisoft.html
+200    56178 bytes text/html; charset=UTF-8 https://www.ministop.co.jp/syohin/sweets/parfait/pear-parfait2026/ → www.ministop.co.jp_syohin_sweets_parfait_pear-parfait2026.html
