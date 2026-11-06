@@ -85,12 +85,19 @@ class N8n:
         return {(c.get("name"), c.get("type")): c["id"] for c in d.get("data", [])}
 
 
-def attach_credentials(flow, creds) -> list[str]:
-    """把 credentials 的名稱換成 n8n 上的 ID；回傳找不到的帳號名稱。"""
+def attach_credentials(flow, creds, existing=None) -> list[str]:
+    """把 credentials 的名稱換成 n8n 上的 ID；回傳找不到的帳號名稱。
+    對應順序：API 列出的帳號 → n8n 上該流程已綁定的同名帳號（在畫面上綁過一次即可沿用）→ N8N_SMTP_CREDENTIAL_ID。"""
+    bound = {}
+    for n in (existing or {}).get("nodes", []):
+        for ctype, ref in (n.get("credentials") or {}).items():
+            if ref.get("id"):
+                bound[(ref.get("name"), ctype)] = ref["id"]
     missing = []
     for node in flow["nodes"]:
         for ctype, ref in list((node.get("credentials") or {}).items()):
-            cid = creds.get((ref["name"], ctype)) or (env("N8N_SMTP_CREDENTIAL_ID") if ctype == "smtp" else "")
+            cid = (creds.get((ref["name"], ctype)) or bound.get((ref["name"], ctype))
+                   or (env("N8N_SMTP_CREDENTIAL_ID") if ctype == "smtp" else ""))
             if cid:
                 node["credentials"][ctype] = {"id": cid, "name": ref["name"]}
             else:
@@ -115,9 +122,10 @@ def main():
     creds = api.credentials_by_name()
     failed = False
     for flow in flows:
-        missing = attach_credentials(flow, creds)
-        body = {k: flow[k] for k in ("name", "nodes", "connections", "settings")}
         old = api.find_workflow(flow["name"])
+        existing = api.req("GET", f"/workflows/{old['id']}") if old else None
+        missing = attach_credentials(flow, creds, existing)
+        body = {k: flow[k] for k in ("name", "nodes", "connections", "settings")}
         if old:
             wid = old["id"]
             api.req("PUT", f"/workflows/{wid}", json=body)
@@ -126,7 +134,7 @@ def main():
             wid = api.req("POST", "/workflows", json=body)["id"]
             print(f"新增：{flow['name']}（{wid}）")
         if missing:
-            print(f"⚠ 找不到寄信帳號：{'、'.join(missing)}。已部署但未啟用排程；在 n8n 建立同名帳號後重新部署。")
+            print(f"⚠ 找不到寄信帳號：{'、'.join(missing)}。已部署但未啟用排程；在 n8n 該節點選好同名帳號並儲存後，重新部署即可沿用。")
             try:
                 api.req("POST", f"/workflows/{wid}/deactivate")
             except RuntimeError:
