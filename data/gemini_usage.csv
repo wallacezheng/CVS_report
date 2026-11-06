@@ -15,3 +15,5 @@ date,source,calls,items,prompt_tokens,output_tokens,thought_tokens,est_usd,model
 2026-11-03,translate,16,301,42405,33340,3397,0.3391,gemini-3.8-flash,aae788f0
 2026-11-06,translate,2,38,5346,3814,2316,0.0540,gemini-3.8-flash,aae788f0
 2026-11-06,press,2,9,21320,1136,978,0.0478,gemini-3.8-flash,b106d7bb
+2026-11-06,translate,3,45,8141,4656,0,0.0471,gemini-3.8-flash,aae788f0
+2026-11-06,reclassify,13,377,34794,12124,23915,0.3225,gemini-3.8-flash,163570ff

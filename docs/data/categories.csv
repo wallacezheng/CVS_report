@@ -6,12 +6,14 @@ FRESH_SANDWICH,鮮食,三明治・漢堡・捲餅,13
 FRESH_DELI,鮮食,配菜・沙拉・湯品,14
 HOT_SNACK,熱食,熱食・炸物・包子,20
 BAKERY,麵包,麵包,30
+BAKERY_TOAST,麵包,吐司,31
 DESSERT,甜點,冷藏甜點,40
 SNACK_SAVORY,零食,鹹零食,50
 SNACK_SWEET,零食,甜零食・糖果,51
 ICE,冰品,冰淇淋・冰品,60
+ICE_SOFT,冰品,霜淇淋,61
 DRINK,飲料,飲料,70
 INSTANT,加工食品,泡麵・加工食品,80
 FROZEN,冷凍食品,冷凍食品,81
-NON_FOOD,非食品,非食品（不納入分析）,99
 ALCOHOL,酒類,酒類（不計入食品趨勢）,90
+NON_FOOD,非食品,非食品（不納入分析）,99

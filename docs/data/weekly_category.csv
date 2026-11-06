@@ -48,7 +48,8 @@ week,country,chain,category_code,category_zh,category_group,new_count,avg_price,
 2026-W44,JP,familymart_jp,INSTANT,泡麵・加工食品,加工食品,4,170.0,170.0
 2026-W44,JP,familymart_jp,SNACK_SAVORY,鹹零食,零食,1,349.0,349.0
 2026-W44,JP,familymart_jp,SNACK_SWEET,甜零食・糖果,零食,3,256.3,248.0
-2026-W44,JP,lawson_jp,BAKERY,麵包,麵包,5,173.0,192.0
+2026-W44,JP,lawson_jp,BAKERY,麵包,麵包,3,184.7,192.0
+2026-W44,JP,lawson_jp,BAKERY_TOAST,吐司,麵包,2,155.5,155.5
 2026-W44,JP,lawson_jp,DESSERT,冷藏甜點,甜點,5,366.6,356.0
 2026-W44,JP,lawson_jp,DRINK,飲料,飲料,6,219.7,233.0
 2026-W44,JP,lawson_jp,FRESH_BENTO,便當・丼飯・炒飯,鮮食,5,707.8,697.0
@@ -61,7 +62,8 @@ week,country,chain,category_code,category_zh,category_group,new_count,avg_price,
 2026-W44,JP,lawson_jp,INSTANT,泡麵・加工食品,加工食品,1,288.0,288.0
 2026-W44,JP,lawson_jp,SNACK_SAVORY,鹹零食,零食,4,198.0,203.0
 2026-W44,JP,lawson_jp,SNACK_SWEET,甜零食・糖果,零食,2,181.0,181.0
-2026-W44,JP,seven_jp,BAKERY,麵包,麵包,30,189.5,181.4
+2026-W44,JP,seven_jp,BAKERY,麵包,麵包,29,188.7,181.4
+2026-W44,JP,seven_jp,BAKERY_TOAST,吐司,麵包,1,213.8,213.8
 2026-W44,JP,seven_jp,DESSERT,冷藏甜點,甜點,25,309.7,300.2
 2026-W44,JP,seven_jp,DRINK,飲料,飲料,15,193.2,194.4
 2026-W44,JP,seven_jp,FRESH_BENTO,便當・丼飯・炒飯,鮮食,32,626.6,645.8
@@ -88,7 +90,8 @@ week,country,chain,category_code,category_zh,category_group,new_count,avg_price,
 2026-W45,JP,familymart_jp,ICE,冰淇淋・冰品,冰品,1,338.0,338.0
 2026-W45,JP,familymart_jp,INSTANT,泡麵・加工食品,加工食品,3,293.0,318.0
 2026-W45,JP,familymart_jp,SNACK_SAVORY,鹹零食,零食,1,198.0,198.0
-2026-W45,JP,lawson_jp,BAKERY,麵包,麵包,7,195.6,194.0
+2026-W45,JP,lawson_jp,BAKERY,麵包,麵包,6,195.8,197.5
+2026-W45,JP,lawson_jp,BAKERY_TOAST,吐司,麵包,1,194.0,194.0
 2026-W45,JP,lawson_jp,DESSERT,冷藏甜點,甜點,7,282.3,265.0
 2026-W45,JP,lawson_jp,DRINK,飲料,飲料,4,167.8,179.0
 2026-W45,JP,lawson_jp,FRESH_BENTO,便當・丼飯・炒飯,鮮食,4,734.0,736.0
@@ -112,7 +115,8 @@ week,country,chain,category_code,category_zh,category_group,new_count,avg_price,
 2026-W45,JP,seven_jp,INSTANT,泡麵・加工食品,加工食品,17,310.8,280.8
 2026-W45,JP,seven_jp,SNACK_SAVORY,鹹零食,零食,14,204.7,181.4
 2026-W45,JP,seven_jp,SNACK_SWEET,甜零食・糖果,零食,30,209.3,190.6
-2026-W45,KR,cu_kr,BAKERY,麵包,麵包,54,2900.0,2500.0
+2026-W45,KR,cu_kr,BAKERY,麵包,麵包,53,2909.4,2500.0
+2026-W45,KR,cu_kr,BAKERY_TOAST,吐司,麵包,1,2400.0,2400.0
 2026-W45,KR,cu_kr,DESSERT,冷藏甜點,甜點,37,3721.6,3800.0
 2026-W45,KR,cu_kr,DRINK,飲料,飲料,41,2875.6,2600.0
 2026-W45,KR,cu_kr,FRESH_BENTO,便當・丼飯・炒飯,鮮食,19,5889.5,5900.0
@@ -135,6 +139,16 @@ week,country,chain,category_code,category_zh,category_group,new_count,avg_price,
 2026-W45,KR,emart24_kr,FRESH_SANDWICH,三明治・漢堡・捲餅,鮮食,6,3816.7,3800.0
 2026-W45,KR,emart24_kr,ICE,冰淇淋・冰品,冰品,1,2500.0,2500.0
 2026-W45,KR,emart24_kr,SNACK_SWEET,甜零食・糖果,零食,1,2900.0,2900.0
+2026-W46,JP,familymart_jp,BAKERY,麵包,麵包,4,209.0,209.0
+2026-W46,JP,familymart_jp,FRESH_BENTO,便當・丼飯・炒飯,鮮食,1,598.0,598.0
+2026-W46,JP,familymart_jp,FRESH_DELI,配菜・沙拉・湯品,鮮食,16,377.3,383.0
+2026-W46,JP,familymart_jp,FRESH_NOODLE,麵類・義大利麵,鮮食,4,547.5,523.0
+2026-W46,JP,familymart_jp,FRESH_RICE,飯糰・壽司,鮮食,5,256.8,250.0
+2026-W46,JP,familymart_jp,FRESH_SANDWICH,三明治・漢堡・捲餅,鮮食,5,385.0,398.0
+2026-W46,JP,familymart_jp,FROZEN,冷凍食品,冷凍食品,4,357.2,376.0
+2026-W46,JP,familymart_jp,ICE,冰淇淋・冰品,冰品,1,238.0,238.0
+2026-W46,JP,familymart_jp,INSTANT,泡麵・加工食品,加工食品,2,288.0,288.0
+2026-W46,JP,familymart_jp,SNACK_SWEET,甜零食・糖果,零食,3,327.3,368.0
 2026-W46,JP,lawson_jp,BAKERY,麵包,麵包,7,216.9,192.0
 2026-W46,JP,lawson_jp,DESSERT,冷藏甜點,甜點,4,277.5,277.0
 2026-W46,JP,lawson_jp,DRINK,飲料,飲料,2,349.0,349.0
@@ -145,7 +159,8 @@ week,country,chain,category_code,category_zh,category_group,new_count,avg_price,
 2026-W46,JP,lawson_jp,HOT_SNACK,熱食・炸物・包子,熱食,1,198.0,198.0
 2026-W46,JP,lawson_jp,SNACK_SAVORY,鹹零食,零食,3,288.0,318.0
 2026-W46,JP,lawson_jp,SNACK_SWEET,甜零食・糖果,零食,4,193.0,188.0
-2026-W46,JP,seven_jp,BAKERY,麵包,麵包,28,195.7,181.4
+2026-W46,JP,seven_jp,BAKERY,麵包,麵包,27,196.2,181.4
+2026-W46,JP,seven_jp,BAKERY_TOAST,吐司,麵包,1,181.4,181.4
 2026-W46,JP,seven_jp,DESSERT,冷藏甜點,甜點,17,296.2,302.4
 2026-W46,JP,seven_jp,DRINK,飲料,飲料,15,206.1,203.0
 2026-W46,JP,seven_jp,FRESH_BENTO,便當・丼飯・炒飯,鮮食,22,618.4,645.8

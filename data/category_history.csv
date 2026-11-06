@@ -1,0 +1,7 @@
+date,product_key,old_category,new_category,old_category_version,new_category_version,reason,model,prompt_version
+2026-11-06,cu_kr:28554,BAKERY,BAKERY_TOAST,,d0172a54,分類拆分，重新分類,gemini-3.8-flash,163570ff
+2026-11-06,lawson_jp:1533649,BAKERY,BAKERY_TOAST,,d0172a54,分類拆分，重新分類,gemini-3.8-flash,163570ff
+2026-11-06,lawson_jp:1533652,BAKERY,BAKERY_TOAST,,d0172a54,分類拆分，重新分類,gemini-3.8-flash,163570ff
+2026-11-06,lawson_jp:1533859,BAKERY,BAKERY_TOAST,,d0172a54,分類拆分，重新分類,gemini-3.8-flash,163570ff
+2026-11-06,seven_jp:301945,BAKERY,BAKERY_TOAST,,d0172a54,分類拆分，重新分類,gemini-3.8-flash,163570ff
+2026-11-06,seven_jp:304191,BAKERY,BAKERY_TOAST,,d0172a54,分類拆分，重新分類,gemini-3.8-flash,163570ff
