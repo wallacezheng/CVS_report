@@ -35,3 +35,10 @@ ERR https://www.7-eleven.co.kr/robots.txt：HTTPSConnectionPool(host='www.7-elev
 ERR https://www.7-eleven.co.kr/：HTTPSConnectionPool(host='www.7-eleven.co.kr', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.7-eleven.co.kr', port=443) at 0x702f364ded80>, 'Connection to www.7-eleven.co.kr timed out. (connect timeout=30)'))
 200     1322 bytes text/plain; charset=UTF-8 https://www.gsretail.com/robots.txt → www.gsretail.com_robots.txt.html
 200      906 bytes text/html; charset=UTF-8 https://gs25.gsretail.com/robots.txt → gs25.gsretail.com_robots.txt.html（轉址到 https://www.gsretail.com/brand/gs25）
+# 2026-11-06T06:49:33.764414Z
+200      176 bytes text/plain; charset=UTF-8 https://www.ministop.co.jp/robots.txt → www.ministop.co.jp_robots.txt.html
+200    60116 bytes text/html; charset=UTF-8 https://www.ministop.co.jp/syohin/ → www.ministop.co.jp_syohin.html
+404    46350 bytes text/html; charset=UTF-8 https://www.ministop.co.jp/syohin/new/ → www.ministop.co.jp_syohin_new.html
+200    61480 bytes text/html; charset=UTF-8 https://www.ministop.co.jp/syohin/sweets/ → www.ministop.co.jp_syohin_sweets.html
+404    46350 bytes text/html; charset=UTF-8 https://www.ministop.co.jp/syohin/softcream/ → www.ministop.co.jp_syohin_softcream.html
+200   105354 bytes text/html; charset=UTF-8 https://www.ministop.co.jp/corporate/release/ → www.ministop.co.jp_corporate_release.html
