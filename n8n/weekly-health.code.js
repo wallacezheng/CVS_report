@@ -128,7 +128,8 @@ function healthCheck({ runs, productsCsv, usageCsv, now = new Date(), maxUsd = 1
   else lines.push(['Gemini 本月花費', `US$${usd.toFixed(2)}／上限 ${maxUsd}`, 'ok']);
 
   // 4. 待翻譯
-  const untranslated = products.filter(p => !p.name_zh).length;
+  // 非食品與酒類依規則不翻譯（不花 Gemini 費用），不算待翻譯
+  const untranslated = products.filter(p => !p.name_zh && !['NON_FOOD', 'ALCOHOL'].includes(p.category_code)).length;
   if (untranslated > 0) {
     warns.push(`${untranslated} 支新品尚未翻譯（GitHub Actions → crawl → 勾選 translate 執行）`);
     lines.push(['待翻譯', `${untranslated} 支`, 'warn']);

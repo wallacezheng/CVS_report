@@ -4,14 +4,14 @@
   "nodes": [
     {
       "id": "b1a7c2d0-0001-4c00-8000-000000000001",
-      "name": "每週三 09:00",
+      "name": "每週三 14:00",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [0, 0],
       "parameters": {
         "rule": {
           "interval": [
-            { "field": "weeks", "weeksInterval": 1, "triggerAtDay": [3], "triggerAtHour": 9, "triggerAtMinute": 0 }
+            { "field": "weeks", "weeksInterval": 1, "triggerAtDay": [3], "triggerAtHour": 14, "triggerAtMinute": 0 }
           ]
         }
       }
@@ -83,7 +83,7 @@
     }
   ],
   "connections": {
-    "每週三 09:00": { "main": [[{ "node": "取得爬取紀錄", "type": "main", "index": 0 }]] },
+    "每週三 14:00": { "main": [[{ "node": "取得爬取紀錄", "type": "main", "index": 0 }]] },
     "取得爬取紀錄": { "main": [[{ "node": "讀取商品資料", "type": "main", "index": 0 }]] },
     "讀取商品資料": { "main": [[{ "node": "讀取 Gemini 用量", "type": "main", "index": 0 }]] },
     "讀取 Gemini 用量": { "main": [[{ "node": "健檢計算", "type": "main", "index": 0 }]] },
