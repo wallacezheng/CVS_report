@@ -3,7 +3,7 @@
 // 本機測試：node tools/test_health.js（用 repo 內的真實資料）。
 
 const CHAIN_NAMES = {
-  seven_jp: '7-Eleven 日本', familymart_jp: '全家 日本', lawson_jp: 'Lawson 日本',
+  seven_jp: '7-Eleven 日本', familymart_jp: '全家 日本', lawson_jp: 'Lawson 日本', ministop_jp: 'Ministop 日本',
   cu_kr: 'CU 韓國', emart24_kr: 'emart24 韓國',
 };
 

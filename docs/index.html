@@ -393,9 +393,9 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
       <div class="tour-k">06｜使用前要知道的限制</div>
       <h2>這是每週快照與 AI 整理，拿去對外使用前請再核對原始來源</h2>
       <ul class="limits">
-        <li>日本涵蓋 7-Eleven、全家、Lawson（Lawson 自 2026-11-02 起）；韓國涵蓋 CU（官網標示 NEW 的商品）與 emart24（自有及合作商品），自 2026-11-02 起。GS25 的網站規定禁止程式抓取商品資料；7-Eleven 韓國的網站無法從我們的伺服器連線。兩家都不收錄，之後改用新聞補充。</li>
+        <li>日本涵蓋 7-Eleven、全家、Lawson（Lawson 自 2026-11-02 起），另收 Ministop 的店內冷甜點（自 2026-11-06 起）；韓國涵蓋 CU（官網標示 NEW 的商品）與 emart24（自有及合作商品），自 2026-11-02 起。GS25 的網站規定禁止程式抓取商品資料；7-Eleven 韓國的網站無法從我們的伺服器連線。兩家都不收錄，之後改用新聞補充。</li>
         <li>中文品名、分類、標籤與口碑摘要由 AI 產生，可能有誤；每張卡片都附原文與官網連結。標籤字典於 2026-11-02 擴充（加入口感、型態等），既有商品已依新字典重新貼標；之後字典再調整，系統會在下次執行時自動重貼。</li>
-        <li>分類於 2026-11-06 新增「吐司」「霜淇淋」：麵包、冰品、冷藏甜點在這天前後的數字含分類改版的影響，歷週洞察頁比較改版前後的快照時會提示。日本三家超商的新品頁幾乎沒有店內現做霜淇淋，這一類目前多半是空的。</li>
+        <li>分類於 2026-11-06 新增「吐司」「霜淇淋」：麵包、冰品、冷藏甜點在這天前後的數字含分類改版的影響，歷週洞察頁比較改版前後的快照時會提示。三大超商的新品頁沒有店內現做霜淇淋，所以另外收錄 Ministop（日本霜淇淋最多的超商）的霜淇淋、聖代與哈囉哈囉頁；這幾頁只列目前販售中的品項，數量少；Ministop 只會出現在冷甜點相關品類。</li>
         <li>價格是官網標示的含稅價，日本單位日圓、韓國單位韓元；價格溢價只在同一國、同一品類內比較。</li>
         <li>官網只保留前後一週的新品，系統每週三抓取一次，資料從 2026 年 10 月下旬開始累積，趨勢需要幾週才會穩定。</li>
         <li>もぐナビ口碑僅供 DSR 內部討論，不可截圖外流或放進給客戶的資料。</li>
@@ -589,8 +589,8 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
 </div>
 
 <script>
-const CHAIN_ZH={seven_jp:"7-Eleven 日本",familymart_jp:"全家 日本",lawson_jp:"Lawson 日本",cu_kr:"CU 韓國",gs25_kr:"GS25 韓國",seven_kr:"7-Eleven 韓國",emart24_kr:"emart24 韓國"};
-const CHAIN_SHORT={seven_jp:"7-Eleven",familymart_jp:"全家",lawson_jp:"Lawson"};
+const CHAIN_ZH={seven_jp:"7-Eleven 日本",familymart_jp:"全家 日本",lawson_jp:"Lawson 日本",ministop_jp:"Ministop 日本",cu_kr:"CU 韓國",gs25_kr:"GS25 韓國",seven_kr:"7-Eleven 韓國",emart24_kr:"emart24 韓國"};
+const CHAIN_SHORT={seven_jp:"7-Eleven",familymart_jp:"全家",lawson_jp:"Lawson",ministop_jp:"Ministop"};
 const STATUS_ZH={upcoming:"即將上市",new:"新品",active:"販售中",delisted:"已下架"};
 const CURRENCY={JP:"日圓",KR:"韓元"};
 const GROUP_COLORS={"鮮食":"#2b4c7e","熱食":"#b0413e","麵包":"#c08a2e","甜點":"#9a5c8f","零食":"#5b8c5a","冰品":"#4a9bb5","飲料":"#7a6a58","加工食品":"#8a8f99","冷凍食品":"#4f5d75"};

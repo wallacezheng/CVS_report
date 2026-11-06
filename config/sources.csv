@@ -2,6 +2,7 @@ source_id,type,url,enabled,note
 seven_jp,product,https://www.sej.co.jp/products/a/thisweek/,1,每週二更新；今週＋来週
 familymart_jp,product,https://www.family.co.jp/goods/newgoods.html,1,每週二更新；来週頁週五傍晚公開
 lawson_jp,product,https://www.lawson.co.jp/recommend/new/,1,新品頁會轉址到最新發售日清單；每次抓導覽列出的約 7 個發售日（前後約三週）
+ministop_jp,product,https://www.ministop.co.jp/syohin/sweets/,1,只收店內冷甜點（霜淇淋、聖代、哈囉哈囉），補「霜淇淋」分類；官網標的發售日為準，沒標的以第一次抓到日為上架日；SOLD OUT 不收；利用規約禁止營利目的使用（限內部研究）
 cu_kr,product,https://cu.bgfretail.com/product/product.do?category=product&depth2=4,1,POST productAjax.do，最新順，只收官網標 NEW 的商品；無發售日，以第一次抓到日為上架日
 gs25_kr,product,https://gs25.gsretail.com/,0,新官網商品資料走 /api/，robots.txt 禁止 /api/ → 不爬，改由 Naver 新聞覆蓋
 emart24_kr,product,https://emart24.co.kr/goods/pl?align=RECENT,1,差異化商品最新順前 2 頁；無發售日與可靠 NEW 標記，以第一次抓到日為上架日

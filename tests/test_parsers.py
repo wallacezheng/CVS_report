@@ -213,6 +213,7 @@ class SejPressTest(unittest.TestCase):
 class KoreaParsersTest(unittest.TestCase):
     def _fx(self, name):
         from pathlib import Path
+        from pathlib import Path
         return (Path(__file__).parent / "fixtures" / name).read_text(encoding="utf-8")
 
     def test_cu(self):
@@ -229,3 +230,45 @@ class KoreaParsersTest(unittest.TestCase):
         self.assertEqual(len(rows), 20)
         self.assertEqual(rows[0]["item_id"], "8801550005598")
         self.assertEqual(rows[0]["price_tax_incl"], 1800.0)
+
+
+class MinistopTest(unittest.TestCase):
+    def setUp(self):
+        from datetime import date
+        from scraper.sources import ministop_jp
+        self.M, self.today = ministop_jp, date(2026, 11, 6)
+
+    def _read(self, name):
+        from pathlib import Path
+        return (Path(__file__).parent / "fixtures" / name).read_text(encoding="utf-8")
+
+    def test_softcream(self):
+        rows = self.M.parse_column_page(self._read("ministop_softcream_20261106.html"), "softcream",
+                                        "店内ソフトクリーム", "u", self.today)
+        names = [r["name_original"] for r in rows]
+        self.assertIn("黒糖きな粉もちソフト", names)
+        self.assertIn("和栗ソフト", names)                 # 同卡第二個口味另算一支
+        self.assertNotIn("食べるスプーンで提供します！", names)  # 沒有價格的宣傳卡不收
+        r = next(r for r in rows if r["name_original"] == "あまおう苺ソフト")
+        self.assertEqual((r["price_tax_incl"], r["release_date"]), (378.0, "2026-10-30"))
+        self.assertTrue(all(r["chain"] == "ministop_jp" and r["country"] == "JP" for r in rows))
+        self.assertEqual(len({r["item_id"] for r in rows}), len(rows))
+
+    def test_parfait_skips_large_size(self):
+        rows = self.M.parse_column_page(self._read("ministop_parfait_20261106.html"), "parfait",
+                                        "店内パフェ", "u", self.today)
+        names = [r["name_original"] for r in rows]
+        self.assertIn("なめらかプリンパフェ", names)
+        self.assertFalse(any(n.startswith("得盛") for n in names))
+        self.assertEqual(next(r for r in rows if r["name_original"] == "なめらかプリンパフェ")["price_tax_incl"], 486.0)
+
+    def test_halohalo_skips_sold_out(self):
+        rows = self.M.parse_halohalo(self._read("ministop_halohalo_20261106.html"), "ハロハロ（店内）", "u")
+        self.assertTrue(rows)
+        self.assertTrue(all(r["name_original"].startswith("ハロハロ") for r in rows))
+        self.assertNotIn("ハロハロ パチパチシャインマスカット", [r["name_original"] for r in rows])
+
+    def test_year_rollover(self):
+        from datetime import date
+        self.assertEqual(self.M._release("12/20(土)より", date(2027, 1, 5)), "2026-12-20")
+        self.assertEqual(self.M._release("発売中", self.today), "")

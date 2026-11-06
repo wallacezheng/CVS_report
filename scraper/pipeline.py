@@ -19,13 +19,13 @@ from .common import fetch, is_regional_jp, new_areas, today_tw
 from .config_store import ConfigStore
 from .enrich import enrich, load_cache, reclassify, reclassify_alcohol, save_cache, retag
 from .signals import apply_hit_signals, update_press
-from .sources import RAW_FIELDS, cu_kr, emart24_kr, familymart_jp, lawson_jp, naver_datalab, seven_jp
+from .sources import RAW_FIELDS, cu_kr, emart24_kr, familymart_jp, lawson_jp, ministop_jp, naver_datalab, seven_jp
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 DOCS_DATA = ROOT / "docs" / "data"
 
-CHAIN_ZH = {"seven_jp": "7-Eleven 日本", "familymart_jp": "全家 日本", "lawson_jp": "Lawson 日本",
+CHAIN_ZH = {"seven_jp": "7-Eleven 日本", "familymart_jp": "全家 日本", "lawson_jp": "Lawson 日本", "ministop_jp": "Ministop 日本",
             "cu_kr": "CU 韓國", "gs25_kr": "GS25 韓國", "seven_kr": "7-Eleven 韓國",
             "emart24_kr": "emart24 韓國"}
 COUNTRY_ZH = {"JP": "日本", "KR": "韓國"}
@@ -72,7 +72,8 @@ def iso_week(d: str) -> str:
 def crawl_all(cfg: ConfigStore, errors: list[str]) -> list[dict]:
     rows = []
     jobs = [("seven_jp", seven_jp.crawl), ("familymart_jp", familymart_jp.crawl),
-            ("lawson_jp", lawson_jp.crawl), ("cu_kr", cu_kr.crawl), ("emart24_kr", emart24_kr.crawl)]
+            ("lawson_jp", lawson_jp.crawl), ("ministop_jp", ministop_jp.crawl),
+            ("cu_kr", cu_kr.crawl), ("emart24_kr", emart24_kr.crawl)]
     for sid, fn in jobs:
         if not cfg.source_enabled(sid, default=True):
             continue
