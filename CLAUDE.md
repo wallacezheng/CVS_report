@@ -79,6 +79,6 @@ Variables（可選）：MAX_ENRICH_PER_RUN、MAX_ENRICH_PER_MONTH、MAX_GEMINI_U
   - 每週洞察快照：`scraper/insights.py` → `data/insights/{週}.json`（並複製到 `docs/data/insights/`＋index.json）。**算法須與 `docs/index.html` 的 renderXdet／renderCommon 一致，改一邊要同步改另一邊**（定義版本 insights-v1）。
 - 2026-11-03 歷週洞察頁 `#p-history`（`initHistory`／`renderHistory`）：選快照週次與對照週次，逐筆判定後續並算「後續持續」比例。快照加 kind（weekly／backfill）與 note；`tools/backfill_insights.py` 回溯產生 W43、W44（不覆蓋正式快照）；index.json 改為 [{week, kind, generated_at}]。首次對照 W44→W45：跨超商升溫 25/83、新組合 72/93、價格溢價 12/20（W43 樣本少使 W44 訊號偏多；熱賣倍數因同一份資料而必然 100%，不具意義）。
 - 2026-11-03 翻譯 301 支新品（US$0.34，指令版本 aae788f0），全部商品 1,802 支皆已翻譯。
-- 2026-11-06 n8n 第一個流程「[CVS_report] 每週健檢」：每週三 09:00（台灣）檢查排程爬取成功與否、資料新鮮度、各來源近 7 天新品數（0 支＝異常、低於前 4 週中位數 30%＝提醒，排除開始收錄的第一週）、本月 Gemini 花費（≥80% 提醒）、待翻譯支數，寄 HTML 信。只讀公開資料，不需 GitHub 權杖。GitHub 已確認連得到公司 n8n。**待 Wallace**：設 Variables N8N_URL、N8N_ALERT_TO；在 n8n 建 SMTP 帳號「CVS Gmail」（smtp.gmail.com:465、應用程式密碼）；之後手動執行 deploy-n8n 並試寄。
+- 2026-11-06 n8n 第一個流程「[CVS_report] 每週健檢」：每週三 09:00（台灣）檢查排程爬取成功與否、資料新鮮度、各來源近 7 天新品數（0 支＝異常、低於前 4 週中位數 30%＝提醒，排除開始收錄的第一週）、本月 Gemini 花費（≥80% 提醒）、待翻譯支數，寄 HTML 信。只讀公開資料，不需 GitHub 權杖。GitHub 已確認連得到公司 n8n。11-06 已部署並啟用（Published），試寄成功。注意：n8n API 金鑰無權列出 Credentials（403），所以寄信帳號是在 n8n 畫面上綁定一次（帳號 CVS Gmail，SMTP smtp.gmail.com:465），deploy_n8n 會沿用流程上已綁定的同名帳號。健檢以「最近一個應已執行的週三排程」為基準（週間手動執行不誤報）。使用手冊已加「監控與通知」章節。
 - 下一步：韓國熱賣訊號（評估見 Project 文件「來源評估與決策紀錄」：emart24 可直接做；CU／GS25 需 probe；Naver 新聞 API 需 Wallace 申請金鑰）。
 - 待 Wallace：GCP 預算快訊與 Vertex AI 配額；もぐナビbiz 授權洽詢。
