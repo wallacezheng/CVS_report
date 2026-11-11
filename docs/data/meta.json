@@ -1,9 +1,12 @@
 {
- "updated_at": "2026-11-06",
- "this_week": "2026-W45",
- "product_count": 1907,
- "review_count": 2,
- "errors": [],
+ "updated_at": "2026-11-11",
+ "this_week": "2026-W46",
+ "product_count": 2268,
+ "review_count": 336,
+ "errors": [
+  "本次未開啟翻譯，334 支商品待翻譯（手動執行時勾選翻譯即可補上）",
+  "官方新聞稿有 6 篇待分析（需開啟翻譯）"
+ ],
  "sources": {
   "seven_jp": 1,
   "familymart_jp": 1,
