@@ -95,6 +95,8 @@ nav.tabs .lk{font-size:.75rem;margin-left:4px}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px;display:grid;gap:12px;min-width:0;align-content:start}
 .panel header{display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap}
 .scroll{overflow-x:auto}
+/* 週次變多時，第一欄（標籤／分類）固定不捲走 */
+.scroll table.sticky1 tr>:first-child{position:sticky;left:0;z-index:1;background:var(--surface);box-shadow:1px 0 0 var(--line)}
 svg text{fill:var(--muted);font-family:var(--f-mono);font-size:11px}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.78rem;color:var(--muted)}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
@@ -417,20 +419,20 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
     </div>
     <section class="panels">
       <div class="panel">
-        <header><h2>各分類新品數</h2><span class="muted" style="font-size:.78rem">依發售週</span></header>
+        <header><h2>各分類新品數</h2><span class="muted" style="font-size:.78rem">依發售週，最近 8 週</span></header>
         <p class="hint">每根柱子是一週的新品數，顏色是品類。<b>看哪個顏色變厚</b>＝超商這週把力氣放在哪類商品。標「預告」的是下週已公布的新品。</p>
         <div class="scroll" id="chart-cat"></div>
         <div class="legend" id="legend-cat"></div>
       </div>
       <div class="panel">
-        <header><h2>口味／素材熱度</h2><span class="muted" style="font-size:.78rem">每週出現支數，前 14 名</span></header>
+        <header><h2>口味／素材熱度</h2><span class="muted" style="font-size:.78rem">每週出現支數（最近 8 週），前 14 名</span></header>
         <p class="hint">每格是該週含這個口味／素材的新品數，越深越多。<b>看最右欄「週增減」的 +</b>＝正在升溫的口味。點標籤可列出商品。</p>
-        <div class="scroll"><table class="heat" id="tbl-tags"></table></div>
+        <div class="scroll"><table class="heat sticky1" id="tbl-tags"></table></div>
       </div>
       <div class="panel">
         <header><h2>價格帶</h2><span class="muted" style="font-size:.78rem" id="price-unit">含稅平均售價</span></header>
         <p class="hint">各品類新品的平均售價。<b>同一品類連續幾週往上</b>，代表超商在推高價版本（加料、名店監修、大份量）。</p>
-        <div class="scroll"><table id="tbl-price"></table></div>
+        <div class="scroll"><table class="sticky1" id="tbl-price"></table></div>
       </div>
     </section>
     <section class="panel" id="xtab">
@@ -442,7 +444,7 @@ footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padd
         <select id="x-chain"><option value="">全部超商</option></select>
         <span class="muted" id="x-note" style="font-size:.78rem"></span>
       </div>
-      <div class="scroll"><table class="xmat" id="x-mat"></table></div>
+      <div class="scroll"><table class="xmat sticky1" id="x-mat"></table></div>
       <div class="xdet" id="x-det"></div>
     </section>
     <section style="display:grid;gap:12px">
@@ -663,9 +665,16 @@ function renderSummary(){
   $("status-list").innerHTML=notes.map(x=>`<li>${esc(x)}</li>`).join("");
 }
 
+/* 週次軸：只取新品數 ≥20 支的週、最近 8 週（避免 Ministop 等只列在售品項的舊發售週拉出一長排稀疏欄位） */
+function axisWeeks(country){
+  const tot={};S.weeklyCat.filter(r=>!EXCL.has(r.category_code)&&(r.country||"JP")===country)
+    .forEach(r=>tot[r.week]=(tot[r.week]||0)+ +r.new_count);
+  return Object.keys(tot).filter(w=>tot[w]>=20).sort().slice(-8);
+}
+
 function renderCatChart(){
-  const rows=S.weeklyCat.filter(r=>!EXCL.has(r.category_code)&&(r.country||"JP")===S.country);
-  const weeks=[...new Set(rows.map(r=>r.week))].sort();
+  const weeks=axisWeeks(S.country),ws=new Set(weeks);
+  const rows=S.weeklyCat.filter(r=>!EXCL.has(r.category_code)&&(r.country||"JP")===S.country&&ws.has(r.week));
   if(!weeks.length){$("chart-cat").innerHTML=`<div class="empty">尚無資料</div>`;$("legend-cat").innerHTML="";return}
   const groups=[...new Set([...S.cats].sort((a,b)=>a.sort-b.sort).map(c=>c.group_zh))].filter(g=>rows.some(r=>r.category_group===g));
   const data=weeks.map(w=>({w,vals:groups.map(g=>rows.filter(r=>r.week===w&&r.category_group===g).reduce((s,r)=>s+ +r.new_count,0))}));
@@ -684,8 +693,8 @@ function renderCatChart(){
 }
 
 function renderTags(){
-  const src=S.weeklyTags.filter(r=>(r.country||"JP")===S.country&&inDim(r.tag,"flavor"));
-  const weeks=[...new Set(src.map(r=>r.week))].sort();
+  const weeks=axisWeeks(S.country),ws=new Set(weeks);
+  const src=S.weeklyTags.filter(r=>(r.country||"JP")===S.country&&inDim(r.tag,"flavor")&&ws.has(r.week));
   const totals={};src.forEach(r=>totals[r.tag]=(totals[r.tag]||0)+ +r.count);
   const tags=Object.keys(totals).sort((a,b)=>totals[b]-totals[a]).slice(0,14);
   const max=Math.max(1,...src.map(r=>+r.count));
@@ -699,9 +708,9 @@ function renderTags(){
 }
 
 function renderPrice(){
-  const rows=S.weeklyCat.filter(r=>!EXCL.has(r.category_code)&&(r.country||"JP")===S.country);
-  $("price-unit").textContent=`含稅平均售價，${CURRENCY[S.country]||""}`;
-  const weeks=[...new Set(rows.map(r=>r.week))].sort();
+  const weeks=axisWeeks(S.country),ws=new Set(weeks);
+  const rows=S.weeklyCat.filter(r=>!EXCL.has(r.category_code)&&(r.country||"JP")===S.country&&ws.has(r.week));
+  $("price-unit").textContent=`含稅平均售價，${CURRENCY[S.country]||""}，最近 8 週`;
   const codes=S.cats.filter(c=>rows.some(r=>r.category_code===c.category_code)).sort((a,b)=>a.sort-b.sort);
   const avg=(code,w)=>{const rs=rows.filter(r=>r.category_code===code&&r.week===w&&r.avg_price);const n=rs.reduce((s,r)=>s+ +r.new_count,0);return n?rs.reduce((s,r)=>s+r.avg_price*r.new_count,0)/n:null};
   let h=`<tr><th>分類</th>${weeks.map(w=>`<th class="num">${wkHead(w)}</th>`).join("")}</tr>`;
