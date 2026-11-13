@@ -443,6 +443,38 @@ cu_kr:28718,Whittaker's 經典香濃牛奶巧克力,紐西蘭Whittaker's進口,S
 cu_kr:28721,Cadbury吉百利牛奶巧克力,,SNACK_SWEET,巧克力,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,
 cu_kr:28722,Cadbury吉百利榛果牛奶巧克力,,SNACK_SWEET,巧克力|芝麻・堅果,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,
 cu_kr:28723,BAKE 405 美波的哈密瓜麵包,CU自有烘焙品牌405系列,BAKERY,哈密瓜|水果,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,163570ff
+cu_kr:28725,中華一桌 八寶菜便當,中華一桌系列八寶菜風味中式便當,FRESH_BENTO,中華・町中華|海鮮|豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28726,塔麻可吉 Kuchipatchi 大嘴怪馬卡龍,塔麻可吉（電子雞）人氣角色Kuchipatchi造型馬卡龍,DESSERT,聯名・IP,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28727,濃起司蒜味漢堡排堡,,FRESH_SANDWICH,起司|蒜味|豬肉|牛肉|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28728,大三角飯糰 首香米辣炒豬肉,使用韓國在地首香米製作的大尺寸辣炒豬肉三角飯糰,FRESH_RICE,豬肉|辣味|大份量・增量|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28729,牛排起司韓式飯捲,,FRESH_RICE,起司|牛肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28730,德淵女兒元兒 泡菜炒豬肉便當,聯名合作款韓式泡菜炒豬肉定食便當,FRESH_BENTO,豬肉|辣味,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28731,BakeHouse 405 原味鹽可頌,CU烘焙自有品牌BakeHouse 405經典鹽可頌,BAKERY,鹽味|奶油,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28732,Melting Cheese 雙拼起司吐司,Melting Cheese系列熱壓雙拼起司吐司,FRESH_SANDWICH,起司|夾心・三明治式,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28733,Samlip 甜酒釀紅豆粒包子,加入甜酒釀發酵外皮包裹顆粒紅豆餡,HOT_SNACK,紅豆・和風甜,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28734,Melting Cheese 通心粉起司皮塔口袋餅,皮塔餅包裹濃郁起司通心粉,FRESH_SANDWICH,起司|夾心・三明治式|東南亞・異國,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28735,Melting Cheese 雙重起司辣炒年糕,Melting Cheese系列融化起司辣炒年糕,FRESH_DELI,起司|辣味|麻糬・米製品,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28736,Pat&Mat 咔嗒響板玩具糖果,附 Pat & Mat 造型按壓響板玩具的食玩糖果,SNACK_SWEET,聯名・IP,0.85,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28737,墨西哥塔可手撕豬起司三明治,,FRESH_SANDWICH,起司|豬肉|夾心・三明治式|東南亞・異國,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28738,懷舊炸豬排漢堡,復古韓式老式炸豬排風味,FRESH_SANDWICH,豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28739,八道一餐 香辣牛小腸嫩豆腐鍋,,FRESH_DELI,辣味|半成品・加熱即食,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28740,烤牛肉全州拌飯韓式飯捲,,FRESH_RICE,牛肉|捲・可麗餅,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28741,半熟蛋蛋黃醬三明治,,FRESH_SANDWICH,蛋|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28742,東方 OREO奧利奧薄片抹茶夾心餅乾 84g,,SNACK_SWEET,抹茶|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28743,不倒翁 雞肉刀削麵袋裝,韓式雞肉刀削袋裝泡麵,INSTANT,雞肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28744,三立 3點1刻奶茶布丁,聯名台灣3點1刻奶茶風味,DESSERT,紅茶|聯名・IP|台灣風,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28745,三立 甜米釀粒紅豆包子 3入,添加甘酒甜米釀風味,HOT_SNACK,紅豆・和風甜|多入・分享包,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28746,樂天 Binch奇波雷煙燻辣椒黃起司餅乾,,SNACK_SWEET,起司|辣味,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28749,HB 愛妃蘋果箱裝 2.2kg,Envys蘋果禮盒箱裝,FRESH_DELI,蘋果|水果,0.85,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28750,Nuldam 巧克力蜂蜜蛋糕,,BAKERY,巧克力|綿密・鬆軟,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28751,Daily 醜蘋果 1kg,生鮮醜蘋果家庭號,FRESH_DELI,蘋果|水果,0.85,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28752,JOY Q彈開心果馬卡龍,,DESSERT,芝麻・堅果|Q彈・Q軟,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28753,Binggrae 烤五花肉風味脆片,,SNACK_SAVORY,豬肉|酥脆,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28754,皇冠 Jollypong黑糖奶茶風味米香脆球,,SNACK_SWEET,焦糖,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28755,樂天 ABC柔滑牛奶巧克力,,SNACK_SWEET,巧克力,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28756,蒙特 玉米脆片,,SNACK_SAVORY,酥脆,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28758,CU得特 勁辣洋芋片,CU自有平價得特系列,SNACK_SAVORY,辣味|平價・CP值,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+cu_kr:28759,不倒翁 撕撕起司條,,SNACK_SAVORY,起司,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 emart24_kr:8800268814010,Yellow 蛋白奶昔綜合穀物風味,便於攜帶沖泡的高蛋白粉飲,DRINK,糯麥・雜穀|高蛋白,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 emart24_kr:8800268814027,Yellow 蛋白奶昔巧克力風味,便於攜帶沖泡的高蛋白粉飲,DRINK,巧克力|高蛋白,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 emart24_kr:8800268814034,Yellow 蛋白奶昔玉米脆片風味,便於攜帶沖泡的高蛋白粉飲,DRINK,高蛋白,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
@@ -458,8 +490,17 @@ emart24_kr:8800323763406,鮪魚泡菜三角飯糰,,FRESH_RICE,辣味|鮪魚|海�
 emart24_kr:8800348944309,BBONI 烤地瓜厚軟餅乾,口感扎實的美式厚餅乾融合烤地瓜香氣,SNACK_SWEET,地瓜|綿密・鬆軟,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 emart24_kr:8800348944606,BBONI 栗子麻糬鮮奶油麵包,內餡包裹栗子粒、Q彈麻糬與香濃鮮奶油,BAKERY,鮮奶油|栗子|麻糬・米製品|Q彈・Q軟,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 emart24_kr:8800348944699,再婚皇后 秘密反轉蛋沙拉三明治,韓國熱門網漫再婚皇后聯名款,FRESH_SANDWICH,蛋|夾心・三明治式|聯名・IP,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
+emart24_kr:8800348944842,墨西哥辣椒鮪魚起司三明治,,FRESH_SANDWICH,辣味|起司|鮪魚|海鮮|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 emart24_kr:8800348944897,火腿番茄起司三明治,,FRESH_SANDWICH,起司|番茄|豬肉|夾心・三明治式,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
+emart24_kr:8800348945207,初版님의침묵奶油肉桂捲,韓志勇名詩님의침묵文學聯名款奶油肉桂捲。,BAKERY,奶油|聯名・IP,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+emart24_kr:8800348945245,初版尹東柱粒粒紅豆麵包,詩人尹東柱文學聯名麵包，包裹飽滿紅豆顆粒餡。,BAKERY,紅豆・和風甜|聯名・IP,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+emart24_kr:8800348946006,QWER 火腿番茄起司三明治,女子樂團QWER聯名款，包含火腿、番茄與起司經典組合。,FRESH_SANDWICH,起司|番茄|豬肉|聯名・IP|夾心・三明治式,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+emart24_kr:8800348946013,QWER 雙重火腿番茄三明治,女子樂團QWER聯名款，雙倍火腿搭配新鮮番茄切片。,FRESH_SANDWICH,番茄|豬肉|聯名・IP|夾心・三明治式,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+emart24_kr:8800348946020,QWER 玉米起司三明治,女子樂團QWER聯名款，經典韓式香甜玉米起司餡。,FRESH_SANDWICH,起司|聯名・IP|夾心・三明治式,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 emart24_kr:8800348946310,增量版 墨西哥辣椒鮪魚起司三明治,份量升級微辣爽口的鮪魚起司三明治,FRESH_SANDWICH,起司|辣味|鮪魚|海鮮|夾心・三明治式|大份量・增量,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
+emart24_kr:8800348946334,QWER 鮮嫩蛋沙拉三明治,女子樂團QWER聯名款，夾入豐富滑嫩蛋沙拉。,FRESH_SANDWICH,蛋|聯名・IP|夾心・三明治式,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+emart24_kr:8800348947980,QWER 巧克力棉花糖三明治,女子樂團QWER聯名款甜點三明治，包覆棉花糖與濃郁巧克力。,FRESH_SANDWICH,巧克力|聯名・IP|夾心・三明治式,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+emart24_kr:8800398700719,是拉差辣醬火腿鮪魚三明治漢堡,夾入火腿與鮪魚沙拉，佐以是拉差香辣醬汁。,FRESH_SANDWICH,辣味|鮪魚|海鮮|豬肉,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 emart24_kr:8800398700764,再婚皇后 蘑菇奶油義大利麵,韓國熱門網漫再婚皇后聯名款,FRESH_NOODLE,奶油|菇類|聯名・IP,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 emart24_kr:8800398700832,沙拉可樂餅三明治漢堡,結合酥脆可樂餅與清爽蔬菜沙拉的漢堡包,FRESH_SANDWICH,酥脆|清爽|夾心・三明治式,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 emart24_kr:8800398700870,奶油醬燉牛肉丼飯,以韓式醬牛肉搭配香濃奶油的經典拌飯組合,FRESH_BENTO,奶油|醬油・照燒|牛肉,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
@@ -467,11 +508,16 @@ emart24_kr:8800398700894,加大版 經典鮪魚美乃滋三角飯糰,份量升�
 emart24_kr:8800398700931,加大版 是拉差火腿鮪魚夾心堡,增量版漢堡，夾入火腿、鮪魚沙拉與是拉差辣醬,FRESH_SANDWICH,辣味|鮪魚|海鮮|豬肉|大份量・增量|夾心・三明治式,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 emart24_kr:8800398700955,加大版 辣醬炒豬肉拌麵,份量升級，經典韓式辣醬炒豬肉搭配拌麵,FRESH_NOODLE,辣味|豬肉|大份量・增量,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 emart24_kr:8800398701129,整顆大蒜橄欖油義大利麵,豪邁加入整顆大蒜炒製的香蒜橄欖油義大利麵,FRESH_NOODLE,蒜味,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
+emart24_kr:8800398701181,夏威夷什錦義大利麵,夏威夷風鳳梨與火腿什錦配料的義大利麵。,FRESH_NOODLE,番茄|豬肉,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+emart24_kr:8800398701198,辣醬辣炒豬肉拌麵,韓式經典辣醬炒豬肉搭配拌炒麵條。,FRESH_NOODLE,辣味|豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+emart24_kr:8800398701204,起司披薩焗烤飯,融合起司與披薩風味醬料的焗烤飯。,FRESH_BENTO,起司|番茄,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 emart24_kr:8801206007297,低糖地瓜最中冰淇淋,主打減糖配方的烤地瓜風味摩納卡冰淇淋,ICE,地瓜|低醣・減糖,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 emart24_kr:8801550005598,烤地瓜拿鐵沖泡杯,香甜濃郁的烤地瓜風味即溶熱拿鐵杯,DRINK,咖啡|地瓜|濃厚|杯裝・甜點杯,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 emart24_kr:8801550005604,檸檬薑茶沖泡杯,附杯子與茶包粉末的熱水現沖即飲杯,DRINK,柑橘|水果|杯裝・甜點杯,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 emart24_kr:8806371360611,聖水310 鹽焦糖巧克力拿鐵,聖水310系列，微鹹海鹽提味的濃郁巧克力拿鐵,DRINK,巧克力|焦糖|鹽味|濃厚,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 emart24_kr:8806371360628,聖水310 香濃穀物拿鐵,聖水310系列，烘烤香氣濃郁的韓式穀物拿鐵,DRINK,糯麥・雜穀|濃厚,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
+emart24_kr:8806379940792,黃色沐浴巾 1入,,NON_FOOD,,1.00,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+emart24_kr:8806379940808,黃色沐浴球 1入,,NON_FOOD,,1.00,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 emart24_kr:8806379940815,黃色韓式搓澡巾1入,,NON_FOOD,,0.95,gemini-3.8-flash,2026-11-02,,3de9c58e,,d0172a54,
 emart24_kr:8806379940891,黃色泡泡洗碗菜瓜布2入,,NON_FOOD,,0.95,gemini-3.8-flash,2026-11-02,,3de9c58e,,d0172a54,
 emart24_kr:8809081563136,再婚皇后 皇家伯爵奶茶沖泡杯,知名網漫再婚皇后聯名沖泡熱飲杯,DRINK,紅茶|杯裝・甜點杯|聯名・IP,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
@@ -479,7 +525,10 @@ emart24_kr:8809330024647,香油火腿泡菜丼飯,火腿炒泡菜佐香濃芝麻
 emart24_kr:8809330024654,奶油醬燉肉丼飯,韓式經典醬燉肉絲搭配濃郁奶油拌飯,FRESH_BENTO,奶油|醬油・照燒,0.85,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 emart24_kr:8809494072331,聖水310 香蕉麵包布丁,聖水310冷藏美式香蕉麵包布丁甜點,DESSERT,香蕉|水果,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 emart24_kr:8809494072348,聖水310 地瓜融化鮮奶油麵包,聖水310系列，包入香濃地瓜泥與鮮奶油,BAKERY,鮮奶油|地瓜|濃厚,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
+emart24_kr:8809494072379,初版小王子牛奶鮮奶油書本蛋糕,小王子文學主題書本造型蛋糕，夾入濃醇牛奶鮮奶油。,DESSERT,鮮奶油|聯名・IP,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+emart24_kr:8809494072386,初版托爾斯泰地瓜鮮奶油書本蛋糕,文學主題書本造型蛋糕，夾入香濃地瓜鮮奶油。,DESSERT,地瓜|鮮奶油|聯名・IP,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 emart24_kr:8809565383007,特大雙層鮮蝦厚蛋堡,份量加大的蝦排搭配厚煎蛋漢堡,FRESH_SANDWICH,海鮮|蛋|大份量・增量|夾心・三明治式,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
+emart24_kr:8809565383021,整塊去骨雞腿排辣味漢堡,使用整塊厚實雞腿肉搭配甜辣醬汁的漢堡。,FRESH_SANDWICH,雞肉|辣味,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 emart24_kr:8809618590451,再婚皇后 巧克力千層蛋糕,知名韓國網漫再婚皇后聯名甜點,DESSERT,巧克力|捲・可麗餅|聯名・IP,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 emart24_kr:8809909951244,辣味炸雞丼飯,搭配韓式香辣醬汁的雞肉丼飯,FRESH_BENTO,辣味|雞肉,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 emart24_kr:8809909951251,豆皮壽司與韓式飯捲雙拼組合,一次享有豆皮壽司與韓式飯捲的輕食組合,FRESH_RICE,多入・分享包,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
@@ -505,6 +554,7 @@ familymart_jp:0412063,Bongo監修 大飯糰 生鱈魚子與鮭魚美乃滋,東�
 familymart_jp:0412155,三明治飯糰 燒肉豬肉美乃滋與玉子燒,,FRESH_RICE,豬肉|蛋|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 familymart_jp:0415385,大飯糰 鮭魚菜飯,東海限定,FRESH_RICE,鮭魚|海鮮|大份量・增量,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
 familymart_jp:0415606,青磯海苔 醬漬鮭魚飯糰,北陸限定,FRESH_RICE,鮭魚|海鮮,0.9,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
+familymart_jp:0415637,東海地區限定 飯糰與炒麵組合,日本東海地區限定販售的飯糰與日式炒麵便當組合。,FRESH_BENTO,在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 familymart_jp:0415712,飯糰雙入組（佃煮昆布・紫蘇香鬆）,北陸限定,FRESH_RICE,多入・分享包,0.9,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
 familymart_jp:0417020,雞肉炊飯飯糰組,九州限定,FRESH_RICE,雞肉|多入・分享包,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
 familymart_jp:0417068,糯麥大飯糰 柴魚,九州限定,FRESH_RICE,和風高湯|糯麥・雜穀|麻糬・米製品|大份量・增量,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
@@ -624,6 +674,9 @@ familymart_jp:1750805,果實紅茶 綜合莓果茶,,DRINK,紅茶|莓果|水果,0
 familymart_jp:1751598,Afternoon Tea監修 療癒鮮奶奶茶,,DRINK,紅茶|名店監修,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
 familymart_jp:1752342,Afternoon Tea監修 品味紅茶奶茶,,DRINK,紅茶|名店監修,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
 familymart_jp:1940015,惡魔巧克力蛋糕,關東・九州販售,DESSERT,巧克力,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
+familymart_jp:1940244,酥脆三角起司蛋糕 巧克力,三角造型酥脆口感的巧克力風味起司蛋糕。,DESSERT,起司|巧克力|酥脆,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+familymart_jp:1940251,酥脆三角起司蛋糕 原味,三角造型酥脆口感的原味起司蛋糕。,DESSERT,起司|酥脆,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+familymart_jp:1940275,酥脆三角起司蛋糕 抹茶,三角造型酥脆口感的抹茶風味起司蛋糕。,DESSERT,起司|抹茶|酥脆,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 familymart_jp:1940626,冰過吃的濕潤香蕉年輪蛋糕,,DESSERT,香蕉|水果,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 familymart_jp:1940664,法式巧克力蛋糕 6入,,DESSERT,巧克力|多入・分享包,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 familymart_jp:1940770,大份量巧克力塔,,DESSERT,巧克力|大份量・增量,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
@@ -746,6 +799,8 @@ familymart_jp:7923807,,,NON_FOOD,,1.00,rule,2026-11-11,,,,d0172a54,
 familymart_jp:7929687,,,NON_FOOD,,1.00,rule,2026-10-28,,,,d0172a54,
 familymart_jp:7931970,,,NON_FOOD,,1.00,rule,2026-11-03,,,,d0172a54,
 familymart_jp:7932342,,,NON_FOOD,,1.00,rule,2026-11-03,,,,d0172a54,
+familymart_jp:79325190,刀劍亂舞ONLINE 好吃腮幫子 迷你壓克力立牌Vol.15 套組,全家線上限定刀劍亂舞周邊商品,NON_FOOD,聯名・IP,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+familymart_jp:79325260,刀劍亂舞ONLINE 好吃腮幫子 絨毛吊飾玩偶,全家線上限定刀劍亂舞周邊商品,NON_FOOD,聯名・IP,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 familymart_jp:7932533,,,NON_FOOD,,1.00,rule,2026-11-13,,,,d0172a54,
 familymart_jp:7933271,,,NON_FOOD,,1.00,rule,2026-11-03,,,,d0172a54,
 familymart_jp:7935404,,,NON_FOOD,,1.00,rule,2026-11-13,,,,d0172a54,
@@ -946,6 +1001,48 @@ lawson_jp:1534116,ロメスパバルボア監修 拿坡里義大利麵,東京炒
 lawson_jp:1534117,韓式雜菜腐皮捲,包入韓式炒冬粉的腐皮捲小菜,FRESH_DELI,韓式,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,
 lawson_jp:1534118,麻辣燙風味腐皮捲,,FRESH_DELI,麻辣・花椒|辣味|中華・町中華,0.90,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,
 lawson_jp:1534119,火腿蛋三明治,,FRESH_SANDWICH,豬肉|蛋|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,
+lawson_jp:1534232,伊澤 包頭專用長毛巾 黑色 增量版,,NON_FOOD,,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534233,東進 今治認證 抗病毒加工條紋毛巾 藍白 增量版,,NON_FOOD,,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534234,超大份量 滿滿餡料 豬肉玉子飯糰 鮪魚美乃滋,Lawson增量企劃商品，夾入午餐肉、玉子燒與鮪魚,FRESH_RICE,鮪魚|海鮮|豬肉|蛋|大份量・增量,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534235,韓式飯捲便當 起司韓式飯捲＆雜菜風冬粉,起司飯捲搭配韓式冬粉涼拌菜的組合便當,FRESH_RICE,起司|韓式,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534236,背脂蒜味豬肉炒飯,添加背脂與濃郁蒜香炒製的重口味炒飯,FRESH_BENTO,蒜味|豬肉|濃厚|中華・町中華,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534237,超大份量 柴魚橙醋秋葵海蘊黏軟丼 糯麥飯,搭配高湯橙醋汁與黏軟蔬菜的增量健康冷飯,FRESH_BENTO,糯麥・雜穀|和風高湯|清爽|大份量・增量,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534238,麻糬皮Q彈蛋糕捲 抹茶＆粒紅豆餡 3入,以麻糬口感外皮包覆抹茶鮮奶油與粒紅豆餡,DESSERT,抹茶|紅豆・和風甜|Q彈・Q軟|多入・分享包,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534239,Q彈白雕魚燒 北海道產鮮奶油卡士達,卡士達內餡添加北海道產鮮奶油。,DESSERT,Q彈・Q軟|卡士達|鮮奶油|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534240,Uchi Café×八天堂 爆漿卡士達塔,與奶油麵包名店八天堂聯名合作。,DESSERT,名店監修|卡士達|爆漿・流心,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534241,Uchi Café×八天堂 脆皮泡芙 融心卡士達,與奶油麵包名店八天堂聯名合作。,DESSERT,名店監修|卡士達|酥脆|爆漿・流心,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534242,超大份量 頂級生乳捲,Lawson人氣甜點生乳捲鮮奶油增量版,DESSERT,鮮奶油|大份量・增量,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534247,班德典藏葡萄酒,加州產葡萄酒。,ALCOHOL,,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534248,不二家LOOK 軟糯烤地瓜最中冰淇淋,使用紅春香地瓜製成。,ICE,地瓜|聯名・IP,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534249,飯糰淺草宿六監修 5種配料生薑醬油浸煮時蔬,東京淺草飯糰名店淺草宿六監修。,FRESH_DELI,名店監修|醬油・照燒,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534250,飯糰淺草宿六監修 特選味噌豬肉蔬菜味噌湯,東京淺草飯糰名店淺草宿六監修。,FRESH_DELI,名店監修|味噌|豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534251,6種配料雞肉丸和風生薑湯,,FRESH_DELI,雞肉|和風高湯,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534252,吻仔魚涼拌小松菜,,FRESH_DELI,海鮮|清爽|和風高湯,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534253,超大份量 鹽味炒麵,Lawson增量企劃商品，份量大幅增加的鹽味炒麵,FRESH_NOODLE,鹽味|大份量・增量,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534254,罪惡辛辣 起司肉醬奶油義大利麵,濃郁邪惡系的微辣肉醬奶油義大利麵。,FRESH_NOODLE,起司|辣味|濃厚|豬肉|牛肉,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534255,生法式扭結甜甜圈 4入,,BAKERY,綿密・鬆軟|多入・分享包,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534256,起司波隆那肉醬麵包,,BAKERY,起司|牛肉|豬肉|番茄,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534257,焦香起司培根美乃滋麵包,,BAKERY,起司|豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534258,黑色培根麥穗麵包,,BAKERY,豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534259,黑色美式鬆餅 2入,,BAKERY,多入・分享包,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534260,黑色Q彈甜甜圈,,BAKERY,Q彈・Q軟,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534269,明治超硬彈珠汽水軟糖,,SNACK_SWEET,Q彈・Q軟,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534270,醫食同源SPUN立體口罩灰色增量包,,NON_FOOD,大份量・增量,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534271,井上黑色細髮圈8入增量包,,NON_FOOD,大份量・增量,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534272,鬆脆輕盈蝦鹽味米果,口感輕盈蓬鬆的蝦味米果。,SNACK_SAVORY,海鮮|鹽味,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534273,哈密瓜蘇打風味跳跳脆脆巧克力,重現哈密瓜蘇打風味，帶有跳跳糖與脆脆顆粒口感,SNACK_SWEET,哈密瓜|水果|巧克力|酥脆,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534274,日本產地瓜 地瓜脆薯籤 增量50%,使用日本國產番薯裹糖油炸的酥脆薯籤，增量50%,SNACK_SWEET,地瓜|在地食材・產地|大份量・增量|酥脆,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534275,迷你蘆筍造型鹹餅乾 增量50%以上,經典黑芝麻風味蘆筍造型脆餅，增量50%超值包,SNACK_SAVORY,芝麻・堅果|大份量・增量|酥脆,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534276,北海道牛奶鈴鐺蜂蜜蛋糕 增量50%以上,使用北海道產牛奶製成，增量50%超值包裝,SNACK_SWEET,在地食材・產地|大份量・增量|多入・分享包,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534277,白巧克力脆皮年輪蛋糕,外層裹上一層香甜白巧克力的層次年輪蛋糕,BAKERY,巧克力,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534278,白巧克力費南雪,加入白巧克力烘烤，奶香與杏仁風味濃郁的法式常溫糕點,BAKERY,巧克力|奶油,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534279,苦甜微焦焦糖醬鬆軟美式鬆餅,蓬鬆美式鬆餅淋上帶有苦甜香氣的特製焦糖醬,DESSERT,焦糖|綿密・鬆軟,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534280,增量爆餡！鮪魚雞蛋三明治,羅森超值增量挑戰企劃，鮪魚與雞蛋內餡爆量填充,FRESH_SANDWICH,鮪魚|海鮮|蛋|大份量・增量|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534285,特濃 超特濃蘋果果汁飲料,追求極致濃郁果香與果汁感的超特濃蘋果飲品,DRINK,蘋果|水果|濃厚,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534286,特濃 超特濃葡萄果汁飲料,追求極致果汁感與濃厚香氣的特濃葡萄飲品,DRINK,葡萄|水果|濃厚,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534287,特濃 飲用和風高湯,極致濃郁、可直接單喝暖胃的罐裝或杯裝和風高湯,FRESH_DELI,和風高湯|濃厚,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534288,ROME SPA BALBOA監修 肉醬義大利麵,東京炒義大利麵名店監修，大火拌炒的濃郁肉醬粗麵,FRESH_NOODLE,名店監修|牛肉|豬肉|番茄,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+lawson_jp:1534289,ROME SPA BALBOA監修 蒜香辣椒義大利麵,東京炒義大利麵名店監修，特色為粗麵條與濃郁蒜香,FRESH_NOODLE,名店監修|蒜味|辣味,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 ministop_jp:halohalo:b1d747a3,果實冰煉乳草莓Halo-halo刨冰,刨片冷凍草莓淋上甜美煉乳，頂端覆上招牌香草霜淇淋。,ICE_SOFT,草莓|水果|杯裝・甜點杯,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 ministop_jp:halohalo:f33231ac,跳跳糖彈珠汽水Halo-halo刨冰,清爽彈珠汽水刨冰撒上跳跳糖顆粒，再疊上招牌霜淇淋。,ICE_SOFT,杯裝・甜點杯,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 ministop_jp:parfait:144e0be4,香氣西洋梨聖代,鋪滿芳醇多汁的西洋梨果肉與果醬的清爽風味聖代。,ICE_SOFT,水果|杯裝・甜點杯,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
@@ -959,6 +1056,7 @@ ministop_jp:softcream:277576cb,犒賞霜淇淋 至福蒙布朗,擠上香濃蒙�
 ministop_jp:softcream:2bfbdce1,黑糖黃豆粉麻糬霜淇淋,搭配濃郁黑糖蜜、香氣黃豆粉與軟糯麻糬的店內霜淇淋。,ICE_SOFT,麻糬・米製品|Q彈・Q軟,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 ministop_jp:softcream:2d93a572,甘王草莓霜淇淋,使用福岡縣產甘王草莓製成的店內現做霜淇淋。,ICE_SOFT,草莓|水果|在地食材・產地,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 ministop_jp:softcream:a8d267be,北海道牛奶霜淇淋,使用北海道產優質生乳製作的經典招牌濃厚霜淇淋。,ICE_SOFT,濃厚|在地食材・產地,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+ministop_jp:softcream:e3400d16,犒賞霜淇淋 濃郁草莓,Ministop店內現做奢華濃厚草莓霜淇淋,ICE_SOFT,草莓|水果|濃厚|高級・頂級,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 ministop_jp:softcream:fbd5d575,和栗霜淇淋,使用日本產和栗製作，散發溫潤栗香的店內霜淇淋。,ICE_SOFT,栗子,0.95,gemini-3.8-flash,2026-11-06,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:010146,,,ALCOHOL,,1.00,rule,2026-10-28,,,,d0172a54,
 seven_jp:010389,,,ALCOHOL,,1.00,rule,2026-11-03,,,,d0172a54,
@@ -997,6 +1095,7 @@ seven_jp:020549,菊水 五郎八濁酒 180ml,新潟菊水酒造秋冬限定的�
 seven_jp:020766,,,ALCOHOL,,1.00,rule,2026-10-28,,,,d0172a54,
 seven_jp:020793,克 新 無手勝流 25度番薯燒酎 900ml,鹿兒島本格芋燒酎,ALCOHOL,地瓜|在地食材・產地,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:020883,,,ALCOHOL,,1.00,rule,2026-11-11,,,,d0172a54,
+seven_jp:020942,SAGA HI 調酒 350ml,,ALCOHOL,,0.80,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:021805,大關One Cup 清酒 濃郁特醇 300ml,致敬拉麵用語濃厚濃醇風味的杯裝清酒,ALCOHOL,濃厚,0.90,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:030040,-196無糖調酒 梨子蘋果與葡萄 350ml,,ALCOHOL,水果|蘋果|葡萄|低醣・減糖,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:030121,,,ALCOHOL,,1.00,rule,2026-10-28,,,,d0172a54,
@@ -1011,6 +1110,7 @@ seven_jp:030353,講究酒場檸檬沙瓦 柚子檸檬 350ml,結合柚子香氣�
 seven_jp:030371,,,ALCOHOL,,1.00,rule,2026-11-11,,,,d0172a54,
 seven_jp:030381,WATTA 沖繩之櫻與山形櫻桃沙瓦 350ml,融合沖繩八重岳櫻花萃取物與山形櫻桃果汁,ALCOHOL,水果|在地食材・產地|春季限定|季節限定,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:030414,,,ALCOHOL,,1.00,rule,2026-11-03,,,,d0172a54,
+seven_jp:030540,月桂冠 微醺微泡清酒 水蜜桃 200ml,以日本清酒為基底調和水蜜桃果汁的低酒精氣泡酒,ALCOHOL,桃子|水果,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:030618,,,ALCOHOL,,1.00,rule,2026-11-03,,,,d0172a54,
 seven_jp:030697,,,ALCOHOL,,1.00,rule,2026-10-28,,,,d0172a54,
 seven_jp:030704,,,ALCOHOL,,1.00,rule,2026-11-03,,,,d0172a54,
@@ -1033,12 +1133,14 @@ seven_jp:031648,,,ALCOHOL,,1.00,rule,2026-10-28,,,,d0172a54,
 seven_jp:031777,,,ALCOHOL,,1.00,rule,2026-11-11,,,,d0172a54,
 seven_jp:031791,,,ALCOHOL,,1.00,rule,2026-11-11,,,,d0172a54,
 seven_jp:031847,金賓 Black Soda 威士忌蘇打 350ml,,ALCOHOL,,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:032225,帝王白牌蘇格蘭威士忌 200ml,Dewar's經典調和威士忌小容量便利瓶裝,ALCOHOL,,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:032540,,,ALCOHOL,,1.00,rule,2026-10-28,,,,d0172a54,
 seven_jp:032542,,,ALCOHOL,,1.00,rule,2026-10-28,,,,d0172a54,
 seven_jp:032543,,,ALCOHOL,,1.00,rule,2026-10-28,,,,d0172a54,
 seven_jp:032549,布希米爾愛爾蘭威士忌 瓶裝 700ml,愛爾蘭單一麥芽威士忌品牌,ALCOHOL,,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:040139,燒肉豬肉便當 附辣椒美乃滋,鹹甜燒肉附辛香辣椒美乃滋醬,FRESH_BENTO,豬肉|辣味,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:040283,北海道秋鮭烤鮭魚鬆飯（含糯麥）,北海道限定,FRESH_BENTO,鮭魚|海鮮|糯麥・雜穀|在地食材・產地|秋季限定|季節限定,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
+seven_jp:040465,大飯糰 辛子明太子鮪魚美乃滋,份量加大，結合辛子明太子與濃郁鮪魚美乃滋,FRESH_RICE,明太子・鱈魚子|海鮮|鮪魚|辣味|大份量・增量,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:040892,炒麵飯飯糰 含芥末美乃滋醬,經典神戶炒麵飯包入微嗆芥末美乃滋,FRESH_RICE,,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:040918,里肌豬排咖哩,,FRESH_BENTO,咖哩|豬肉,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:040935,雞肉牛蒡飯糰（紫峰米）,茨城限定,FRESH_RICE,雞肉|在地食材・產地,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
@@ -1102,6 +1204,7 @@ seven_jp:041438,栗子炊飯飯糰,,FRESH_RICE,栗子,0.95,sample-manual,,d86b85
 seven_jp:041440,Q彈糯麥飯糰 三種菇,,FRESH_RICE,Q彈・Q軟|菇類|糯麥・雜穀,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:041449,茨城縣產蓮藕糯米飯糰 使用紫峰醬油,使用茨城縣產蓮藕與名產紫峰醬油製作,FRESH_RICE,在地食材・產地|醬油・照燒|麻糬・米製品,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:041482,山形豔姬米飯糰 醬煮鰹魚,使用山形縣產豔姬米搭配甘露煮鰹魚,FRESH_RICE,醬油・照燒|海鮮|在地食材・產地,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
+seven_jp:041527,辣味美乃滋燒肉豬肉壽司卷 5入,香烤豬肉搭配微辣美乃滋內餡的海苔壽司卷,FRESH_RICE,豬肉|辣味|捲・可麗餅|多入・分享包,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:041589,北海道秋鮭鬆高湯飯（糯麥）,,FRESH_BENTO,和風高湯|鮭魚|海鮮|糯麥・雜穀|在地食材・產地,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:041620,炸蝦舞菇炸蔬菜天丼,,FRESH_BENTO,海鮮|菇類,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:041646,壽司飯糰 梅子紫蘇醃蘿蔔,,FRESH_RICE,,0.9,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
@@ -1131,9 +1234,19 @@ seven_jp:041849,直火烤漢堡排便當,,FRESH_BENTO,牛肉|豬肉,0.95,gemini-
 seven_jp:041851,伊勢醬油烤飯糰,塗抹三重名產伊勢醬油直火烘烤的香醇烤飯糰,FRESH_RICE,醬油・照燒|在地食材・產地,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:041860,岐阜味噌炒雞肉飯糰,重現岐阜飛驒地方特色料理味噌炒雞肉ケイちゃん,FRESH_RICE,雞肉|味噌|在地食材・產地,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:041867,新潟縣產越光米炭烤紅鮭魚切片飯糰,使用新潟縣產越光米與炭烤紅鮭切片。,FRESH_RICE,鮭魚|海鮮|在地食材・產地,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,
+seven_jp:041873,壽司飯糰 梅子紫蘇醃蘿蔔,醋飯拌入紫蘇梅與爽脆醃蘿蔔的清爽系壽司飯糰,FRESH_RICE,清爽,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:041896,多蜜醬牛肉歐姆蛋燴飯,濃郁多蜜牛肉燴醬搭配滑嫩歐姆蛋。,FRESH_BENTO,濃厚|牛肉|蛋,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,
+seven_jp:042086,5種配菜迷你明太子海苔便當（糯麥）,使用健康糯麥飯，搭配5種人氣配菜與明太子的迷你便當,FRESH_BENTO,明太子・鱈魚子|海鮮|糯麥・雜穀,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:042092,雞骨高湯肉餡燴炒飯,淋上鮮濃雞骨高湯豬肉燴汁的中華炒飯。,FRESH_BENTO,中華・町中華|豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:042096,甜辣醬油雞排丼,九州限定,FRESH_BENTO,辣味|醬油・照燒|雞肉,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
+seven_jp:042137,內餡占卜 早安晨星飯糰,晨間電視節目「早安晨星」企劃的占卜趣味飯糰。,FRESH_RICE,聯名・IP,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:042138,南蠻雞＆活力醬燒豬肉便當,結合塔塔醬南蠻炸雞與濃郁蒜香醬燒豬肉的雙主菜便當。,FRESH_BENTO,雞肉|豬肉|大份量・增量,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:042152,手卷壽司 海鮮沙拉卷,包裹多種海鮮食材與美乃滋沙拉醬的清爽手卷壽司。,FRESH_RICE,海鮮,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:042158,大飯糰 鮪魚美乃滋柴魚藤五郎梅,新潟名產藤五郎梅搭配鮪魚美乃滋與柴魚片的大份量飯糰。,FRESH_RICE,大份量・增量|鮪魚|海鮮|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:042176,Drive-In鳥監修 雞肉炊飯飯糰,佐賀知名雞肉料理名店Drive-In鳥監修,FRESH_RICE,雞肉|名店監修,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:042177,早安主持人古川昌希應援 雙拼內餡飯糰,廣播節目「早安主持人古川昌希」聯名應援商品。,FRESH_RICE,聯名・IP,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:042189,糯麥飯糰 梅子海帶芽,彈牙口感糯麥拌入酸香梅肉與海帶芽。,FRESH_RICE,糯麥・雜穀|Q彈・Q軟|膳食纖維・健康|清爽,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:042793,甘辛醬油滑蛋豬肉丼,鬆軟滑蛋與甜鹹醬油燉煮豬肉覆蓋白飯。,FRESH_BENTO,蛋|豬肉|醬油・照燒,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:042877,辛香乾咖哩飯糰,融合多種辛香料與絞肉炒製的乾咖哩飯糰,FRESH_RICE,咖哩|辣味,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:043114,手卷飯糰 烤鱈魚子,,FRESH_RICE,明太子・鱈魚子|海鮮,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:043381,焦香炒肉片時蔬便當,大火爆炒出焦香鍋氣的經典肉片炒蔬菜便當,FRESH_BENTO,豬肉,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
@@ -1148,10 +1261,12 @@ seven_jp:044095,紫蘇大飯糰,拌入經典三島食品「ゆかり」紫蘇香
 seven_jp:044101,上癮香辣 甜辣炸豬排咖哩飯,初入口甘甜隨後帶出刺激辣勁的甜辣系炸豬排咖哩,FRESH_BENTO,咖哩|辣味|豬肉,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:044135,松本一本蔥蔥味噌飯糰,選用長野傳統蔬菜松本一本蔥調配甘甜蔥味噌,FRESH_RICE,味噌|在地食材・產地,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:044202,越前市名物 雙醬伏爾加洋食飯,福井越前市B級美食，蛋包飯覆上炸豬排並淋上雙醬,FRESH_BENTO,豬肉|在地食材・產地,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
+seven_jp:044217,CAFE BOX 韓式五花肉丼（大麥飯）,韓式烤五花肉搭配健康大麥飯的便當餐盒。,FRESH_BENTO,韓式|豬肉|糯麥・雜穀,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:044254,半日份蔬菜 鐵鍋爆炒什錦蔬菜丼飯,大火鐵鍋快炒，一碗即可攝取半日所需蔬菜量,FRESH_BENTO,膳食纖維・健康|中華・町中華,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:044338,焦香醬油炒飯飯糰,,FRESH_RICE,醬油・照燒|中華・町中華,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:044558,高湯飯糰 雞蛋醬油,,FRESH_RICE,和風高湯|醬油・照燒|蛋,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:044578,鬆軟滑蛋豬肉丼飯 甜辣醬油風味,蓬鬆滑蛋結合甜辣醬油燉煮豬肉片,FRESH_BENTO,豬肉|蛋|醬油・照燒|綿密・鬆軟,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
+seven_jp:044664,甜辣乾燒蝦仁炒飯,搭配經典甜辣中華乾燒蝦仁醬汁的炒飯。,FRESH_BENTO,中華・町中華|海鮮|辣味,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:044677,直捲海苔飯糰 料多雞肉五目,,FRESH_RICE,雞肉,0.95,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:044706,CAFE BOX 烤雞肉沙威瑪飯,便攜盒裝的異國風味烤雞肉Kebab薑黃飯,FRESH_BENTO,雞肉|東南亞・異國,0.90,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:044720,旨鹽蔥鹽牛五花便當（糯麥飯）,搭配特製旨鹽蔥醬，使用健康糯麥飯底,FRESH_BENTO,鹽味|豬肉|糯麥・雜穀|膳食纖維・健康,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
@@ -1173,6 +1288,7 @@ seven_jp:044999,比目魚鰭邊肉壽司,油脂豐富、口感滑嫩微脆的比
 seven_jp:045002,Q彈嚼勁 糯麥鮭魚舞菇飯糰,加入豐富糯麥，搭配秋季鮭魚與舞菇,FRESH_RICE,糯麥・雜穀|鮭魚|海鮮|菇類|Q彈・Q軟|膳食纖維・健康,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:045004,Q彈嚼勁 糯麥乾咖哩飯糰,加入顆粒感糯麥，口感Q彈有嚼勁,FRESH_RICE,糯麥・雜穀|咖哩|Q彈・Q軟|膳食纖維・健康,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:045006,長野縣產越光米炭火燒紅鮭切片飯糰,選用長野越光米與炭火直烤紅鮭切片厚切入餡,FRESH_RICE,鮭魚|海鮮|在地食材・產地|高級・頂級,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
+seven_jp:045007,乾咖哩炸豬排飯,風味咖哩炒飯搭配厚實炸豬排。,FRESH_BENTO,咖哩|豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:045008,Gote-ara-poh 粗絞肉香腸飯糰,使用米久經典香腸品牌Gote-ara-poh粗絞香腸,FRESH_RICE,豬肉|聯名・IP,0.90,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:045011,新潟縣產越光米炭烤紅鮭魚切片飯糰,使用新潟縣產越光米與炭烤紅鮭切片。,FRESH_RICE,鮭魚|海鮮|在地食材・產地,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:045012,吻仔魚山椒飯糰 和歌山縣產青實山椒入,嚴選和歌山縣產青實山椒搭配鹹香吻仔魚,FRESH_RICE,在地食材・產地,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
@@ -1188,6 +1304,21 @@ seven_jp:045033,佐賀縣產Sagabiyori米飯糰 炭火燒烤紅鮭魚排,使用�
 seven_jp:045034,便當風炸豬排丼飯糰,將經典炸豬排丼做成便當風格飯糰,FRESH_RICE,豬肉|蛋,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:045035,新潟縣產越光米飯糰 炭火燒紅鮭魚切片,嚴選新潟縣產越光米搭配炭火烤紅鮭魚,FRESH_RICE,在地食材・產地|鮭魚|海鮮,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:045038,便當風蔥鹽烤豬五花飯糰 使用糯麥,,FRESH_RICE,鹽味|豬肉|糯麥・雜穀,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
+seven_jp:045050,雞骨高湯肉餡燴炒飯,淋上濃郁鮮美雞骨高湯豬肉勾芡燴汁的炒飯。,FRESH_BENTO,中華・町中華|豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:045053,大飯糰 毛豆鮭魚,大份量飯糰，拌入清甜毛豆與鮮香鮭魚碎肉。,FRESH_RICE,大份量・增量|鮭魚|海鮮,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:045057,海苔便當風味飯糰,將海苔便當的經典配料濃縮於手拿飯糰中。,FRESH_RICE,,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:045061,天婦羅醬汁拌飯糰,米飯拌入甘甜濃郁的天婦羅醬汁與天婦羅麵衣碎。,FRESH_RICE,醬油・照燒,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:045067,海苔便當風味飯糰,將經典海苔便當的炸物與配料融入飯糰中。,FRESH_RICE,,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:045069,山形縣產艷姬米炭烤大山雞飯糰,使用山形艷姬米搭配炭火香氣鳥取名牌大山雞肉。,FRESH_RICE,在地食材・產地|雞肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:045070,長州雞醬汁雞排丼（附溫泉蛋）,使用山口縣長州雞胸肉製作醬汁炸雞排，搭配半熟溫泉蛋。,FRESH_BENTO,雞肉|蛋|在地食材・產地|醬油・照燒,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:045071,味付海苔梅子柴魚飯糰,使用調味海苔包裹酸爽梅肉與柴魚片內餡。,FRESH_RICE,,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:045072,廣島菜吻仔魚天婦羅醬汁飯糰,使用廣島在地醃漬廣島菜與吻仔魚，搭配天婦羅醬汁拌飯。,FRESH_RICE,在地食材・產地|醬油・照燒,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:045073,手卷飯糰 柴魚醬油,日式經典柴魚片拌醬油風味的手卷飯糰。,FRESH_RICE,醬油・照燒|和風高湯,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:045074,手卷飯糰 醬煮雞肉碎,以甘辛醬汁燉煮的日式雞肉末餡料。,FRESH_RICE,雞肉|醬油・照燒,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:045075,手卷飯糰 炭火牛燒肉,炭火香氣十足的甘辛醬燒牛肉手卷飯糰。,FRESH_RICE,牛肉|醬油・照燒,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:045076,手卷飯糰 鮮蝦美乃滋,,FRESH_RICE,海鮮,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:045077,手卷飯糰 辣味高菜,經典手卷海苔飯糰包入微辣辛香的炒高菜。,FRESH_RICE,辣味,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:045078,味付海苔飯糰 明太子美乃滋,使用調味海苔包裹微辣明太子與美乃滋餡料。,FRESH_RICE,明太子・鱈魚子|海鮮,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:045079,沖繩炊飯,沖繩鄉土豬肉蔬菜高湯什錦炊飯,FRESH_BENTO,在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:045080,沖繩炊飯飯糰,沖繩傳統風味什錦炊飯（じゅーしー）,FRESH_RICE,在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:053765,墨西哥捲餅 雙熱狗BBQ醬,,FRESH_SANDWICH,捲・可麗餅|東南亞・異國,0.85,sample-manual,,d86b856c,3de9c58e,e6746ca2,d0172a54,
@@ -1216,17 +1347,22 @@ seven_jp:054128,雙層香腸蛋滿福堡,,FRESH_SANDWICH,豬肉|蛋|夾心・三
 seven_jp:054130,罪惡叉燒墨西哥捲餅,,FRESH_SANDWICH,豬肉|起司|濃厚|捲・可麗餅,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:054131,胡麻醬蒸雞沙拉捲餅,,FRESH_SANDWICH,雞肉|芝麻・堅果|捲・可麗餅|清爽,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:054132,蒸雞胡麻沙拉捲餅,,FRESH_SANDWICH,芝麻・堅果|雞肉|捲・可麗餅,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
+seven_jp:054133,大家集合 雞蛋沙拉麵包,塔麻可吉聯名包裝軟法麵包夾雞蛋沙拉,BAKERY,蛋|聯名・IP,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:054134,大家集合 雞蛋沙拉麵包,塔麻可吉聯名包裝軟法麵包夾雞蛋沙拉,BAKERY,蛋|聯名・IP,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:054137,煙燻鮭魚奶油乳酪三明治,,FRESH_SANDWICH,起司|鮭魚|海鮮|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:054138,熱壓火腿起司三明治,,FRESH_SANDWICH,起司|豬肉|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:054139,熊本縣產番茄熱狗堡,使用熊本縣產番茄製作醬料,FRESH_SANDWICH,番茄|豬肉|在地食材・產地,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:054140,牛肉起司通心粉漢堡排,美式經典起司通心粉搭配牛肉,FRESH_SANDWICH,牛肉|起司|濃厚|東南亞・異國,0.90,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:054143,炸肉餅三明治,,FRESH_SANDWICH,夾心・三明治式,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:054144,北海道北明馬鈴薯火腿餐包,使用北海道產北明（きたあかり）馬鈴薯製作,BAKERY,豬肉|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:054145,法棍潛艇堡 煙燻莫札瑞拉起司配培根,外脆內軟的法棍夾入煙燻莫札瑞拉起司與培根。,FRESH_SANDWICH,豬肉|起司|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:054146,令人上癮辛香辣雞肉捲餅,,FRESH_SANDWICH,辣味|雞肉|捲・可麗餅,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:054147,法棍潛艇堡 義式胡椒牛肉配卡門貝爾起司,脆皮法棍搭配黑胡椒牛肉片與香濃卡門貝爾起司。,FRESH_SANDWICH,牛肉|起司|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:054148,義式胡椒牛肉卡門貝爾起司長棍三明治,,FRESH_SANDWICH,起司|牛肉|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:054149,煙燻鮭魚奶油乳酪三明治,鹹香煙燻鮭魚搭配濃醇奶油乳酪,FRESH_SANDWICH,鮭魚|海鮮|起司|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:054150,煙燻鮭魚奶油乳酪三明治,鹹香煙燻鮭魚搭配濃醇奶油乳酪,FRESH_SANDWICH,鮭魚|海鮮|起司|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:054151,北海道北明馬鈴薯火腿沙拉麵包,使用北海道產北明馬鈴薯沙拉搭配火腿丁,BAKERY,豬肉|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:054152,高蛋白質 雞肉佐辣醬捲餅三明治,可攝取豐富蛋白質的雞肉辣椒醬三明治堡。,FRESH_SANDWICH,雞肉|辣味|高蛋白|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:054160,起司熱狗堡,香脆多汁熱狗淋上濃郁起司醬,FRESH_SANDWICH,起司|豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:090148,濃醇高湯牛肉烏龍麵,,FRESH_NOODLE,和風高湯|牛肉,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:090472,鮪魚菠菜番茄醬汁義大利麵,經典鮪魚搭配菠菜與酸甜番茄醬汁的義大利麵,FRESH_NOODLE,番茄|鮪魚|海鮮,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,
@@ -1243,6 +1379,7 @@ seven_jp:091864,燉煮蔬菜武州煮餺飥寬麵,埼玉深谷鄉土料理，搭
 seven_jp:091876,滿滿蔥花中華麵,,FRESH_NOODLE,醬油・照燒|中華・町中華,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:091891,濃厚芝麻擔擔麵,,FRESH_NOODLE,芝麻・堅果|辣味|濃厚|中華・町中華,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:091894,蒜香番茄醬汁大份量義大利麵,香蒜番茄醬汁搭配大份量麵條的飽足系義大利麵,FRESH_NOODLE,番茄|蒜味|大份量・增量,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,
+seven_jp:091922,札幌すみれ監修 濃厚味噌拉麵,札幌知名味噌拉麵名店すみれ監修。,FRESH_NOODLE,味噌|豚骨・拉麵風味|濃厚|名店監修,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:091926,鮮美高湯天婦羅花烏龍麵,搭配酥脆天婦羅麵衣碎屑的經典和風烏龍麵。,FRESH_NOODLE,和風高湯|酥脆,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:091928,深谷蔥豬肉和風義大利麵,使用埼玉縣名產深谷蔥與豬肉片調製的和風醬汁義大利麵,FRESH_NOODLE,豬肉|在地食材・產地,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:091930,三種菇類奶油醬油義大利麵,香濃奶油醬油拌炒三種菇類的和風義大利麵,FRESH_NOODLE,奶油|醬油・照燒|菇類|濃厚,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,
@@ -1323,10 +1460,19 @@ seven_jp:092028,豬肉大阪燒與日式炒麵組合,經典豬肉蛋大阪燒與
 seven_jp:092031,鮮味海鮮焗烤通心粉,滿溢海鮮風味的濃郁起司白醬焗烤,FRESH_DELI,海鮮|起司,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:092033,濃郁蟹肉番茄奶油義大利麵,融合螃蟹鮮味與番茄鮮奶油醬汁,FRESH_NOODLE,海鮮|番茄|奶油,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:092034,大盛顆粒明太子美乃滋義大利麵,大份量麵條拌入顆粒感明太子與香濃美乃滋,FRESH_NOODLE,明太子・鱈魚子|海鮮|大份量・增量,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:092035,北海道產石臼研磨蕎麥粉新蕎麥麵,使用北海道產帶殼蕎麥石臼研磨製作的新蕎麥麵。,FRESH_NOODLE,在地食材・產地|季節限定|秋季限定,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:092036,上癮黑胡椒強棒麵,黑胡椒辛香提味的蔬菜濃湯強棒麵,FRESH_NOODLE,豚骨・拉麵風味,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:092037,熔岩起司番茄焗烤義大利麵,濃郁流心起司醬搭配番茄焗烤義大利麵,FRESH_DELI,起司|番茄|濃厚,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:092038,鮭魚野菇和風湯義大利麵,,FRESH_NOODLE,和風高湯|鮭魚|海鮮|菇類,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:092039,佐賀拉麵 佐賀縣產海苔使用,佐賀特色豚骨拉麵，附佐賀縣產海苔。,FRESH_NOODLE,豚骨・拉麵風味|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:092040,特盛培根蛋黃義大利麵,大份量培根蛋黃醬義大利麵,FRESH_NOODLE,起司|蛋|大份量・增量,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:092042,北海道產石臼研磨蕎麥粉新蕎麥麵,使用北海道產帶殼蕎麥石臼研磨製作的新蕎麥麵。,FRESH_NOODLE,在地食材・產地|季節限定|秋季限定,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:092043,北海道產石臼研磨蕎麥粉新蕎麥麵,使用北海道產帶殼蕎麥石臼研磨製作的新蕎麥麵。,FRESH_NOODLE,在地食材・產地|季節限定|秋季限定,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:092044,北海道產新蕎麥麵 濃厚高湯山藥泥,使用北海道產帶殼蕎麥與濃厚高湯調味的山藥泥。,FRESH_NOODLE,和風高湯|南瓜・芋類|在地食材・產地|濃厚|季節限定|秋季限定,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:092045,北海道產新蕎麥麵 海苔蘿蔔泥,使用北海道產帶殼蕎麥製作，搭配海苔與爽口蘿蔔泥。,FRESH_NOODLE,在地食材・產地|清爽|季節限定|秋季限定,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:092046,北海道產新蕎麥麵 濃厚高湯山藥泥,使用北海道產帶殼蕎麥與濃厚高湯調味的山藥泥。,FRESH_NOODLE,和風高湯|南瓜・芋類|在地食材・產地|濃厚|季節限定|秋季限定,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:092047,北海道產石臼研磨蕎麥粉新蕎麥麵,使用北海道產帶殼蕎麥石臼研磨製作的新蕎麥麵。,FRESH_NOODLE,在地食材・產地|季節限定|秋季限定,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:092048,北海道產石臼研磨蕎麥粉新蕎麥麵,使用北海道產帶殼蕎麥石臼研磨製作的新蕎麥麵。,FRESH_NOODLE,在地食材・產地|季節限定|秋季限定,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:092049,大阪燒＆日式炒麵雙拼,經典大阪燒與炒麵的飽足雙重享受,FRESH_BENTO,,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:092050,雞汁鹽味素麵,,FRESH_NOODLE,鹽味|雞肉|清爽,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:092051,長岡生薑醬油拉麵,新潟長岡著名的生薑香氣清爽醬油拉麵,FRESH_NOODLE,醬油・照燒|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
@@ -1341,10 +1487,12 @@ seven_jp:100121,紀州南高梅醬拌雞里肌,搭配紀州南高梅特製酸甜
 seven_jp:100169,開胃涮嘴白菜 栃木縣產韭菜使用,使用栃木縣產韭菜與白菜拌入濃郁醬汁的開胃小菜,FRESH_DELI,蒜味|在地食材・產地,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:100236,柚子醬唐揚炸雞,搭配清爽開胃柚子醬汁的日式唐揚炸雞冷藏配菜,FRESH_DELI,雞肉|清爽,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:100864,鹽檸檬豬舌配豆芽菜涼拌菜,,FRESH_DELI,鹽味|豬肉|韓式,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,
+seven_jp:101166,蘿蔓萵苣凱薩沙拉,,FRESH_DELI,起司,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:101218,印度烤餅 2片裝,適合搭配各式咖哩食用的印度烤餅,BAKERY,多入・分享包|東南亞・異國,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,163570ff
 seven_jp:101308,麻辣湯 附滑嫩粗寬粉,辛香麻辣湯頭搭配Q彈吸汁的粗冬粉,FRESH_DELI,辣味|麻辣・花椒|Q彈・Q軟|中華・町中華,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:101517,肉味噌擔擔風拉麵沙拉,搭配濃郁擔擔風味肉醬拌食的冷拉麵沙拉,FRESH_DELI,豬肉|味噌|芝麻・堅果|辣味|中華・町中華,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:101654,生薑風味油淋雞,淋上生薑香氣辛香醬汁的油淋雞,FRESH_DELI,雞肉|中華・町中華,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:101677,蒸雞肉甜辣炒牛蒡雜穀沙拉,,FRESH_DELI,雞肉|糯麥・雜穀|膳食纖維・健康,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:101978,答志島產吻仔魚日式高湯玉子燒,使用答志島捕獲吻仔魚與高湯煎製的玉子燒,FRESH_DELI,海鮮|蛋|和風高湯|在地食材・產地,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:101996,紫蘇雞肉丸與根菜雞高湯旨鹽湯,加入紫蘇雞肉丸與豐富根菜的清甜雞高湯,FRESH_DELI,鹽味|雞肉|和風高湯,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:102081,綠黃色蔬菜 芝麻拌菠菜,,FRESH_DELI,芝麻・堅果|膳食纖維・健康,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
@@ -1371,6 +1519,7 @@ seven_jp:105158,高蛋白質 橙汁醋拌雞胗,,FRESH_DELI,雞肉|清爽|高蛋
 seven_jp:105159,胡麻橙醋豬肉涮涮鍋,以芝麻香氣與清爽橙醋醬汁調味的豬肉蔬菜鍋,FRESH_DELI,豬肉|芝麻・堅果|清爽,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:105161,美乃滋蝦仁微辣義大利麵沙拉,鮮蝦拌入微辣美乃滋醬的冷義大利麵沙拉,FRESH_DELI,海鮮|辣味,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:105162,高蛋白雞胗沙拉,主打可補充蛋白質的爽脆雞胗冷盤沙拉,FRESH_DELI,高蛋白|雞肉|清爽,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
+seven_jp:105215,蒸雞肉與雞蛋沙拉,,FRESH_DELI,雞肉|蛋,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:105415,火腿馬鈴薯沙拉,,FRESH_DELI,豬肉,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:105535,香味醬涼拌豬肉片 青森縣產地養豚使用,使用青森縣產地養豚搭配特製香味醬汁,FRESH_DELI,豬肉|在地食材・產地,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:105700,炭火烤國產雞胸肉附芥末,炭火直烤香氣十足，附芥末提味,FRESH_DELI,雞肉,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,
@@ -1459,10 +1608,13 @@ seven_jp:106007,涮嘴白菜 栃木縣產韭菜使用,以栃木縣產韭菜提�
 seven_jp:106010,海菜豆腐,石蓴海菜搭配豆腐的清爽和風小菜,FRESH_DELI,和風高湯|清爽,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106014,7-Premium 杯裝無水肉醬咖哩,不加水僅靠食材水分熬煮出濃厚精華的杯裝肉醬咖哩,FRESH_DELI,咖哩|豬肉|杯裝・甜點杯|濃厚,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:106015,7-Premium 香辣雞肉咖哩,7-Premium自有品牌微波即食辛香風味雞肉咖哩醬,FRESH_DELI,咖哩|雞肉|辣味,0.90,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
+seven_jp:106016,7-Premium Oyajitchi的屋台關東煮,塔麻可吉聯名包裝冷藏調理關東煮,FRESH_DELI,和風高湯|聯名・IP,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106017,酥脆炸雞皮脆片,炸得香脆可口的雞皮脆片，適合下酒或當作冷藏小菜,FRESH_DELI,雞肉|酥脆,0.90,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:106019,仙台味噌拌油菜,使用仙台味噌涼拌爽脆油菜,FRESH_DELI,味噌|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:106021,蔬菜培根義式蔬菜湯,,FRESH_DELI,番茄|豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106022,芋頭牛肉湯 山形風醬油風味,山形傳統鄉土料理，甘醇醬油燉煮,FRESH_DELI,醬油・照燒|南瓜・芋類|牛肉|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106023,味噌美乃滋青花菜,清脆青花菜沾佐濃郁特調味噌美乃滋享用的小菜,FRESH_DELI,味噌,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
+seven_jp:106024,Mimitchi最愛蔬菜棒,塔麻可吉（Tamagotchi）角色聯名蔬菜沙拉棒,FRESH_DELI,聯名・IP|清爽,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106026,下酒調味海苔天婦羅脆片,使用風味海苔酥炸製成的下酒天婦羅小點,FRESH_DELI,酥脆,0.90,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:106027,海苔鹽味蓮藕脆片,炸至香脆的蓮藕薄片，佐以經典海苔鹽提味，適合佐酒配菜,FRESH_DELI,鹽味|酥脆,0.90,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:106028,芝麻香擔擔風拉麵沙拉,散發濃郁芝麻香氣的冷拌擔擔風味麵沙拉,FRESH_DELI,芝麻・堅果|辣味|中華・町中華,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
@@ -1488,27 +1640,36 @@ seven_jp:106078,大山地雞雞肉丸與白蔥湯,使用鳥取名產大山地雞
 seven_jp:106084,胡麻醬雞里肌肉冷盤（高蛋白質）,主打補充蛋白質的濃郁胡麻醬拌雞里肌冷菜,FRESH_DELI,雞肉|芝麻・堅果|高蛋白,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:106086,合鴨多彩蔬菜沙拉,,FRESH_DELI,清爽,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106090,蕪菁鮭魚法式沙拉,,FRESH_DELI,鮭魚|海鮮|清爽,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:106095,黑可可炸麵包棒,,BAKERY,巧克力,0.85,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106098,手工高麗菜捲蔬菜法式燉湯,手工包裹高麗菜捲與蔬菜熬煮的溫暖燉湯,FRESH_DELI,豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106099,大口蓮藕脆爽芝麻美乃滋沙拉,使用新潟大口產蓮藕，口感爽脆清香,FRESH_DELI,芝麻・堅果|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106100,信州味噌燉煮牛豬雜 附溏心蛋,以信州味噌慢火燉煮內臟並搭配溏心蛋,FRESH_DELI,味噌|蛋|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106102,鹽醬下酒高麗菜 新潟縣產高麗菜使用,使用新潟縣產高麗菜佐以特調鹽醬,FRESH_DELI,鹽味|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106103,下酒高麗菜 新潟縣產高麗菜使用,使用新潟縣產甘甜高麗菜製作,FRESH_DELI,在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:106104,微辣醬汁拉麵沙拉,,FRESH_DELI,辣味,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106105,蔥鹽雞橫膈膜 附檸檬橙醋醬,附檸檬橙醋醬的下酒小菜,FRESH_DELI,鹽味|雞肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106108,橙汁醋拌雞胗,清爽開胃的居酒屋風下酒小菜,FRESH_DELI,雞肉|清爽,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106109,高蛋白納豆小菜（秋葵醃蘿蔔）,,FRESH_DELI,高蛋白,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106131,石川縣產青花菜,連莖部皆美味的石川縣產青花菜冷盤,FRESH_DELI,在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106132,和風美乃滋白蘿蔔綜合沙拉,,FRESH_DELI,清爽,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:106133,蜂蜜檸檬拌地瓜與蓮藕,,FRESH_DELI,蜂蜜・楓糖|柑橘|水果|地瓜,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:106134,芝麻橙醋涮豬肉（使用廣島縣產白米豬）,使用廣島縣產白米飼育豬肉,FRESH_DELI,芝麻・堅果|豬肉|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:106135,豐富配料廣島風雜煮味噌湯,廣島鄉土風味「廣島子汁」多配料味噌湯,FRESH_DELI,味噌|在地食材・產地,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106137,甜辣美乃滋雞肉義大利麵沙拉,,FRESH_DELI,雞肉|辣味,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:106138,涮豬肉義大利麵沙拉,,FRESH_DELI,豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:106139,涮豬肉義大利麵沙拉（使用廣島縣產豬肉）,使用廣島縣產豬肉,FRESH_DELI,豬肉|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:107440,炭火燒鹽味綜合牛豬內臟,經炭火直烤香氣濃郁的鹽味下酒小菜,FRESH_DELI,鹽味|豬肉|牛肉,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:110241,濃厚牛奶寒天,使用北海道產牛乳,DESSERT,濃厚|在地食材・產地,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:110291,黑色巧克力鮮奶油湯匙蛋糕,適合用湯匙大口挖著享用的濃郁可可盒裝蛋糕,DESSERT,巧克力|鮮奶油|濃厚|綿密・鬆軟,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,163570ff
 seven_jp:110560,杜拜巧克力風味可麗餅,還原爆紅杜拜巧克力的酥脆口感可麗餅,DESSERT,巧克力|酥脆|捲・可麗餅|話題甜點元素,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:111053,栗子泡芙,經典moco薄皮泡芙秋季栗子風味,DESSERT,栗子|秋季限定|季節限定,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
+seven_jp:111858,BifiX優格α 溫和甜味,,DESSERT,,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:112032,脆皮巧克力可麗餅,軟Q餅皮包裹酥脆巧克力片與鮮奶油,DESSERT,巧克力|鮮奶油|Q彈・Q軟|酥脆|捲・可麗餅,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:112228,攪拌甜點 靜岡縣產藍莓使用,使用靜岡縣產藍莓,DESSERT,莓果|水果|杯裝・甜點杯|在地食材・產地,0.90,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:112912,鬆軟雞蛋長崎蛋糕 卡士達奶油餡,口感柔軟綿密，內餡夾入香濃卡士達,BAKERY,卡士達|蛋|綿密・鬆軟|夾心・三明治式,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
+seven_jp:113007,金澤兼六庵 和三盆抹茶蕨餅,使用和三盆糖製作的抹茶風味蕨餅,DESSERT,抹茶|Q彈・Q軟,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:113194,攪拌系甜點 焙茶拿鐵佐蕨餅,結合焙茶拿鐵與Ｑ彈蕨餅的攪拌系甜點杯,DESSERT,焙茶|Q彈・Q軟|杯裝・甜點杯,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
+seven_jp:113385,金澤兼六庵 和三盆紅豆麻糬,使用和三盆糖製作的紅豆餡裹麻糬,DESSERT,紅豆・和風甜|麻糬・米製品,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:113548,拌拌甜點 瀨戶內檸檬優格,使用瀨戶內產檸檬,DESSERT,柑橘|水果|杯裝・甜點杯|在地食材・產地,0.90,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:113561,紅豆鮮奶油日式糰子,以滿滿紅豆餡與鮮奶油為主角的甜點,DESSERT,鮮奶油|紅豆・和風甜|麻糬・米製品,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:113808,濃厚牛奶寒天 岩手葛卷町產牛奶使用,使用岩手縣葛卷町產牛奶製作,DESSERT,濃厚|在地食材・產地,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
@@ -1517,12 +1678,14 @@ seven_jp:114144,7-Premium 柳橙果汁果凍 160g,,DESSERT,柑橘|水果,0.95,ge
 seven_jp:114199,7-Premium 浸滿巧克力的巧克力蛋糕,,DESSERT,巧克力|濃厚,0.90,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:114224,Q彈起司奶油泡芙,口感Q軟的外皮包裹濃郁起司鮮奶油,DESSERT,起司|Q彈・Q軟|爆漿・流心,0.90,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,163570ff
 seven_jp:114230,笠間栗巧克力鮮奶油蛋糕三明治,使用茨城縣笠間栗製作,DESSERT,巧克力|鮮奶油|栗子|夾心・三明治式|在地食材・產地,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
+seven_jp:114234,Mametchi的卡士達＆牛奶鮮奶油可麗餅,塔麻可吉聯名雙餡冷藏可麗餅,DESSERT,卡士達|鮮奶油|捲・可麗餅|聯名・IP,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:114262,鬆軟戚風蛋糕 熊本肥後綠哈密瓜醬與鮮奶油,使用熊本縣產肥後綠哈密瓜果醬,DESSERT,鮮奶油|哈密瓜|水果|綿密・鬆軟|在地食材・產地,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:115106,鮮奶油大福BIG,加大份量的鮮奶油紅豆餡大福,DESSERT,鮮奶油|紅豆・和風甜|麻糬・米製品|大份量・增量,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:115139,7-Premium Q彈捲捲千層蛋糕,口感Q彈並捲成方便食用形狀的千層蛋糕,DESSERT,Q彈・Q軟|捲・可麗餅,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:115577,酥脆口感巧克力戚風蛋糕,,DESSERT,巧克力|酥脆|綿密・鬆軟,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:115616,攪拌系甜點 滿滿蜜桃優格,可攪拌混和享用的大份量水蜜桃風味優格甜點,DESSERT,桃子|水果|杯裝・甜點杯|大份量・增量,0.90,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:115619,滑嫩杏仁豆腐,口感滑順細緻的經典冷藏甜點,DESSERT,中華・町中華,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
+seven_jp:115622,義大利栗子巧克力鮮奶油夾心,使用義大利產栗子搭配巧克力生鮮奶油,DESSERT,巧克力|鮮奶油|栗子|夾心・三明治式,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:115628,7-Premium 濃郁滑順布丁 95g,,DESSERT,濃厚,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:115630,紅豆奶油司康三明治,,BAKERY,奶油|紅豆・和風甜|夾心・三明治式,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:115631,攪拌享用鮮奶油巧克力餅乾杯,,DESSERT,鮮奶油|巧克力|杯裝・甜點杯,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
@@ -1568,16 +1731,27 @@ seven_jp:115697,攪拌甜點 巴西莓優格佐蕨餅,附蕨餅的巴西莓優�
 seven_jp:115700,7-Premium 白Q鯛魚燒 卡士達奶油內餡,,DESSERT,卡士達|Q彈・Q軟,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:115704,鮮奶油控的布丁蛋糕,,DESSERT,鮮奶油|蛋,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:115705,脆皮Q軟巧克力奶油泡芙,,DESSERT,巧克力|酥脆|Q彈・Q軟,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:115706,7-Premium 條狀巧克力蛋糕,,DESSERT,巧克力,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:115709,信州麵友會監修 綜合莓果醬Q彈杏仁豆腐,由信州麵友會監修的杏仁豆腐,DESSERT,名店監修|莓果|水果|Q彈・Q軟,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:115712,出雲善哉學會監修 出雲紅豆湯年糕,出雲發祥紅豆湯名店學會監修傳統和風甜點,DESSERT,紅豆・和風甜|麻糬・米製品|名店監修,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:115713,和風Q彈卷 紅豆奶油,Q軟餅皮包裹紅豆餡與香濃奶油的銅鑼燒捲,DESSERT,奶油|紅豆・和風甜|Q彈・Q軟|捲・可麗餅,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:115715,巧克金楚糕與紅芋慕斯,沖繩特色鹽金楚糕搭配紅芋慕斯,DESSERT,巧克力|南瓜・芋類|杯裝・甜點杯,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:115734,淋醬巧克力法式吐司,,BAKERY_TOAST,巧克力,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:120082,關東煮 豬軟骨,超商現煮關東煮,HOT_SNACK,豬肉,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:150732,店內現炸可可巧克力球 3入,門市現炸的巧克力球點心,HOT_SNACK,巧克力|多入・分享包,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
+seven_jp:150760,和風高湯炸雞（使用日本國產雞肉）,使用日本國產雞肉,HOT_SNACK,和風高湯|雞肉|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:150820,Q彈起司貝果,,BAKERY,起司|Q彈・Q軟,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:150845,彈牙口感！炸蝦排,超商熱食櫃現炸蝦排,HOT_SNACK,海鮮|Q彈・Q軟,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:150848,點心雞肉 金牛角烤玉米風味,超商熱食炸雞與知名玉米脆角餅乾的聯名風味,HOT_SNACK,雞肉|聯名・IP,0.85,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:150849,酥炸豬肉火腿排,熟食櫃販售的厚切酥炸豬肉火腿排,HOT_SNACK,豬肉|酥脆,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
+seven_jp:150862,塔麻可吉起司肉包,塔麻可吉聯名中華肉包，內餡含起司,HOT_SNACK,起司|豬肉|聯名・IP,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:210021,SAVAS BIOPRO 藍莓風味高蛋白飲 300ml,,DRINK,水果|莓果|高蛋白,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
+seven_jp:210027,日清York Pilkul免疫風格乳酸菌飲料 65ml,,DRINK,一口・小份量,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:210043,7-Premium 焙茶 1L,,DRINK,焙茶,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:210066,明治巧克力飲品 210ml,,DRINK,巧克力,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
+seven_jp:210124,BifiX優格alpha微甜飲,,DRINK,,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:210130,立頓 麝香葡萄紅茶,,DRINK,紅茶|葡萄|水果,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:210197,日清York Pilkul Miracle Care乳酸菌飲料 65ml,,DRINK,,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:210304,日清York 溫暖舒心蜂蜜生薑檸檬飲 450ml,結合蜂蜜、生薑與檸檬的溫潤飲品,DRINK,蜂蜜・楓糖|柑橘|水果,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:210341,協同乳業 Nippon Ale 山形縣產月山葡萄飲 1L,使用日本山形縣產月山葡萄果汁製成,DRINK,葡萄|水果|在地食材・產地,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:210344,Tropicana Essentials 膳食纖維飲 330ml,富含膳食纖維的蔬果果汁飲品,DRINK,水果|膳食纖維・健康,0.90,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
@@ -1619,6 +1793,7 @@ seven_jp:250144,7-Premium 明太子美乃滋風味巨大蟹肉棒,內餡夾入�
 seven_jp:250182,7-Premium 嫩烤魷魚,口感柔軟的下酒冷藏烤魷魚,FRESH_DELI,海鮮,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:250406,7-Premium 鍋燒天婦羅烏龍麵,附鋁箔鍋可直火加熱的冷凍鍋燒麵,FROZEN,和風高湯|半成品・加熱即食,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:250487,7-Premium 鮪魚美乃滋魚板棒,夾入鮪魚美乃滋內餡的棒狀魚板,FRESH_DELI,鮪魚|海鮮|夾心・三明治式,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
+seven_jp:250688,7-Premium 佐賀縣產菠菜沙拉,使用佐賀縣產新鮮菠菜製成,FRESH_DELI,在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:251197,7-Premium 免去澀蒟蒻絲,免川燙去澀處理，可直接料理,FRESH_DELI,半成品・加熱即食,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:251206,7-Premium 免去澀蒟蒻塊,免川燙去澀處理，可直接料理,FRESH_DELI,半成品・加熱即食,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:290205,7-Premium 甜奶油可頌 4入,,BAKERY,奶油|多入・分享包,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
@@ -1632,7 +1807,11 @@ seven_jp:290251,7-Premium 牛奶麵包棒 6入,,BAKERY,多入・分享包,0.95,g
 seven_jp:290256,7-Premium 巧克力丹麥麵包 2入,,BAKERY,巧克力|多入・分享包,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,163570ff
 seven_jp:290257,7-Premium 溫潤起司火腿麵包 2入,,BAKERY,起司|豬肉|多入・分享包,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,163570ff
 seven_jp:290260,7-Premium 美乃滋麵包 2入,,BAKERY,多入・分享包,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,163570ff
+seven_jp:290266,7-Premium 一口甜甜圈 16入,,BAKERY,一口・小份量|多入・分享包,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:290272,7-The Price 濕潤白吐司 5片裝,主打平價實惠訴求的自有品牌系列吐司,BAKERY_TOAST,平價・CP值,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:290274,7-The Price 濕潤白吐司 6片裝,主打平價實惠訴求的自有品牌系列吐司,BAKERY_TOAST,平價・CP值,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:300277,白糖炸麵包,日本懷舊經典灑白糖油炸麵包,BAKERY,,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,163570ff
+seven_jp:301134,全黑馬芬蛋糕,,BAKERY,,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:301525,酥脆口感巧克力杏仁甜甜圈,,BAKERY,巧克力|芝麻・堅果|酥脆,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:301619,老式甜甜圈棒,方便食用的長條棒狀老式甜甜圈,BAKERY,,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:301915,鬆軟熱狗麵包 馬鈴薯沙拉,,FRESH_SANDWICH,南瓜・芋類|綿密・鬆軟|夾心・三明治式,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2,d0172a54,
@@ -1642,6 +1821,7 @@ seven_jp:302136,綜合披薩麵包,,BAKERY,起司,0.95,gemini-3.8-flash,2026-11-
 seven_jp:302348,蓬鬆抹茶牛奶麵包捲,,BAKERY,抹茶|綿密・鬆軟|捲・可麗餅,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:302423,糖霜炸麵包,,BAKERY,鮮奶油,0.95,gemini-3.8-flash,2026-10-28,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:302610,Q彈糖霜波堤甜甜圈,,BAKERY,Q彈・Q軟,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
+seven_jp:303193,宛如大福紅豆鮮奶油麵包,具有大福般Q彈外皮，包入紅豆餡與鮮奶油,BAKERY,紅豆・和風甜|鮮奶油|Q彈・Q軟|麻糬・米製品,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:303241,三層夾心 巧克力丹麥甜甜圈,,BAKERY,巧克力|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:303257,濕潤口感老式甜甜圈,,BAKERY,,0.95,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
 seven_jp:303258,7-Premium 咖啡牛軋糖風味鬆餅 1入,夾入TIROL咖啡牛軋糖風味內餡,BAKERY,咖啡|夾心・三明治式|聯名・IP,0.90,gemini-3.8-flash,2026-11-02,d86b856c,3de9c58e,e6746ca2,d0172a54,163570ff
@@ -1691,6 +1871,17 @@ seven_jp:304235,濃厚起司洋蔥麵包,,BAKERY,起司|濃厚,0.95,gemini-3.8-f
 seven_jp:304239,生甜甜圈 鮮奶油與紅豆餡,鬆軟生甜甜圈體包入滑順鮮奶油與綿密細紅豆餡,BAKERY,鮮奶油|紅豆・和風甜|話題甜點元素,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,163570ff
 seven_jp:304240,信州產藍莓與鮮奶油手撕麵包,夾入信州產藍莓果醬與香濃鮮奶油,BAKERY,莓果|水果|鮮奶油|在地食材・產地,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,163570ff
 seven_jp:304241,愛媛縣產瀨戶香蜜柑果醬與鮮奶油麵包,使用愛媛縣產瀨戶香柑橘製作果醬,BAKERY,柑橘|水果|鮮奶油|在地食材・產地,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,163570ff
+seven_jp:304244,7-Premium 蛋沙拉熱狗麵包,,BAKERY,蛋|夾心・三明治式,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:304245,番茄焦香起司圓圈麵包,,BAKERY,番茄|起司,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:304246,7-Premium Q軟博多明太子麵包,採用博多明太子調味與Q軟口感麵包體,BAKERY,明太子・鱈魚子|海鮮|Q彈・Q軟|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:304247,炸雞漢堡麵包,專為夾入7-11炸雞設計的切半漢堡麵包,BAKERY,,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:304248,7-Premium 手包北海道紅豆泥餡麵包,使用北海道產小豆製作綿密細緻的紅豆泥內餡,BAKERY,紅豆・和風甜|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:304249,7-Premium 手包北海道紅豆粒餡麵包,使用北海道產小豆製作帶有顆粒感的紅豆內餡,BAKERY,紅豆・和風甜|在地食材・產地,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:304250,7-Premium 漢堡排起司麵包,,BAKERY,起司|牛肉|豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:304251,7-Premium 咖哩照燒熱狗麵包,,BAKERY,咖哩|醬油・照燒|豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:304252,洋蔥美乃滋大漢堡,,FRESH_SANDWICH,大份量・增量,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:304255,塔塔醬炸雞漢堡麵包,專為夾入7-11炸雞設計的切半漢堡麵包，內附塔塔醬,BAKERY,,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:304257,熱狗蛋沙拉炸麵包,,BAKERY,蛋|豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:304258,7-Premium 玉米美乃滋照燒熱狗麵包,,BAKERY,醬油・照燒|豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:304261,旨辣醬煎餅風味麵包,以韓式海鮮煎餅搭配辣醬為概念開發,BAKERY,辣味|韓式,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:304262,培根起司麥穗麵包,,BAKERY,起司|豬肉,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
@@ -2003,6 +2194,8 @@ seven_jp:350790,KADOYA 單次隨身包純正黑芝麻油 5g×6袋,小包裝分�
 seven_jp:350792,S&B 義式香蒜橄欖油綠花椰菜調味粉,與綠花椰菜拌炒即可完成義式蒜香風味小菜的綜合調味粉,INSTANT,蒜味|東南亞・異國,0.90,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:350793,S&B 特製咖哩粉隨身包 2g×5入,經典紅罐S&B特製咖哩粉的隨身條狀小包裝,INSTANT,咖哩|一口・小份量|多入・分享包,0.95,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,
 seven_jp:350794,好侍下酒菜良伴 海苔炸竹輪調味粉,只需撒上拌勻即可快速重現居酒屋經典海苔炸竹輪風味,INSTANT,,0.90,gemini-3.8-flash,2026-10-29,d86b856c,3de9c58e,e6746ca2,d0172a54,
+seven_jp:360008,全農Life Support 山形縣產艷姬米 2kg,日本山形縣產品牌白米艷姬米,INSTANT,在地食材・產地,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
+seven_jp:360015,全農Life Support 山形縣產Haenuki米 2kg,日本山形縣產白米袋裝販售,INSTANT,在地食材・產地,0.90,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
 seven_jp:370032,立頓 蜂蜜綠茶茶包 10入,,DRINK,蜂蜜・楓糖,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:370036,立頓 櫻花抹茶綠茶茶包 12入,帶有櫻花香氣的抹茶綠茶茶包,DRINK,抹茶|春季限定|季節限定,0.95,gemini-3.8-flash,2026-11-03,d86b856c,aae788f0,aae788f0,d0172a54,
 seven_jp:370059,森永製菓 紅豆湯 4袋入,,INSTANT,紅豆・和風甜|多入・分享包,0.95,gemini-3.8-flash,2026-11-13,d86b856c,aae788f0,aae788f0,d0172a54,aae788f0
