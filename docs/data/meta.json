@@ -1,11 +1,11 @@
 {
- "updated_at": "2026-11-18",
+ "updated_at": "2026-11-20",
  "this_week": "2026-W47",
- "product_count": 2721,
- "review_count": 366,
+ "product_count": 2787,
+ "review_count": 223,
  "errors": [
-  "本次未開啟翻譯，364 支商品待翻譯（手動執行時勾選翻譯即可補上）",
-  "官方新聞稿有 6 篇待分析（需開啟翻譯）"
+  "ministop_jp 抓到 0 筆，可能網站改版",
+  "翻譯額度：本次上限 200 支（本月已用 1636/2000），221 支留待下次"
  ],
  "sources": {
   "seven_jp": 1,
